@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jack Leightcap</title>
-    <link>jack.leightcap.com/</link>
+    <link>https://jleightcap.github.io/</link>
     <description>Recent content on Jack Leightcap</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     
-	<atom:link href="jack.leightcap.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jleightcap.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
