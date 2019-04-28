@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Jack Leightcap</title>
-    <link>jleightcap.github.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Jack Leightcap</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 27 Apr 2019 19:10:07 -0400</lastBuildDate>
     
-	<atom:link href="jleightcap.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>untagged</title>
-      <link>jleightcap.github.io/tags/untagged/</link>
+      <link>/tags/untagged/</link>
       <pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
       
-      <guid>jleightcap.github.io/tags/untagged/</guid>
+      <guid>/tags/untagged/</guid>
       <description></description>
     </item>
     
