@@ -3,31 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jleightcap.github.io/</loc>
-    <lastmod>2019-04-27T19:10:07-04:00</lastmod>
+    <loc>https://example.com/resume/readme/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://jleightcap.github.io/posts/post1/</loc>
-    <lastmod>2019-04-27T19:10:07-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jleightcap.github.io/posts/</loc>
-    <lastmod>2019-04-27T19:10:07-04:00</lastmod>
+    <loc>https://example.com/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://jleightcap.github.io/tags/</loc>
-    <lastmod>2019-04-27T19:10:07-04:00</lastmod>
+    <loc>https://example.com/resume/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://jleightcap.github.io/tags/untagged/</loc>
-    <lastmod>2019-04-27T19:10:07-04:00</lastmod>
+    <loc>https://example.com/tags/</loc>
     <priority>0</priority>
   </url>
   
