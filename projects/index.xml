@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>untagged on Jack Leightcap</title>
-    <link>https://example.com/tags/untagged/</link>
-    <description>Recent content in untagged on Jack Leightcap</description>
+    <title>Projects on Jack Leightcap</title>
+    <link>https://example.com/projects/</link>
+    <description>Recent content in Projects on Jack Leightcap</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 27 Apr 2019 19:10:07 -0400</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
