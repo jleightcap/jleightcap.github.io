@@ -1,0 +1,40 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Jack Leightcap</title>
+		<link>https://jleightcap.github.io/posts/</link>
+		<description>Recent content in Posts on Jack Leightcap</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Sat, 27 Apr 2019 19:10:07 -0400</lastBuildDate>
+		<atom:link href="https://jleightcap.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Post1</title>
+			<link>https://jleightcap.github.io/posts/post1/</link>
+			<pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
+			
+			<guid>https://jleightcap.github.io/posts/post1/</guid>
+			<description> def fibonacci(n): if n &amp;lt;= 1: return n else: return(fibonacci(n-1) + fibonacci(n-2))  Text outside a code block
+I mean, who doesn&amp;rsquo;t love headers. </description>
+			<content type="html"><![CDATA[
+
+<pre><code>def fibonacci(n):
+    if n &lt;= 1:
+        return n
+    else:
+        return(fibonacci(n-1) + fibonacci(n-2))
+</code></pre>
+
+<p>Text <em>outside</em> a <em>code block</em></p>
+
+<h1 id="i-mean">I mean,</h1>
+
+<h2 id="who-doesn-t">who doesn&rsquo;t</h2>
+
+<h3 id="love-headers">love headers.</h3>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>
