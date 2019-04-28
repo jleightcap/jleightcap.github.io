@@ -24,5 +24,15 @@ Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in her
 def fibonacci(n):if n &amp;lt;= 1:return nelse:return(fibonacci(n-1) + fibonacci(n-2)) TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark.</description>
     </item>
     
+    <item>
+      <title>Post1</title>
+      <link>/posts/post1/</link>
+      <pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
+      
+      <guid>/posts/post1/</guid>
+      <description> def fibonacci(n): if n &amp;lt;= 1: return n else: return(fibonacci(n-1) + fibonacci(n-2))  Text outside a code block
+I mean, who doesn&amp;rsquo;t love headers. </description>
+    </item>
+    
   </channel>
 </rss>
