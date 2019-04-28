@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 27 Apr 2019 19:10:07 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 28 Apr 2019 14:50:59 -0400</lastBuildDate>
     
 	<atom:link href="/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Post1</title>
+      <link>/posts/post1/</link>
+      <pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
+      
+      <guid>/posts/post1/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Hugo Post Template</title>
@@ -22,16 +31,6 @@
 Google
 Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in hermit. To display a code block, the plaintext in *.md renders as
 def fibonacci(n):if n &amp;lt;= 1:return nelse:return(fibonacci(n-1) + fibonacci(n-2)) TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark.</description>
-    </item>
-    
-    <item>
-      <title>Post1</title>
-      <link>/posts/post1/</link>
-      <pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
-      
-      <guid>/posts/post1/</guid>
-      <description> def fibonacci(n): if n &amp;lt;= 1: return n else: return(fibonacci(n-1) + fibonacci(n-2))  Text outside a code block
-I mean, who doesn&amp;rsquo;t love headers. </description>
     </item>
     
   </channel>

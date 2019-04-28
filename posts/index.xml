@@ -6,34 +6,17 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 27 Apr 2019 19:10:07 -0400</lastBuildDate>
+		<lastBuildDate>Sun, 28 Apr 2019 14:50:59 -0400</lastBuildDate>
 		<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
 			<title>Post1</title>
 			<link>/posts/post1/</link>
-			<pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
+			<pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
 			
 			<guid>/posts/post1/</guid>
-			<description> def fibonacci(n): if n &amp;lt;= 1: return n else: return(fibonacci(n-1) + fibonacci(n-2))  Text outside a code block
-I mean, who doesn&amp;rsquo;t love headers. </description>
-			<content type="html"><![CDATA[
-
-<pre><code>def fibonacci(n):
-    if n &lt;= 1:
-        return n
-    else:
-        return(fibonacci(n-1) + fibonacci(n-2))
-</code></pre>
-
-<p>Text <em>outside</em> a <em>code block</em></p>
-
-<h1 id="i-mean">I mean,</h1>
-
-<h2 id="who-doesn-t">who doesn&rsquo;t</h2>
-
-<h3 id="love-headers">love headers.</h3>
-]]></content>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 	</channel>
