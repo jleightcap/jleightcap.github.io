@@ -14,10 +14,10 @@
     
     <item>
       <title>Hugo Post Template</title>
-      <link>jleightcap.github.io/posts/template/</link>
+      <link>jleightcap.github.io/projects/template/</link>
       <pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
       
-      <guid>jleightcap.github.io/posts/template/</guid>
+      <guid>jleightcap.github.io/projects/template/</guid>
       <description>Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
 Google
 Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in hermit. To display a code block, the plaintext in *.md renders as
