@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>jleightcap.github.io/projects/template/</loc>
+    <loc>jleightcap.github.io/posts/template/</loc>
     <lastmod>2019-04-27T19:10:07-04:00</lastmod>
   </url>
   
@@ -14,7 +14,7 @@
   </url>
   
   <url>
-    <loc>jleightcap.github.io/projects/</loc>
+    <loc>jleightcap.github.io/posts/</loc>
     <lastmod>2019-04-27T19:10:07-04:00</lastmod>
     <priority>0</priority>
   </url>

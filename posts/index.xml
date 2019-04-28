@@ -1,38 +1,116 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Posts on Jack Leightcap</title>
-		<link>https://jleightcap.github.io/posts/</link>
+		<link>jleightcap.github.io/posts/</link>
 		<description>Recent content in Posts on Jack Leightcap</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
 		<lastBuildDate>Sat, 27 Apr 2019 19:10:07 -0400</lastBuildDate>
-		<atom:link href="https://jleightcap.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="jleightcap.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>Post1</title>
-			<link>https://jleightcap.github.io/posts/post1/</link>
+			<title>Hugo Post Template</title>
+			<link>jleightcap.github.io/posts/template/</link>
 			<pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
 			
-			<guid>https://jleightcap.github.io/posts/post1/</guid>
-			<description> def fibonacci(n): if n &amp;lt;= 1: return n else: return(fibonacci(n-1) + fibonacci(n-2))  Text outside a code block
-I mean, who doesn&amp;rsquo;t love headers. </description>
-			<content type="html"><![CDATA[
+			<guid>jleightcap.github.io/posts/template/</guid>
+			<description>Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
+Google
+Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in hermit. To display a code block, the plaintext in *.md renders as
+def fibonacci(n):if n &amp;lt;= 1:return nelse:return(fibonacci(n-1) + fibonacci(n-2)) TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark.</description>
+			<content type="html"><![CDATA[<h2 id="links">Links</h2>
 
-<pre><code>def fibonacci(n):
-    if n &lt;= 1:
-        return n
-    else:
-        return(fibonacci(n-1) + fibonacci(n-2))
-</code></pre>
+<p>Easy use of Markdown. To display a link, the plaintext in <code>*.md</code>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">[<span class="nt">Google</span>](<span class="na">https://www.google.com/</span>)</code></pre></div>
+renders as<br>
+<a href="https://www.google.com/">Google</a></p>
 
-<p>Text <em>outside</em> a <em>code block</em></p>
+<h2 id="code-blocks">Code Blocks</h2>
 
-<h1 id="i-mean">I mean,</h1>
+<p>Add <code>pygmentsUseClasses  = true</code> to <code>config.toml</code>. This is default in hermit.
+To display a code block, the plaintext in <code>*.md</code>
+renders as</p>
 
-<h2 id="who-doesn-t">who doesn&rsquo;t</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+       <span class="k">return</span> <span class="n">n</span>
+   <span class="k">else</span><span class="p">:</span>
+       <span class="k">return</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span></code></pre></div>
 
-<h3 id="love-headers">love headers.</h3>
+<h2 id="tex">TeX</h2>
+
+<p>Can't use <code>.md</code>, use <code>.mmark</code> as extension of document. Add to header of <code>*.mmark</code> <code>markup = mmark</code>. Add to bottom of <code>footer.html</code> (which is loaded on every page)
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//yihui.name/js/math-code.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></div>
+This uses MathJax, but it might be worthwhile to swap to KaTeX for faster rendering.</p>
+
+<h3 id="math-mode">Math Mode</h3>
+
+<p>To display Math Mode TeX, the plaintext in <code>*.mmark</code></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-TeX" data-lang="TeX">`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\cdot</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\rho</span><span class="nb">}{</span><span class="nv">\varepsilon</span><span class="nb">_</span><span class="m">0</span><span class="nb">} </span><span class="s">\]</span>`
+`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\cdot</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{B} </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nb"> </span><span class="s">\]</span>`
+`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\times</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E} </span><span class="o">=</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\partial</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{B}}{</span><span class="nv">\partial</span><span class="nb"> t} </span><span class="s">\]</span>`
+`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\times</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{B} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{c} </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\partial</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E}}{</span><span class="nv">\partial</span><span class="nb"> t} </span><span class="s">\]</span>`</code></pre></div>
+
+<p>renders as
+<code>\[ \vec{\nabla} \cdot \vec{E} = \frac{\rho}{\varepsilon_0} \]</code>
+<code>\[ \vec{\nabla} \cdot \vec{B} = 0 \]</code>
+<code>\[ \vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t} \]</code>
+<code>\[ \vec{\nabla} \times \vec{B} = \frac{1}{c} \frac{\partial \vec{E}}{\partial t} \]</code></p>
+
+<h3 id="inline">In-Line</h3>
+
+<p>To display in-line TeX, the plaintext in <code>*.mmark</code>
+<div class="highlight"><pre class="chroma"><code class="language-TeX" data-lang="TeX">textleft `<span class="s">\(</span><span class="nb"> </span><span class="nv">\det</span><span class="o">(</span><span class="nv">\lambda</span><span class="nb"> I </span><span class="o">-</span><span class="nb"> </span><span class="nv">\textbf</span><span class="nb">{A}</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="s">\)</span>` textright</code></pre></div>
+renders as<br>
+textleft <code>\( \det(\lambda I - \textbf{A}) = 0\)</code> textright</p>
+
+<h2 id="images">Images</h2>
+
+<p>Images are accessed from the <code>./static/</code> directory.
+It seems better organized to make a subdirectory with the title,
+so in this case within <code>./static/project-template</code> is an image <code>TemplateImage.png</code>.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">Image Text</span>](<span class="na">/project-template/TemplateImage.png</span>)</code></pre></div>
+
+<p>renders as
+<figure><img src="/project-template/EMWave.PNG" alt="Image Text"></figure></p>
+
+<h2 id="embedded-youtube-videos">Embedded YouTube videos</h2>
+
+<h3 id="combining-images-and-links">Combining Images and Links</h3>
+
+<p>For a YouTube video URL <a href="https://youtu.be/rB83DpBJQsE">https://youtu.be/rB83DpBJQsE</a>, use the video ID (rB83DpBJQsE) and img.youtube.com to make a clickable image.
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">[<span class="nt">![Video Text</span>](<span class="na">https://img.youtube.com/vi/rB83DpBJQsE/0.jpg</span>)](https://youtu.be/rB83DpBJQsE)</code></pre></div>
+renders as
+<a href="https://youtu.be/rB83DpBJQsE"><figure><img src="https://img.youtube.com/vi/rB83DpBJQsE/0.jpg" alt="Video Text"></figure></a>
+This has the clear disadvantage of not being embedded within the page, however works more universally.</p>
+
+<h3 id="using-html-directly">Using HTML directly</h3>
+
+<p>For a YouTube video URL <a href="https://youtu.be/rB83DpBJQsE">https://youtu.be/rB83DpBJQsE</a>, use the video ID (rB83DpBJQsE) and youtube.com/embed to make an embedded YouTube player.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:center&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;560&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;315&#34;</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.youtube.com/embed/rB83DpBJQsE&#34;</span>
+  <span class="na">frameborder</span><span class="o">=</span><span class="s">&#34;0&#34;</span>
+  <span class="na">allow</span><span class="o">=</span><span class="s">&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34;</span>
+  <span class="na">allowfullscreen</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+
+<div style="text-align:center">
+<iframe width="560" height="315"
+  src="https://www.youtube.com/embed/rB83DpBJQsE"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+</div>
 ]]></content>
 		</item>
 		
