@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Jack Leightcap</title>
-    <link>https://example.com/projects/</link>
+    <link>jleightcap.github.io/projects/</link>
     <description>Recent content in Projects on Jack Leightcap</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 27 Apr 2019 19:10:07 -0400</lastBuildDate>
     
-	<atom:link href="https://example.com/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="jleightcap.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugo Post Template</title>
-      <link>https://example.com/projects/template/</link>
+      <link>jleightcap.github.io/projects/template/</link>
       <pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
       
-      <guid>https://example.com/projects/template/</guid>
+      <guid>jleightcap.github.io/projects/template/</guid>
       <description>Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
 Google
 Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in hermit. To display a code block, the plaintext in *.md renders as
