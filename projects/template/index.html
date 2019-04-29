@@ -17,7 +17,7 @@ def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibon
 
 <meta itemprop="datePublished" content="2019-04-27T19:10:07-04:00" />
 <meta itemprop="dateModified" content="2019-04-27T19:10:07-04:00" />
-<meta itemprop="wordCount" content="362">
+<meta itemprop="wordCount" content="363">
 
 
 
@@ -151,16 +151,17 @@ renders as
 
 <p>For a YouTube video URL <a href="https://youtu.be/rB83DpBJQsE">https://youtu.be/rB83DpBJQsE</a>, use the video ID (rB83DpBJQsE) and youtube.com/embed to make an embedded YouTube player.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:center&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100%&#34;</span>
-  <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.youtube.com/embed/rB83DpBJQsE&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;video-responsive&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span>
+  <span class="na">width</span><span class="o">=</span><span class="s">&#34;560&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;349&#34;</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&#34;http://www.youtube.com/embed/rB83DpBJQsE&#34;</span>
   <span class="na">frameborder</span><span class="o">=</span><span class="s">&#34;0&#34;</span>
   <span class="na">allow</span><span class="o">=</span><span class="s">&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34;</span>
   <span class="na">allowfullscreen</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
 
-<p><div class="video-responsive" style="text-align:center">
+<p><div class="video-responsive">
 <iframe
   width="560" height="349"
   src="http://www.youtube.com/embed/rB83DpBJQsE"
@@ -190,20 +191,19 @@ So, whenever I run <code>hugo -t hermit</code>, I pull from this repo to have th
 	<script type="text/javascript" async
 	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
 	</script>
-
 	<style>
-	.videoWrapper {
-	  position: relative;
-	  padding-bottom: 56.25%;  
-	  padding-top: 25px;
-	  height: 0;
+	.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
 	}
-	.videoWrapper iframe {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: 100%;
+	.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
 	}
 	</style>
 
