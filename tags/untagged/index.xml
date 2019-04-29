@@ -22,15 +22,21 @@
     </item>
     
     <item>
-      <title>Hugo Post Template</title>
-      <link>/projects/template/</link>
-      <pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
+      <title>Post1</title>
+      <link>/posts/post2/</link>
+      <pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
       
-      <guid>/projects/template/</guid>
-      <description>Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
-Google
-Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in hermit. To display a code block, the plaintext in *.md renders as
-def fibonacci(n):if n &amp;lt;= 1:return nelse:return(fibonacci(n-1) + fibonacci(n-2)) TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark.</description>
+      <guid>/posts/post2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Post1</title>
+      <link>/posts/post3/</link>
+      <pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
+      
+      <guid>/posts/post3/</guid>
+      <description></description>
     </item>
     
   </channel>

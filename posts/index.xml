@@ -19,5 +19,25 @@
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
+		<item>
+			<title>Post1</title>
+			<link>/posts/post2/</link>
+			<pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
+			
+			<guid>/posts/post2/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>Post1</title>
+			<link>/posts/post3/</link>
+			<pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
+			
+			<guid>/posts/post3/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
 	</channel>
 </rss>

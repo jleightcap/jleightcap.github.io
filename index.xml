@@ -22,6 +22,24 @@
     </item>
     
     <item>
+      <title>Post1</title>
+      <link>/posts/post2/</link>
+      <pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
+      
+      <guid>/posts/post2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Post1</title>
+      <link>/posts/post3/</link>
+      <pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
+      
+      <guid>/posts/post3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Hugo Post Template</title>
       <link>/projects/template/</link>
       <pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
@@ -31,6 +49,15 @@
 Google
 Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in hermit. To display a code block, the plaintext in *.md renders as
 def fibonacci(n):if n &amp;lt;= 1:return nelse:return(fibonacci(n-1) + fibonacci(n-2)) TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark.</description>
+    </item>
+    
+    <item>
+      <title>Erik Satie - Vexations (1894)</title>
+      <link>/projects/vexations/</link>
+      <pubDate>Sun, 10 Mar 2019 15:22:36 -0400</pubDate>
+      
+      <guid>/projects/vexations/</guid>
+      <description>First recording, 6 hours (2017) During my Junior year of high school, I recorded a 6-hour performance of Erik Satie&amp;rsquo;s Vexations.   This was extremely underplanned, and a surprising amount went wrong. I used Windows 10&amp;rsquo;s default camera app with a random webcam, and found - during the recording - Windows Camera had a 2 hour recording limit. Because I was recording audio separately, the audio and video were desynced, so the required merging of the video and audio required some guesswork in matching my fingers to the audio.</description>
     </item>
     
     <item>

@@ -24,5 +24,14 @@ Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in her
 def fibonacci(n):if n &amp;lt;= 1:return nelse:return(fibonacci(n-1) + fibonacci(n-2)) TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark.</description>
     </item>
     
+    <item>
+      <title>Erik Satie - Vexations (1894)</title>
+      <link>/projects/vexations/</link>
+      <pubDate>Sun, 10 Mar 2019 15:22:36 -0400</pubDate>
+      
+      <guid>/projects/vexations/</guid>
+      <description>First recording, 6 hours (2017) During my Junior year of high school, I recorded a 6-hour performance of Erik Satie&amp;rsquo;s Vexations.   This was extremely underplanned, and a surprising amount went wrong. I used Windows 10&amp;rsquo;s default camera app with a random webcam, and found - during the recording - Windows Camera had a 2 hour recording limit. Because I was recording audio separately, the audio and video were desynced, so the required merging of the video and audio required some guesswork in matching my fingers to the audio.</description>
+    </item>
+    
   </channel>
 </rss>
