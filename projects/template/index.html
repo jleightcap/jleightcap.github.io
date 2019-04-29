@@ -11,13 +11,13 @@
 <meta itemprop="name" content="Hugo Post Template">
 <meta itemprop="description" content="Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
 Google
-Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in hermit. To display a code block, the plaintext in *.md renders as
-def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibonacci(n-2)) TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark.">
+TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark. Add to bottom of footer.html (which is loaded on every page) &lt;script src=&#34;//yihui.name/js/math-code.js&#34;&gt;&lt;/script&gt;&lt;script asyncsrc=&#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&#34;&gt;&lt;/script&gt; This uses MathJax, but it might be worthwhile to swap to KaTeX for faster rendering.
+Math Mode To display Math Mode TeX, the plaintext in *.">
 
 
 <meta itemprop="datePublished" content="2019-04-27T19:10:07-04:00" />
 <meta itemprop="dateModified" content="2019-04-27T19:10:07-04:00" />
-<meta itemprop="wordCount" content="363">
+<meta itemprop="wordCount" content="346">
 
 
 
@@ -25,8 +25,8 @@ def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibon
 <meta property="og:title" content="Hugo Post Template" />
 <meta property="og:description" content="Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
 Google
-Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in hermit. To display a code block, the plaintext in *.md renders as
-def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibonacci(n-2)) TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark." />
+TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark. Add to bottom of footer.html (which is loaded on every page) &lt;script src=&#34;//yihui.name/js/math-code.js&#34;&gt;&lt;/script&gt;&lt;script asyncsrc=&#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&#34;&gt;&lt;/script&gt; This uses MathJax, but it might be worthwhile to swap to KaTeX for faster rendering.
+Math Mode To display Math Mode TeX, the plaintext in *." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/projects/template/" />
 <meta property="article:published_time" content="2019-04-27T19:10:07-04:00"/>
@@ -35,8 +35,8 @@ def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibon
 <meta name="twitter:title" content="Hugo Post Template"/>
 <meta name="twitter:description" content="Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
 Google
-Code Blocks Add pygmentsUseClasses = true to config.toml. This is default in hermit. To display a code block, the plaintext in *.md renders as
-def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibonacci(n-2)) TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark."/>
+TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark. Add to bottom of footer.html (which is loaded on every page) &lt;script src=&#34;//yihui.name/js/math-code.js&#34;&gt;&lt;/script&gt;&lt;script asyncsrc=&#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&#34;&gt;&lt;/script&gt; This uses MathJax, but it might be worthwhile to swap to KaTeX for faster rendering.
+Math Mode To display Math Mode TeX, the plaintext in *."/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -89,18 +89,6 @@ def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibon
 renders as<br>
 <a href="https://www.google.com/">Google</a></p>
 
-<h2 id="code-blocks">Code Blocks<a href="#code-blocks" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-
-<p>Add <code>pygmentsUseClasses  = true</code> to <code>config.toml</code>. This is default in hermit.
-To display a code block, the plaintext in <code>*.md</code>
-renders as</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-   <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-       <span class="k">return</span> <span class="n">n</span>
-   <span class="k">else</span><span class="p">:</span>
-       <span class="k">return</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span></code></pre></div>
-
 <h2 id="tex">TeX<a href="#tex" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <p>Can't use <code>.md</code>, use <code>.mmark</code> as extension of document. Add to header of <code>*.mmark</code> <code>markup = mmark</code>. Add to bottom of <code>footer.html</code> (which is loaded on every page)
@@ -136,43 +124,46 @@ textleft <code>\( \det(\lambda I - \textbf{A}) = 0\)</code> textright</p>
 
 <p>Images are accessed from the <code>./static/</code> directory.
 It seems better organized to make a subdirectory with the title,
-so in this case within <code>./static/project-images/template</code> is an image <code>EMWave.png</code>.
+so in this case within <code>./static/project-images/template</code> is an image <code>EMWave.png</code>. GIFs use the same format, so equivalently use GIF <code>EMWave.gif</code>.
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">Image Text</span>](<span class="na">/project-images/template/EMWave.png</span>)</code></pre></div>
 renders as
 <figure><img src="/project-images/template/EMWave.png" alt="Image Text"></figure></p>
 
-<h3 id="gifs">GIFs<a href="#gifs" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
-
-<p>Gifs use the same format as images.
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">Image Text</span>](<span class="na">/project-images/template/EMWave.gif</span>)</code></pre></div>
-renders as
-<figure><img src="/project-images/template/EMWave.gif" alt="Image Text"></figure></p>
-
 <h2 id="embedded-youtube-videos">Embedded YouTube videos<a href="#embedded-youtube-videos" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
-<p>For a YouTube video URL <a href="https://youtu.be/rB83DpBJQsE">https://youtu.be/rB83DpBJQsE</a>, use the video ID (rB83DpBJQsE) and youtube.com/embed to make an embedded YouTube player.</p>
+<p>For a YouTube video URL <a href="https://youtu.be/rB83DpBJQsE">https://youtu.be/rB83DpBJQsE</a>, use the video ID (rB83DpBJQsE) and youtube.com/embed to make an embedded YouTube player. If just using an iframe, the video looks fine on desktop, but exceeds the text for small widths. To fix this, the size of the embedded video changes. This uses CSS, so in <code>config.toml</code> add <code>customCSS = [&quot;css/videos.css&quot;]</code>, where the file <code>videos.css</code> contains
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">video-container</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+  <span class="k">padding-bottom</span><span class="p">:</span> <span class="mf">56.25</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">padding-top</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span> <span class="k">height</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+<span class="p">}</span>
 
-<p><div class="highlight"><pre class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;video-container&#34;</span><span class="p">&gt;</span>
+<span class="p">.</span><span class="nc">video-container</span> <span class="nt">iframe</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">video-container</span> <span class="nt">object</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">video-container</span> <span class="nt">embed</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+This adds the CSS necessary, so
+<div class="highlight"><pre class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;video-container&#34;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;853&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;480&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.youtube.com/embed/rB83DpBJQsE&#34;</span>
   <span class="na">allow</span><span class="o">=</span><span class="s">&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34;</span>
   <span class="na">frameborder</span><span class="o">=</span><span class="s">&#34;0&#34;</span>
-  <span class="na">allowfullscreen</span>
-<span class="err">&lt;/</span><span class="na">iframe</span>
-<span class="err">&lt;/</span><span class="na">div</span><span class="p">&gt;</span></code></pre></div>
+  <span class="na">allowfullscreen</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+renders as
 <div class="video-container">
 <iframe width="853" height="480" src="https://www.youtube.com/embed/rB83DpBJQsE"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   frameborder="0"
-  allowfullscreen
-</iframe
+  allowfullscreen>
+</iframe>
 </div>
-This looks much nicer on desktop and is more functional, but the width exceedes the text on mobile.</p>
-
-<h2 id="files-from-submodules">Files from submodules<a href="#files-from-submodules" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-
-<p>I wanted to have my resume automatically update as I update my resume repo. Since I have a repo for <code>jleightcap/</code>, I added a submodule under <code>jleightcap/content/resume</code> with
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">git submodule add https://github.com/jleightcap/Resume content/resume</code></pre></div>
-So, whenever I run <code>hugo -t hermit</code>, I pull from this repo to have the most recent version of my resume. This is helpful to automate with a <code>deploy.sh</code> script, which can align all three personal repos.</p>
+I've found a good way to test this, rather than just open on both mobile and desktop, is to open Chrome's developer tools and drag the window to different widths.</p>
 
 		</div>
 	</main>
