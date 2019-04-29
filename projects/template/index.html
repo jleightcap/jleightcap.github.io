@@ -17,7 +17,7 @@ def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibon
 
 <meta itemprop="datePublished" content="2019-04-27T19:10:07-04:00" />
 <meta itemprop="dateModified" content="2019-04-27T19:10:07-04:00" />
-<meta itemprop="wordCount" content="305">
+<meta itemprop="wordCount" content="341">
 
 
 
@@ -60,8 +60,8 @@ def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibon
 				</div>
 				<nav class="site-nav hide-in-mobile">
 					<a href="/resume/Resume.pdf">Resume</a>
-					<a href="/posts/">Blog</a>
 					<a href="/projects/">Projects</a>
+					<a href="/posts/">Blog</a>
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
@@ -72,8 +72,8 @@ def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibon
 	<div id="mobile-menu" class="animated fast">
 		<ul>
 			<li><a href="/resume/Resume.pdf">Resume</a></li>
-			<li><a href="/posts/">Blog</a></li>
 			<li><a href="/projects/">Projects</a></li>
+			<li><a href="/posts/">Blog</a></li>
 		</ul>
 	</div>
 
@@ -135,12 +135,20 @@ textleft <code>\( \det(\lambda I - \textbf{A}) = 0\)</code> textright</p>
 
 <p>Images are accessed from the <code>./static/</code> directory.
 It seems better organized to make a subdirectory with the title,
-so in this case within <code>./static/project-template</code> is an image <code>TemplateImage.png</code>.</p>
+so in this case within <code>./static/project-template</code> is an image <code>EMWave.png</code>.
+<div class="highlight"><pre class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:center&#34;</span><span class="p">&gt;</span>
+  ![Image Text](/project-template/EMWave.png)
+  <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Image caption<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+renders as
+<div style="text-align:center">
+  <figure><img src="/project-template/EMWave.png" alt="Image Text"></figure>
+  <b>Image caption</b>
+</div></p>
 
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">Image Text</span>](<span class="na">/project-template/TemplateImage.png</span>)</code></pre></div>
+<h3 id="pseudo-wordwrap-image">Pseudo Word-Wrap Image<a href="#pseudo-wordwrap-image" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 
-<p>renders as
-<figure><img src="/project-template/EMWave.PNG" alt="Image Text"></figure></p>
+<p>This is some text. <img src="/project-template/Capacitance.png" alt="Smiley face" align="middle"> This is some text.</p>
 
 <h2 id="embedded-youtube-videos">Embedded YouTube videos<a href="#embedded-youtube-videos" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
@@ -165,7 +173,7 @@ This has the clear disadvantage of not being embedded within the page, however w
 <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
 
-<div style="text-align:center">
+<p><div style="text-align:center">
 <iframe width="560" height="315"
   src="https://www.youtube.com/embed/rB83DpBJQsE"
   frameborder="0"
@@ -173,6 +181,7 @@ This has the clear disadvantage of not being embedded within the page, however w
   allowfullscreen>
 </iframe>
 </div>
+This looks much nicer on desktop and is more functional, but the width exceedes the text on mobile.</p>
 
 		</div>
 	</main>
