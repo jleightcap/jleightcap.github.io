@@ -17,7 +17,7 @@ def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibon
 
 <meta itemprop="datePublished" content="2019-04-27T19:10:07-04:00" />
 <meta itemprop="dateModified" content="2019-04-27T19:10:07-04:00" />
-<meta itemprop="wordCount" content="330">
+<meta itemprop="wordCount" content="403">
 
 
 
@@ -178,6 +178,12 @@ This has the clear disadvantage of not being embedded within the page, however w
 </iframe>
 </div>
 This looks much nicer on desktop and is more functional, but the width exceedes the text on mobile.</p>
+
+<h2 id="files-from-submodules">Files from submodules<a href="#files-from-submodules" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>I wanted to have my resume automatically update as I update my resume repo. Since I have a repo for <code>jleightcap/</code>, I added a submodule under <code>jleightcap/content/resume</code> with
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">git submodule add https://github.com/jleightcap/Resume content/resume</code></pre></div>
+So, whenever I run <code>hugo -t hermit</code>, I pull from this repo to have the most recent version of my resume. This is helpful to automate with a <code>deploy.sh</code> script, which can align all three personal repos.</p>
 
 		</div>
 	</main>
