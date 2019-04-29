@@ -17,7 +17,7 @@ def fibonacci(n):if n &lt;= 1:return nelse:return(fibonacci(n-1) &#43; fibon
 
 <meta itemprop="datePublished" content="2019-04-27T19:10:07-04:00" />
 <meta itemprop="dateModified" content="2019-04-27T19:10:07-04:00" />
-<meta itemprop="wordCount" content="407">
+<meta itemprop="wordCount" content="362">
 
 
 
@@ -149,16 +149,6 @@ renders as
 
 <h2 id="embedded-youtube-videos">Embedded YouTube videos<a href="#embedded-youtube-videos" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
-<h3 id="combining-images-and-links">Combining Images and Links<a href="#combining-images-and-links" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
-
-<p>For a YouTube video URL <a href="https://youtu.be/rB83DpBJQsE">https://youtu.be/rB83DpBJQsE</a>, use the video ID (rB83DpBJQsE) and img.youtube.com to make a clickable image.
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">[<span class="nt">![Video Text</span>](<span class="na">https://img.youtube.com/vi/rB83DpBJQsE/0.jpg</span>)](https://youtu.be/rB83DpBJQsE)</code></pre></div>
-renders as
-<a href="https://youtu.be/rB83DpBJQsE"><figure><img src="https://img.youtube.com/vi/rB83DpBJQsE/0.jpg" alt="Video Text"></figure></a>
-This has the clear disadvantage of not being embedded within the page, however works more universally.</p>
-
-<h3 id="using-html-directly">Using HTML directly<a href="#using-html-directly" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
-
 <p>For a YouTube video URL <a href="https://youtu.be/rB83DpBJQsE">https://youtu.be/rB83DpBJQsE</a>, use the video ID (rB83DpBJQsE) and youtube.com/embed to make an embedded YouTube player.</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;text-align:center&#34;</span><span class="p">&gt;</span>
@@ -170,9 +160,10 @@ This has the clear disadvantage of not being embedded within the page, however w
 <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
 
-<p><div style="text-align:center">
-<iframe width="560" height="315"
-  src="https://www.youtube.com/embed/rB83DpBJQsE"
+<p><div class="video-responsive" style="text-align:center">
+<iframe
+  width="560" height="349"
+  src="http://www.youtube.com/embed/rB83DpBJQsE"
   frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
@@ -199,6 +190,22 @@ So, whenever I run <code>hugo -t hermit</code>, I pull from this repo to have th
 	<script type="text/javascript" async
 	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
 	</script>
+
+	<style>
+	.videoWrapper {
+	  position: relative;
+	  padding-bottom: 56.25%;  
+	  padding-top: 25px;
+	  height: 0;
+	}
+	.videoWrapper iframe {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	}
+	</style>
 
 
 	<script src="/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>

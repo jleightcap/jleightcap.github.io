@@ -3,47 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
-    <lastmod>2019-04-28T14:50:59-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/post1/</loc>
-    <lastmod>2019-04-28T14:50:59-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/post2/</loc>
-    <lastmod>2019-04-28T14:50:59-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/post3/</loc>
-    <lastmod>2019-04-28T14:50:59-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2019-04-28T14:50:59-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-04-28T14:50:59-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/untagged/</loc>
-    <lastmod>2019-04-28T14:50:59-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/projects/template/</loc>
     <lastmod>2019-04-27T19:10:07-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-04-27T19:10:07-04:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -64,6 +31,11 @@
   
   <url>
     <loc>/resume/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
