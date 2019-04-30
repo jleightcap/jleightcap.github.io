@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/projects/template/</loc>
+    <loc>/posts/template/</loc>
     <lastmod>2019-04-27T19:10:07-04:00</lastmod>
   </url>
   
@@ -14,7 +14,7 @@
   </url>
   
   <url>
-    <loc>/projects/</loc>
+    <loc>/posts/</loc>
     <lastmod>2019-04-27T19:10:07-04:00</lastmod>
     <priority>0</priority>
   </url>
@@ -22,6 +22,12 @@
   <url>
     <loc>/projects/vexations/</loc>
     <lastmod>2019-03-10T15:22:36-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/projects/</loc>
+    <lastmod>2019-03-10T15:22:36-04:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>

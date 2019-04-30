@@ -14,10 +14,10 @@
     
     <item>
       <title>Hugo Post Template</title>
-      <link>/projects/template/</link>
+      <link>/posts/template/</link>
       <pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
       
-      <guid>/projects/template/</guid>
+      <guid>/posts/template/</guid>
       <description>Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
 Google
 TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark. Add to bottom of footer.html (which is loaded on every page) &amp;lt;script src=&amp;#34;//yihui.name/js/math-code.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script asyncsrc=&amp;#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; This uses MathJax, but it might be worthwhile to swap to KaTeX for faster rendering.

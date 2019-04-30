@@ -6,37 +6,102 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 28 Apr 2019 14:50:59 -0400</lastBuildDate>
+		<lastBuildDate>Sat, 27 Apr 2019 19:10:07 -0400</lastBuildDate>
 		<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>Post1</title>
-			<link>/posts/post1/</link>
-			<pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
+			<title>Hugo Post Template</title>
+			<link>/posts/template/</link>
+			<pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
 			
-			<guid>/posts/post1/</guid>
-			<description></description>
-			<content type="html"><![CDATA[]]></content>
-		</item>
-		
-		<item>
-			<title>Post2</title>
-			<link>/posts/post2/</link>
-			<pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
-			
-			<guid>/posts/post2/</guid>
-			<description></description>
-			<content type="html"><![CDATA[]]></content>
-		</item>
-		
-		<item>
-			<title>Post3</title>
-			<link>/posts/post3/</link>
-			<pubDate>Sun, 28 Apr 2019 14:50:59 -0400</pubDate>
-			
-			<guid>/posts/post3/</guid>
-			<description></description>
-			<content type="html"><![CDATA[]]></content>
+			<guid>/posts/template/</guid>
+			<description>Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
+Google
+TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark. Add to bottom of footer.html (which is loaded on every page) &amp;lt;script src=&amp;#34;//yihui.name/js/math-code.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script asyncsrc=&amp;#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; This uses MathJax, but it might be worthwhile to swap to KaTeX for faster rendering.
+Math Mode To display Math Mode TeX, the plaintext in *.</description>
+			<content type="html"><![CDATA[<h2 id="links">Links</h2>
+
+<p>Easy use of Markdown. To display a link, the plaintext in <code>*.md</code>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">[<span class="nt">Google</span>](<span class="na">https://www.google.com/</span>)</code></pre></div>
+renders as<br>
+<a href="https://www.google.com/">Google</a></p>
+
+<h2 id="tex">TeX</h2>
+
+<p>Can't use <code>.md</code>, use <code>.mmark</code> as extension of document. Add to header of <code>*.mmark</code> <code>markup = mmark</code>. Add to bottom of <code>footer.html</code> (which is loaded on every page)
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//yihui.name/js/math-code.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></div>
+This uses MathJax, but it might be worthwhile to swap to KaTeX for faster rendering.</p>
+
+<h3 id="math-mode">Math Mode</h3>
+
+<p>To display Math Mode TeX, the plaintext in <code>*.mmark</code></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-TeX" data-lang="TeX">`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\cdot</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\rho</span><span class="nb">}{</span><span class="nv">\varepsilon</span><span class="nb">_</span><span class="m">0</span><span class="nb">} </span><span class="s">\]</span>`
+`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\cdot</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{B} </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nb"> </span><span class="s">\]</span>`
+`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\times</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E} </span><span class="o">=</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\partial</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{B}}{</span><span class="nv">\partial</span><span class="nb"> t} </span><span class="s">\]</span>`
+`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\times</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{B} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{c^</span><span class="m">2</span><span class="nb">} </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\partial</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E}}{</span><span class="nv">\partial</span><span class="nb"> t} </span><span class="s">\]</span>`</code></pre></div>
+
+<p>renders as
+<code>\[ \vec{\nabla} \cdot \vec{E} = \frac{\rho}{\varepsilon_0} \]</code>
+<code>\[ \vec{\nabla} \cdot \vec{B} = 0 \]</code>
+<code>\[ \vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t} \]</code>
+<code>\[ \vec{\nabla} \times \vec{B} = \frac{1}{c^2} \frac{\partial \vec{E}}{\partial t} \]</code></p>
+
+<h3 id="inline">In-Line</h3>
+
+<p>To display in-line TeX, the plaintext in <code>*.mmark</code>
+<div class="highlight"><pre class="chroma"><code class="language-TeX" data-lang="TeX">textleft `<span class="s">\(</span><span class="nb"> </span><span class="nv">\det</span><span class="o">(</span><span class="nv">\lambda</span><span class="nb"> I </span><span class="o">-</span><span class="nb"> </span><span class="nv">\textbf</span><span class="nb">{A}</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="s">\)</span>` textright</code></pre></div>
+renders as<br>
+textleft <code>\( \det(\lambda I - \textbf{A}) = 0\)</code> textright</p>
+
+<h2 id="images">Images</h2>
+
+<p>Images are accessed from the <code>./static/</code> directory.
+It seems better organized to make a subdirectory with the title,
+so in this case within <code>./static/project-images/template</code> is an image <code>EMWave.png</code>. GIFs use the same format, so equivalently use GIF <code>EMWave.gif</code>.
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">Image Text</span>](<span class="na">/project-images/template/EMWave.png</span>)</code></pre></div>
+renders as
+<figure><img src="/project-images/template/EMWave.png" alt="Image Text"></figure></p>
+
+<h2 id="embedded-youtube-videos">Embedded YouTube videos</h2>
+
+<p>For a YouTube video URL <a href="https://youtu.be/rB83DpBJQsE">https://youtu.be/rB83DpBJQsE</a>, use the video ID (rB83DpBJQsE) and youtube.com/embed to make an embedded YouTube player. If just using an iframe, the video looks fine on desktop, but exceeds the text for small widths. To fix this, the size of the embedded video changes. This uses CSS, so in <code>config.toml</code> add <code>customCSS = [&quot;css/videos.css&quot;]</code>, where the file <code>videos.css</code> contains
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">video-container</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+  <span class="k">padding-bottom</span><span class="p">:</span> <span class="mf">56.25</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">padding-top</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span> <span class="k">height</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">video-container</span> <span class="nt">iframe</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">video-container</span> <span class="nt">object</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">video-container</span> <span class="nt">embed</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+This adds the CSS necessary, so
+<div class="highlight"><pre class="chroma"><code class="language-HTML" data-lang="HTML"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;video-container&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;853&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;480&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.youtube.com/embed/rB83DpBJQsE&#34;</span>
+  <span class="na">allow</span><span class="o">=</span><span class="s">&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34;</span>
+  <span class="na">frameborder</span><span class="o">=</span><span class="s">&#34;0&#34;</span>
+  <span class="na">allowfullscreen</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+renders as
+<div class="video-container">
+<iframe width="853" height="480" src="https://www.youtube.com/embed/rB83DpBJQsE"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+</div>
+I've found a good way to test this, rather than just open on both mobile and desktop, is to open Chrome's developer tools and drag the window to different widths.</p>
+]]></content>
 		</item>
 		
 	</channel>
