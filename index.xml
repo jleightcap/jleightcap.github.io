@@ -34,6 +34,15 @@ Math Mode To display Math Mode TeX, the plaintext in *.</description>
     </item>
     
     <item>
+      <title>Charlie &#39;the Traveling Salesman&#39; on the MBTA</title>
+      <link>/projects/mbtaspeedrun/</link>
+      <pubDate>Tue, 19 Feb 2019 12:15:39 -0400</pubDate>
+      
+      <guid>/projects/mbtaspeedrun/</guid>
+      <description>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.   The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/resume/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
