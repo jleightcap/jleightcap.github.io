@@ -61,10 +61,10 @@ textleft <code>\( \det(\lambda I - \textbf{A}) = 0\)</code> textright</p>
 
 <p>Images are accessed from the <code>./static/</code> directory.
 It seems better organized to make a subdirectory with the title,
-so in this case within <code>./static/project-images/template</code> is an image <code>EMWave.png</code>. GIFs use the same format, so equivalently use GIF <code>EMWave.gif</code>.
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">Image Text</span>](<span class="na">/project-images/template/EMWave.png</span>)</code></pre></div>
+so in this case within <code>./static/post-images/template</code> is an image <code>EMWave.png</code>. GIFs use the same format, so equivalently use GIF <code>EMWave.gif</code>.
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">Image Text</span>](<span class="na">/post-images/template/EMWave.png</span>)</code></pre></div>
 renders as
-<figure><img src="/project-images/template/EMWave.png" alt="Image Text"></figure></p>
+<figure><img src="/post-images/template/EMWave.png" alt="Image Text"></figure></p>
 
 <h2 id="embedded-youtube-videos">Embedded YouTube videos</h2>
 
