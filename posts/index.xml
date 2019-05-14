@@ -6,13 +6,13 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 27 Apr 2019 19:10:07 -0400</lastBuildDate>
+		<lastBuildDate>Sat, 27 Apr 2019 12:36:03 +0000</lastBuildDate>
 		<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
 			<title>Hugo Post Template</title>
 			<link>/posts/template/</link>
-			<pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
+			<pubDate>Sat, 27 Apr 2019 12:36:03 +0000</pubDate>
 			
 			<guid>/posts/template/</guid>
 			<description>Syntax Highlighting Blocked, {{&amp;lt; highlight LANGUAGE &amp;gt;}}CODE{{&amp;lt; / highlight &amp;gt;}} With line numbers, 1 2 3  {{&amp;lt; highlight LANGUAGE &amp;#34;linenos = table&amp;#34; &amp;gt;}}CODE{{&amp;lt; / highlight &amp;gt;}}   Syntax highlighting a code block including the curly brace pairs is tough. No joke, my solution is to put a 😂 between the curly braces, which is invisible in the syntax highlighting ({😂{&amp;lt; ... &amp;gt;}😂}). I tried zero-width spaces and escape characters, but this huge bodge is a great functional use of emoji.</description>
@@ -48,7 +48,7 @@ renders as<br />
 
 <h2 id="tex">TeX</h2>
 
-<p>Add to <code>layouts/partials/</code> <code>extra-foot.html</code> which is loaded on every page, containing
+<p>Add to <code>footer.html</code> which is loaded on every page,
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//yihui.name/js/math-code.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span>
   <span class="na">src</span><span class="o">=</span><span class="s">&#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&#34;</span><span class="p">&gt;</span>
@@ -100,7 +100,7 @@ See <a href="https://gohugo.io/content-management/shortcodes/#figure">Documentat
 <p>Add to <a href="https://hugo-theme-hermit.netlify.com/posts/creating-a-new-theme/#front-matter">front matter</a> of <code>*.md</code>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">images:
   - /post-images/template/EMWave.png</code></pre></div>
-This uses a local image, but equivalently replace with a URL. Notice how this landscape rectangular picture is very cropped in the background.</p>
+This uses a local image, but equivalently replace with a URL.</p>
 
 <h2 id="embedded-youtube-videos">Embedded YouTube videos</h2>
 
