@@ -18,10 +18,7 @@
       <pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
       
       <guid>/posts/template/</guid>
-      <description>Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
-Google
-TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark. Add to bottom of footer.html (which is loaded on every page) &amp;lt;script src=&amp;#34;//yihui.name/js/math-code.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script asyncsrc=&amp;#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; This uses MathJax, but it might be worthwhile to swap to KaTeX for faster rendering.
-Math Mode To display Math Mode TeX, the plaintext in *.</description>
+      <description>Syntax Highlighting Blocked, {{&amp;lt; highlight LANGUAGE &amp;gt;}}CODE{{&amp;lt; / highlight &amp;gt;}} With line numbers, 1 2 3  {{&amp;lt; highlight LANGUAGE &amp;#34;linenos = table&amp;#34; &amp;gt;}}CODE{{&amp;lt; / highlight &amp;gt;}}   Syntax highlighting a code block including the curly brace pairs is tough. No joke, my solution is to put a 😂 between the curly braces, which is invisible in the syntax highlighting ({😂{&amp;lt; ... &amp;gt;}😂}). I tried zero-width spaces and escape characters, but this huge bodge is a great functional use of emoji.</description>
     </item>
     
     <item>

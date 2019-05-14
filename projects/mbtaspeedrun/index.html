@@ -14,7 +14,7 @@
 
 <meta itemprop="datePublished" content="2019-02-19T12:15:39-04:00" />
 <meta itemprop="dateModified" content="2019-02-19T12:15:39-04:00" />
-<meta itemprop="wordCount" content="73">
+<meta itemprop="wordCount" content="114">
 
 
 
@@ -73,7 +73,9 @@
 	<main class="site-main section-inner thin animated fadeIn faster">
 		<h1>Charlie &#39;the Traveling Salesman&#39; on the MBTA</h1>
 		<div class="content">
-			<p>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops.
+			
+
+<p>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops.
 <img src="/project-images/mbtaspeedrun/Routes.gif" alt="Image Text" />
 The ideal time was about 3 hours. In practice, my best time is 3:15.
 <div class="video-container">
@@ -85,11 +87,18 @@ The ideal time was about 3 hours. In practice, my best time is 3:15.
 </div>
 The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.</p>
 
+<h2 id="the-final-route">The Final Route<a href="#the-final-route" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<pre><code>Lechmere → Heath Street → walk to Brookline Village → Hynes → Cleveland Circle → walk to Boston College → Kenmore → Riverside
+</code></pre>
+
+<p>If you find a more effecient route or beat my record, please let me know!</p>
+
 		</div>
 	</main>
 
 	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
-		<p>&copy; 2019 <a href="/">Jack Leightcap</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>&copy; 2019 <a href="/">Jack Leightcap</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0 </a> &#183; <a href="http://spacecollective.org/nomadpandapanda/6950/Fractal-Solids-or-platonic-solids-also-cry" target="_blank" rel="noopener">Background </a></p>
 		<p>
 			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
 		</p>
@@ -101,6 +110,10 @@ The search involved reducing the graph to a 6-node non-directed graph search. Al
 
 
 	<script src="/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+	<script src="//yihui.name/js/math-code.js"></script>
+	<script type="text/javascript" async
+	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+	</script>
 
 </body>
 

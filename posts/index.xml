@@ -15,20 +15,40 @@
 			<pubDate>Sat, 27 Apr 2019 19:10:07 -0400</pubDate>
 			
 			<guid>/posts/template/</guid>
-			<description>Links Easy use of Markdown. To display a link, the plaintext in *.md [Google](https://www.google.com/) renders as
-Google
-TeX Can&#39;t use .md, use .mmark as extension of document. Add to header of *.mmark markup = mmark. Add to bottom of footer.html (which is loaded on every page) &amp;lt;script src=&amp;#34;//yihui.name/js/math-code.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script asyncsrc=&amp;#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; This uses MathJax, but it might be worthwhile to swap to KaTeX for faster rendering.
-Math Mode To display Math Mode TeX, the plaintext in *.</description>
-			<content type="html"><![CDATA[<h2 id="links">Links</h2>
+			<description>Syntax Highlighting Blocked, {{&amp;lt; highlight LANGUAGE &amp;gt;}}CODE{{&amp;lt; / highlight &amp;gt;}} With line numbers, 1 2 3  {{&amp;lt; highlight LANGUAGE &amp;#34;linenos = table&amp;#34; &amp;gt;}}CODE{{&amp;lt; / highlight &amp;gt;}}   Syntax highlighting a code block including the curly brace pairs is tough. No joke, my solution is to put a 😂 between the curly braces, which is invisible in the syntax highlighting ({😂{&amp;lt; ... &amp;gt;}😂}). I tried zero-width spaces and escape characters, but this huge bodge is a great functional use of emoji.</description>
+			<content type="html"><![CDATA[
+
+<h2 id="syntax-highlighting">Syntax Highlighting</h2>
+
+<p>Blocked,
+<div class="highlight"><pre class="chroma"><code class="language-Go" data-lang="Go"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">LANGUAGE</span> <span class="p">&gt;}}</span>
+<span class="nx">CODE</span>
+<span class="p">{{&lt;</span> <span class="o">/</span> <span class="nx">highlight</span> <span class="p">&gt;}}</span></code></pre></div>
+With line numbers,
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Go" data-lang="Go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Go" data-lang="Go"><span class="p">{{&lt;</span> <span class="nx">highlight</span> <span class="nx">LANGUAGE</span> <span class="s">&#34;linenos = table&#34;</span> <span class="p">&gt;}}</span>
+<span class="nx">CODE</span>
+<span class="p">{{&lt;</span> <span class="o">/</span> <span class="nx">highlight</span> <span class="p">&gt;}}</span></code></pre></td></tr></table>
+</div>
+</div>
+Syntax highlighting a code block including the curly brace pairs is tough. No joke, my solution is to put a 😂 between the curly braces, which is invisible in the syntax highlighting (<code>{😂{&lt; ... &gt;}😂}</code>). I tried zero-width spaces and escape characters, but this huge bodge is a great functional use of emoji. It&rsquo;s also a great chance to reflect your personality in a write-up with 💩, for example.</p>
+
+<h2 id="links">Links</h2>
 
 <p>Easy use of Markdown. To display a link, the plaintext in <code>*.md</code>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">[<span class="nt">Google</span>](<span class="na">https://www.google.com/</span>)</code></pre></div>
-renders as<br>
+renders as<br />
 <a href="https://www.google.com/">Google</a></p>
 
 <h2 id="tex">TeX</h2>
 
-<p>Can't use <code>.md</code>, use <code>.mmark</code> as extension of document. Add to header of <code>*.mmark</code> <code>markup = mmark</code>. Add to bottom of <code>footer.html</code> (which is loaded on every page)
+<p>Add to <code>layouts/partials/</code> <code>extra-foot.html</code> which is loaded on every page, containing
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//yihui.name/js/math-code.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span>
   <span class="na">src</span><span class="o">=</span><span class="s">&#34;//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML&#34;</span><span class="p">&gt;</span>
@@ -37,25 +57,25 @@ This uses MathJax, but it might be worthwhile to swap to KaTeX for faster render
 
 <h3 id="math-mode">Math Mode</h3>
 
-<p>To display Math Mode TeX, the plaintext in <code>*.mmark</code></p>
+<p>To display Math Mode TeX, the plaintext in <code>*.md</code></p>
 
-<div class="highlight"><pre class="chroma"><code class="language-TeX" data-lang="TeX">`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\cdot</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\rho</span><span class="nb">}{</span><span class="nv">\varepsilon</span><span class="nb">_</span><span class="m">0</span><span class="nb">} </span><span class="s">\]</span>`
+<div class="highlight"><pre class="chroma"><code class="language-LaTeX" data-lang="LaTeX">`<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\cdot</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E} </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nb"> </span><span class="s">\]</span>`
 `<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\cdot</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{B} </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nb"> </span><span class="s">\]</span>`
 `<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\times</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E} </span><span class="o">=</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\partial</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{B}}{</span><span class="nv">\partial</span><span class="nb"> t} </span><span class="s">\]</span>`
 `<span class="sb">\[</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{</span><span class="nv">\nabla</span><span class="nb">} </span><span class="nv">\times</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{B} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{c^</span><span class="m">2</span><span class="nb">} </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\partial</span><span class="nb"> </span><span class="nv">\vec</span><span class="nb">{E}}{</span><span class="nv">\partial</span><span class="nb"> t} </span><span class="s">\]</span>`</code></pre></div>
 
 <p>renders as
-<code>\[ \vec{\nabla} \cdot \vec{E} = \frac{\rho}{\varepsilon_0} \]</code>
+<code>\[ \vec{\nabla} \cdot \vec{E} = 0 \]</code>
 <code>\[ \vec{\nabla} \cdot \vec{B} = 0 \]</code>
 <code>\[ \vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t} \]</code>
 <code>\[ \vec{\nabla} \times \vec{B} = \frac{1}{c^2} \frac{\partial \vec{E}}{\partial t} \]</code></p>
 
-<h3 id="inline">In-Line</h3>
+<h3 id="in-line">In-Line</h3>
 
-<p>To display in-line TeX, the plaintext in <code>*.mmark</code>
-<div class="highlight"><pre class="chroma"><code class="language-TeX" data-lang="TeX">textleft `<span class="s">\(</span><span class="nb"> </span><span class="nv">\det</span><span class="o">(</span><span class="nv">\lambda</span><span class="nb"> I </span><span class="o">-</span><span class="nb"> </span><span class="nv">\textbf</span><span class="nb">{A}</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="s">\)</span>` textright</code></pre></div>
-renders as<br>
-textleft <code>\( \det(\lambda I - \textbf{A}) = 0\)</code> textright</p>
+<p>To display in-line TeX, the plaintext in <code>*.md</code>
+<div class="highlight"><pre class="chroma"><code class="language-TeX" data-lang="TeX">The equation for eigenvalues is `<span class="s">\(</span><span class="nb"> </span><span class="nv">\det</span><span class="o">(</span><span class="nv">\lambda</span><span class="nb"> </span><span class="nv">\textbf</span><span class="nb">{I} </span><span class="o">-</span><span class="nb"> </span><span class="nv">\textbf</span><span class="nb">{A}</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="s">\)</span>`, neat huh?</code></pre></div>
+renders as<br />
+The equation for eigenvalues is <code>\( \det(\lambda \textbf{I} - \textbf{A}) = 0\)</code>, neat huh?</p>
 
 <h2 id="images">Images</h2>
 
@@ -64,7 +84,23 @@ It seems better organized to make a subdirectory with the title,
 so in this case within <code>./static/post-images/template</code> is an image <code>EMWave.png</code>. GIFs use the same format, so equivalently use GIF <code>EMWave.gif</code>.
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">Image Text</span>](<span class="na">/post-images/template/EMWave.png</span>)</code></pre></div>
 renders as
-<figure><img src="/post-images/template/EMWave.png" alt="Image Text"></figure></p>
+<img src="/post-images/template/EMWave.png" alt="Image Text" /></p>
+
+<h3 id="floating-image">Floating Image</h3>
+
+<p><figure class="left">
+    <img src="/post-images/template/EMWave.png"/> 
+</figure>
+
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="p">{{&lt;</span> <span class="nx">figure</span> <span class="nx">src</span><span class="p">=</span><span class="s">&#34;/post-images/template/EMWave.png&#34;</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;left&#34;</span> <span class="p">&gt;}}</span></code></pre></div>
+See <a href="https://gohugo.io/content-management/shortcodes/#figure">Documentation</a> for helpful <code>figure</code> shortcodes.<br/><br/></p>
+
+<h3 id="image-backgrounds">Image Backgrounds</h3>
+
+<p>Add to <a href="https://hugo-theme-hermit.netlify.com/posts/creating-a-new-theme/#front-matter">front matter</a> of <code>*.md</code>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">images:
+  - /post-images/template/EMWave.png</code></pre></div>
+This uses a local image, but equivalently replace with a URL. Notice how this landscape rectangular picture is very cropped in the background.</p>
 
 <h2 id="embedded-youtube-videos">Embedded YouTube videos</h2>
 
@@ -99,8 +135,11 @@ renders as
   frameborder="0"
   allowfullscreen>
 </iframe>
-</div>
-I've found a good way to test this, rather than just open on both mobile and desktop, is to open Chrome's developer tools and drag the window to different widths.</p>
+</div></p>
+
+<h2 id="emoji">Emoji</h2>
+
+<p>Finally something important: <code>:EMOJI:</code>, <code>joy</code>=😂, <code>poop</code>=💩, etc.</p>
 ]]></content>
 		</item>
 		
