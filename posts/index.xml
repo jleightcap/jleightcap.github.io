@@ -6,8 +6,20 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 27 Apr 2019 12:36:03 +0000</lastBuildDate>
+		<lastBuildDate>Fri, 07 Jun 2019 16:00:00 +0000</lastBuildDate>
 		<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Cambridge Week 1</title>
+			<link>/posts/cambridge1/</link>
+			<pubDate>Fri, 07 Jun 2019 16:00:00 +0000</pubDate>
+			
+			<guid>/posts/cambridge1/</guid>
+			<description>Background Image Source Just testing things out!</description>
+			<content type="html"><![CDATA[<p><a href="https://pixabay.com/photos/kings-college-cambridge-uk-3889124/">Background Image Source</a>
+Just testing things out!</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Hugo Post Template</title>
@@ -15,7 +27,7 @@
 			<pubDate>Sat, 27 Apr 2019 12:36:03 +0000</pubDate>
 			
 			<guid>/posts/template/</guid>
-			<description>Syntax Highlighting Blocked, {{&amp;lt; highlight LANGUAGE &amp;gt;}}CODE{{&amp;lt; / highlight &amp;gt;}} With line numbers, 1 2 3  {{&amp;lt; highlight LANGUAGE &amp;#34;linenos = table&amp;#34; &amp;gt;}}CODE{{&amp;lt; / highlight &amp;gt;}}   Syntax highlighting a code block including the curly brace pairs is tough. No joke, my solution is to put a 😂 between the curly braces, which is invisible in the syntax highlighting ({😂{&amp;lt; ... &amp;gt;}😂}). I tried zero-width spaces and escape characters, but this huge bodge is a great functional use of emoji.</description>
+			<description>Syntax Highlighting Blocked, {{&amp;lt; highlight LANGUAGE &amp;gt;}} CODE {{&amp;lt; / highlight &amp;gt;}} With line numbers, 1 2 3  {{&amp;lt; highlight LANGUAGE &amp;#34;linenos = table&amp;#34; &amp;gt;}} CODE {{&amp;lt; / highlight &amp;gt;}}   Syntax highlighting a code block including the curly brace pairs is tough. No joke, my solution is to put a 😂 between the curly braces, which is invisible in the syntax highlighting ({😂{&amp;lt; ... &amp;gt;}😂}). I tried zero-width spaces and escape characters, but this huge bodge is a great functional use of emoji.</description>
 			<content type="html"><![CDATA[
 
 <h2 id="syntax-highlighting">Syntax Highlighting</h2>
@@ -85,15 +97,6 @@ so in this case within <code>./static/post-images/template</code> is an image <c
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">Image Text</span>](<span class="na">/post-images/template/EMWave.png</span>)</code></pre></div>
 renders as
 <img src="/post-images/template/EMWave.png" alt="Image Text" /></p>
-
-<h3 id="floating-image">Floating Image</h3>
-
-<p><figure class="left">
-    <img src="/post-images/template/EMWave.png"/> 
-</figure>
-
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="p">{{&lt;</span> <span class="nx">figure</span> <span class="nx">src</span><span class="p">=</span><span class="s">&#34;/post-images/template/EMWave.png&#34;</span> <span class="nx">class</span><span class="p">=</span><span class="s">&#34;left&#34;</span> <span class="p">&gt;}}</span></code></pre></div>
-See <a href="https://gohugo.io/content-management/shortcodes/#figure">Documentation</a> for helpful <code>figure</code> shortcodes.<br/><br/></p>
 
 <h3 id="image-backgrounds">Image Backgrounds</h3>
 

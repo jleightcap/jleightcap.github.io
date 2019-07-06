@@ -1,90 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Projects on Jack Leightcap</title>
-		<link>/projects/</link>
-		<description>Recent content in Projects on Jack Leightcap</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 10 Mar 2019 15:22:36 +0000</lastBuildDate>
-		<atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Erik Satie - Vexations (1894)</title>
-			<link>/projects/vexations/</link>
-			<pubDate>Sun, 10 Mar 2019 15:22:36 +0000</pubDate>
-			
-			<guid>/projects/vexations/</guid>
-			<description>First recording, 6 hours (2017) During my Junior year of high school, I recorded a 6-hour performance of Erik Satie&amp;rsquo;s Vexations.   This was extremely underplanned, and a surprising amount went wrong. I used Windows 10&amp;rsquo;s default camera app with a random webcam, and found - during the recording - Windows Camera had a 2 hour recording limit. Because I was recording audio separately, the audio and video were desynced, so the required merging of the video and audio required some guesswork in matching my fingers to the audio.</description>
-			<content type="html"><![CDATA[
-
-<h2 id="first-recording-6-hours-i-2017-i">First recording, 6 hours (<i>2017</i>)</h2>
-
-<p>During my Junior year of high school, I recorded a 6-hour performance of Erik Satie&rsquo;s <i>Vexations</i>.
-<div class="video-container">
-<iframe width="853" height="480" src="https://www.youtube.com/embed/zuszCTwh11k"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  frameborder="0"
-  allowfullscreen>
-</iframe>
-</div>
-This was extremely underplanned, and a surprising amount went wrong. I used Windows 10&rsquo;s default camera app with a random webcam, and found - during the recording - Windows Camera had a 2 hour recording limit. Because I was recording audio separately, the audio and video were desynced, so the required merging of the video and audio required some guesswork in matching my fingers to the audio. Not even worrying about the scaling of unnecessary rendering time, if anyone cared enough to skim through for these cuts, they&rsquo;d find a couple dropped frames. If anyone wanted to take a record seriously these cuts would be extremely suspicious.<br />
-Besides the technical aspect, I definitely knew I could&rsquo;ve gone longer than 6 hours. These were hard limits that are naturally imposed by living with family and having to be &lsquo;healthy&rsquo;. I kept the idea of beating my personal record in the back of my head throughout high school and into college.</p>
-
-<h2 id="second-recording-livestream-34-hours-i-2019-i">Second recording, livestream 34 hours (<i>2019</i>)</h2>
-
-<p>Two years later, over the Spring Break of my Freshman year, the chances of anyone interrupting me in my dorm were extremely low. With some more planning, I decided it was time to beat my record.
-<div class="video-container">
-<iframe width="853" height="480" src="https://www.youtube.com/embed/vK_SZF6x4UA"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  frameborder="0"
-  allowfullscreen>
-</iframe>
-</div>
-I livestreamed my performance for 34 hours. As far as I can tell, this is the world record (albeit unverified) for a recorded solo piano marathon performance. Nicolas Horvath, a huge inspiration, has done a 35 hour live performance, although unrecorded.<br />
-While this recording avoided most of the issues with using terrible default Windows apps, there were still unseen challenges and unfortunate rendering. YouTube does archive streams, but only up to a handful of hours. For practicality this makes sense, so I knew at least to store a local recording as well. In place of the cuts in my earlier performance, the rendering here was just combining some split video files with ffmpeg.<br />
-Will I do another performance in the future? Maybe, but not soon. It was an extremely unique situation to be able to dedicate 34 hours where I was also unlikely to be interrupted. I&rsquo;d definitely like to beat Nicolas Horvath&rsquo;s record, recorded or not, but the entire performance was extremely draining. I didn&rsquo;t eat or drink for a 24 hour period before I started, and I was hallucinating and close to passing out when I was forced to stop an hour before the record.</p>
-
-<h2 id="brief-explanation-of-i-vexations-i">Brief Explanation of <i>Vexations</i></h2>
-
-<p><i>Vexations</i> was written by Erik Satie, a milestone composer in what would become the Avant-Garde. There are plenty of stories about how excentric Satie was, eating only white food and his apartment having two grand pianos stacked on top of one another are two examples out of many. <i>Vexations</i> gives a speed of &ldquo;Très lent&rdquo; (very slow), with the caption &ldquo;Pour se jouer 840 fois de suite ce motif, il sera bon de se préparer au préalable, et dans le plus grand silence, par des immobilités sérieuses&rdquo; (In order to play the theme 840 times in succession, it would be advisable to prepare oneself beforehand, and in the deepest silence, by serious immobilities). The sheet music gives two variations and a theme to be repeated,
-<div style="text-align:center">
-<img src="/project-images/vexations/SheetMusic.jpeg" alt="Vexations Sheet Music" />
-<b><i>Vexations</i> Sheet Music, that&rsquo;s all that&rsquo;s repeated for 34 hours.</b>
-</div>
-While repeating the same thing an extremely specific number of times is definitely a joke in line with Satie&rsquo;s humor, it&rsquo;s been more fun to interpret it literally. The first performance included John Cage, the major figure associated with the Avant-Garde, and since then there&rsquo;s been a small community that pushes the performance time. Currently, there are a decent handful of 24 hours performances, and I&rsquo;m currently in second behind Nicolas Hovarth.</p>
-]]></content>
-		</item>
-		
-		<item>
-			<title>Charlie &#39;the Traveling Salesman&#39; on the MBTA</title>
-			<link>/projects/mbtaspeedrun/</link>
-			<pubDate>Tue, 19 Feb 2019 12:15:39 +0000</pubDate>
-			
-			<guid>/projects/mbtaspeedrun/</guid>
-			<description>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.   The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.</description>
-			<content type="html"><![CDATA[
-
-<p>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops.
-<img src="/project-images/mbtaspeedrun/Routes.gif" alt="Image Text" />
-The ideal time was about 3 hours. In practice, my best time is 3:15.
-<div class="video-container">
-<iframe width="853" height="480" src="https://www.youtube.com/embed/LspT5B-S-uw"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  frameborder="0"
-  allowfullscreen>
-</iframe>
-</div>
-The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.</p>
-
-<h2 id="the-final-route">The Final Route</h2>
-
-<pre><code>Lechmere → Heath Street → walk to Brookline Village → Hynes → Cleveland Circle → walk to Boston College → Kenmore → Riverside
-</code></pre>
-
-<p>If you find a more effecient route or beat my record, please let me know!</p>
-]]></content>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>Projects on Jack Leightcap</title>
+    <link>/projects/</link>
+    <description>Recent content in Projects on Jack Leightcap</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 10 Mar 2019 15:22:36 +0000</lastBuildDate>
+    
+	<atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Erik Satie - Vexations (1894)</title>
+      <link>/projects/vexations/</link>
+      <pubDate>Sun, 10 Mar 2019 15:22:36 +0000</pubDate>
+      
+      <guid>/projects/vexations/</guid>
+      <description>First recording, 6 hours (2017) During my Junior year of high school, I recorded a 6-hour performance of Erik Satie&amp;rsquo;s Vexations.   This was extremely underplanned, and a surprising amount went wrong. I used Windows 10&amp;rsquo;s default camera app with a random webcam, and found - during the recording - Windows Camera had a 2 hour recording limit. Because I was recording audio separately, the audio and video were desynced, so the required merging of the video and audio required some guesswork in matching my fingers to the audio.</description>
+    </item>
+    
+    <item>
+      <title>Charlie &#39;the Traveling Salesman&#39; on the MBTA</title>
+      <link>/projects/mbtaspeedrun/</link>
+      <pubDate>Tue, 19 Feb 2019 12:15:39 +0000</pubDate>
+      
+      <guid>/projects/mbtaspeedrun/</guid>
+      <description>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.   The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.</description>
+    </item>
+    
+  </channel>
 </rss>
