@@ -6,8 +6,115 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 13 Jul 2019 05:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Sat, 20 Jul 2019 06:00:00 +0000</lastBuildDate>
 		<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Cambridge Week 2 - Museums</title>
+			<link>/posts/cambridge2/</link>
+			<pubDate>Sat, 20 Jul 2019 06:00:00 +0000</pubDate>
+			
+			<guid>/posts/cambridge2/</guid>
+			<description>Museum of Archaeology and Anthropology One of the handful of museums within a 5 minute walk of Pembroke College, the Museum of Archaeology and Anthropology&amp;rsquo;s most interesting exhibit was about the local area. I&amp;rsquo;d never bothered to look up why, but the College/University system at Cambridge is really distinct from the American system where &amp;ldquo;College&amp;rdquo; and &amp;ldquo;University&amp;rdquo; are used almost interchangeably (&amp;ldquo;Boston College&amp;rdquo; lying to you twice is a good example of the distinction).</description>
+			<content type="html"><![CDATA[
+
+<h2 id="museum-of-archaeology-and-anthropology">Museum of Archaeology and Anthropology</h2>
+
+<p>One of the handful of museums within a 5 minute walk of Pembroke College, the Museum of Archaeology and Anthropology&rsquo;s most interesting exhibit was about the local area.
+I&rsquo;d never bothered to look up why, but the College/University system at Cambridge is really distinct from the American system where &ldquo;College&rdquo; and &ldquo;University&rdquo; are used almost interchangeably (&ldquo;Boston College&rdquo; lying to you twice is a good example of the distinction).
+With objects from the founding of the early colleges at Cambridge, the exhibit mentioned the conflict between the scholars with royal protections and the locals causing the need for the castle-like colleges.
+The colleges all have the layout of walled monasteries, with individual living spaces surrounding an open courtyard, a grand hall, a chapel, and a library to keep their knowledge safe.
+This caries through to today, where I have to use a keycard to access the college past 7pm when the large, oak doors lock.</p>
+
+<h2 id="the-fitzwilliam-museum">The Fitzwilliam Museum</h2>
+
+<p>The Fitzwilliam Museum is eerily similar to the MFA.
+There&rsquo;s the modernist sculpture on the lawns, the tacky gift shop and cafe, the pillars -  it all felt very familiar.
+There are two special exhibits on display while I&rsquo;m here - the Beggarstaffs poster exhibition and an exhibition of paper fans.
+Both exhibitions showed how a medium considered fairly mundane can be elevated to a fine art, and the fans were particularly interesting because of their connection to origami.</p>
+
+<h2 id="sedgwick-museum-of-earth-sciences">Sedgwick Museum of Earth Sciences</h2>
+
+<p>A very large building filled with many rocks. I had fun looking at rocks for about half an hour before I decided I had seen enough rocks.
+There&rsquo;s a small room at the end of the long, main exhibition that focused on crystals.<br />
+<br />
+<img src="/post-images/cambridge/Museum1.jpg" alt="test" />
+<center><strong><em>AP Chemistry memories</em></strong></center></p>
+
+<p>The pretty colors and little models are much more my speed.</p>
+
+<h2 id="scott-polar-research-institute-polar-museum">Scott Polar Research Institute (Polar Museum)</h2>
+
+<p>This has been one of my favorite museums so far.
+I walked by it on my way to my dorm on my first day here, not having heard of it before.<br />
+<br />
+<img src="/post-images/cambridge/Museum4.jpg" alt="test" />
+<center><strong><em>One of the two entrance domes, with an antique map of each pole</em></strong></center></p>
+
+<p>Half of the museum was a timeline of Arctic exploration, and the other half was a timeline of Antarctic exploration.
+It took about 2 hours total to walk through both halves, and by the end of each half you really get a good sense of the characters and scale of both explorations.<br />
+<br />
+<img src="/post-images/cambridge/Museum3.jpg" alt="test" />
+<center><strong><em>no booping was allowed</em></strong></center></p>
+
+<p>I also really liked the memorial to sled dogs.</p>
+
+<h2 id="cambridge-museum-of-technology">Cambridge Museum of Technology</h2>
+
+<p>This was another museum that I just happened to stumble across.
+The museum is a renovated decommissioned sewage pump station, and is a museum for just that.
+It gives a history from early Cambridge when sewage was dumped into the River Cam to efforts to follow London in modernizing sewage treatment.<br />
+<br />
+<img src="/post-images/cambridge/Museum5.jpg" alt="test" /></p>
+
+<p>The museum also includes a separate building dedicated to the history of manufacturing in Cambridge which reminded me of the history of Westinghouse.</p>
+
+<h2 id="the-centre-for-computing-history">The Centre for Computing History</h2>
+
+<p>This has definitely been my favorite museum I&rsquo;ve visited.
+You first walk into the building and see the &ldquo;Megaprocessor&rdquo;, a microprocessor built to the scale of a large, hobbyist transistor.
+Every logic gate is built from these large transistors, and these build up to the ALU, I/O, and all the way up to structured  Opcode and a playable game of Tetris.
+This all includes extensive documentation, and I really could&rsquo;ve spent all day trying to map out each piece.
+The creator is doing a Q/A at the museum later this month, and I definitely plan to visit at least a few more times.<br />
+<br />
+The next room has computers free to mess around on from the 1960s up to modern PCs. There was a book on BBC Micro programming, so of course I had to at least figure out
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-BASIC" data-lang="BASIC"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-BASIC" data-lang="BASIC"><span class="vg">I</span><span class="o">=</span><span class="nl">1</span><span class="w">
+</span><span class="w"></span><span class="kr">PRINT</span><span class="w"> </span><span class="vg">FACTORIAL</span><span class="p">(</span><span class="vg">I</span><span class="p">)</span>
+<span class="vg">I</span><span class="o">=</span><span class="vg">I</span><span class="o">+</span><span class="nl">1</span><span class="w">
+</span><span class="w"></span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">2</span>
+<span class="kr">END</span>
+<span class="kr">DEF</span><span class="w"> </span><span class="vg">FACTORIAL</span><span class="p">(</span><span class="vg">N</span><span class="p">)</span>
+<span class="kr">IF</span><span class="w"> </span><span class="vg">N</span><span class="o">&lt;=</span><span class="nl">1</span><span class="w"> </span><span class="vg">THEN</span><span class="w"> </span><span class="o">=</span><span class="nl">1</span><span class="w"> </span><span class="vg">ELSE</span><span class="w"> </span><span class="o">=</span><span class="vg">N</span><span class="w"> </span><span class="vg">x</span><span class="w"> </span><span class="vg">FACTORIAL</span><span class="p">(</span><span class="vg">N</span><span class="il">-1</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div></p>
+
+<p>The last exhibit was focused on biographies of people involved in the computer revolution, with a focus on women that have been historically underrepresented in the history of computer science.
+There&rsquo;s even a portrait of Zucc hanging ominously over you to really complete the experience.</p>
+
+<h2 id="whipple-museum-of-the-history-of-science">Whipple Museum of the History of Science</h2>
+
+<p>This museum has the interesting goal of documenting the historical aspect of science, which mostly focused on teaching aides and antique lab equipment.
+It included an entire exhibit for globes, Darwin&rsquo;s microscopes, and even had number pseudo-scientific equipment on display, like a glorified Wheatstone bridge from the Church of Scientology that claims to measure thoughts.<br />
+<br />
+<img src="/post-images/cambridge/Museum2.jpg" alt="Atwood Machine" />
+<center><strong><em>AP Physics memories</em></strong></center></p>
+
+<p>It even included an early Atwood Machine, which if you&rsquo;ve ever learned about masses on a pulley or an expression like
+<code>\[ \vec{a} = \frac{m_2 - m_1}{m_1 + m_2}\vec{g} \]</code>
+then you&rsquo;ll appreciate this as much as I did.</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Cambridge Week 1</title>
@@ -60,7 +167,7 @@ Unlike Northeastern where it&rsquo;s an advertising point to talk about &lsquo;h
 <img src="/post-images/cambridge/cambridge1-4.jpg" alt="Campus2" />
 <center><strong><em>View of dorm, Pembroke Chappel, and Pembroke Library from the Library Lawn</em></strong></center></p>
 
-<p>I really wanted to include a picture of the gigantic hall where we eat, but pictures aren&rsquo;t allowed while students are eating and it&rsquo;s locked otherwise. There are &lsquo;official&rsquo; pictures of the Formal Halls sent later, so I&rsquo;ll include those pictures when I get them.\</p>
+<p>I really wanted to include a picture of the gigantic hall where we eat, but pictures aren&rsquo;t allowed while students are eating and it&rsquo;s locked otherwise. There are &lsquo;official&rsquo; pictures of the Formal Halls sent later, so I&rsquo;ll include those pictures when I get them.</p>
 
 <h2 id="cambridge-the-city">Cambridge (the city)</h2>
 
