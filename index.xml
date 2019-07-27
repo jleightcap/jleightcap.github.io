@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 20 Jul 2019 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jul 2019 06:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cambridge Week 3 - Concerts</title>
+      <link>/posts/cambridge3/</link>
+      <pubDate>Sat, 27 Jul 2019 06:00:00 +0000</pubDate>
+      
+      <guid>/posts/cambridge3/</guid>
+      <description>If you know me, then you know I like classical music to the point where it&amp;rsquo;s almost concerning. So, a fair amount of my evenings here in the UK have unsurprisingly been hanging out with old people listening to classical music.
+Because these concerts have been at night, my pictures have been pretty bad. So this post is going to be pretty scant on pictures, sorry.
+Cambridge Summer Music Festival Bach - St.</description>
+    </item>
     
     <item>
       <title>Cambridge Week 2 - Museums</title>
@@ -22,7 +33,7 @@
     </item>
     
     <item>
-      <title>Cambridge Week 1</title>
+      <title>Cambridge Week 1 - Introduction</title>
       <link>/posts/cambridge1/</link>
       <pubDate>Sat, 13 Jul 2019 05:00:00 +0000</pubDate>
       
