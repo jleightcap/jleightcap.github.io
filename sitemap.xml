@@ -3,20 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/posts/cambridge5/</loc>
-    <lastmod>2019-08-10T16:00:00+00:00</lastmod>
+    <loc>/posts/cambridge6/</loc>
+    <lastmod>2019-08-19T16:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-08-10T16:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-08-19T16:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/</loc>
+    <lastmod>2019-08-19T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/cambridge5/</loc>
     <lastmod>2019-08-10T16:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -52,7 +55,6 @@
   <url>
     <loc>/projects/</loc>
     <lastmod>2019-03-10T15:22:36+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -62,7 +64,6 @@
   
   <url>
     <loc>/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
