@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Jack Leightcap</title>
@@ -18,7 +18,7 @@
       <pubDate>Sun, 10 Mar 2019 15:22:36 +0000</pubDate>
       
       <guid>/projects/vexations/</guid>
-      <description>First recording, 6 hours (2017) During my Junior year of high school, I recorded a 6-hour performance of Erik Satie&amp;rsquo;s Vexations.   This was extremely underplanned, and a surprising amount went wrong. I used Windows 10&amp;rsquo;s default camera app with a random webcam, and found - during the recording - Windows Camera had a 2 hour recording limit. Because I was recording audio separately, the audio and video were desynced, so the required merging of the video and audio required some guesswork in matching my fingers to the audio.</description>
+      <description>First recording, 6 hours (2017) During my Junior year of high school, I recorded a 6-hour performance of Erik Satie&#39;s Vexations.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <pubDate>Tue, 19 Feb 2019 12:15:39 +0000</pubDate>
       
       <guid>/projects/mbtaspeedrun/</guid>
-      <description>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.   The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.</description>
+      <description>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.</description>
     </item>
     
   </channel>
