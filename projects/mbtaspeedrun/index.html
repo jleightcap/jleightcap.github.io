@@ -8,22 +8,25 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="Charlie &#39;the Traveling Salesman&#39; on the MBTA">
-<meta itemprop="description" content="Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.">
+<meta itemprop="description" content="Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.
+The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.">
 <meta itemprop="datePublished" content="2019-02-19T12:15:39&#43;00:00" />
 <meta itemprop="dateModified" content="2019-02-19T12:15:39&#43;00:00" />
-<meta itemprop="wordCount" content="37">
+<meta itemprop="wordCount" content="114">
 
 
 
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Charlie &#39;the Traveling Salesman&#39; on the MBTA" />
-<meta property="og:description" content="Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15." />
+<meta property="og:description" content="Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.
+The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/projects/mbtaspeedrun/" />
 <meta property="article:published_time" content="2019-02-19T12:15:39+00:00" />
 <meta property="article:modified_time" content="2019-02-19T12:15:39+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Charlie &#39;the Traveling Salesman&#39; on the MBTA"/>
-<meta name="twitter:description" content="Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15."/>
+<meta name="twitter:description" content="Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.
+The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables."/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -70,9 +73,12 @@
 		<h1>Charlie &#39;the Traveling Salesman&#39; on the MBTA</h1>
 		<div class="content">
 			<p>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops.
-<img src="/project-images/mbtaspeedrun/Routes.gif" alt="Image Text">
-The ideal time was about 3 hours. In practice, my best time is 3:15.</p>
-<!-- raw HTML omitted -->
+<img src="/project-images/mbtaspeedrun/Routes.gif" alt="Image Text"></p>
+<p>The ideal time was about 3 hours. In practice, <a href="https://www.youtube.com/embed/LspT5B-S-uw">my best time is 3:15</a>.</p>
+<p>The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.</p>
+<h2 id="the-final-route">The Final Route<a href="#the-final-route" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<pre><code>Lechmere → Heath Street → walk to Brookline Village → Hynes → Cleveland Circle → walk to Boston College → Kenmore → Riverside
+</code></pre><p>If you find a more effecient route or beat my record, please let me know!</p>
 
 		</div>
 		<div id="comments" class="thin">

@@ -72,21 +72,12 @@ During my second semester, I was deciding between programs at Oxford and Cambrid
     </item>
     
     <item>
-      <title>Hugo Post Template</title>
-      <link>/posts/template/</link>
-      <pubDate>Sat, 27 Apr 2019 12:36:03 +0000</pubDate>
-      
-      <guid>/posts/template/</guid>
-      <description>Syntax Highlighting Blocked, {😂{&amp;lt; highlight LANGUAGE &amp;gt;}😂} CODE {😂{&amp;lt; / highlight &amp;gt;}😂} With line numbers, 1 2 3  {😂{&amp;lt; highlight LANGUAGE &amp;#34;linenos = table&amp;#34; &amp;gt;}😂} CODE {😂{&amp;lt; / highlight &amp;gt;}😂}   Syntax highlighting a code block including the curly brace pairs is tough. No joke, my solution is to put a 😂 between the curly braces, which is invisible in the syntax highlighting ({😂{&amp;lt; ... &amp;gt;}😂}). I tried zero-width spaces and escape characters, but this huge bodge is a great functional use of emoji.</description>
-    </item>
-    
-    <item>
       <title>Erik Satie - Vexations (1894)</title>
       <link>/projects/vexations/</link>
       <pubDate>Sun, 10 Mar 2019 15:22:36 +0000</pubDate>
       
       <guid>/projects/vexations/</guid>
-      <description>First recording, 6 hours (2017) During my Junior year of high school, I recorded a 6-hour performance of Erik Satie&#39;s Vexations.</description>
+      <description>First recording, 6 hours (2017) During my Junior year of high school, I recorded a 6-hour performance of Erik Satie&#39;s Vexations. This was extremely underplanned, and a surprising amount went wrong. I used Windows 10&#39;s default camera app with a random webcam, and found - during the recording - Windows Camera had a 2 hour recording limit. Because I was recording audio separately, the audio and video were desynced, so the required merging of the video and audio required some guesswork in matching my fingers to the audio.</description>
     </item>
     
     <item>
@@ -95,7 +86,8 @@ During my second semester, I was deciding between programs at Oxford and Cambrid
       <pubDate>Tue, 19 Feb 2019 12:15:39 +0000</pubDate>
       
       <guid>/projects/mbtaspeedrun/</guid>
-      <description>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.</description>
+      <description>Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops. The ideal time was about 3 hours. In practice, my best time is 3:15.
+The search involved reducing the graph to a 6-node non-directed graph search. All paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.</description>
     </item>
     
   </channel>
