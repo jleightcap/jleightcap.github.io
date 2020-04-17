@@ -1,0 +1,495 @@
+---
+title: "Study Abroad at Cambridge University"
+date: August 1, 2019
+---
+# Post 1: Introduction
+## Background
+Before even going into my first year at Northeastern, I wanted to do a study abroad during my first summer.
+The timing is perfect, all my future summers at Northeastern will be mostly filled with co-op or engineering classes.
+Throughout the entire search for a study abroad program, my focus was on having the classes I would take count for as much as possible.
+
+During my second semester, I was deciding between programs at Oxford and Cambridge, but decided on the Pembroke-Kings Programme (PKP) at Cambridge.
+I'm taking two classes (half a semester), *History of the Modern Middle East* and *Shakespearean Drama*, which fill my last two humanities requirements at Northeastern.
+I'm going to make a whole post later in the program about these classes, and why I chose them.
+
+Without getting into the weird specific details of who I'm paying for what and how much, my costs for this program are covered by my Dean's Scholarship and a GEO (Global Experience Office) Grant from Northeastern, and the YGL Scholarship from the Northeastern [Young Global Leaders](https://www.northeastern.edu/ygl/about-us/), an alumni group for "the globalization of [Northeastern]."  
+
+## Getting to Cambridge
+I flew from Newark to London Stansted with a layover in Copenhagen on SAS.
+Getting a train from Stansted to Cambridge was extremely streamlined, it probably wasn't even necessary to buy my ticket in advance.
+The public transportation around the entire area is fantastic, and in the future it's probably just as easy to fly to Heathrow or another larger airport and get to Cambridge.
+
+## Dorms
+There are a couple different 'bands' of housing available on the program. 
+The cheapest housing band was filled by the time I submitted my deposit, so I'm in the second cheapest housing option, and a week into the program I'm still genuinely shocked at how nice all of the rooms are.
+
+<div style="text-align:center">
+<img src="../Images/cambridge1-1.jpg" width="80%">
+</div>
+<center>***Room in Pembroke College***</center>
+
+I'm living at Pembroke College, in the dorm next to the Pembroke Chapel and across from the Pembroke Library.
+
+<div style="text-align:center">
+<img src="../Images/cambridge1-2.jpg" width="80%">
+</div>
+<center>***View of Pembroke Library from my window***</center>
+
+## The Local Area
+Pembroke College is absolutely gorgeous.
+
+<div style="text-align:center">
+<img src="../Images/cambridge1-3.jpg" width="80%">
+</div>
+<center>***View of Old Court and the Porter's Lodge***</center>
+
+There are too many courts, lawns, orchards, and greens to take pictures of. 
+Unlike Northeastern where it's an advertising point to talk about 'hanging out on Centennial Common' and the 'Urban Oasis' of Boston, there is a *strict* policy of not stepping on the grass at Cambridge, to the point where there are signs everywhere, *in multiple languages*, telling people not to step on the grass.
+
+<div style="text-align:center">
+<img src="../Images/cambridge1-4.jpg" width="80%">
+</div>
+<center>***View of dorm, Pembroke Chapel, and Pembroke Library from the Library Lawn***</center>
+
+I really wanted to include a picture of the gigantic hall where we eat, but pictures aren't allowed while students are eating and it's locked otherwise.
+
+## Cambridge (the city)
+I've spent a lot of my time so far just wandering around Cambridge, and in a lot of ways it really reminds me of downtown Boston.
+Old North Church surrounded by huge glass buildings is similar to churches from the 1300s next door to a Caffè Nero or Pizza Hut.
+Being a college town, there's also the overwhelming amount of cafes and places to get coffee, to the point where I could probably get coffee from a different place every morning I'm here.
+There's also the similar tiny streets and sidewalks flooded with tourists, which is something I didn't miss.
+
+Even the Fitzwilliam Museum within view of Pembroke College really reminds me of the MFA, even down to the free admission and modern art on the lawn (although not as iconic as the baby heads).
+Speaking of museums, my next post will be about what museums I've visited. 
+
+# Post 2: Museums
+## Museum of Archaeology and Anthropology
+One of the handful of museums within a 5 minute walk of Pembroke College, the Museum of Archaeology and Anthropology's most interesting exhibit was about the local area. 
+I'd never bothered to look up why, but the College/University system at Cambridge is really distinct from the American system where "College" and "University" are used almost interchangeably ("Boston College" lying to you twice is a good example of the distinction).
+With objects from the founding of the early colleges at Cambridge, the exhibit mentioned the conflict between the scholars with royal protections and the locals causing the need for the castle-like colleges.
+The colleges all have the layout of walled monasteries, with individual living spaces surrounding an open courtyard, a grand hall, a chapel, and a library to keep their knowledge safe.
+This caries through to today, where I have to use a keycard to access the college past 7pm when the large, oak doors lock.
+
+## The Fitzwilliam Museum
+The Fitzwilliam Museum is eerily similar to the MFA. 
+There's the modernist sculpture on the lawns, the tacky gift shop and cafe, the pillars -  it all felt very familiar.
+There are two special exhibits on display while I'm here - the Beggarstaffs poster exhibition and an exhibition of paper fans.
+Both exhibitions showed how a medium considered fairly mundane can be elevated to a fine art, and the fans were particularly interesting because of their connection to origami.
+
+## Sedgwick Museum of Earth Sciences
+A very large building filled with many rocks. I had fun looking at rocks for about half an hour before I decided I had seen enough rocks.
+There's a small room at the end of the long, main exhibition that focused on crystals.
+
+<div style="text-align:center">
+<img src="../Images/cambridge2-1.jpg" width="80%">
+</div>
+<center>***AP Chemistry memories***</center>
+
+The pretty colors and little models are much more my speed.
+
+## Scott Polar Research Institute (Polar Museum)
+This has been one of my favorite museums so far.
+I walked by it on my way to my dorm on my first day here, not having heard of it before.
+
+<div style="text-align:center">
+<img src="../Images/cambridge2-2.jpg" width="80%">
+</div>
+<center>***One of the two entrance domes, with an antique map of each pole***</center>
+
+Half of the museum was a timeline of Arctic exploration, and the other half was a timeline of Antarctic exploration. 
+It took about 2 hours total to walk through both halves, and by the end of each half you really get a good sense of the characters and scale of both explorations.
+
+<div style="text-align:center">
+<img src="../Images/cambridge2-3.jpg" width="80%">
+</div>
+<center>***no booping was allowed***</center>
+
+I also really liked the memorial to sled dogs.
+
+## Cambridge Museum of Technology
+This was another museum that I just happened to stumble across.
+The museum is a renovated decommissioned sewage pump station, and is a museum for just that.
+It gives a history from early Cambridge when sewage was dumped into the River Cam to efforts to follow London in modernizing sewage treatment.
+
+<div style="text-align:center">
+<img src="../Images/cambridge2-4.jpg" width="80%">
+</div>
+
+The museum also includes a separate building dedicated to the history of manufacturing in Cambridge which reminded me of the history of Westinghouse.
+
+## The Centre for Computing History
+This has definitely been my favorite museum I've visited.
+You first walk into the building and see the "Megaprocessor", a microprocessor built to the scale of a large, hobbyist transistor.
+Every logic gate is built from these large transistors, and these build up to the ALU, I/O, and all the way up to structured  Opcode and a playable game of Tetris.
+This all includes extensive documentation, and I really could've spent all day trying to map out each piece.
+The creator is doing a Q/A at the museum later this month, and I definitely plan to visit at least a few more times.
+
+The next room has computers free to mess around on from the 1960s up to modern PCs. There was a book on BBC Micro programming, so of course I had to at least figure out
+
+    I=1
+    PRINT FACTORIAL(I)
+    I=I+1
+    GOTO 2
+    END
+    DEF FACTORIAL(N)
+    IF N<=1 THEN =1 ELSE =N x FACTORIAL(N-1)
+
+The last exhibit was focused on biographies of people involved in the computer revolution, with a focus on women that have been historically underrepresented in the history of computer science.
+There's even a portrait of Zucc hanging ominously over you to really complete the experience.
+
+## Whipple Museum of the History of Science
+This museum has the interesting goal of documenting the historical aspect of science, which mostly focused on teaching aides and antique lab equipment.
+It included an entire exhibit for globes, Darwin's microscopes, and even had number pseudo-scientific equipment on display, like a glorified Wheatstone bridge from the Church of Scientology that claims to measure thoughts.
+
+<div style="text-align:center">
+<img src="../Images/cambridge2-5.jpg" width="80%">
+</div>
+<center>***AP Physics memories***</center>
+
+It even included an early Atwood Machine, which if you've ever learned about masses on a pulley or an expression like
+`\[ \vec{a} = \frac{m_2 - m_1}{m_1 + m_2}\vec{g} \]`
+
+# Post 3: Concerts
+If you know me, then you know I like classical music to the point where it's almost concerning. 
+So, a fair amount of my evenings here in the UK have unsurprisingly been hanging out with old people listening to classical music.
+
+Because these concerts have been at night, my pictures have been pretty bad. So this post is going to be pretty scant on pictures, sorry.
+
+## Cambridge Summer Music Festival
+### Bach - *St. John Passion*
+This was the fist concert I went to here, and was the season opener for the *Cambridge Summer Music Festival*. 
+I didn't get the booklet with the English translation, so I got to enjoy the Gospel of John for two hours in lovely German that I don't understand.
+Still a fantastic experience.
+
+### Britten Sinfonia Academy
+The [Britten Sinfonia](https://en.wikipedia.org/wiki/Britten_Sinfonia) is very similar to [A Far Cry](https://en.wikipedia.org/wiki/A_Far_Cry) in Boston, both being chamber orchestra groups with no 'leader' - all members have equal leadership and they play with no conductor. 
+A Far Cry frequently collaborates with students at the New England Conservatory, and similarly the Britten Sinfonia has an academy for high school students to get involved in a chamber group. 
+I didn't know this was going to be a concert played mostly by teenagers, especially when the program included pieces like Ligeti's [*Romanian Concerto*](https://youtu.be/hzKHTadm-PA) or Mendelssohn's [*Overture 'The Herbrides'*](https://youtu.be/MdQyN7MYSN8) - pieces very far beyond what most high school students would play.
+
+### Ben Comeau Lunchtime Concert
+This was an unexpectedly fun concert. 
+When buying tickets, there was no announced program, but the blurbs about the pianist were interesting enough and the tickets cheap enough that I decided to go anyway.
+I've noticed in the UK that programs aren't free - any concert I've been to in the US shoves programs in your face, which makes sense considering they're short novels of advertisements with maybe two pages of program notes.
+So, this concert was a game for me of seeing if I could recognize the pieces as he went.
+The first was excerpts from Bach's [*The Musical Offering*](https://youtu.be/PcTVkOzrzQs), I didn't recognize the second, and the third was Ravels [*Alborada del Gracioso* from *Miroirs*](https://youtu.be/SCKDG7w2S9c). 
+
+As he was playing his main program, he passed around a piece of paper asking for musical themes.
+After the first three pieces, he mentioned the second was the premier of a piece he had composed (so I felt better about not knowing it), and collected the list of themes and improvised on them, which was honestly the highlight of the concert. 
+He started with Hedwig's Theme played as a tango, and of course any improvisation wouldn't be complete without music from Frozen, but there were really neat nods for people in the *know*, like Claire de Lune played in the style of Ravel's [Scarbo](https://youtu.be/b7oJqi52d2I).
+
+I of course requested [4'33"](https://youtu.be/Gjj9VBcLQJ8), and I assume this was just too funny for him to consider.
+
+### Brandenburg Concerti
+This was the second time I went to a concert of Bach's complete *Brandenburg Concerti*, and this certainly was a concert of Bach's complete *Brandenburg Concerti*. 
+I really don't have much to say about this concert other than finding it really relaxing, so instead I'll share a story from the first concert where I heard these pieces.
+
+There are six concerti, each with three movements. 
+I went to this concert with my mom and my sister, and my mom being extremely patient with me dragging her to very long concerts of music that she isn't extremely interested in, started putting her coat on after the last movement of the second Concerto.
+It took me a second to understand, and I still look back on that and laugh.
+I try to remember that when people don't follow the right 'etiquette' at concerts - not everyone is as 'ingrained' in classical music, and it's not good to fall into elitism about people not knowing things about it - like the difference between a movement and a Concerto.
+
+### Goldberg Variations
+This is my second time listening to the Goldberg Variations in Cambridge!
+Just a different one this time.
+Christopher Taylor  played the Goldberg Variations at Longy School of Music of Bard College last December, along with Rzewski's *The People United Will Never Be Defeated* (which is still one of the best concerts I've been to).
+
+Bach's [Goldberg Variations](https://youtu.be/Ah392lnFHxM) are definitely something you can listen to over and over again and always find something new to like. 
+I left this concert with the last variation stuck in my head, which is one that never really stuck with me before.
+
+## BBC Proms
+The BBC Proms are probably the things I've most looked forward to here.
+I was impatient and bought tickets before my class schedule came out, so I have had to skip some concerts, but I have been to one so far - Proms 8, *Invitation to the Dance* at Royal Albert Hall in London.
+
+<div style="text-align:center">
+<img src="../Images/cambridge3-1.jpeg" width="80%">
+</div>
+<center>***There's no way I could take a picture this nice - [Image Source](https://en.wikipedia.org/wiki/The_Proms)*** </center>
+
+The program  was Debussy's *Prélude à l'après-midi d'un faune*, Barók's *Dance Suite*, a violin concerto composed by the conductor Péter Eötvös, and Stravinsky's *The Firebird*.
+
+The Debussy is one of my favorite pieces, and for anyone that likes Impressionism the two pieces I really love from the period are Debussy's [*Prélude à l'après midi d'un faune*](https://youtu.be/X7rtImnDkEc) and Ravel's [*Daphnis et Chloé*](https://youtu.be/sYNlYMvFA5U).
+
+## Jack Gibbons Oxford Series
+Jack Gibbons is a pianist that I found through YouTube, and will take any opportunity to see play.
+I found him through his performances of Alkan, a composer who experienced a kind of revival in the 1970s, and Jack Gibbons at the age of 17 gave the second ever complete performance of Alkan's complete [*Concerto for Solo Piano*](https://youtu.be/6-YXdfKK4J0).
+
+I first saw him play the Gershwin [*Concerto in F*](https://youtu.be/ghEa1x23low) in  New Jersey, but this concert was *The Life of Chopin*, unsurprisingly about Chopin.
+There was a really good mix of Chopin's more large-scale pieces like the famous [*"Heroic" Polonaise*](https://youtu.be/8QT7ITv9Ecs) and the smaller Etudes, Mazurkas, and Waltzes.
+
+He plays these concerts every year at the Holywell Music Room at Oxford, which is surprisingly difficult to get to from Cambridge, especially when trying to get back to Cambridge at midnight with classes the next day.
+Even though Cambridge and Oxford are pretty close if you drive, for public transportation you have to go through London.
+I ended up checking into an Airbnb.
+
+# Post 4: Classes
+## Background
+I'm taking two classes while I'm at Cambridge - *History of the Modern Middle East* and *Shakespearean Drama*. 
+There were some more 'traditionally' STEM classes available, but these two classes at least cover my last two humanities requirements at Northeastern.
+I definitely enjoy humanities classes I take, and I think it's important to find a balance in what you learn, but it's definitely a factor for me that these classes compress my humanities requirements into a 6 week period rather than taking up two classes in a ~15 week semester.
+As an aside, I have had a change of heart about what classes I take in general throughout my first two semesters that lead me to get my humanities requirements 'out of the way' here.
+When I was asking my GEO adviser at Northeastern about what classes I was planning on taking, he jokingly pointed out just how intensely everyone at Northeastern cares about what classes they take - that's certainly been true, and as a result I've been given some great advice that I'm really thankful for early into college.
+Maybe it's not a good idea to say this on a blog that's a requirement for a scholarship from Northeastern, but unless you're not paying for your own tuition, as a general rule take as few classes as possible to graduate.
+
+I planned out 8 semesters worth of classes with 3 minors the summer before my freshman year - I had this huge web of classes that would double or triple count for requirements.
+In my first two semesters, after not particularly learning anything in the unskippable Cornerstone of Engineering I and II, my view on prerequisites and required classes soured a little.
+After asking around, it became even more clear that it's not a hard rule that a class being required means that class is actually going to be worthwhile to learning about that subject. 
+I looked back on the classes I laid out for the next 3 or 4 years and really asked myself, am I actually interested in this specific class, or do I just want to jump through the arbitrary hoops for the line "{x,y,z}, minors" on my resume?
+My approach to taking classes now is much more dependent on if I think that a class will actually be rigorous and teach me skills that will be useful.
+I kind of wish I had this mindset earlier - I can think back on 4 of the 8 classes I've taken so far at Northeastern and pretty confidently say that I didn't learn as much as I would've wanted to.
+Of course, learning the material and being enthusiastic about the subject is still on me, I don't want to put any blame on my professors.
+
+So, after that long tangent, that explains my mindset in taking my humanities requirements here. 
+I'm getting them out of the ways early in an optional half semester so I can really focus on classes that are going to directly impact my future plans at Northeastern.
+Is that going to make me the most well rounded person? Of course not.
+But I'll be in a little less debt.
+
+## Class Setup
+Classes are intense.
+All classes have the same setup - 12 lectures and 8 seminars.
+Lectures are nothing particularly out of the ordinary, but seminars are somewhat unique to Cambridge and Oxford (where they're called tutorials).
+Both classes have seminars of about 10 people, and the professor pretty much only serves to point conversation, not generate it - more 'here's a topic, discuss,' which makes it immediately and abundantly clear if you did not understand the readings.
+Hypothetically.
+
+### Readings
+Every lecture and seminar has an associated reading. 
+Each lecture and seminar has a reading totaling about 100 pages, which is in stark contrast to the about 0 pages a day average I was reading before starting classes. 
+It's not uncommon to finish my last class of the day, then read in all my free time up until the first class the next day.
+I don't want to make this sound like a bad thing, I've wanted to get back into the habit of reading, and this is definitely a baptism by fire.
+
+### Exams and Dissertations
+It's important to point out that the last class I had to write a major essay in was probably AP English in my junior year of high school, so saying I'm rusty with writing is definitely an understatement.
+For people who write much more frequently, I'm sure essays are much more welcome - but personally I'll take a problem set any day of the week.
+Halfway through the course, classes release a list of about 10 discussion questions, and you answer 2 in less than 1000 words, due in a week.
+Doesn't sound too bad considering these blog posts are ~1000 words, but the prompts are extremely detailed.
+My draft for both prompts was about 3000 words, and both were cut down to about 950 words each.
+
+Dissertation questions are released early into the course and due in the last week. This is a much more general prompt with a word limit of 2500. I've been working on both dissertations, and they're still very challenging.
+
+Those 3 essays determine your grade for each course, in stark contrast to my experience throughout high school and college where it seems you're being graded for something every time you blink.
+
+I don't know what system I prefer - at Northeastern I can at least tell if I'm not understanding something early on and correct it, but the system here is much more focused on become very well acquainted with one slice of the class rather than being tested lightly on everything.
+
+### Study Spaces
+It's really easy to get work done when there are so many gorgeous places to work.
+
+<div style="text-align:center">
+<img src="../Images/cambridge4-1.jpg" width="80%">
+</div>
+<center>***Pembroke College Library***</center>
+
+The library is open 8am-12am, is rarely crowded, and completely silent.
+I want to pick this building up, destroy Snell, and put it in its place. 
+
+<div style="text-align:center">
+<img src="../Images/cambridge4-2.jpg" width="80%">
+</div>
+<center>***Christ's Pieces***</center>
+
+My nightly routine at this point is to get a sausage from a food truck, and read the day's Shakespeare reading in Christ's Pieces park.
+Not great for writing, but any park around Cambridge is super nice to read in.
+
+# Post 5: An Average Day
+I'm going to take you through a day here at Cambridge! 
+I've picked a day where I was ahead on work, so hopefully this is more interesting than "I've spent the entire day in the library."
+
+## 8am - 1pm: Trip into London, *Tate Modern*
+
+I got up early to take the train into London - I'm still impressed by the public transportation throughout the UK. 
+People that spent more than a certain amount on a ticket for this train into London were refunded because the train was 10 minutes late - that's in stark contrast to the MBTA where you should consider yourself lucky if your train shows up within the hour.
+
+I've been at King's Cross Station a couple times now, and I still love to just look around.
+It's absolutely gorgeous.
+
+<div style="text-align:center">
+<img src="../Images/cambridge5-1.jpg" width="80%">
+</div>
+<center>***King's Cross Station***</center>
+
+As long as you avoid the line that sprawls from platform 8 to 11, it's really lovely.
+
+I took the Tube to Tate Modern,  a famous museum of contemporary art in south London very similar to the ICA in Boston. Even if you aren't that interested in the art, there's a great view over the city.
+
+<div style="text-align:center">
+<img src="../Images/cambridge5-2.jpg" width="80%">
+</div>
+<center>***View of London from Tate Modern***</center>
+
+There's exhibits all throughout the building, the landing of the elevator on the second floor has this really pretty hanging polyhedron made of mirrors that reflects the light.
+
+<div style="text-align:center">
+<img src="../Images/cambridge5-3.jpg" width="80%">
+</div>
+<center>***I think this is by Alexander Calder?***</center>
+
+Alexander Caleder inspired this sculpture of the International Space station, constructed out of metal in such a way that it acts as a functional antenna.
+For a 10 minute period every day, the encrypted data sent back from the ISS can be heard.
+Apparently voice transmissions could be heard plainly at one point, but are much less common now.
+I couldn't find anywhere when this 10 minute window is, and I was not lucky enough to hear it.
+It's still a really cool sculpture, especially with the overhead lighting casting shadows on the white walls of the otherwise empty room.
+
+<div style="text-align:center">
+<img src="../Images/cambridge5-4.jpg" width="80%">
+</div>
+<center>***Jennifer Allora and Guillermo Calzadilla - Ten Minute Transmission***</center>
+
+Keeping with the theme of radios is *Babylon*, a tower of radios each tuned to a different station.
+It's supposed to act as a 'tower of incomprehension', and you definitely get a sense of that when you walk into the room to just a mass of sound.
+If you walk really close and focus, you can hear fragments of BBC broadcasts or some recognizable music, but in general it's just incomprehensible.
+The idea of the sculpture, in line with the biblical allusion, is especially potent now in the information age with rising extremism and polarization in a time when communicating is easier than ever.
+
+The random aspect of radios was really popular in aleatoric music, like in John Cage's [*Imaginary Landscape No. 4 for 12 Radios*](https://youtu.be/SSSn0odpHKE) or his *Water Music*, which I did a performance of.
+
+<div style="text-align:center">
+<img src="../Images/cambridge5-5.jpg" width="80%">
+</div>
+<center>***Cildo Meireles - Babylon***</center>
+
+I also enjoyed the artwork on display by Chris Burden and Joseph Beuys - I recognized their names from some performance art I'm familiar with.
+Chris Burden is famous for performance art based on personal danger: like *Shoot*, where he was shot in the arm in a gallery, or *Do You Believe in Television* where "he sent an audience to the third floor of a building — where television monitors showed them the ground floor — and then lit a fire on the ground floor".
+Joseph Beuys was also on display -- he's famous for similar performance art, like locking himself in a room with a coyote for three days.
+
+Although not nearly as extreme, Chris Burden's *Five Day Locker Piece* where he was locked in a small locker for 5 days was at least motivation for my 34 hour performance of Satie's *Vexations* (which you can read about under *Projects*, if you're curious).
+
+<div style="text-align:center">
+<img src="../Images/cambridge5-6.jpg" width="80%">
+</div>
+
+I didn't spend as long in Tate as I expected, so I decided to walk back to King's Cross. This turned out to be a bad idea, as it turns out my GPS coverage isn't that great in London, but hey I got to see more than I would've otherwise.
+I love the green spaces in London, parts remind me of Comm Ave in Boston with the trees lining the roads in the center of the city.
+
+## 1pm - 2pm: Research
+
+I'm trying to get a research position for the fall, so I'm writing up a short kind of please-accept-me-even-though-I-haven't-taken-that-specific-class-yet proposal.
+
+<div style="text-align:center">
+<img src="../Images/cambridge5-7.jpg" width="80%">
+</div>
+
+I wasn't thinking about switching from Engineering in the first place, but how much of a relief I get when switching back to math over writing dissertations definitely makes me more confident in not switching.
+
+## 2pm - 6pm: Classes and Readings
+
+I wanted to reread an act of *The Winter's Tale* for today's Shakespeare lecture, then had two lectures back to back.
+
+## 6pm - 7pm: Piano
+
+The chapel at Pembroke is usually pretty empty in the evenings, so I practice on the little upright they have in there. Today it was particularly empty so I could practice for a while.
+
+<div style="text-align:center">
+<img src="../Images/cambridge5-8.jpg" width="80%">
+</div>
+<center>***Pembroke College Chapel***</center>
+
+<div style="text-align:center">
+<img src="../Images/cambridge5-9.gif" width="80%">
+</div>
+
+## 7pm - 11pm: Dissertation
+
+I'm really glad I decided to write on a day where I was ahead on work because there's really not a lot to say about it. I worked on my Shakespeare dissertation on the plurality of identity in *The Winter's Tale*, which is just riveting.
+
+# Post 6: Conclusion & Reflections
+This final post is going to cover my general experience abroad, and recommendations both specifically for Cambridge and this program as well in general for a study abroad.
+
+## Cambridge and the PKP
+### Pembroke-King's Programme
+As a bit of a reiteration of my first post, this study abroad was through the *Pembroke-King's Programme*, a six-week program(mme) that runs from early July into mid-August.
+At least for Northeastern, this runs about halfway through summer break until about a week or two before the start of the fall semester.
+The classes provided were an opportunity to finish all of my humanities requirements early into college (see the post about classes for more details), and while this definitely does have its benefits, it lead to a kind of mixed experience.
+First, I mostly picked both my classes and this program with the intention of filling these completely arbitrary requirements -- and this lead to me not really picking classes based on personal interest.
+
+The first hurdle I really experienced in terms of academics was just the sheer amount of reading that needed to be done on a daily basis.
+As I think I've  mentioned before in these blogs, I really have been wanting to get back into reading, and this was not any kind of gentle reintroduction which I do appreciate.
+This became overwhelming at some points, definitely.
+
+This transitions into a big point for classes at Cambridge (and more generally in the UK, as I've been told, but don't hold me to that).
+It seems like a very 'American' thing (again speaking broadly) to test constantly -- the result of this is that it takes a very short time to fall behind, and what you get from the class is probably a pretty even spread of topics across the syllabus.
+In contrast, the grades for the classes at Cambridge are only based on a written exam and a final dissertation.
+Maybe it's just my upbringing in the former test-heavy environment, but my work ethic throughout the classes was much more a falling into habit of trying to stay 'up-to-date' on my readings.
+But, I think a much more helpful mindset would be to cater to the examination style.
+When writing the dissertations, very few of the readings actually had any direct influence on the research process.
+Rather, a more efficient use of time would've been to be familiar with all of the readings, but decide a dissertation and exam topic early on and really focus on those ideas.
+I think treating every subject in both classes as a possible dissertation topic ended up wasting a lot of time overall.
+
+Since I'm about to go back to Northeastern and of course start my very STEM-heavy courseload again, reflecting on the classes I took really makes me enjoy the classes I'm taking even more.
+I learned more in having to write dissertations than I could've imagined, and I'm sure improving my writing skills from their atrophied maybe 10th-grade state can't hurt, but I'm very glad to be going back to my comfort zone of problem sets and concrete answers in finite time.
+
+While a lot of what I've written about is pretty similar to the Classes blog post, I think it's been interesting reflecting on the program instead of just summarizing my experiences during the program.
+
+#### History of the Modern Middle East
+As a recount for both of these classes, I don't think I could've been luckier in just taking classes just based on graduation requirements.
+From the outset, I loved the professor for this class.
+I really appreciate people who have an intense interest in extremely specific things, and this professor definitely gave off those same vibes.
+The course started in the 1800s (being the Modern Middle East), but had readings that extended all the way back to the beginnings of Islam.
+The course extended up into the Arab Spring, but throughout the lectures had moments of extending to current-day conflicts.
+
+My favorite part of this class by far was the last seminar.
+The professor about halfway through just asked "any questions for me?", and his insights on anything and everything people brought up was super interesting.
+I really enjoyed how much of an emphasis he put on the design of the course, and his insights into teaching in general - just talking about how arbitrary the lines are between different history classes and how they're structured, and how a lot of scholarship done about non-Western places done for most of history is constantly reconsidered.
+In general, I have much more of an appreciation for history classes after taking this.
+
+#### Infinite Variety Shakespearean Drama
+Why did no one tell me Shakespeare was this interesting before?
+Not that my high school English teachers failed me or anything, but my only memories of analyzing Shakespeare in high school were churning out essays in a couple hours.
+Maybe it was just the focus of having an entire class dedicated to Shakespeare, but I really enjoyed everything I read.
+The professor again was unbelievable, the breadth of his knowledge never ceased to amaze me - if anyone analyzed even the smallest of detail, he'd not only be familiar, but be able to cite entire books or essays that analyzed that exact thing just off of the top of his head.
+Again, a professor that is great to talk to just because of how intensely interested he is in English literature. 
+
+## Studying Abroad in General and Personal Experience
+The rigor of the classes I took wasn't an issue in and of itself, I probably spend a pretty similar amount of time and effort on classes during the semester at Northeastern, but this was really in direct conflict with the internal and external pressures to do 'interesting' stuff while abroad.
+Don't get me wrong, because these classes were just as much work I get credit for them (which was kind of the point of doing a study abroad), but in the context of being required to write this blog, wanting to explore Europe, and family being interested in what my plans were, lead to a lot of beating myself up for time management.
+It was demoralizing to have all these plans going in fall apart because I had to focus most of my time on academics -- again, that isn't a failure of the program, rather a failure of judgement on my part.
+I originally had plans for every weekend, which ended up being pretty hard to accomplish with the pressure from classes.
+
+Which leads me to my major point of advice if anyone does this program (or a similar one) -- I didn't know a lot people there were taking these classes pass/fail until the very end of the program.
+This really explained a lot in hindsight -- I was really intimidated talking to people about how much they traveled -- and just generally did -- outside of classes, and frequently felt inadequate because of it.
+Sure, a lot of that might stem from insecurities, but it generally made me feel as if I was disproportionately struggling in these classes because I spent most of my time on academics.
+It warrants repeating -- *a LOT of people are taking these classes pass/fail*.
+Some needed context is the grading scale used -- what might be considered failing for some classes I've taken at Northeastern is a passing grade at Cambridge.
+For the people that took their classes pass/fail, or generally not for credit, I absolutely don't blame them for putting less emphasis on classes and spending time travelling and being a tourist.
+I definitely would've done the same.
+When this was brought up to one of my professors towards the end of the program, he was kind of shocked when me and the other people from Northeastern said we were taking the class for credit.
+
+So, a lot of my struggle from this program might've just been because of my ego -- and I'm even hesitant to mention this struggle because it can definitely come off as "boo hoo, I might get a B" if written in the wrong tone. 
+But, if you're doing a study abroad, these regrets would definitely be my main takeaway.
+Even if you're taking the classes for credit like I did, at least consider that a C is just as passing as an A.
+
+As another reflection, mostly just about the idea of studying abroad during my first summer (especially at Northeastern), I wish I had put more thought into enjoying what is probably going to be my last full summer.
+Especially during the gap between this study abroad and going back to classes, it does feel like I've squandered what little time I had at left to spend with my friends in my hometown. 
+
+I felt it was important to include that diatribe, but I'll move on to describing some fun things that just didn't fit into a full themed blog post.
+
+### Travel
+#### Edinburgh
+I went to the Edinburgh Fringe Festival on my second weekend - I considered making a blog post just for this it was so fun!
+I bought tickets specifically for Matt Parker, a stand-up comedian/mathematician who I love.
+In fact, he has a book come out recently that's only available in a physical copy in the UK which was a nice coincidence - I made sure to have him sign it!
+This is the second time I've seen him in person, this first in the fall semester at Harvard where he gave a talk about math errors -- which eventually became the topic of his book.
+
+I also saw a couple other comedy shows that were free and going on at the time.
+Edinburgh was mostly just an exercise in public transit in the UK, I really only ended up spending about 3 hours in the city before heading back.
+
+#### Cardiff
+I took the train into Cardiff on a whim and really enjoyed it -- I honestly have no idea what a tourist would want to see in Cardiff so I just kind of mumbled around the city for a couple hours.
+I really enjoyed it, it's a city I was never really recommended to see but I ended up loving it.
+My phone was pretty low on battery at dusk so I don't have any nice pictures to share.
+
+#### London
+I already briefly mentioned my trips into London, but I ended up going to London more and more as the program went on, maybe about fifteen times in total.
+I really loved London, I could see myself living there.
+It seems like the perfect blend of Boston and New York City.
+
+Going into London the first time being unfamiliar with the public transit, I planned a ridiculous amount of time just in case something went wrong or I got lost.
+By the end of the program if I had more than three hours free I'd jump at the opportunity to go into London.
+
+#### Ely
+A really small town just north of Cambridge, really quaint with a lot of similar Gothic architecture to Cambridge.
+Maybe it was just being desensitized by seeing King's Chapel every day, but I wasn't as floored as I probably should've been giving how pretty the city was.
+
+### Food
+I was pretty frugal about eating out, but the food in Cambridge and London was fantastic.
+There are so many restaurants in and around the city that I really didn't even eat at a fraction of what was available.
+
+I of course have to mention Sainsbury's -- as far as I can tell it's roughly equivalent to 711 -- which means I instantly liked it.
+
+London was the true highlight, and I made sure to eat somewhere and eat somewhere new every time I went. For a quick reference, I used Tom Scott and Matt Gray's [Places to eat in London](https://youtu.be/nOQNAzvZQnA) as Bible.
+
