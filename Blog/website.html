@@ -1,37 +1,26 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Jack Leightcap" />
-  <meta name="dcterms.date" content="2020-04-03" />
   <title>Why this website looks like the year 2005</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <link rel="stylesheet" href="../style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../style.css" type="text/css" />
 </head>
 <body>
-<header id="title-block-header">
+<div id="header">
 <h1 class="title">Why this website looks like the year 2005</h1>
-<p class="author">Jack Leightcap</p>
-<p class="date">April 3, 2020</p>
-</header>
+<h2 class="author">Jack Leightcap</h2>
+<h3 class="date">April 3, 2020</h3>
+</div>
 <h1 id="background">Background</h1>
-<p>I spent a decent amount of time tinkering with <a href="https://gohugo.io/">Hugo</a> previously. It’s a really simple way to just import a theme, write some simple pages in markdown, and you’re set.</p>
-<p>Over time, I’ve come to appreciate the look of bare HTML with minimal CSS more and more. Javascript is very nice but I personally don’t feel compelled to use it for my website. So this is how I made this website with <code>pandoc</code> as a backbone.</p>
+<p>I spent a decent amount of time tinkering with <a href="https://gohugo.io/">Hugo</a> previously. It's a really simple way to just import a theme, write some simple pages in markdown, and you're set.</p>
+<p>Over time, I've come to appreciate the look of bare HTML with minimal CSS more and more. Javascript is very nice but I personally don't feel compelled to use it for my website. So this is how I made this website with <code>pandoc</code> as a backbone.</p>
 <h1 id="using-pandoc-as-a-static-website-generator">Using <code>pandoc</code> as a static website generator</h1>
 <h2 id="rationale">Rationale</h2>
-<p>I’m treating the source of this website like the source of a C program.</p>
+<p>I'm treating the source of this website like the source of a C program.</p>
 <blockquote>
 <p>CSS is like the header files, it defines some shared parameters to be imported and expanded on elsewhere.</p>
 </blockquote>
@@ -53,7 +42,7 @@
 ├── Makefile
 ├── index.md
 └── pandoc.css</code></pre>
-<p>I’ve written the Makefile so that the compiled %.html lives in the same space as the source %.md. I <del>can’t be bothered to change that</del> decided this was a feature, so everything is <del>entirely unsecured</del> open source.</p>
+<p>I've written the Makefile so that the compiled %.html lives in the same space as the source %.md. I <del>can't be bothered to change that</del> decided this was a feature, so everything is <del>entirely unsecured</del> open source.</p>
 <p>Poke around and see how I implemented things.</p>
 </body>
 </html>

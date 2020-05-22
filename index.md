@@ -24,6 +24,7 @@ I love all things Linux, Embedded, and low-level.
 - <a href="Project/mbtaspeedrun.html">Charlie "The Travelling Salesman" on the MBTA</a>
 
 # Blog
+- <a href="Blog/music.html">Replacing Spotify and Google Play Music on Linux</a>
 - <a href="Blog/website.html">Why this website looks like the year 2005</a>
 - <a href="Blog/todoearlier.html">"Why didn't someone tell me about this earlier!?"</a>
 - <a href="Blog/cambridge.html">Study abroad at Cambridge University</a>

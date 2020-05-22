@@ -11,6 +11,8 @@ After about a month of getting up to speed in vim, you shortly rocket past your 
 
 - Shell scripting.
 The tools can be complicated in and of themselves to learn -- it's easy to copy-paste from SO a `sed` expression and be done, but it's worth it to understand what you're doing and constantly improve your toolbox.
+On the other hand, Python is a really good drop-in replacement for shell scripts
+if you don't feel like wading through ancient Unix utilities.
 
 ## LaTeX
 - Making templates. LaTeX is mostly boilerplate, don't bother trying to memorize it.
@@ -32,9 +34,3 @@ Reach out if you want a splice of my sourdough starter.
 - Don't rely on your memory for menial things.
 Make TODO lists, put events in your calendar as soon as they come up, write down that random good idea you had.
 Use your brain for things that are important.
-- One productive task, no matter how small, makes you more likely to do another.
-The opposite is also true.
-- Be an interesting person to talk to.
-It's great to be hyper-focused on one topic overall, but be able to at least fake your way through a conversation about a lot of different things.
-- Ask people for help.
-
