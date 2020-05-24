@@ -1,21 +1,26 @@
 ---
 title: "Charlie 'the Traveling Salesman' on the MBTA"
+author: "Jack Leightcap"
 date: February 2, 2019
 ---
 
 # Abstract
-Using a brute force Traveling Salesman search of the MBTA Green Line, I found the shortest possible route which visits all 64 stops.
+Using a brute force Traveling Salesman, I found the shortest possible route which visits all 64 stops of the MBTA Green Line.
 
-<div style="text-align:center">
-<img src="../Images/mbtaspeedrun-1.gif" width="80%">
-</div>
+<center><img src="../Images/mbtaspeedrun-1.gif" width="80%"></center>
 
-The ideal time was about 2.5 hours. 
+The ideal time was about 2:30.
 In practice, my best time is 2:47.
 My first attempt had a time of 3:15, which you can watch [here](https://www.youtube.com/embed/LspT5B-S-uw).
 
-The search involved reducing the graph to a 6-node non-directed graph search.
-All paths start and end at the most extreme ends, Lechmere and Riverside respectively.
+# Implementation
+Instead of searching all 64 nodes, the search instead reduced the graph to a 6-node non-directed graph search.
+The consequence of a reduction like this is that the edges of the graph then
+contain stations themselves — this means that the traditional Travelling
+Salesman problem of visiting every node is modified to visit every node *and*
+visit every edge.
+
+To reduce search time, all paths start and end at the most extreme ends, Lechmere and Riverside respectively.
 Directionality was determined based on MBTA early morning time tables.
 
 # The Final Route

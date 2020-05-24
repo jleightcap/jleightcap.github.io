@@ -1,6 +1,6 @@
 SRCS := $(wildcard *.md)
 HTML := $(SRCS:.md=.html)
-CSS  := style.css
+CSS  := latex.css
 
 # Blog configuration
 BLOGSRCS := $(wildcard Blog/*.md)

@@ -1,7 +1,11 @@
 ---
 title: "Study Abroad at Cambridge University"
+author: "Jack Leightcap"
 date: August 1, 2019
 ---
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 # Post 1: Introduction
 ## Background
 Before even going into my first year at Northeastern, I wanted to do a study abroad during my first summer.
@@ -23,32 +27,24 @@ The public transportation around the entire area is fantastic, and in the future
 There are a couple different 'bands' of housing available on the program. 
 The cheapest housing band was filled by the time I submitted my deposit, so I'm in the second cheapest housing option, and a week into the program I'm still genuinely shocked at how nice all of the rooms are.
 
-<div style="text-align:center">
-<img src="../Images/cambridge1-1.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge1-1.jpg" width="90%"></center>
 <center>***Room in Pembroke College***</center>
 
 I'm living at Pembroke College, in the dorm next to the Pembroke Chapel and across from the Pembroke Library.
 
-<div style="text-align:center">
-<img src="../Images/cambridge1-2.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge1-2.jpg" width="90%"></center>
 <center>***View of Pembroke Library from my window***</center>
 
 ## The Local Area
 Pembroke College is absolutely gorgeous.
 
-<div style="text-align:center">
-<img src="../Images/cambridge1-3.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge1-3.jpg" width="90%"></center>
 <center>***View of Old Court and the Porter's Lodge***</center>
 
 There are too many courts, lawns, orchards, and greens to take pictures of. 
 Unlike Northeastern where it's an advertising point to talk about 'hanging out on Centennial Common' and the 'Urban Oasis' of Boston, there is a *strict* policy of not stepping on the grass at Cambridge, to the point where there are signs everywhere, *in multiple languages*, telling people not to step on the grass.
 
-<div style="text-align:center">
-<img src="../Images/cambridge1-4.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge1-4.jpg" width="90%"></center>
 <center>***View of dorm, Pembroke Chapel, and Pembroke Library from the Library Lawn***</center>
 
 I really wanted to include a picture of the gigantic hall where we eat, but pictures aren't allowed while students are eating and it's locked otherwise.
@@ -80,9 +76,7 @@ Both exhibitions showed how a medium considered fairly mundane can be elevated t
 A very large building filled with many rocks. I had fun looking at rocks for about half an hour before I decided I had seen enough rocks.
 There's a small room at the end of the long, main exhibition that focused on crystals.
 
-<div style="text-align:center">
-<img src="../Images/cambridge2-1.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge2-1.jpg" width="90%"></center>
 <center>***AP Chemistry memories***</center>
 
 The pretty colors and little models are much more my speed.
@@ -91,17 +85,13 @@ The pretty colors and little models are much more my speed.
 This has been one of my favorite museums so far.
 I walked by it on my way to my dorm on my first day here, not having heard of it before.
 
-<div style="text-align:center">
-<img src="../Images/cambridge2-2.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge2-2.jpg" width="90%"></center>
 <center>***One of the two entrance domes, with an antique map of each pole***</center>
 
 Half of the museum was a timeline of Arctic exploration, and the other half was a timeline of Antarctic exploration. 
 It took about 2 hours total to walk through both halves, and by the end of each half you really get a good sense of the characters and scale of both explorations.
 
-<div style="text-align:center">
-<img src="../Images/cambridge2-3.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge2-3.jpg" width="90%"></center>
 <center>***no booping was allowed***</center>
 
 I also really liked the memorial to sled dogs.
@@ -111,9 +101,7 @@ This was another museum that I just happened to stumble across.
 The museum is a renovated decommissioned sewage pump station, and is a museum for just that.
 It gives a history from early Cambridge when sewage was dumped into the River Cam to efforts to follow London in modernizing sewage treatment.
 
-<div style="text-align:center">
-<img src="../Images/cambridge2-4.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge2-4.jpg" width="90%"></center>
 
 The museum also includes a separate building dedicated to the history of manufacturing in Cambridge which reminded me of the history of Westinghouse.
 
@@ -141,13 +129,12 @@ There's even a portrait of Zucc hanging ominously over you to really complete th
 This museum has the interesting goal of documenting the historical aspect of science, which mostly focused on teaching aides and antique lab equipment.
 It included an entire exhibit for globes, Darwin's microscopes, and even had number pseudo-scientific equipment on display, like a glorified Wheatstone bridge from the Church of Scientology that claims to measure thoughts.
 
-<div style="text-align:center">
-<img src="../Images/cambridge2-5.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge2-5.jpg" width="90%"></center>
 <center>***AP Physics memories***</center>
 
 It even included an early Atwood Machine, which if you've ever learned about masses on a pulley or an expression like
-`\[ \vec{a} = \frac{m_2 - m_1}{m_1 + m_2}\vec{g} \]`
+
+$$ \vec{a} = \frac{m_2 - m_1}{m_1 + m_2}\vec{g} $$
 
 # Post 3: Concerts
 If you know me, then you know I like classical music to the point where it's almost concerning. 
@@ -200,9 +187,7 @@ I left this concert with the last variation stuck in my head, which is one that 
 The BBC Proms are probably the things I've most looked forward to here.
 I was impatient and bought tickets before my class schedule came out, so I have had to skip some concerts, but I have been to one so far - Proms 8, *Invitation to the Dance* at Royal Albert Hall in London.
 
-<div style="text-align:center">
-<img src="../Images/cambridge3-1.jpeg" width="80%">
-</div>
+<center><img src="../Images/cambridge3-1.jpeg" width="90%"></center>
 <center>***There's no way I could take a picture this nice - [Image Source](https://en.wikipedia.org/wiki/The_Proms)*** </center>
 
 The program  was Debussy's *Prélude à l'après-midi d'un faune*, Barók's *Dance Suite*, a violin concerto composed by the conductor Péter Eötvös, and Stravinsky's *The Firebird*.
@@ -271,17 +256,13 @@ I don't know what system I prefer - at Northeastern I can at least tell if I'm n
 ### Study Spaces
 It's really easy to get work done when there are so many gorgeous places to work.
 
-<div style="text-align:center">
-<img src="../Images/cambridge4-1.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge4-1.jpg" width="90%"></center>
 <center>***Pembroke College Library***</center>
 
 The library is open 8am-12am, is rarely crowded, and completely silent.
 I want to pick this building up, destroy Snell, and put it in its place. 
 
-<div style="text-align:center">
-<img src="../Images/cambridge4-2.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge4-2.jpg" width="90%"></center>
 <center>***Christ's Pieces***</center>
 
 My nightly routine at this point is to get a sausage from a food truck, and read the day's Shakespeare reading in Christ's Pieces park.
@@ -299,25 +280,19 @@ People that spent more than a certain amount on a ticket for this train into Lon
 I've been at King's Cross Station a couple times now, and I still love to just look around.
 It's absolutely gorgeous.
 
-<div style="text-align:center">
-<img src="../Images/cambridge5-1.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge5-1.jpg" width="90%"></center>
 <center>***King's Cross Station***</center>
 
 As long as you avoid the line that sprawls from platform 8 to 11, it's really lovely.
 
 I took the Tube to Tate Modern,  a famous museum of contemporary art in south London very similar to the ICA in Boston. Even if you aren't that interested in the art, there's a great view over the city.
 
-<div style="text-align:center">
-<img src="../Images/cambridge5-2.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge5-2.jpg" width="90%"></center>
 <center>***View of London from Tate Modern***</center>
 
 There's exhibits all throughout the building, the landing of the elevator on the second floor has this really pretty hanging polyhedron made of mirrors that reflects the light.
 
-<div style="text-align:center">
-<img src="../Images/cambridge5-3.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge5-3.jpg" width="90%"></center>
 <center>***I think this is by Alexander Calder?***</center>
 
 Alexander Caleder inspired this sculpture of the International Space station, constructed out of metal in such a way that it acts as a functional antenna.
@@ -326,9 +301,7 @@ Apparently voice transmissions could be heard plainly at one point, but are much
 I couldn't find anywhere when this 10 minute window is, and I was not lucky enough to hear it.
 It's still a really cool sculpture, especially with the overhead lighting casting shadows on the white walls of the otherwise empty room.
 
-<div style="text-align:center">
-<img src="../Images/cambridge5-4.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge5-4.jpg" width="90%"></center>
 <center>***Jennifer Allora and Guillermo Calzadilla - Ten Minute Transmission***</center>
 
 Keeping with the theme of radios is *Babylon*, a tower of radios each tuned to a different station.
@@ -338,9 +311,7 @@ The idea of the sculpture, in line with the biblical allusion, is especially pot
 
 The random aspect of radios was really popular in aleatoric music, like in John Cage's [*Imaginary Landscape No. 4 for 12 Radios*](https://youtu.be/SSSn0odpHKE) or his *Water Music*, which I did a performance of.
 
-<div style="text-align:center">
-<img src="../Images/cambridge5-5.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge5-5.jpg" width="90%"></center>
 <center>***Cildo Meireles - Babylon***</center>
 
 I also enjoyed the artwork on display by Chris Burden and Joseph Beuys - I recognized their names from some performance art I'm familiar with.
@@ -349,9 +320,7 @@ Joseph Beuys was also on display -- he's famous for similar performance art, lik
 
 Although not nearly as extreme, Chris Burden's *Five Day Locker Piece* where he was locked in a small locker for 5 days was at least motivation for my 34 hour performance of Satie's *Vexations* (which you can read about under *Projects*, if you're curious).
 
-<div style="text-align:center">
-<img src="../Images/cambridge5-6.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge5-6.jpg" width="90%"></center>
 
 I didn't spend as long in Tate as I expected, so I decided to walk back to King's Cross. This turned out to be a bad idea, as it turns out my GPS coverage isn't that great in London, but hey I got to see more than I would've otherwise.
 I love the green spaces in London, parts remind me of Comm Ave in Boston with the trees lining the roads in the center of the city.
@@ -360,9 +329,7 @@ I love the green spaces in London, parts remind me of Comm Ave in Boston with th
 
 I'm trying to get a research position for the fall, so I'm writing up a short kind of please-accept-me-even-though-I-haven't-taken-that-specific-class-yet proposal.
 
-<div style="text-align:center">
-<img src="../Images/cambridge5-7.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge5-7.jpg" width="90%"></center>
 
 I wasn't thinking about switching from Engineering in the first place, but how much of a relief I get when switching back to math over writing dissertations definitely makes me more confident in not switching.
 
@@ -374,14 +341,10 @@ I wanted to reread an act of *The Winter's Tale* for today's Shakespeare lecture
 
 The chapel at Pembroke is usually pretty empty in the evenings, so I practice on the little upright they have in there. Today it was particularly empty so I could practice for a while.
 
-<div style="text-align:center">
-<img src="../Images/cambridge5-8.jpg" width="80%">
-</div>
+<center><img src="../Images/cambridge5-8.jpg" width="90%"></center>
 <center>***Pembroke College Chapel***</center>
 
-<div style="text-align:center">
-<img src="../Images/cambridge5-9.gif" width="80%">
-</div>
+<center><img src="../Images/cambridge5-9.gif" width="90%"></center>
 
 ## 7pm - 11pm: Dissertation
 
@@ -459,7 +422,7 @@ Especially during the gap between this study abroad and going back to classes, i
 I felt it was important to include that diatribe, but I'll move on to describing some fun things that just didn't fit into a full themed blog post.
 
 ### Travel
-#### Edinburgh
+#### Edinburgh ####
 I went to the Edinburgh Fringe Festival on my second weekend - I considered making a blog post just for this it was so fun!
 I bought tickets specifically for Matt Parker, a stand-up comedian/mathematician who I love.
 In fact, he has a book come out recently that's only available in a physical copy in the UK which was a nice coincidence - I made sure to have him sign it!
@@ -468,12 +431,12 @@ This is the second time I've seen him in person, this first in the fall semester
 I also saw a couple other comedy shows that were free and going on at the time.
 Edinburgh was mostly just an exercise in public transit in the UK, I really only ended up spending about 3 hours in the city before heading back.
 
-#### Cardiff
+#### Cardiff ####
 I took the train into Cardiff on a whim and really enjoyed it -- I honestly have no idea what a tourist would want to see in Cardiff so I just kind of mumbled around the city for a couple hours.
 I really enjoyed it, it's a city I was never really recommended to see but I ended up loving it.
 My phone was pretty low on battery at dusk so I don't have any nice pictures to share.
 
-#### London
+#### London ####
 I already briefly mentioned my trips into London, but I ended up going to London more and more as the program went on, maybe about fifteen times in total.
 I really loved London, I could see myself living there.
 It seems like the perfect blend of Boston and New York City.
@@ -481,7 +444,7 @@ It seems like the perfect blend of Boston and New York City.
 Going into London the first time being unfamiliar with the public transit, I planned a ridiculous amount of time just in case something went wrong or I got lost.
 By the end of the program if I had more than three hours free I'd jump at the opportunity to go into London.
 
-#### Ely
+#### Ely ####
 A really small town just north of Cambridge, really quaint with a lot of similar Gothic architecture to Cambridge.
 Maybe it was just being desensitized by seeing King's Chapel every day, but I wasn't as floored as I probably should've been giving how pretty the city was.
 
