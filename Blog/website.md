@@ -1,5 +1,5 @@
 ---
-title: "Writing a Website Like a C Program"
+title: "Designing a Website Like a C Program"
 author: "Jack Leightcap"
 date: "April 3, 2020"
 ---
