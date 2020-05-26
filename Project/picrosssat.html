@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Jack Leightcap" />
+  <meta name="date" content="2020-05-26" />
+  <title>Practical SAT-CNF: Solving Picross</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../latex.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">Practical SAT-CNF: Solving Picross</h1>
+<h2 class="author">Jack Leightcap</h2>
+<h3 class="date">May 26, 2020</h3>
+</div>
+<h2 id="translating-a-puzzle">Translating A Puzzle</h2>
+<p>Writing expressions in <em>Disjunctive Normal</em>, or <em>Sum of Products</em> (SOP), form is simple:</p>
+<span class="math inline"><em>x</em> = {4}</span>:
+<center>
+<span class="math inline">(<em>a</em> ∧ <em>b</em> ∧ <em>c</em> ∧ <em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {3}</span>:
+<center>
+<span class="math inline">(<em>a</em> ∧ <em>b</em> ∧ <em>c</em> ∧ ¬<em>d</em>)∨(¬<em>a</em> ∧ <em>b</em> ∧ <em>c</em> ∧ <em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {1, 2}</span>:
+<center>
+<span class="math inline">(<em>a</em> ∧ ¬<em>b</em> ∧ <em>c</em> ∧ <em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {2, 1}</span>
+<center>
+<span class="math inline">(<em>a</em> ∧ <em>b</em> ∧ ¬<em>c</em> ∧ <em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {2}</span>:
+<center>
+<span class="math inline">(<em>a</em> ∧ <em>b</em> ∧ ¬<em>c</em> ∧ ¬<em>d</em>)∨(¬<em>a</em> ∧ <em>b</em> ∧ <em>c</em> ∧ ¬<em>d</em>)∨(¬<em>a</em> ∧ ¬<em>b</em> ∧ <em>c</em> ∧ <em>c</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {1, 1}</span>
+<center>
+<span class="math inline">(<em>a</em> ∧ ¬<em>b</em> ∧ <em>c</em> ∧ ¬<em>d</em>)∨(<em>a</em> ∧ ¬<em>b</em> ∧ ¬<em>c</em> ∧ <em>d</em>)∨(¬<em>a</em> ∧ <em>b</em> ∧ ¬<em>c</em> ∧ <em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {1}</span>:
+<center>
+<span class="math inline">(<em>a</em>)∨(<em>b</em>)∨(<em>c</em>)∨(<em>d</em>)</span>
+</center>
+<p>However, SAT-CNF solvers require <em>Conjunctive Normal</em>, or <em>Product of Sums</em> (POS), form. This translation in the worst case is <span class="math inline"><em>O</em>(2<sup><em>n</em></sup>)</span>:</p>
+<span class="math inline"><em>x</em> = {4}</span>:
+<center>
+<span class="math inline">(<em>a</em>)∧(<em>b</em>)∧(<em>c</em>)∧(<em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {3}</span>:
+<center>
+<span class="math inline">(¬<em>a</em> ∨ ¬<em>d</em>)∧(<em>a</em> ∧ <em>d</em>)∧(<em>b</em>)∧(<em>c</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {1, 2}</span>:
+<center>
+<span class="math inline">(<em>a</em>)∧(¬<em>b</em>)∧(<em>c</em>)∧(<em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {2, 1}</span>
+<center>
+<span class="math inline">(<em>a</em>)∧(<em>b</em>)∧(¬<em>c</em>)∧(<em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {2}</span>:
+<center>
+<span class="math inline">(¬<em>a</em> ∨ <em>b</em>)∧(¬<em>a</em> ∨ ¬<em>c</em>)∧(<em>a</em> ∨ <em>c</em>)∧(¬<em>b</em> ∨ ¬<em>d</em>)∧(<em>b</em> ∨ <em>d</em>)∧(<em>c</em> ∨ ¬<em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {1, 1}</span>
+<center>
+<span class="math inline">(¬<em>a</em> ∨ ¬<em>b</em>)∧(<em>a</em> ∨ <em>b</em>)∧(¬<em>b</em> ∨ ¬<em>c</em>)∧(¬<em>c</em> ∨ ¬<em>d</em>)∧(<em>c</em> ∨ <em>d</em>)</span>
+</center>
+<span class="math inline"><em>x</em> = {1}</span>:
+<center>
+<span class="math inline">(<em>a</em> ∨ <em>b</em> ∨ <em>c</em> ∨ <em>d</em>)</span>
+</center>
+<table style="width:36%;">
+<colgroup>
+<col width="16%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline"><em>x</em></span></th>
+<th align="center">Expression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">{1}</span></td>
+<td align="center"><span class="math inline">(<em>a</em>)∨(<em>b</em>)∨(<em>c</em>)∨(<em>d</em>)</span></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"><span class="math inline">(<em>a</em> ∨ <em>b</em> ∨ <em>c</em> ∨ <em>d</em>)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">{2}</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"><span class="math inline">(¬<em>a</em> ∨ <em>b</em>)∧(¬<em>a</em> ∨ ¬<em>c</em>)∧(<em>a</em> ∨ <em>c</em>)∧(¬<em>b</em> ∨ ¬<em>d</em>)∧(<em>b</em> ∨ <em>d</em>)∧(<em>c</em> ∨ ¬<em>d</em>)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">{1, 1}</span></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"><span class="math inline">(¬<em>a</em> ∨ ¬<em>b</em>)∧(<em>a</em> ∨ <em>b</em>)∧(¬<em>b</em> ∨ ¬<em>c</em>)∧(¬<em>c</em> ∨ ¬<em>d</em>)∧(<em>c</em> ∨ <em>d</em>)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">{3}</span></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
