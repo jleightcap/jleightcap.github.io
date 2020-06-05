@@ -12,16 +12,16 @@
 <body>
 <div id="header">
 <h1 class="title">Designing a Website Like a C Program</h1>
-<h2 class="author">Jack Leightcap</h2>
+<h2 class="author"><a href="../index.html">Jack Leightcap</a></h2>
 <h3 class="date">April 3, 2020</h3>
 </div>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<h1 id="background">Background</h1>
+<h2 id="background">Background</h2>
 <p>I'm not a huge fan of developing websites. This website was an exercise in treating web development like the development of C programs and their related tools, which I'm much more familiar with.</p>
 <p>Modifying this website only requires editing plaintext Markdown files, a Makefile, and git.</p>
 <p>I spent a decent amount of time tinkering with <a href="https://gohugo.io/">Hugo</a> previously. It's a really simple way to just import a theme, write some simple pages in markdown, and you're set. While I think this is a really good solution for people like me that just want something that looks nice with minimal work, I felt like I didn't have full control or understanding of various elements. If I'm going to have to dig into the CSS and JavaScript anyway, I'd rather write a worse replacement myself but at least understand it fully.</p>
-<h1 id="implementation">Implementation</h1>
-<h2 id="structure">Structure</h2>
+<h2 id="implementation">Implementation</h2>
+<h3 id="structure">Structure</h3>
 <p>In treating the source of this website like the source of a C program:</p>
 <blockquote>
 <p>CSS is like the header files, it defines some shared parameters to be imported and expanded on elsewhere.</p>
@@ -59,8 +59,8 @@ Blog/%.html: Blog/%.md
 
 Project/%.html: Project/%.md
     pandoc -s -c $(PROJCSS) -o $@ $^</code></pre>
-<h1 id="style-elements">Style, Elements</h1>
-<h2 id="css">CSS</h2>
+<h2 id="style-elements">Style, Elements</h2>
+<h3 id="css">CSS</h3>
 <p>I'm using the fantastic <a href="https://github.com/vincentdoerig/latex-css">LaTeX.CSS</a> here, and think it looks fantstic. Instead of copying the source here as I've done, a simple <code>&lt;link&gt;</code> works as well, and may be more elegant for including fonts. I simply prefer to host the source in the same space as the content.</p>
 <p>A minor addition is support for the iconic &quot;<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>&quot;, which can be found <a href="http://nitens.org/taraborelli/texlogo">here</a>. Just make sure to update the font to Latin Modern.</p>
 <h2 id="latex"><span class="latex">L<sup>a</sup>T<sub>e</sub>X</span></h2>

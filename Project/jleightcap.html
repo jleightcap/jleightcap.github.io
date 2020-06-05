@@ -13,14 +13,14 @@
 <body>
 <div id="header">
 <h1 class="title">A Postmortem of Classical Music on YouTube</h1>
-<h2 class="author">Jack Leightcap</h2>
+<h2 class="author"><a href="../index.html">Jack Leightcap</a></h2>
 <h3 class="date">May 24, 2019</h3>
 </div>
-<h1 id="background">Background</h1>
+<h2 id="background">Background</h2>
 <p>From November 2017 to April 2020, I ran a YouTube channel called <em>jleightcap</em>. The channel posted a genre of videos I call <em>scrolling score</em>, where a recording of a piece of classical music is synced to the score. Here is an example for <a href="https://youtu.be/l_UHaulsw3M">Stockhausen's <em>Kontakte</em></a> that I made.</p>
 <p>At its peak, I had over 15 thousand subscribers, a handful of years of watchtime, and amassed an extremely kind group of viewers and friends.</p>
 <p>Throughout March and early April, the channel received a total of 4 copyright strikes, resulting in the deletion of the channel in mid-April 2020.</p>
-<h1 id="copyright-of-classical-music">Copyright of Classical Music</h1>
+<h2 id="copyright-of-classical-music">Copyright of Classical Music</h2>
 <p>In general, these types of videos are allowed to exist because of the kindness (or apathy) of sheet music publishers. Record labels have automated claims that catch about 99% of videos and place ads, so I assume they are slightly more welcome to this type of video because of additional income potential (of course with plenty of major exceptions). This also means that every comment complaining about how there is an ad in the middle of a movement is equally frustrating to the video creator (and entirely out of their control).</p>
 <p>For a lot of the videos I produced, I <em>personally</em> think it's ridiculous the sheet music isn't in public domain, but <em>legally</em> they just aren't.</p>
 <p>So, when a sheet music publisher removes all of their intellectual property from my YouTube channel (even if written a century ago), YouTube places a strike on my channel. With 4 of these in an extremely short window, my channel was unrecoverable.</p>
@@ -30,18 +30,18 @@
 <p>However, I do think it's important to consider that there is already a small market to support living composers, and &quot;freely distributing&quot; (although in video format) sheet music does dig into that market. Personally, I think that exposing a wider audience to classical music as a whole is a net positive for the industry, but that is just my opinion and not a fact. My general rule of thumb has been not to upload pieces by living composers.</p>
 <p>In general, if you're interested in making this type of video, for your own sake, <u>use mostly pieces written before 1900</u>. For me, this just isn't where my interests lie, and the deletion of my channel could be considered only inevitable.</p>
 <p>If you're curious about specific publishers or record labels, there is a Facebook group dedicated to making scrolling score videos filled with very kind, helpful people. I started this group, but have since deleted my Facebook account. Feel free to reach out to an active member of this community for details.</p>
-<h1 id="aftermath">Aftermath</h1>
+<h2 id="aftermath">Aftermath</h2>
 <p>I don't plan on making scrolling score videos at the same frequency or magnitude that I had been. I've heard that others have archived my videos, and I consider these to be 'public domain'. Feel free to reupload entirely at your own risk, with or without credit.</p>
 <p>My current plans are to continue engraving scores in <code>lilypond</code>, and post those to my personal YouTube channel <a href="https://www.youtube.com/channel/UCWt1oAwvbU7EQHWlUE9AvsA">Jack Leightcap</a>. I'd also like to focus on more &quot;gigantic&quot; pieces without worrying about posting often.</p>
-<h1 id="video-production">Video Production</h1>
+<h2 id="video-production">Video Production</h2>
 <p>A frequent question was how I made videos. I developed a tool, <a href="https://github.com/jleightcap/ScrollingScore">ScrollingScore</a>, which attempted to automate some of the more tedious image processing aspects of scrolling score video production.</p>
-<h2 id="finding-or-producing-sheet-music">Finding or Producing Sheet Music</h2>
+<h3 id="finding-or-producing-sheet-music">Finding or Producing Sheet Music</h3>
 <p>This ranges from simply downloading public domain sheet music from the <a href="https://imslp.org/wiki/Main_Page">International Music Score Library Project</a>, to engraving the score myself in <code>lilypond</code> like with <a href="https://youtu.be/TUAxrFQXuO4">Feldman's <em>Piano and String Quartet</em></a> (the source can be found <a href="https://github.com/jleightcap/Feldman-PianoStringQuartet">here</a>) or using inter-library loans and scanning the score myself. I had a lot of fun tracking down music this way.</p>
 <p>There are websites that host scans of non-public domain sheet music that I will not mention out of fear of their takedown.</p>
-<h2 id="obtaining-audio">Obtaining Audio</h2>
+<h3 id="obtaining-audio">Obtaining Audio</h3>
 <p>Can again range from finding the public domain recording on YouTube, to tracking down a record on eBay and converting it yourself.</p>
 <p>This again toes the line of piracy, which for the same reason I won't get into.</p>
-<h2 id="sheet-music-preparation">Sheet Music Preparation</h2>
+<h3 id="sheet-music-preparation">Sheet Music Preparation</h3>
 <p>This is the point where <code>ScrollingScore</code> was intended to be useful. Sheet music preparation includes:</p>
 <ul>
 <li>Straightening images (usually scans will skew each page by rotation/warping)</li>
@@ -50,7 +50,7 @@
 <li>Cluster removal: remove artifacts from scanning or blotches on the pages themselves. This can range from removing unnecessary markings like page headers and footers, to a terrible scan that requires extensive cleaning.</li>
 </ul>
 <p>A more powerful tool I'd recommend is <a href="https://github.com/edwardx999/ScoreProcessor">CMaj7's <em>sproc</em></a>. Fun fact: I won't get into the details, but meeting CMaj7 was one of the craziest coincidences in my life. I guess similar interests lead to similar places.</p>
-<h2 id="audio-synchronization">Audio Synchronization</h2>
+<h3 id="audio-synchronization">Audio Synchronization</h3>
 <p>This is the point where the video is actually assembled. A frequent question was what video editor I used (the answer is <a href="https://www.shotcut.org/">Shotcut</a>), but generally scrolling score videos are glorified slideshows and almost any video editor will be adequate. Of course there are exceptions like Crumb's <em>Makrokosmos</em> where the graphic score actually &quot;rotates&quot;, but graphic scores like this are very much an exception.</p>
 <p>At this point actually being familiar with reading music is required (although from what I've heard from people, the barrier of entry is technological, not musical). For 'traditional scores' (have a time signature, key, aren't extremely complicated), this is usually a two-pass system with one pass for syncing and one for verifying.</p>
 <p>For scores that don't have some or all of those traditional qualities, syncing the audio and score can take as much as thirty times as long as the recording (notable examples from my experience: Ligeti's <em>String Quartet no. 2</em>, Crumb's <em>Makrokosmos</em>, Schnittke's <em>Symphony no. 1</em>). In some rare instances, syncing can actually be <em>impossible</em> or <em>nondeterministic!</em> (although this is the result of some pretty avant-garde notation, like different instruments being on different pages at the same time or 'free' notation where there is no clear 'breakpoint' between sections).</p>

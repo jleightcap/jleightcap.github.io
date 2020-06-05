@@ -1,10 +1,10 @@
 ---
 title: "A Postmortem of Classical Music on YouTube"
-author: "Jack Leightcap"
+author: <a href="../index.html">Jack Leightcap</a>
 date: May 24, 2019
 ---
 
-# Background
+## Background
 From November 2017 to April 2020, I ran a YouTube channel called *jleightcap*.
 The channel posted a genre of videos I call *scrolling score*, where a recording
 of a piece of classical music is synced to the score.
@@ -17,7 +17,7 @@ watchtime, and amassed an extremely kind group of viewers and friends.
 Throughout March and early April, the channel received a total of 4 copyright strikes,
 resulting in the deletion of the channel in mid-April 2020.
 
-# Copyright of Classical Music
+## Copyright of Classical Music
 In general, these types of videos are allowed to exist because of the kindness
 (or apathy) of sheet music publishers.
 Record labels have automated claims that catch about 99% of videos and
@@ -59,7 +59,7 @@ helpful people.
 I started this group, but have since deleted my Facebook account.
 Feel free to reach out to an active member of this community for details.
 
-# Aftermath
+## Aftermath
 I don't plan on making scrolling score videos at the same frequency or magnitude
 that I had been.
 I've heard that others have archived my videos, and I consider these to be
@@ -72,14 +72,14 @@ to my personal YouTube channel
 I'd also like to focus on more "gigantic" pieces without worrying
 about posting often.
 
-# Video Production
+## Video Production
 A frequent question was how I made videos.
 I developed a tool,
 [ScrollingScore](https://github.com/jleightcap/ScrollingScore), which attempted
 to automate some of the more tedious image processing aspects of scrolling score video
 production.
 
-## Finding or Producing Sheet Music
+### Finding or Producing Sheet Music
 This ranges from simply downloading public domain sheet music from the
 [International Music Score Library Project](https://imslp.org/wiki/Main_Page),
 to engraving the score myself in `lilypond` like with [Feldman's *Piano and String
@@ -91,13 +91,13 @@ I had a lot of fun tracking down music this way.
 There are websites that host scans of non-public domain sheet music that I
 will not mention out of fear of their takedown.
 
-## Obtaining Audio
+### Obtaining Audio
 Can again range from finding the public domain recording on YouTube, to tracking
 down a record on eBay and converting it yourself.
 
 This again toes the line of piracy, which for the same reason I won't get into.
 
-## Sheet Music Preparation
+### Sheet Music Preparation
 This is the point where `ScrollingScore` was intended to be useful.
 Sheet music preparation includes:
 
@@ -117,7 +117,7 @@ Fun fact: I won't get into the details, but meeting CMaj7 was one of the
 craziest coincidences in my life.
 I guess similar interests lead to similar places.
 
-## Audio Synchronization
+### Audio Synchronization
 This is the point where the video is actually assembled.
 A frequent question was what video editor I used (the answer is
 [Shotcut](https://www.shotcut.org/)), but generally scrolling score videos are

@@ -18,6 +18,7 @@ Also a big fan of classical music, math, origami, and bread making.
 </center>
 
 # Projects
+- <a href="Project/picrosssat.html">*PicrossSAT*: algorithm to convert Picross puzzle to SAT problem</a>
 - Linux on the Nintendo Wii Installation Guide
 - _Cimulink_ — simplify Boolean Algebra in C
 - _hmalloc_ — writing a faster 'alternative' to glibc malloc

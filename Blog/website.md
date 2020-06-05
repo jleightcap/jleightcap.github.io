@@ -1,12 +1,12 @@
 ---
 title: "Designing a Website Like a C Program"
-author: "Jack Leightcap"
+author: <a href="../index.html">Jack Leightcap</a>
 date: "April 3, 2020"
 ---
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-# Background
+## Background
 
 I'm not a huge fan of developing websites.
 This website was an exercise in treating web development like the development of
@@ -23,8 +23,8 @@ control or understanding of various elements.
 If I'm going to have to dig into the CSS and JavaScript anyway, I'd rather write a
 worse replacement myself but at least understand it fully.
 
-# Implementation
-## Structure
+## Implementation
+### Structure
 In treating the source of this website like the source of a C program:
 
 >CSS is like the header files, it defines some shared parameters to be imported and expanded on elsewhere.
@@ -71,8 +71,8 @@ The relevant piece of the Makefile:
     Project/%.html: Project/%.md
         pandoc -s -c $(PROJCSS) -o $@ $^
 
-# Style, Elements
-## CSS
+## Style, Elements
+### CSS
 I'm using the fantastic [LaTeX.CSS](https://github.com/vincentdoerig/latex-css)
 here, and think it looks fantstic.
 Instead of copying the source here as I've done, a simple `<link>` works as
