@@ -1,7 +1,7 @@
 ---
 title: "Replacing Spotify and Google Play Music on Linux"
 author: <a href="../index.html">Jack Leightcap</a>
-date: "May 23, 2019"
+date: "May 23, 2020"
 ---
 
 ## Background
