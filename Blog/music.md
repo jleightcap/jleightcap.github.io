@@ -1,10 +1,10 @@
 ---
 title: "Replacing Spotify and Google Play Music on Linux"
-author: "Jack Leightcap"
+author: <a href="../index.html">Jack Leightcap</a>
 date: "May 23, 2019"
 ---
 
-# Background
+## Background
 In the past I've used a combination of YouTube and Spotify to listen to music on
 desktop.
 I've used YouTube a lot for discovering new music, but there is a overhead of
@@ -19,7 +19,7 @@ the ensemble, the conductor...
 it's terrible and out of your control.
 
 
-# Music Downloading
+## Music Downloading
 If one wanted to (hypothetically) download music from YouTube, where there is
 usually a precompiled playlist of a full album, the best tool would be
 (hypothetically) [`youtube-dl`](https://github.com/ytdl-org/youtube-dl).
@@ -32,7 +32,7 @@ To download an album:
     youtube-dl -f 'bestaudio[ext=m4a]' [PLAYLIST URL]
 
 And if tagging music is your thing, then I found converting everything to mp3 to
-be necessary (I'm sure audiophiles would cringe at this, sue me).
+be necessary (I'm sure audiophiles would cringe at this, I will not be taking questions).
 Tagging `*.m4a` files with mp3 tagging tools seems to clobber the actual audio
 data.
 
@@ -45,7 +45,7 @@ To convert all audio files downloaded to mp3:
 
     find *.m4a -type f -exec tomp3 {} \;
 
-# Music Tagging
+## Music Tagging
 For tagging, I've used [`eyeD3`](https://github.com/nicfit/eyed3).
 For an example of tagging music downloaded from a playlist,
 
@@ -58,7 +58,7 @@ For an example of tagging music downloaded from a playlist,
 These tags are usually enough to sort through my music, but `eyeD3` supports
 tagging all [ID3 metadata](https://en.wikipedia.org/wiki/ID3).
 
-# Music Player
+## Music Player
 I've defaulted on [`cmus`](https://cmus.github.io/), mostly because of its ease of use
 and vim-like keybindings.
 [`ncmpcpp`](https://github.com/ncmpcpp/ncmpcpp) supports tagging natively, and definitely
@@ -73,7 +73,7 @@ The only two commands you need to know:
 <center><img src="../Images/music-cmus.png" width="90%"></center>
 No prizes for looks :)
 
-# Integration
+## Integration
 On my Android phone, I use [Musicolet](https://krosbits.in/musicolet/).
 It's impressive that freeware like Musicolet can be more featureful than Google
 Play Music, which I used previously.

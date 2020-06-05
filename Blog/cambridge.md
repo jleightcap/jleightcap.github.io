@@ -1,6 +1,6 @@
 ---
 title: "Study Abroad at Cambridge University"
-author: "Jack Leightcap"
+author: <a href="../index.html">Jack Leightcap</a>
 date: August 1, 2019
 ---
 

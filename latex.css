@@ -88,7 +88,7 @@ body {
   counter-reset: definition;
 
   color: hsl(0, 5%, 10%);
-  background-color: hsl(210, 20%, 98%);
+  background-color: hsl(255, 20%, 100%);
 
   text-rendering: optimizeLegibility;
 }
@@ -151,14 +151,14 @@ pre {
   overflow: auto;
   border: 1px solid hsl(210, 15%, 49%);
   border-radius: 4px;
-  background: hsl(210, 40%, 96%);
+  background: hsl(255, 40%, 96%);
 }
 pre code {
   font-size: 95%;
   position: relative;
 }
 kbd {
-  background: hsl(210, 5%, 100%);
+  background: hsl(255, 5%, 100%);
   border: 1px solid hsl(210, 5%, 70%);
   border-radius: 2px;
   padding: 2px 4px;
