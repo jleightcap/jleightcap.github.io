@@ -1,8 +1,6 @@
----
-title: "Replacing Spotify and Google Play Music on Linux"
-author: <a href="../index.html">Jack Leightcap</a>
-date: "May 23, 2020"
----
+# Replacing Spotify and Google Play Music on Linux
+<center><a href="../index.html">Jack Leightcap</a></center>
+date: May 23, 2020
 
 ## Background
 In the past I've used a combination of YouTube and Spotify to listen to music on
@@ -70,7 +68,7 @@ The only two commands you need to know:
     :add [MUSIC DIRECTORY]
     :update-cache
 
-<center><img src="../Images/music-cmus.png" width="90%"></center>
+<center><img src="music-cmus.png" width="90%"></center>
 No prizes for looks :)
 
 ## Integration
@@ -89,4 +87,4 @@ Instead, a module in polybar can be added easily with a small shell script,
 found in the top comment of [this Reddit
 thread](https://www.reddit.com/r/Polybar/comments/66m9vh/are_there_any_modules_for_mpv_or_cmus/).
 
-<center><img src="../Images/music-polybar.png" width="90%"></center>
+<center><img src="music-polybar.png" width="90%"></center>

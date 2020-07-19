@@ -1,8 +1,6 @@
----
-title: "Practical SAT: Solving Picross Puzzles"
-author: <a href="../index.html">Jack Leightcap</a>
+# Practical SAT: Solving Picross Puzzles
+<center><a href="../index.html">Jack Leightcap</a></center>
 date: June 5, 2020
----
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -11,7 +9,8 @@ Picross puzzles (also known as Nonograms) are a logic puzzle in the vein of Sudo
 A puzzle consists of a set of restrictions on each row and column of a grid:
 
 <center>
-<img src="../Images/picross-wiki.svg" width="60%">
+<img src="picross-wiki.svg" width="60%">
+
 [By Gus Polly at English Wikipedia - Own work, CC0](https://commons.wikimedia.org/w/index.php?curid=68386589)
 </center>
 
@@ -24,7 +23,9 @@ Well, probably not: as solving Picross puzzles has been proven NP-complete (Ueda
 The solution being an array of Booleans, and solving being an NP-complete problem: I immediately thought about applying a SAT solver.
 A SAT solver is tailored to solve the *Boolean Satisfiability Problem* (*SAT* for short) as efficiently as possible: given a Boolean formula $F$ like:
 
-<center>$F = (a \vee \neg b \vee c) \wedge (\neg a \vee b \vee c)$</center>
+<center>
+\[F = (a \vee \neg b \vee c) \wedge (\neg a \vee b \vee c)\]
+</center>
 
 can you set the input variables to be either true or false, such that the $F$ is true?
 This may seem like a somewhat random problem, but this is the first known NP-complete problem (Cook, Levin), and there are many SAT solvers that are designed to find a set of input variables satisfying a given Boolean formula as effeciently as possible.
@@ -35,7 +36,7 @@ Using `MiniSat`, an off-the-shelf SAT solver with C++ integration, this allows f
 ## Example
 Using an extremely simple puzzle as an example:
 
-<center><img src="../Images/picross-ex.png" width="20%"></center>
+<a href="picross-ex.tex"><center><img src="picross-ex.png" width="20%"></center></a>
 
 If you understand the rules of Picross, this is solvable almost at sight: however, this is a good example of the process used to encode a puzzle to an equivalent SAT problem.
 
@@ -226,7 +227,7 @@ sumPermute(n, h, w) {
 ```
 This is best visualized as a recursion tree; using the example `sumPermute(4,3,3)`:
 
-<center><img src="../Images/picross-tree.png" width="90%"></center>
+<a href="picross-tree.tex"><center><img src="picross-tree.png" width="90%"></center></a>
 
 To generate $W$, filter elements of $W\prime$ where any of the middle elements are zero.
 

@@ -1,34 +1,30 @@
----
-title: "Jack Leightcap"
----
-
 # About
 I'm Jack, a Computer Engineering student at Northeastern University.
 I love all things Linux, Embedded, and low-level.
 Also a big fan of classical music, math, origami, and bread making.
 
 <center>
-[Resume](Resume.pdf)
+<a href="Resume.pdf">Resume</a>
 |
-[LinkedIn](https://www.linkedin.com/in/jleightcap)
+<a href="https://www.linkedin.com/in/jleightcap">LinkedIn</a>
 |
-[GitHub](https://github.com/jleightcap)
+<a href="https://github.com/jleightcap">GitHub</a>
 |
-[Email](mailto:leightcap.j@northeastern.edu)
+<a href="mailto:leightcap.j@northeastern.edu">Email</a>
 </center>
 
 # Projects
-- <a href="Project/picrosssat.html">*PicrossSAT*: algorithm to convert Picross puzzle to SAT problem</a>
+- <a href="Project/picrosssat/picrosssat.html">*PicrossSAT*: algorithm to convert Picross puzzle to SAT problem</a>
 - Linux on the Nintendo Wii Installation Guide
 - _Cimulink_ — simplify Boolean Algebra in C
 - _hmalloc_ — writing a faster 'alternative' to glibc malloc
 - Doing everything in <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
   with templates
-- <a href="Project/jleightcap.html">*jleightcap* and *ScrollingScore*, a postmortem of classical music on YouTube</a>
-- <a href="Project/vexations.html">Playing piano for 34 hours straight: Erik Satie's _Vexations_</a>
-- <a href="Project/mbtaspeedrun.html">Charlie "The Travelling Salesman" on the MBTA</a>
+- <a href="Project/jleightcap/jleightcap.html">*jleightcap* and *ScrollingScore*, classical music on YouTube</a>
+- <a href="Project/vexations/vexations.html">Playing piano for 34 hours straight: Erik Satie's _Vexations_</a>
+- <a href="Project/mbtaspeedrun/mbtaspeedrun.html">Charlie "The Travelling Salesman" on the MBTA</a>
 
 # Blog
-- <a href="Blog/music.html">Replacing Spotify and Google Play Music on Linux</a>
-- <a href="Blog/website.html">Designing a Website Like a C Program</a>
-- <a href="Blog/cambridge.html">Study abroad at Cambridge University</a>
+- <a href="Blog/music/music.html">Replacing Spotify and Google Play Music on Linux</a>
+- <a href="Blog/website/website.html">Designing a Website Like a C Program</a>
+- <a href="Blog/cambridge/cambridge.html">Study abroad at Cambridge University</a>

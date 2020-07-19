@@ -1,35 +1,38 @@
-SRCS := $(wildcard *.md)
+SRCS := $(wildcard *.md) $(wildcard Blog/*/*.md) $(wildcard Project/*/*.md)
 HTML := $(SRCS:.md=.html)
-CSS  := latex.css
+CSS  := style.css
 
 # Blog configuration
 BLOGSRCS := $(wildcard Blog/*.md)
 BLOGHTML := $(BLOGSRCS:.md=.html)
-BLOGCSS := ../$(CSS)
+BLOGCSS := ..\/$(CSS)
 
 # Project configuration
 PROJSRCS := $(wildcard Project/*.md)
 PROJHTML := $(PROJSRCS:.md=.html)
-PROJCSS := ../$(CSS)
+PROJCSS := ..\/$(CSS)
 
 # SSH
 USR := jleightc
 HST := gateway.coe.neu.edu
 DST := ~/www
 
-all: $(HTML) $(BLOGHTML) $(PROJHTML)
+all: $(HTML)
 
 upload: all
 	rsync -r . $(USR)@$(HST):$(DST)
 
 %.html: %.md
-	pandoc -s -c $(CSS) -o $@ $^
+	cmark -t html --unsafe $^ > $@
+	sed -i "1s/^/<link rel=\"stylesheet\" type=\"text\/css\" href=\"$(CSS)\" media=\"screen\" \/>\n\n/" $@
 
 Blog/%.html: Blog/%.md
-	pandoc -s -c $(BLOGCSS) -o $@ $^
+	cmark -t html --unsafe $^ > $@
+	sed -i "1s/^/<link rel=\"stylesheet\" type=\"text\/css\" href=\"$(BLOGCSS)\" media=\"screen\" \/>\n\n/" $@
 
 Project/%.html: Project/%.md
-	pandoc -s -c $(PROJCSS) -o $@ $^
+	cmark -t html --unsafe $^ > $@
+	sed -i "1s/^/<link rel=\"stylesheet\" type=\"text\/css\" href=\"$(PROJCSS)\" media=\"screen\" \/>\n\n/" $@
 
 clean:
-	rm *.html Blog/*.html Project/*.html
+	rm -f *.html Blog/*.html Project/*.html

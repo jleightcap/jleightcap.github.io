@@ -1,13 +1,11 @@
----
-title: "Charlie 'the Traveling Salesman' on the MBTA"
-author: <a href="../index.html">Jack Leightcap</a>
+# Charlie 'the Traveling Salesman' on the MBTA
+<center><a href="../index.html">Jack Leightcap</a></center>
 date: February 2, 2019
----
 
 ## Abstract
 Using a brute force Traveling Salesman, I found the shortest possible route which visits all 64 stops of the MBTA Green Line.
 
-<center><img src="../Images/mbtaspeedrun-1.gif" width="80%"></center>
+<center><img src="mbtaspeedrun-1.gif" width="80%"></center>
 
 The ideal time was about 2:30.
 In practice, my best time is 2:47.

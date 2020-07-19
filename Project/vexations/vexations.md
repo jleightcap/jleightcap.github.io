@@ -1,8 +1,6 @@
----
-title: "Erik Satie - Vexations (1894)"
-author: <a href="../index.html">Jack Leightcap</a>
+# Erik Satie - Vexations (1894)
+<center><a href="../index.html">Jack Leightcap</a></center>
 date: March 10, 2019
----
 
 ## First recording, 6 hours (2017)
 During my Junior year of high school, I recorded a 6-hour performance of [Erik Satie's <i>Vexations</i>.](https://www.youtube.com/embed/zuszCTwh11k)
@@ -38,7 +36,7 @@ There are plenty of stories about how eccentric Satie was, eating only white foo
 <i>Vexations</i> gives a speed of "Très lent" (very slow), with the caption "Pour se jouer 840 fois de suite ce motif, il sera bon de se préparer au préalable, et dans le plus grand silence, par des immobilités sérieuses" (In order to play the theme 840 times in succession, it would be advisable to prepare oneself beforehand, and in the deepest silence, by serious immobilities).
 The sheet music gives two variations and a theme to be repeated,
 
-<center><img src="../Images/vexations-1.jpeg" width="90%"></center>
+<center><img src="vexations-1.jpeg" width="90%"></center>
 
 While repeating the same thing an extremely specific number of times is definitely a joke in line with Satie's humor, it's been more fun to interpret it literally.
 The first performance included John Cage, the major figure associated with the Avant-Garde, and since then there's been a small community that pushes the performance time.

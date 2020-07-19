@@ -1,8 +1,6 @@
----
-title: "Designing a Website Like a C Program"
-author: <a href="../index.html">Jack Leightcap</a>
-date: "April 3, 2020"
----
+# Designing a Website Like a C Program
+<center><a href="../index.html">Jack Leightcap</a></center>
+date: April 3, 2020
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 

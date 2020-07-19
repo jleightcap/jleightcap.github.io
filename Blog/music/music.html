@@ -1,0 +1,77 @@
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen" />
+
+<h1>Replacing Spotify and Google Play Music on Linux</h1>
+<center><a href="../index.html">Jack Leightcap</a></center>
+date: May 23, 2020
+<h2>Background</h2>
+<p>In the past I've used a combination of YouTube and Spotify to listen to music on
+desktop.
+I've used YouTube a lot for discovering new music, but there is a overhead of
+streaming a video just for the audio, especially on slow quarantine WiFi.
+There's also the case to be made to try to migrate as far away from Google
+products as possible.</p>
+<p>Spotify is much better just because it's a dedicated music platform,
+however its tagging (especially for classical music) is genuinely terrible.
+It's a toss up if the 'artist' is listed as the actual composer, the performer,
+the ensemble, the conductor...
+it's terrible and out of your control.</p>
+<h2>Music Downloading</h2>
+<p>If one wanted to (hypothetically) download music from YouTube, where there is
+usually a precompiled playlist of a full album, the best tool would be
+(hypothetically) <a href="https://github.com/ytdl-org/youtube-dl"><code>youtube-dl</code></a>.
+I've also tinkered around with <a href="https://github.com/deepjyoti30/ytmdl"><code>ytmdl</code></a>
+but found it to automate parts of the process that aren't particularly difficult
+on their own (searching for playlists from the command line versus just in a
+browser, for example).
+To download an album:</p>
+<pre><code>youtube-dl -f 'bestaudio[ext=m4a]' [PLAYLIST URL]
+</code></pre>
+<p>And if tagging music is your thing, then I found converting everything to mp3 to
+be necessary (I'm sure audiophiles would cringe at this, I will not be taking questions).
+Tagging <code>*.m4a</code> files with mp3 tagging tools seems to clobber the actual audio
+data.</p>
+<p>A little shell script <code>tomp3</code> (placed in <code>~/.local/bin</code>, granted it's in <code>$PATH</code>) will convert any audio format to mp3:</p>
+<pre><code>#!/bin/sh
+ffmpeg -i &quot;$1&quot; -vn -ar 44100 -ac 2 -b:a 192k &quot;${1%.*}.mp3&quot;
+</code></pre>
+<p>To convert all audio files downloaded to mp3:</p>
+<pre><code>find *.m4a -type f -exec tomp3 {} \;
+</code></pre>
+<h2>Music Tagging</h2>
+<p>For tagging, I've used <a href="https://github.com/nicfit/eyed3"><code>eyeD3</code></a>.
+For an example of tagging music downloaded from a playlist,</p>
+<pre><code>eyeD3 --artist &quot;[ARTIST]&quot; *.mp3                     # Tag artist name
+eyeD3 --album &quot;[ALBUM]&quot; *.mp3                       # Tag album title
+eyeD3 --track 1 01.mp3                              # Tag track number
+eyeD3 --title &quot;First Song&quot; 01.mp3                   # Tag track title
+eyeD3 --add-image &quot;cover.png:FRONT_COVER&quot; *.mp3     # Tag album art
+</code></pre>
+<p>These tags are usually enough to sort through my music, but <code>eyeD3</code> supports
+tagging all <a href="https://en.wikipedia.org/wiki/ID3">ID3 metadata</a>.</p>
+<h2>Music Player</h2>
+<p>I've defaulted on <a href="https://cmus.github.io/"><code>cmus</code></a>, mostly because of its ease of use
+and vim-like keybindings.
+<a href="https://github.com/ncmpcpp/ncmpcpp"><code>ncmpcpp</code></a> supports tagging natively, and definitely
+has more potential for eye candy with embedded album art and audio
+visualizations, but <code>cmus</code> gets the job done just fine (without messing with
+daemons).
+The only two commands you need to know:</p>
+<pre><code>:add [MUSIC DIRECTORY]
+:update-cache
+</code></pre>
+<center><img src="music-cmus.png" width="90%"></center>
+No prizes for looks :)
+<h2>Integration</h2>
+<p>On my Android phone, I use <a href="https://krosbits.in/musicolet/">Musicolet</a>.
+It's impressive that freeware like Musicolet can be more featureful than Google
+Play Music, which I used previously.</p>
+<p>In order to transfer music from a computer to an android phone,
+<a href="https://github.com/whoozle/android-file-transfer-linux"><code>android-file-transfer-linux</code></a>
+works great.</p>
+<p>Finally, I like to have a some indication of what music is playing.
+I've used <a href="https://github.com/AntoineGagne/cmus-notify"><code>cmus-notify</code></a> before,
+but have since ~~not bothered getting dunst to work on Gentoo~~ moved away from desktop notifications.
+Instead, a module in polybar can be added easily with a small shell script,
+found in the top comment of <a href="https://www.reddit.com/r/Polybar/comments/66m9vh/are_there_any_modules_for_mpv_or_cmus/">this Reddit
+thread</a>.</p>
+<center><img src="music-polybar.png" width="90%"></center>

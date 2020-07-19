@@ -1,8 +1,6 @@
----
-title: "A Postmortem of Classical Music on YouTube"
-author: <a href="../index.html">Jack Leightcap</a>
+# Classical Music on YouTube
+<center><a href="../index.html">Jack Leightcap</a></center>
 date: May 24, 2019
----
 
 ## Background
 From November 2017 to April 2020, I ran a YouTube channel called *jleightcap*.
