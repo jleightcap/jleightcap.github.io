@@ -1,5 +1,5 @@
 # Classical Music on YouTube
-<center><a href="../index.html">Jack Leightcap</a></center>
+<center><a href="../../index.html">Jack Leightcap</a></center>
 date: May 24, 2019
 
 ## Background

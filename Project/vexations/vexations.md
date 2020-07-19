@@ -1,5 +1,5 @@
 # Erik Satie - Vexations (1894)
-<center><a href="../index.html">Jack Leightcap</a></center>
+<center><a href="../../index.html">Jack Leightcap</a></center>
 date: March 10, 2019
 
 ## First recording, 6 hours (2017)
