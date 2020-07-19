@@ -14,12 +14,8 @@ Also a big fan of classical music, math, origami, and bread making.
 </center>
 
 # Projects
+- <a href="Project/eatercpu/eatercpu.html">Breadboard CPU</a>
 - <a href="Project/picrosssat/picrosssat.html">*PicrossSAT*: algorithm to convert Picross puzzle to SAT problem</a>
-- Linux on the Nintendo Wii Installation Guide
-- _Cimulink_ — simplify Boolean Algebra in C
-- _hmalloc_ — writing a faster 'alternative' to glibc malloc
-- Doing everything in <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
-  with templates
 - <a href="Project/jleightcap/jleightcap.html">*jleightcap* and *ScrollingScore*, classical music on YouTube</a>
 - <a href="Project/vexations/vexations.html">Playing piano for 34 hours straight: Erik Satie's _Vexations_</a>
 - <a href="Project/mbtaspeedrun/mbtaspeedrun.html">Charlie "The Travelling Salesman" on the MBTA</a>
