@@ -1,4 +1,20 @@
+<center><p style="font-size:50px"><b>Jack Leightcap</b></p></center>
+
+<center><table style="width:80%">
+    <tr>
+        <th>
+        <a href="Project/eatercpu/eatercpu.html">
+            <img src="Project/eatercpu/wiring.jpeg" width=100%"></a>
+        </th>
+        <th>
+        <a href="Project/mbtaspeedrun/mbtaspeedrun.html">
+            <img src="Project/mbtaspeedrun/mbtaspeedrun-1.gif" width=100%"></a>
+        </th>
+    </tr>
+</table></center>
+
 # About
+
 I'm Jack, a Computer Engineering student at Northeastern University.
 I love all things Linux, Embedded, and low-level.
 Also a big fan of classical music, math, origami, and bread making.
