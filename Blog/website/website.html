@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="../style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 
 <h1>Designing a Website Like a C Program</h1>
 <center><a href="../../index.html">Jack Leightcap</a></center>
@@ -27,7 +27,7 @@ worse replacement myself but at least understand it fully.</p>
 <p>Markdown is like the <code>.c</code> files, the bulk of the content.</p>
 </blockquote>
 <blockquote>
-<p>And finally, <code>pandoc</code> acts as a compiler.</p>
+<p>And finally, <code>cmark</code> acts as a compiler.</p>
 </blockquote>
 <p>With this familiar setup, of course a <code>Makefile</code> is needed!</p>
 <p>The directory structure:</p>
@@ -35,17 +35,18 @@ worse replacement myself but at least understand it fully.</p>
 │
 │   # The actual content
 ├── index.md
+├── 404.md
 ├── Blog
-│   └── {blog posts}.md
+│   ├── {blog}
+│   ├──── post.md
+│   └──── content
 ├── Project
-│   └── {project posts}.md
-├── Images
-│   └── {Images}
+│   ├── {project}
+│   ├──── post.md
+│   └──── content
 │
 │   # Style
-├── latex.css
-└── fonts
-    └── {fonts}
+└── style.css
 </code></pre>
 <p>I've written the Makefile so that the compiled <code>.html</code> lives in the same space as the source <code>.md</code>.
 I ~~can't be bothered to change that~~ decided this was a feature, so everything is ~~entirely unsecured~~ open source.
@@ -55,37 +56,8 @@ be found at the
 <p>To generate the website just requires a <code>make</code> and a super fast compilation.
 The relevant piece of the Makefile:</p>
 <pre><code>%.html: %.md
-    pandoc -s -c $(CSS) -o $@ $^
-
-Blog/%.html: Blog/%.md
-    pandoc -s -c $(BLOGCSS) -o $@ $^
-
-Project/%.html: Project/%.md
-    pandoc -s -c $(PROJCSS) -o $@ $^
+    cmark -t html --unsafe $^ &gt; $@
+    sed -i &quot;1s/^/&lt;link rel=\&quot;stylesheet\&quot; type=\&quot;text\/css\&quot; href=\&quot;$(CSS)\&quot; media=\&quot;screen\&quot; \/&gt;\n\n/&quot; $@
 </code></pre>
-<h2>Style, Elements</h2>
-<h3>CSS</h3>
-<p>I'm using the fantastic <a href="https://github.com/vincentdoerig/latex-css">LaTeX.CSS</a>
-here, and think it looks fantstic.
-Instead of copying the source here as I've done, a simple <code>&lt;link&gt;</code> works as
-well, and may be more elegant for including fonts.
-I simply prefer to host the source in the same space as the content.</p>
-<p>A minor addition is support for the iconic
-&quot;<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>&quot;,
-which can be found <a href="http://nitens.org/taraborelli/texlogo">here</a>.
-Just make sure to update the font to Latin Modern.</p>
-<h2><span class="latex">L<sup>a</sup>T<sub>e</sub>X</span></h2>
-<p>I mentioned earlier that I didn't want to use any JavaScript on my website.
-I'll make an exception for including <a href="%5B200%7Ehttps://www.mathjax.org/">MathJax</a>
-because of its comparative simplicity in rendering
-<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
-natively.</p>
-<center>$$H(X) = -\sum_{i=1}^n p(x_i) \log_b p(x_i)$$</center>
-<p>Or inline $\det(\lambda \textbf{I} - \textbf{A}) = 0$, like that.</p>
-<p>For this structure, because there is no common <code>header</code> or <code>footer</code>, each <code>.md</code>
-file sources the MathJax script only if needed.</p>
-<p>The alternative I've considered is using the <code>standalone</code>
-<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
-documentclass to make a single image for each equation.
-This is entirely possible, just diminishes the speed and modularity of writing
-a single self-contained Markdown file.</p>
+<p>The <code>--unsafe</code> cmark flag allows for inline HTML in the source .md files.
+The <code>sed</code> command prepends each .html file with a link to the source CSS. Think of this as a linker.</p>

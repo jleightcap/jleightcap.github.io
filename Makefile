@@ -26,13 +26,5 @@ upload: all
 	cmark -t html --unsafe $^ > $@
 	sed -i "1s/^/<link rel=\"stylesheet\" type=\"text\/css\" href=\"$(CSS)\" media=\"screen\" \/>\n\n/" $@
 
-Blog/%.html: Blog/%.md
-	cmark -t html --unsafe $^ > $@
-	sed -i "1s/^/<link rel=\"stylesheet\" type=\"text\/css\" href=\"$(BLOGCSS)\" media=\"screen\" \/>\n\n/" $@
-
-Project/%.html: Project/%.md
-	cmark -t html --unsafe $^ > $@
-	sed -i "1s/^/<link rel=\"stylesheet\" type=\"text\/css\" href=\"$(PROJCSS)\" media=\"screen\" \/>\n\n/" $@
-
 clean:
 	rm -f *.html Blog/*.html Project/*.html
