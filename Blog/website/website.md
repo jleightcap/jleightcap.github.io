@@ -2,6 +2,16 @@
 <center><a href="../../index.html">Jack Leightcap</a></center>
 date: April 3, 2020
 
+<i><p style="color:gray">
+"Ooh, this is one of those artisan, hand-crafted websites! I'll
+have to post this to my Instagram. I once met an old web developer
+in the south of France who would wash the bytes by hand before
+uploading them to his server. Said it was a family tradition
+passed down for generations." 
+\- [KISS Linux Testimonial](https://k1ss.org/testimonials)
+</p></i>
+
+
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 ## Background
