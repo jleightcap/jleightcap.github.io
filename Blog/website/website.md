@@ -11,9 +11,6 @@ passed down for generations."
 \- [KISS Linux Testimonial](https://k1ss.org/testimonials)
 </p></i>
 
-
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 ## Background
 
 I'm not a huge fan of developing websites.
@@ -74,8 +71,7 @@ The relevant piece of the Makefile:
 ```
 %.html: %.md
     cmark -t html --unsafe $^ > $@
-    sed -i "1s/^/<link rel=\"stylesheet\" type=\"text\/css\" href=\"$(CSS)\" media=\"screen\" \/>\n\n/" $@
 ```
 
 The `--unsafe` cmark flag allows for inline HTML in the source .md files.
-The `sed` command prepends each .html file with a link to the source CSS. Think of this as a linker.
+The `sed` command prepends each .html file with a link to the source CSS. Think of this as a linker? Idk at this point the metaphor is a little contrived.

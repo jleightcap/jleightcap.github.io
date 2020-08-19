@@ -16,6 +16,7 @@ upload: all
 %.html: %.md
 	cmark -t html --unsafe $^ > $@
 
+# insert CSS header
 css_prefix: $(HTML)
 	sed -i "1s/^/<link rel=\"stylesheet\" type=\"text\/css\" href=\"$(BASECSS)\" media=\"screen\" \/>\n\n/" *.html
 	sed -i "1s/^/<link rel=\"stylesheet\" type=\"text\/css\" href=\"$(POSTCSS)\" media=\"screen\" \/>\n\n/" Blog/*/*.html Project/*/*.html

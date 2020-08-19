@@ -16,8 +16,6 @@
 # About
 
 I'm Jack, a Computer Engineering student at Northeastern University.
-I love all things Linux, Embedded, and low-level.
-Also a big fan of classical music, math, origami, and bread making.
 
 <center>
 <a href="Resume.pdf">Resume</a>

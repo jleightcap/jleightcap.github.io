@@ -11,7 +11,6 @@ uploading them to his server. Said it was a family tradition
 passed down for generations.&quot;
 - <a href="https://k1ss.org/testimonials">KISS Linux Testimonial</a></p>
 </p></i>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <h2>Background</h2>
 <p>I'm not a huge fan of developing websites.
 This website was an exercise in treating web development like the development of
@@ -65,7 +64,6 @@ be found at the
 The relevant piece of the Makefile:</p>
 <pre><code>%.html: %.md
     cmark -t html --unsafe $^ &gt; $@
-    sed -i &quot;1s/^/&lt;link rel=\&quot;stylesheet\&quot; type=\&quot;text\/css\&quot; href=\&quot;$(CSS)\&quot; media=\&quot;screen\&quot; \/&gt;\n\n/&quot; $@
 </code></pre>
 <p>The <code>--unsafe</code> cmark flag allows for inline HTML in the source .md files.
-The <code>sed</code> command prepends each .html file with a link to the source CSS. Think of this as a linker.</p>
+The <code>sed</code> command prepends each .html file with a link to the source CSS. Think of this as a linker? Idk at this point the metaphor is a little contrived.</p>

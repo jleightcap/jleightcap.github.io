@@ -22,7 +22,14 @@ To reduce search time, all paths start and end at the most extreme ends, Lechmer
 Directionality was determined based on MBTA early morning time tables.
 
 ## The Final Route
-```
-Lechmere → Heath Street → walk to Brookline Village → Hynes → Cleveland Circle → walk to Boston College → Kenmore → Riverside
-```
+
+- Lechmere →
+- Heath Street →
+- walk to Brookline Village →
+- Hynes Convention Center →
+- Cleveland Circle →
+- walk to Boston College →
+- Kenmore →
+- Riverside
+
 If you find a more efficient route or beat my record, please let me know!
