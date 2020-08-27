@@ -18,7 +18,7 @@
 I'm Jack, a Computer Engineering student at Northeastern University.
 
 <center>
-<a href="Resume.pdf">Resume</a>
+<a href="resume.c">Resume</a>
 |
 <a href="https://www.linkedin.com/in/jleightcap">LinkedIn</a>
 |
