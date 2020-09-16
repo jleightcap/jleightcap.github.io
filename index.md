@@ -24,7 +24,9 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 |
 <a href="https://github.com/jleightcap">GitHub</a>
 |
-<a href="mailto:leightcap.j@northeastern.edu">Email</a>
+<a href="mailto:jleightcap@protonmail.com">Email</a>
+|
+<a href="pubkey">PGP</a>
 </center>
 
 # Projects
