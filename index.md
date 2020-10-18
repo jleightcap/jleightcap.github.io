@@ -2,6 +2,9 @@
 title: Jack Leightcap
 ---
 
+<center>
+<img src="me.jpg" alt="hello" width="30%" style="border-radius:50%;border:2px solid #999">
+</center>
 # About
 
 I'm Jack, a Computer Engineering student at Northeastern University.

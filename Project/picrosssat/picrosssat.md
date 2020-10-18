@@ -9,7 +9,7 @@ Picross puzzles (also known as Nonograms) are a logic puzzle in the vein of Sudo
 A puzzle consists of a set of restrictions on each row and column of a grid:
 
 <center>
-<img src="picross-wiki.svg" width="60%">
+<img src="picross-wiki.png" width="60%">
 
 [By Gus Polly at English Wikipedia - Own work, CC0](https://commons.wikimedia.org/w/index.php?curid=68386589)
 </center>
@@ -79,7 +79,7 @@ a \wedge c \wedge
 
 Testing using the `minisat` library in C++:
 
-```
+```cpp
 #include <minisat/core/Solver.h>
 #include <iostream>
 
@@ -207,16 +207,16 @@ The maximum value is simply $h$, and the minimum is $\text{ceil}(n/w)$ where the
 The base case is $n - i = 0$, where the remaining cells are all accounted for in the last cell.
 In total,
 
-```
+```cpp
 sumPermute(n, h, w) {
     vector permute
     vector<vector> result
 
-    for (i = ceil(n/w) → h) {
+    for(i = ceil(n/w) → h) {
         permute.push(i)
 
         // reached base case
-        if (n - i == 0) {
+        if(n - i == 0) {
             result.push(permute);
             return result
         }
@@ -303,14 +303,14 @@ This is clearly very exponential, and the general form is quite large: using $|a
 
 <center>
 $$E = \begin{matrix}
-(a_{111} \vee a_{211} \vee ... \vee a_{m11}) & \wedge & (a_{112} \vee a_{211} \vee ... \vee a_{m11}) & \wedge & ... & \wedge & (a_{11l} \vee a_{211} \vee ... \vee a_{m11}) & \wedge \\
-(a_{111} \vee a_{212} \vee ... \vee a_{m11}) & \wedge & (a_{112} \vee a_{212} \vee ... \vee a_{m11}) & \wedge & ... & \wedge & (a_{11l} \vee a_{212} \vee ... \vee a_{m11}) & \wedge \\
-\vdots & & \vdots & & \ddots & & \vdots \\
-(a_{111} \vee a_{21l} \vee ... \vee a_{m11}) & \wedge & (a_{112} \vee a_{21l} \vee ... \vee a_{m11}) & \wedge & ... & \wedge & (a_{11l} \vee a_{21l} \vee ... \vee a_{m11}) & \wedge \\
-\vdots & & \vdots & & \ddots & & \vdots \\
-(a_{111} \vee a_{21l} \vee ... \vee a_{m1l}) & \wedge & (a_{112} \vee a_{21l} \vee ... \vee a_{m1l}) & \wedge & ... & \wedge & (a_{11l} \vee a_{21l} \vee ... \vee a_{m1l}) & \wedge \\
-\vdots & & \vdots & & \ddots & & \vdots \\
-(a_{1n1} \vee a_{2nl} \vee ... \vee a_{mnl}) & \wedge & (a_{1n2} \vee a_{2nl} \vee ... \vee a_{mnl}) & \wedge & ... & \wedge & (a_{1nl} \vee a_{2nl} \vee ... \vee a_{mnl})
+(a_{111} \vee a_{211} \vee ... \vee a_{m11}) & \wedge & ... & \wedge & (a_{11l} \vee a_{211} \vee ... \vee a_{m11}) & \wedge \\
+(a_{111} \vee a_{212} \vee ... \vee a_{m11}) & \wedge & ... & \wedge & (a_{11l} \vee a_{212} \vee ... \vee a_{m11}) & \wedge \\
+\vdots & & \ddots & & \vdots \\
+(a_{111} \vee a_{21l} \vee ... \vee a_{m11}) & \wedge & ... & \wedge & (a_{11l} \vee a_{21l} \vee ... \vee a_{m11}) & \wedge \\
+\vdots & & \ddots & & \vdots \\
+(a_{111} \vee a_{21l} \vee ... \vee a_{m1l}) & \wedge & ... & \wedge & (a_{11l} \vee a_{21l} \vee ... \vee a_{m1l}) & \wedge \\
+\vdots & & \ddots & & \vdots \\
+(a_{1n1} \vee a_{2nl} \vee ... \vee a_{mnl}) & \wedge & ... & \wedge & (a_{1nl} \vee a_{2nl} \vee ... \vee a_{mnl})
 \end{matrix}$$
 </center>
 
