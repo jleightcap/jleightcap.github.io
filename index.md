@@ -1,8 +1,6 @@
 ---
 title: Jack Leightcap
 ---
-<center><p style="font-size:50px"><b>Jack Leightcap</b></p></center>
-
 <center><table style="width:95%">
     <tr>
         <th>
