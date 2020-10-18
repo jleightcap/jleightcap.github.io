@@ -175,14 +175,14 @@ Some simple examples of this encoding, where $n=6$ and $R=\{2,1\}$:
 With this example, using the restrictions of $W$, you can even see what permutation was missed just by looking at $W$: $W = \{0,2,1\}$.
 
 #### Generating Permutations of $W$
-For simplicity in generating permutations, defining $W\prime$:
+For simplicity in generating permutations, defining $W^\prime$:
 
-- $|W\prime| = |R| + 1$
-- $\sum W\prime = n - \sum R$
+- $|W^\prime| = |R| + 1$
+- $\sum W^\prime = n - \sum R$
 - $W_{0..|W|} \ge 0$
 
-$W\prime$ is just $W$ without the restriction that middle elements aren't zero.
-The relaxation from $W$ to $W\prime$ means that all permutations of an element of $W\prime$ are still in $W\prime$, which is not true of $W$.
+$W^\prime$ is just $W$ without the restriction that middle elements aren't zero.
+The relaxation from $W$ to $W^\prime$ means that all permutations of an element of $W^\prime$ are still in $W^\prime$, which is not true of $W$.
 This allows for the simplification of just generating sets of strictly increasing values, then just generating all permutations of that set.
 
 This problem can be restated with three parameters $n$, $h$, and $w$:
@@ -231,7 +231,7 @@ This is best visualized as a recursion tree; using the example `sumPermute(4,3,3
 
 <a href="picross-tree.tex"><center><img src="picross-tree.png" width="90%"></center></a>
 
-To generate $W$, filter elements of $W\prime$ where any of the middle elements are zero.
+To generate $W$, filter elements of $W^\prime$ where any of the middle elements are zero.
 
 This completes the first step of the translation algorithm: converting a given slice into a set of permutations of the white space vector.
 

@@ -217,13 +217,13 @@ D=0</code></pre>
 </ul>
 <p>With this example, using the restrictions of <span class="math inline">\(W\)</span>, you can even see what permutation was missed just by looking at <span class="math inline">\(W\)</span>: <span class="math inline">\(W = \{0,2,1\}\)</span>.</p>
 <h4 id="generating-permutations-of-w">Generating Permutations of <span class="math inline">\(W\)</span></h4>
-<p>For simplicity in generating permutations, defining <span class="math inline">\(W\prime\)</span>:</p>
+<p>For simplicity in generating permutations, defining <span class="math inline">\(W^\prime\)</span>:</p>
 <ul>
-<li><span class="math inline">\(|W\prime| = |R| + 1\)</span></li>
-<li><span class="math inline">\(\sum W\prime = n - \sum R\)</span></li>
+<li><span class="math inline">\(|W^\prime| = |R| + 1\)</span></li>
+<li><span class="math inline">\(\sum W^\prime = n - \sum R\)</span></li>
 <li><span class="math inline">\(W_{0..|W|} \ge 0\)</span></li>
 </ul>
-<p><span class="math inline">\(W\prime\)</span> is just <span class="math inline">\(W\)</span> without the restriction that middle elements aren’t zero. The relaxation from <span class="math inline">\(W\)</span> to <span class="math inline">\(W\prime\)</span> means that all permutations of an element of <span class="math inline">\(W\prime\)</span> are still in <span class="math inline">\(W\prime\)</span>, which is not true of <span class="math inline">\(W\)</span>. This allows for the simplification of just generating sets of strictly increasing values, then just generating all permutations of that set.</p>
+<p><span class="math inline">\(W^\prime\)</span> is just <span class="math inline">\(W\)</span> without the restriction that middle elements aren’t zero. The relaxation from <span class="math inline">\(W\)</span> to <span class="math inline">\(W^\prime\)</span> means that all permutations of an element of <span class="math inline">\(W^\prime\)</span> are still in <span class="math inline">\(W^\prime\)</span>, which is not true of <span class="math inline">\(W\)</span>. This allows for the simplification of just generating sets of strictly increasing values, then just generating all permutations of that set.</p>
 <p>This problem can be restated with three parameters <span class="math inline">\(n\)</span>, <span class="math inline">\(h\)</span>, and <span class="math inline">\(w\)</span>:</p>
 <blockquote>
 <p>Generate all combinations of sets of size at most <span class="math inline">\(w\)</span>, where the sum of all elements is <span class="math inline">\(n\)</span>, and all elements are between <span class="math inline">\(0\)</span> and <span class="math inline">\(h\)</span>.</p>
@@ -260,7 +260,7 @@ D=0</code></pre>
 <img src="picross-tree.png" width="90%">
 </center>
 <p></a></p>
-<p>To generate <span class="math inline">\(W\)</span>, filter elements of <span class="math inline">\(W\prime\)</span> where any of the middle elements are zero.</p>
+<p>To generate <span class="math inline">\(W\)</span>, filter elements of <span class="math inline">\(W^\prime\)</span> where any of the middle elements are zero.</p>
 <p>This completes the first step of the translation algorithm: converting a given slice into a set of permutations of the white space vector.</p>
 <h3 id="converting-slice-permutations-to-dnf-expression">Converting Slice Permutations to DNF Expression</h3>
 <p>At this point, for a given slice <span class="math inline">\(S\)</span>, we have generated all valid permutations of <span class="math inline">\(W\)</span>. To recover <span class="math inline">\(P\)</span> the set of all valid slice permutations from each <span class="math inline">\(W\)</span>, we do the encoding in ‘reverse’,</p>
