@@ -1,7 +1,6 @@
 SRCS = $(wildcard *.md) $(wildcard Blog/*/*.md) $(wildcard Project/*/*.md)
 HTML = $(SRCS:.md=.html)
 BASECSS = style.css
-POSTCSS  = ..\/..\/$(BASECSS)
 
 # SSH
 USR := jleightc

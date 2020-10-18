@@ -1,8 +1,8 @@
 ---
 title: Replacing Spotify and Google Play Music on Linux
----
-<center><a href="../../index.html">Jack Leightcap</a></center>
 date: May 23, 2020
+author: <a href="../../index.html">Jack Leightcap</a>
+---
 
 ## Background
 In the past I've used a combination of YouTube and Spotify to listen to music on

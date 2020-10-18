@@ -1,9 +1,8 @@
 ---
 title: Study Abroad at Cambridge University
----
-
-<center><a href="../../index.html">Jack Leightcap</a></center>
 date: August 1, 2019
+author: <a href="../../index.html">Jack Leightcap</a>
+---
 
 # Post 1: Introduction
 ## Background
@@ -15,7 +14,7 @@ During my second semester, I was deciding between programs at Oxford and Cambrid
 I'm taking two classes (half a semester), *History of the Modern Middle East* and *Shakespearean Drama*, which fill my last two humanities requirements at Northeastern.
 I'm going to make a whole post later in the program about these classes, and why I chose them.
 
-Without getting into the weird specific details of who I'm paying for what and how much, my costs for this program are covered by my Dean's Scholarship and a GEO (Global Experience Office) Grant from Northeastern, and the YGL Scholarship from the Northeastern [Young Global Leaders](https://www.northeastern.edu/ygl/about-us/), an alumni group for "the globalization of [Northeastern]."  
+Without getting into the weird specific details of who I'm paying for what and how much, my costs for this program are covered by my Dean's Scholarship and a GEO (Global Experience Office) Grant from Northeastern, and the YGL Scholarship from the Northeastern [Young Global Leaders](https://www.northeastern.edu/ygl/about-us/), an alumni group for "the globalization of [Northeastern]."
 
 ## Getting to Cambridge
 I flew from Newark to London Stansted with a layover in Copenhagen on SAS.
@@ -23,28 +22,28 @@ Getting a train from Stansted to Cambridge was extremely streamlined, it probabl
 The public transportation around the entire area is fantastic, and in the future it's probably just as easy to fly to Heathrow or another larger airport and get to Cambridge.
 
 ## Dorms
-There are a couple different 'bands' of housing available on the program. 
+There are a couple different 'bands' of housing available on the program.
 The cheapest housing band was filled by the time I submitted my deposit, so I'm in the second cheapest housing option, and a week into the program I'm still genuinely shocked at how nice all of the rooms are.
 
 <center><img src="cambridge1-1.jpg" width="90%"></center>
-<center><b><i>Room in Pembroke College</b></i></center>
+<center>***Room in Pembroke College***</center>
 
 I'm living at Pembroke College, in the dorm next to the Pembroke Chapel and across from the Pembroke Library.
 
 <center><img src="cambridge1-2.jpg" width="90%"></center>
-<center><b><i>View of Pembroke Library from my window</b></i></center>
+<center>***View of Pembroke Library from my window***</center>
 
 ## The Local Area
 Pembroke College is absolutely gorgeous.
 
 <center><img src="cambridge1-3.jpg" width="90%"></center>
-<center><b><i>View of Old Court and the Porter's Lodge</b></i></center>
+<center>***View of Old Court and the Porter's Lodge***</center>
 
 There are too many courts, lawns, orchards, and greens to take pictures of.
 Unlike Northeastern where it's an advertising point to talk about 'hanging out on Centennial Common' and the 'Urban Oasis' of Boston, there is a *strict* policy of not stepping on the grass at Cambridge, to the point where there are signs everywhere, *in multiple languages*, telling people not to step on the grass.
 
 <center><img src="cambridge1-4.jpg" width="90%"></center>
-<center><b><i>View of dorm, Pembroke Chapel, and Pembroke Library from the Library Lawn</b></i></center>
+<center>***View of dorm, Pembroke Chapel, and Pembroke Library from the Library Lawn***</center>
 
 I really wanted to include a picture of the gigantic hall where we eat, but pictures aren't allowed while students are eating and it's locked otherwise.
 
@@ -55,18 +54,18 @@ Being a college town, there's also the overwhelming amount of cafes and places t
 There's also the similar tiny streets and sidewalks flooded with tourists, which is something I didn't miss.
 
 Even the Fitzwilliam Museum within view of Pembroke College really reminds me of the MFA, even down to the free admission and modern art on the lawn (although not as iconic as the baby heads).
-Speaking of museums, my next post will be about what museums I've visited. 
+Speaking of museums, my next post will be about what museums I've visited.
 
 # Post 2: Museums
 ## Museum of Archaeology and Anthropology
-One of the handful of museums within a 5 minute walk of Pembroke College, the Museum of Archaeology and Anthropology's most interesting exhibit was about the local area. 
+One of the handful of museums within a 5 minute walk of Pembroke College, the Museum of Archaeology and Anthropology's most interesting exhibit was about the local area.
 I'd never bothered to look up why, but the College/University system at Cambridge is really distinct from the American system where "College" and "University" are used almost interchangeably ("Boston College" lying to you twice is a good example of the distinction).
 With objects from the founding of the early colleges at Cambridge, the exhibit mentioned the conflict between the scholars with royal protections and the locals causing the need for the castle-like colleges.
 The colleges all have the layout of walled monasteries, with individual living spaces surrounding an open courtyard, a grand hall, a chapel, and a library to keep their knowledge safe.
 This caries through to today, where I have to use a keycard to access the college past 7pm when the large, oak doors lock.
 
 ## The Fitzwilliam Museum
-The Fitzwilliam Museum is eerily similar to the MFA. 
+The Fitzwilliam Museum is eerily similar to the MFA.
 There's the modernist sculpture on the lawns, the tacky gift shop and cafe, the pillars -  it all felt very familiar.
 There are two special exhibits on display while I'm here - the Beggarstaffs poster exhibition and an exhibition of paper fans.
 Both exhibitions showed how a medium considered fairly mundane can be elevated to a fine art, and the fans were particularly interesting because of their connection to origami.
@@ -76,7 +75,7 @@ A very large building filled with many rocks. I had fun looking at rocks for abo
 There's a small room at the end of the long, main exhibition that focused on crystals.
 
 <center><img src="cambridge2-1.jpg" width="90%"></center>
-<center><b><i>AP Chemistry memories</b></i></center>
+<center>***AP Chemistry memories***</center>
 
 The pretty colors and little models are much more my speed.
 
@@ -85,13 +84,13 @@ This has been one of my favorite museums so far.
 I walked by it on my way to my dorm on my first day here, not having heard of it before.
 
 <center><img src="cambridge2-2.jpg" width="90%"></center>
-<center><b><i>One of the two entrance domes, with an antique map of each pole</b></i></center>
+<center>***One of the two entrance domes, with an antique map of each pole***</center>
 
-Half of the museum was a timeline of Arctic exploration, and the other half was a timeline of Antarctic exploration. 
+Half of the museum was a timeline of Arctic exploration, and the other half was a timeline of Antarctic exploration.
 It took about 2 hours total to walk through both halves, and by the end of each half you really get a good sense of the characters and scale of both explorations.
 
 <center><img src="cambridge2-3.jpg" width="90%"></center>
-<center><b><i>no booping was allowed</b></i></center>
+<center>***no booping was allowed***</center>
 
 I also really liked the memorial to sled dogs.
 
@@ -113,13 +112,15 @@ The creator is doing a Q/A at the museum later this month, and I definitely plan
 
 The next room has computers free to mess around on from the 1960s up to modern PCs. There was a book on BBC Micro programming, so of course I had to at least figure out
 
-    I=1
-    PRINT FACTORIAL(I)
-    I=I+1
-    GOTO 2
-    END
-    DEF FACTORIAL(N)
-    IF N<=1 THEN =1 ELSE =N x FACTORIAL(N-1)
+```basic
+I=1
+PRINT FACTORIAL(I)
+I=I+1
+GOTO 2
+END
+DEF FACTORIAL(N)
+IF N<=1 THEN =1 ELSE =N x FACTORIAL(N-1)
+```
 
 The last exhibit was focused on biographies of people involved in the computer revolution, with a focus on women that have been historically underrepresented in the history of computer science.
 There's even a portrait of Zucc hanging ominously over you to really complete the experience.
@@ -129,47 +130,47 @@ This museum has the interesting goal of documenting the historical aspect of sci
 It included an entire exhibit for globes, Darwin's microscopes, and even had number pseudo-scientific equipment on display, like a glorified Wheatstone bridge from the Church of Scientology that claims to measure thoughts.
 
 <center><img src="cambridge2-5.jpg" width="90%"></center>
-<center><b><i>AP Physics memories</b></i></center>
+<center>***AP Physics memories***</center>
 
 It even included an early Atwood Machine, which if you've ever learned about masses on a pulley or an expression like
 
 $$ \vec{a} = \frac{m_2 - m_1}{m_1 + m_2}\vec{g} $$
 
 # Post 3: Concerts
-If you know me, then you know I like classical music to the point where it's almost concerning. 
+If you know me, then you know I like classical music to the point where it's almost concerning.
 So, a fair amount of my evenings here in the UK have unsurprisingly been hanging out with old people listening to classical music.
 
 Because these concerts have been at night, my pictures have been pretty bad. So this post is going to be pretty scant on pictures, sorry.
 
 ## Cambridge Summer Music Festival
 ### Bach - *St. John Passion*
-This was the fist concert I went to here, and was the season opener for the *Cambridge Summer Music Festival*. 
+This was the fist concert I went to here, and was the season opener for the *Cambridge Summer Music Festival*.
 I didn't get the booklet with the English translation, so I got to enjoy the Gospel of John for two hours in lovely German that I don't understand.
 Still a fantastic experience.
 
 ### Britten Sinfonia Academy
 The [Britten Sinfonia](https://en.wikipedia.org/wiki/Britten_Sinfonia) is very similar to [A Far Cry](https://en.wikipedia.org/wiki/A_Far_Cry) in Boston, both being chamber orchestra groups with no 'leader' - all members have equal leadership and they play with no conductor. 
-A Far Cry frequently collaborates with students at the New England Conservatory, and similarly the Britten Sinfonia has an academy for high school students to get involved in a chamber group. 
+A Far Cry frequently collaborates with students at the New England Conservatory, and similarly the Britten Sinfonia has an academy for high school students to get involved in a chamber group.
 I didn't know this was going to be a concert played mostly by teenagers, especially when the program included pieces like Ligeti's [*Romanian Concerto*](https://youtu.be/hzKHTadm-PA) or Mendelssohn's [*Overture 'The Herbrides'*](https://youtu.be/MdQyN7MYSN8) - pieces very far beyond what most high school students would play.
 
 ### Ben Comeau Lunchtime Concert
-This was an unexpectedly fun concert. 
+This was an unexpectedly fun concert.
 When buying tickets, there was no announced program, but the blurbs about the pianist were interesting enough and the tickets cheap enough that I decided to go anyway.
 I've noticed in the UK that programs aren't free - any concert I've been to in the US shoves programs in your face, which makes sense considering they're short novels of advertisements with maybe two pages of program notes.
 So, this concert was a game for me of seeing if I could recognize the pieces as he went.
-The first was excerpts from Bach's [*The Musical Offering*](https://youtu.be/PcTVkOzrzQs), I didn't recognize the second, and the third was Ravels [*Alborada del Gracioso* from *Miroirs*](https://youtu.be/SCKDG7w2S9c). 
+The first was excerpts from Bach's [*The Musical Offering*](https://youtu.be/PcTVkOzrzQs), I didn't recognize the second, and the third was Ravels [*Alborada del Gracioso* from *Miroirs*](https://youtu.be/SCKDG7w2S9c).
 
 As he was playing his main program, he passed around a piece of paper asking for musical themes.
-After the first three pieces, he mentioned the second was the premier of a piece he had composed (so I felt better about not knowing it), and collected the list of themes and improvised on them, which was honestly the highlight of the concert. 
+After the first three pieces, he mentioned the second was the premier of a piece he had composed (so I felt better about not knowing it), and collected the list of themes and improvised on them, which was honestly the highlight of the concert.
 He started with Hedwig's Theme played as a tango, and of course any improvisation wouldn't be complete without music from Frozen, but there were really neat nods for people in the *know*, like Claire de Lune played in the style of Ravel's [Scarbo](https://youtu.be/b7oJqi52d2I).
 
 I of course requested [4'33"](https://youtu.be/Gjj9VBcLQJ8), and I assume this was just too funny for him to consider.
 
 ### Brandenburg Concerti
-This was the second time I went to a concert of Bach's complete *Brandenburg Concerti*, and this certainly was a concert of Bach's complete *Brandenburg Concerti*. 
+This was the second time I went to a concert of Bach's complete *Brandenburg Concerti*, and this certainly was a concert of Bach's complete *Brandenburg Concerti*.
 I really don't have much to say about this concert other than finding it really relaxing, so instead I'll share a story from the first concert where I heard these pieces.
 
-There are six concerti, each with three movements. 
+There are six concerti, each with three movements.
 I went to this concert with my mom and my sister, and my mom being extremely patient with me dragging her to very long concerts of music that she isn't extremely interested in, started putting her coat on after the last movement of the second Concerto.
 It took me a second to understand, and I still look back on that and laugh.
 I try to remember that when people don't follow the right 'etiquette' at concerts - not everyone is as 'ingrained' in classical music, and it's not good to fall into elitism about people not knowing things about it - like the difference between a movement and a Concerto.
@@ -179,7 +180,7 @@ This is my second time listening to the Goldberg Variations in Cambridge!
 Just a different one this time.
 Christopher Taylor  played the Goldberg Variations at Longy School of Music of Bard College last December, along with Rzewski's *The People United Will Never Be Defeated* (which is still one of the best concerts I've been to).
 
-Bach's [Goldberg Variations](https://youtu.be/Ah392lnFHxM) are definitely something you can listen to over and over again and always find something new to like. 
+Bach's [Goldberg Variations](https://youtu.be/Ah392lnFHxM) are definitely something you can listen to over and over again and always find something new to like.
 I left this concert with the last variation stuck in my head, which is one that never really stuck with me before.
 
 ## BBC Proms
@@ -187,7 +188,7 @@ The BBC Proms are probably the things I've most looked forward to here.
 I was impatient and bought tickets before my class schedule came out, so I have had to skip some concerts, but I have been to one so far - Proms 8, *Invitation to the Dance* at Royal Albert Hall in London.
 
 <center><img src="cambridge3-1.jpeg" width="90%"></center>
-<center><b><i>There's no way I could take a picture this nice - [Image Source](https://en.wikipedia.org/wiki/The_Proms)</b></i></center>
+<center>***There's no way I could take a picture this nice - [Image Source](https://en.wikipedia.org/wiki/The_Proms)***</center>
 
 The program  was Debussy's *Prélude à l'après-midi d'un faune*, Barók's *Dance Suite*, a violin concerto composed by the conductor Péter Eötvös, and Stravinsky's *The Firebird*.
 
@@ -206,7 +207,7 @@ I ended up checking into an Airbnb.
 
 # Post 4: Classes
 ## Background
-I'm taking two classes while I'm at Cambridge - *History of the Modern Middle East* and *Shakespearean Drama*. 
+I'm taking two classes while I'm at Cambridge - *History of the Modern Middle East* and *Shakespearean Drama*.
 There were some more 'traditionally' STEM classes available, but these two classes at least cover my last two humanities requirements at Northeastern.
 I definitely enjoy humanities classes I take, and I think it's important to find a balance in what you learn, but it's definitely a factor for me that these classes compress my humanities requirements into a 6 week period rather than taking up two classes in a ~15 week semester.
 As an aside, I have had a change of heart about what classes I take in general throughout my first two semesters that lead me to get my humanities requirements 'out of the way' here.
@@ -221,7 +222,7 @@ My approach to taking classes now is much more dependent on if I think that a cl
 I kind of wish I had this mindset earlier - I can think back on 4 of the 8 classes I've taken so far at Northeastern and pretty confidently say that I didn't learn as much as I would've wanted to.
 Of course, learning the material and being enthusiastic about the subject is still on me, I don't want to put any blame on my professors.
 
-So, after that long tangent, that explains my mindset in taking my humanities requirements here. 
+So, after that long tangent, that explains my mindset in taking my humanities requirements here.
 I'm getting them out of the ways early in an optional half semester so I can really focus on classes that are going to directly impact my future plans at Northeastern.
 Is that going to make me the most well rounded person? Of course not.
 But I'll be in a little less debt.
@@ -234,8 +235,8 @@ Both classes have seminars of about 10 people, and the professor pretty much onl
 Hypothetically.
 
 ### Readings
-Every lecture and seminar has an associated reading. 
-Each lecture and seminar has a reading totaling about 100 pages, which is in stark contrast to the about 0 pages a day average I was reading before starting classes. 
+Every lecture and seminar has an associated reading.
+Each lecture and seminar has a reading totaling about 100 pages, which is in stark contrast to the about 0 pages a day average I was reading before starting classes.
 It's not uncommon to finish my last class of the day, then read in all my free time up until the first class the next day.
 I don't want to make this sound like a bad thing, I've wanted to get back into the habit of reading, and this is definitely a baptism by fire.
 
@@ -256,43 +257,43 @@ I don't know what system I prefer - at Northeastern I can at least tell if I'm n
 It's really easy to get work done when there are so many gorgeous places to work.
 
 <center><img src="cambridge4-1.jpg" width="90%"></center>
-<center><b><i>Pembroke College Library</b></i></center>
+<center>***Pembroke College Library***</center>
 
 The library is open 8am-12am, is rarely crowded, and completely silent.
-I want to pick this building up, destroy Snell, and put it in its place. 
+I want to pick this building up, destroy Snell, and put it in its place.
 
 <center><img src="cambridge4-2.jpg" width="90%"></center>
-<center><b><i>Christ's Pieces</b></i></center>
+<center>***Christ's Pieces***</center>
 
 My nightly routine at this point is to get a sausage from a food truck, and read the day's Shakespeare reading in Christ's Pieces park.
 Not great for writing, but any park around Cambridge is super nice to read in.
 
 # Post 5: An Average Day
-I'm going to take you through a day here at Cambridge! 
+I'm going to take you through a day here at Cambridge!
 I've picked a day where I was ahead on work, so hopefully this is more interesting than "I've spent the entire day in the library."
 
 ## 8am - 1pm: Trip into London, *Tate Modern*
 
-I got up early to take the train into London - I'm still impressed by the public transportation throughout the UK. 
+I got up early to take the train into London - I'm still impressed by the public transportation throughout the UK.
 People that spent more than a certain amount on a ticket for this train into London were refunded because the train was 10 minutes late - that's in stark contrast to the MBTA where you should consider yourself lucky if your train shows up within the hour.
 
 I've been at King's Cross Station a couple times now, and I still love to just look around.
 It's absolutely gorgeous.
 
 <center><img src="cambridge5-1.jpg" width="90%"></center>
-<center><b><i>King's Cross Station</b></i></center>
+<center>***King's Cross Station***</center>
 
 As long as you avoid the line that sprawls from platform 8 to 11, it's really lovely.
 
 I took the Tube to Tate Modern,  a famous museum of contemporary art in south London very similar to the ICA in Boston. Even if you aren't that interested in the art, there's a great view over the city.
 
 <center><img src="cambridge5-2.jpg" width="90%"></center>
-<center><b><i>View of London from Tate Modern</b></i></center>
+<center>***View of London from Tate Modern***</center>
 
 There's exhibits all throughout the building, the landing of the elevator on the second floor has this really pretty hanging polyhedron made of mirrors that reflects the light.
 
 <center><img src="cambridge5-3.jpg" width="90%"></center>
-<center><b><i>I think this is by Alexander Calder?</b></i></center>
+<center>***I think this is by Alexander Calder?***</center>
 
 Alexander Caleder inspired this sculpture of the International Space station, constructed out of metal in such a way that it acts as a functional antenna.
 For a 10 minute period every day, the encrypted data sent back from the ISS can be heard.
@@ -301,7 +302,7 @@ I couldn't find anywhere when this 10 minute window is, and I was not lucky enou
 It's still a really cool sculpture, especially with the overhead lighting casting shadows on the white walls of the otherwise empty room.
 
 <center><img src="cambridge5-4.jpg" width="90%"></center>
-<center><b><i>Jennifer Allora and Guillermo Calzadilla - Ten Minute Transmission</b></i></center>
+<center>***Jennifer Allora and Guillermo Calzadilla - Ten Minute Transmission***</center>
 
 Keeping with the theme of radios is *Babylon*, a tower of radios each tuned to a different station.
 It's supposed to act as a 'tower of incomprehension', and you definitely get a sense of that when you walk into the room to just a mass of sound.
@@ -311,7 +312,7 @@ The idea of the sculpture, in line with the biblical allusion, is especially pot
 The random aspect of radios was really popular in aleatoric music, like in John Cage's [*Imaginary Landscape No. 4 for 12 Radios*](https://youtu.be/SSSn0odpHKE) or his *Water Music*, which I did a performance of.
 
 <center><img src="cambridge5-5.jpg" width="90%"></center>
-<center><b><i>Cildo Meireles - Babylon</b></i></center>
+<center>***Cildo Meireles - Babylon***</center>
 
 I also enjoyed the artwork on display by Chris Burden and Joseph Beuys - I recognized their names from some performance art I'm familiar with.
 Chris Burden is famous for performance art based on personal danger: like *Shoot*, where he was shot in the arm in a gallery, or *Do You Believe in Television* where "he sent an audience to the third floor of a building — where television monitors showed them the ground floor — and then lit a fire on the ground floor".
@@ -341,7 +342,7 @@ I wanted to reread an act of *The Winter's Tale* for today's Shakespeare lecture
 The chapel at Pembroke is usually pretty empty in the evenings, so I practice on the little upright they have in there. Today it was particularly empty so I could practice for a while.
 
 <center><img src="cambridge5-8.jpg" width="90%"></center>
-<center><b><i>Pembroke College Chapel</b></i></center>
+<center>***Pembroke College Chapel***</center>
 
 <center><img src="cambridge5-9.gif" width="90%"></center>
 
@@ -394,7 +395,7 @@ Why did no one tell me Shakespeare was this interesting before?
 Not that my high school English teachers failed me or anything, but my only memories of analyzing Shakespeare in high school were churning out essays in a couple hours.
 Maybe it was just the focus of having an entire class dedicated to Shakespeare, but I really enjoyed everything I read.
 The professor again was unbelievable, the breadth of his knowledge never ceased to amaze me - if anyone analyzed even the smallest of detail, he'd not only be familiar, but be able to cite entire books or essays that analyzed that exact thing just off of the top of his head.
-Again, a professor that is great to talk to just because of how intensely interested he is in English literature. 
+Again, a professor that is great to talk to just because of how intensely interested he is in English literature.
 
 ## Studying Abroad in General and Personal Experience
 The rigor of the classes I took wasn't an issue in and of itself, I probably spend a pretty similar amount of time and effort on classes during the semester at Northeastern, but this was really in direct conflict with the internal and external pressures to do 'interesting' stuff while abroad.
@@ -411,7 +412,7 @@ For the people that took their classes pass/fail, or generally not for credit, I
 I definitely would've done the same.
 When this was brought up to one of my professors towards the end of the program, he was kind of shocked when me and the other people from Northeastern said we were taking the class for credit.
 
-So, a lot of my struggle from this program might've just been because of my ego -- and I'm even hesitant to mention this struggle because it can definitely come off as "boo hoo, I might get a B" if written in the wrong tone. 
+So, a lot of my struggle from this program might've just been because of my ego -- and I'm even hesitant to mention this struggle because it can definitely come off as "boo hoo, I might get a B" if written in the wrong tone.
 But, if you're doing a study abroad, these regrets would definitely be my main takeaway.
 Even if you're taking the classes for credit like I did, at least consider that a C is just as passing as an A.
 
