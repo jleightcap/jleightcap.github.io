@@ -19,9 +19,10 @@ I found the wiring very pleasant, and really enjoyed making the wiring very tidy
 
 ## Architecture
 The CPU consists of a few discrete modules:
+
 - Clock (variable frequency)
-- A register
-- B register
+- `A` register
+- `B` register
 - Instruction Register
 - ALU
 - RAM (memory, address register)
