@@ -1,8 +1,8 @@
 ---
 title: Charlie 'the Traveling Salesman' on the MBTA
----
-<center><a href="../../index.html">Jack Leightcap</a></center>
 date: February 2, 2019
+author: <a href="../../index.html">Jack Leightcap</a>
+---
 
 ## Abstract
 Using a brute force Traveling Salesman, I found the shortest possible route which visits all 64 stops of the MBTA Green Line.

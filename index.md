@@ -1,26 +1,6 @@
 ---
 title: Jack Leightcap
 ---
-<center><table style="width:95%">
-    <tr>
-        <th>
-        <a href="Project/eatercpu/eatercpu.html">
-            <img src="Project/eatercpu/wiring.jpeg" width=300"></a>
-        </th>
-        <th>
-        <a href="Project/tilife/life.8xp">
-            <img src="Project/tilife/tilife.gif" width=300"></a>
-        </th>
-    </tr>
-</table></center>
-<center><table style="width:80%">
-    <tr>
-        <th>
-        <a href="Project/mbtaspeedrun/mbtaspeedrun.html">
-            <img src="Project/mbtaspeedrun/mbtaspeedrun.gif" width=600"></a>
-        </th>
-    </tr>
-</table></center>
 
 # About
 

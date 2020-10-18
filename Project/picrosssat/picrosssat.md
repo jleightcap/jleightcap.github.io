@@ -1,8 +1,8 @@
 ---
+title: PicrossSAT
 date: June 5, 2020
+author: <a href="../../index.html">Jack Leightcap</a>
 ---
-
-<center><a href="../../index.html">Jack Leightcap</a></center>
 
 ## Abstract
 Picross puzzles (also known as Nonograms) are a logic puzzle in the vein of Sudoku.

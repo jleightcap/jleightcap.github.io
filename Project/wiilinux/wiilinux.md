@@ -1,7 +1,7 @@
 ---
 title: "Linux on the Nintendo Wii Installation Guide"
-author: <a href="../../index.html">Jack Leightcap</a>
 date: March 10, 2019
+author: <a href="../../index.html">Jack Leightcap</a>
 ---
 
 <div style="text-align:center">

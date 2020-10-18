@@ -1,8 +1,8 @@
 ---
 title: Erik Satie - Vexations (1894)
----
-<center><a href="../../index.html">Jack Leightcap</a></center>
 date: March 10, 2019
+author: <a href="../../index.html">Jack Leightcap</a>
+---
 
 ## First recording, 6 hours (2017)
 During my Junior year of high school, I recorded a 6-hour performance of [Erik Satie's <i>Vexations</i>.](https://www.youtube.com/embed/zuszCTwh11k)

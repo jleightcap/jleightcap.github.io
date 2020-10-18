@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Jack Leightcap" />
+  <meta name="dcterms.date" content="2020-07-19" />
   <title>Breadboard CPU</title>
   <style>
     code{white-space: pre-wrap;}
@@ -12,6 +14,68 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="style.css" />
   <!--[if lt IE 9]>
@@ -21,11 +85,9 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Breadboard CPU</h1>
+<p class="author"><a href="../../index.html">Jack Leightcap</a></p>
+<p class="date">July 19, 2020</p>
 </header>
-<center>
-<a href="../../index.html">Jack Leightcap</a>
-</center>
-<p>date: July 19, 2020</p>
 <h2 id="build-process">Build Process</h2>
 <p>During <em>the current situation</em> (see date), I built Ben Eater’s 8-bit breadboard CPU.</p>
 <center>
@@ -39,150 +101,73 @@
 <h2 id="architecture">Architecture</h2>
 <p>The CPU consists of a few discrete modules: - Clock (variable frequency) - A register - B register - Instruction Register - ALU - RAM (memory, address register) - Program Counter - Output register and display - Control logic (microcode decoding, microinstruction counter)</p>
 <h3 id="instruction-set">Instruction Set</h3>
-The CPU uses 8-bit instruction words,
+<p>The CPU uses 8-bit instruction words,</p>
 <center>
-<table style="width:80%">
-<tr>
-<th>
-Instruction
-</th>
-<th>
-Machine Code
-</th>
-<th>
-Meaning
-</th>
+<table>
+<thead>
+<tr class="header">
+<th>Instruction</th>
+<th style="text-align: left;">Machine Code</th>
+<th>Meaning</th>
 </tr>
-<tr>
-<td>
-NOP
-</td>
-<td>
-0000_xxxx
-</td>
-<td>
-Do nothing
-</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>NOP</code></td>
+<td style="text-align: left;"><code>0000_xxxx</code></td>
+<td>Do nothing</td>
 </tr>
-<tr>
-<td>
-LDA imm8
-</td>
-<td>
-0001_imm8
-</td>
-<td>
-A = ram[imm8]
-</td>
+<tr class="even">
+<td><code>LDA imm8</code></td>
+<td style="text-align: left;"><code>0001_imm8</code></td>
+<td><code>A = ram[imm8]</code></td>
 </tr>
-<tr>
-<td>
-ADD imm8
-</td>
-<td>
-0010_imm8
-</td>
-<td>
-A += ram[imm8]
-</td>
-<tr>
-<tr>
-<td>
-SUB imm8
-</td>
-<td>
-0011_imm8
-</td>
-<td>
-A -= ram[imm8]
-</td>
+<tr class="odd">
+<td><code>ADD imm8</code></td>
+<td style="text-align: left;"><code>0010_imm8</code></td>
+<td><code>A += ram[imm8]</code></td>
 </tr>
-<tr>
-<td>
-STA imm8
-</td>
-<td>
-0100_imm8
-</td>
-<td>
-ram[imm8] = A
-</td>
+<tr class="even">
+<td><code>SUB imm8</code></td>
+<td style="text-align: left;"><code>0011_imm8</code></td>
+<td><code>A -= ram[imm8]</code></td>
 </tr>
-<tr>
-<td>
-LDI imm8
-</td>
-<td>
-0101_imm8
-</td>
-<td>
-A = imm8
-</td>
+<tr class="odd">
+<td><code>STA imm8</code></td>
+<td style="text-align: left;"><code>0100_imm8</code></td>
+<td><code>ram[imm8] = A</code></td>
 </tr>
-<tr>
-<td>
-JMP imm8
-</td>
-<td>
-0110_imm8
-</td>
-<td>
-PC = imm8
-</td>
+<tr class="even">
+<td><code>LDI imm8</code></td>
+<td style="text-align: left;"><code>0101_imm8</code></td>
+<td><code>A = imm8</code></td>
 </tr>
-<tr>
-<td>
-JC imm8
-</td>
-<td>
-0111_imm8
-</td>
-<td>
-if carry flag PC = imm8, else PC++
-</td>
+<tr class="odd">
+<td><code>JMP imm8</code></td>
+<td style="text-align: left;"><code>0110_imm8</code></td>
+<td><code>PC = imm8</code></td>
 </tr>
-<tr>
-<td>
-JZ imm8
-</td>
-<td>
-1000_imm
-</td>
-<td>
-if zero flag PC = imm8, else PC+
-</td>
+<tr class="even">
+<td><code>JC imm8</code></td>
+<td style="text-align: left;"><code>0111_imm8</code></td>
+<td>if carry flag <code>PC = imm8</code>, else <code>PC++</code></td>
 </tr>
-<tr>
-<td>
-</td>
-<td>
-…
-</td>
-<td>
-</td>
+<tr class="odd">
+<td><code>JZ imm8</code></td>
+<td style="text-align: left;"><code>1000_imm8</code></td>
+<td>if zero flag <code>PC = imm8</code>, else <code>PC++</code></td>
 </tr>
-<tr>
-<td>
-OUT
-</td>
-<td>
-1110_xxxx
-</td>
-<td>
-OUT = A
-</td>
+<tr class="even">
+<td><code>OUT</code></td>
+<td style="text-align: left;"><code>1110_xxxx</code></td>
+<td><code>OUT = A</code></td>
 </tr>
-<tr>
-<td>
-HLT
-</td>
-<td>
-1111_xxxx
-</td>
-<td>
-Halt CPU
-</td>
+<tr class="odd">
+<td><code>HLT</code></td>
+<td style="text-align: left;"><code>1111_xxxx</code></td>
+<td>Halt CPU</td>
 </tr>
+</tbody>
 </table>
 </center>
 <h3 id="memory">Memory</h3>
@@ -190,88 +175,88 @@ Halt CPU
 <h2 id="emulator-example-program">Emulator, Example Program</h2>
 <p>Immediately following the build, I wanted to implement the CPU in a HDL. I settled on Verilog, after using it in a Digial Logic class (but not understanding it much). <a href="https://github.com/jleightcap/eateremu">eateremu</a> provides a simple interface to modify and test this architecture and programs.</p>
 <p>Writing a simple program in ram.v,</p>
-<pre><code>// ...
-initial begin
-    memory[0]  &lt;= 8&#39;b0101_1111; // LDI 15
-    memory[1]  &lt;= 8&#39;b0100_1111; // STA 15
-    memory[2]  &lt;= 8&#39;b0010_1111; // ADD 15
-    memory[3]  &lt;= 8&#39;b0100_0100; // STA 4
-    memory[4]  &lt;= 8&#39;b0000_0000;
-    memory[5]  &lt;= 8&#39;b1110_0000; // OUT
-    memory[6]  &lt;= 8&#39;b0110_1110; // JMP 14
-    memory[7]  &lt;= 8&#39;b0000_0000;
-    memory[8]  &lt;= 8&#39;b0000_0000;
-    memory[9]  &lt;= 8&#39;b0000_0000;
-    memory[10] &lt;= 8&#39;b0000_0000;
-    memory[11] &lt;= 8&#39;b0000_0000;
-    memory[12] &lt;= 8&#39;b0000_0000;
-    memory[13] &lt;= 8&#39;b0000_0000;
-    memory[14] &lt;= 8&#39;b1111_1111;
-    memory[15] &lt;= 8&#39;b0000_0000;
-end
-// ...</code></pre>
-<p>This program uses the ALU to calculate the data 0x1e, then executes that data as the instruction LDA 14. The contents of memory address 14 are stored to the output register then executed as the instruction HLT.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode verilog"><code class="sourceCode verilog"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">// ...</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">initial</span> <span class="kw">begin</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    memory[<span class="dv">0</span>]  &lt;= <span class="bn">8&#39;b0101_1111</span>; <span class="co">// LDI 15</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    memory[<span class="dv">1</span>]  &lt;= <span class="bn">8&#39;b0100_1111</span>; <span class="co">// STA 15</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    memory[<span class="dv">2</span>]  &lt;= <span class="bn">8&#39;b0010_1111</span>; <span class="co">// ADD 15</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    memory[<span class="dv">3</span>]  &lt;= <span class="bn">8&#39;b0100_0100</span>; <span class="co">// STA 4</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    memory[<span class="dv">4</span>]  &lt;= <span class="bn">8&#39;b0000_0000</span>;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    memory[<span class="dv">5</span>]  &lt;= <span class="bn">8&#39;b1110_0000</span>; <span class="co">// OUT</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>    memory[<span class="dv">6</span>]  &lt;= <span class="bn">8&#39;b0110_1110</span>; <span class="co">// JMP 14</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    memory[<span class="dv">7</span>]  &lt;= <span class="bn">8&#39;b0000_0000</span>;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    memory[<span class="dv">8</span>]  &lt;= <span class="bn">8&#39;b0000_0000</span>;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>    memory[<span class="dv">9</span>]  &lt;= <span class="bn">8&#39;b0000_0000</span>;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    memory[<span class="dv">10</span>] &lt;= <span class="bn">8&#39;b0000_0000</span>;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>    memory[<span class="dv">11</span>] &lt;= <span class="bn">8&#39;b0000_0000</span>;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    memory[<span class="dv">12</span>] &lt;= <span class="bn">8&#39;b0000_0000</span>;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>    memory[<span class="dv">13</span>] &lt;= <span class="bn">8&#39;b0000_0000</span>;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>    memory[<span class="dv">14</span>] &lt;= <span class="bn">8&#39;b1111_1111</span>;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>    memory[<span class="dv">15</span>] &lt;= <span class="bn">8&#39;b0000_0000</span>;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a><span class="kw">end</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a><span class="co">// ...</span></span></code></pre></div>
+<p>This program uses the ALU to calculate the data <code>0x1e</code>, then executes that data as the instruction <code>LDA 14</code>. The contents of memory address 14 are stored to the output register then executed as the instruction <code>HLT</code>.</p>
 <p>Compiling <code>eateremu.v</code> with <code>-DVERBOSE</code> shows the status of the control word and registers as the program executes. The order of bits in the control word are <code>hlt, mi, ri, ro, io, ii, ai, ao, eo, su, bi, oi, ce, co, j, fi</code>. Executing the above program,</p>
-<pre><code>                   0: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=0 a=00 b=00 o=00
-          0
-                   1: bus=zzzz0000 ctrl=0100000000000100 mem_addr=0 a=00 b=00 o=00
-                   3: bus=01011111 ctrl=0001010000001000 mem_addr=0 a=00 b=00 o=00
-                   5: bus=zzzz1111 ctrl=0000101000000000 mem_addr=0 a=00 b=00 o=00
-                   6: bus=zzzz1111 ctrl=0000101000000000 mem_addr=0 a=0f b=00 o=00
-                   7: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=0 a=0f b=00 o=00
-          1
-                  17: bus=zzzz0001 ctrl=0100000000000100 mem_addr=0 a=0f b=00 o=00
-                  18: bus=zzzz0001 ctrl=0100000000000100 mem_addr=1 a=0f b=00 o=00
-                  19: bus=01001111 ctrl=0001010000001000 mem_addr=1 a=0f b=00 o=00
-                  21: bus=zzzz1111 ctrl=0100100000000000 mem_addr=1 a=0f b=00 o=00
-                  22: bus=zzzz1111 ctrl=0100100000000000 mem_addr=f a=0f b=00 o=00
-                  23: bus=00001111 ctrl=0010000100000000 mem_addr=f a=0f b=00 o=00
-                  25: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=f a=0f b=00 o=00
-          2
-                  33: bus=zzzz0010 ctrl=0100000000000100 mem_addr=f a=0f b=00 o=00
-                  34: bus=zzzz0010 ctrl=0100000000000100 mem_addr=2 a=0f b=00 o=00
-                  35: bus=00101111 ctrl=0001010000001000 mem_addr=2 a=0f b=00 o=00
-                  37: bus=zzzz1111 ctrl=0100100000000000 mem_addr=2 a=0f b=00 o=00
-                  38: bus=zzzz1111 ctrl=0100100000000000 mem_addr=f a=0f b=00 o=00
-                  39: bus=00001111 ctrl=0001000000100000 mem_addr=f a=0f b=00 o=00
-                  40: bus=00001111 ctrl=0001000000100000 mem_addr=f a=0f b=0f o=00
-                  41: bus=00011110 ctrl=0000001010000001 mem_addr=f a=0f b=0f o=00
-                  42: bus=00101101 ctrl=0000001010000001 mem_addr=f a=1e b=0f o=00
-                  43: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=f a=1e b=0f o=00
-          3
-                  49: bus=zzzz0011 ctrl=0100000000000100 mem_addr=f a=1e b=0f o=00
-                  50: bus=zzzz0011 ctrl=0100000000000100 mem_addr=3 a=1e b=0f o=00
-                  51: bus=01000100 ctrl=0001010000001000 mem_addr=3 a=1e b=0f o=00
-                  53: bus=zzzz0100 ctrl=0100100000000000 mem_addr=3 a=1e b=0f o=00
-                  54: bus=zzzz0100 ctrl=0100100000000000 mem_addr=4 a=1e b=0f o=00
-                  55: bus=00011110 ctrl=0010000100000000 mem_addr=4 a=1e b=0f o=00
-                  57: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=4 a=1e b=0f o=00
-          4
-                  65: bus=zzzz0100 ctrl=0100000000000100 mem_addr=4 a=1e b=0f o=00
-                  67: bus=00011110 ctrl=0001010000001000 mem_addr=4 a=1e b=0f o=00
-                  69: bus=zzzz1110 ctrl=0100100000000000 mem_addr=4 a=1e b=0f o=00
-                  70: bus=zzzz1110 ctrl=0100100000000000 mem_addr=e a=1e b=0f o=00
-                  71: bus=11111111 ctrl=0001001000000000 mem_addr=e a=1e b=0f o=00
-                  72: bus=11111111 ctrl=0001001000000000 mem_addr=e a=ff b=0f o=00
-                  73: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=e a=ff b=0f o=00
-          5
-                  81: bus=zzzz0101 ctrl=0100000000000100 mem_addr=e a=ff b=0f o=00
-                  82: bus=zzzz0101 ctrl=0100000000000100 mem_addr=5 a=ff b=0f o=00
-                  83: bus=11100000 ctrl=0001010000001000 mem_addr=5 a=ff b=0f o=00
-                  85: bus=11111111 ctrl=0000000100010000 mem_addr=5 a=ff b=0f o=00
-                  86: bus=11111111 ctrl=0000000100010000 mem_addr=5 a=ff b=0f o=ff
-                  87: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=5 a=ff b=0f o=ff
-          6
-                  97: bus=zzzz0110 ctrl=0100000000000100 mem_addr=5 a=ff b=0f o=ff
-                  98: bus=zzzz0110 ctrl=0100000000000100 mem_addr=6 a=ff b=0f o=ff
-                  99: bus=01101110 ctrl=0001010000001000 mem_addr=6 a=ff b=0f o=ff
-                 101: bus=zzzz1110 ctrl=0000100000000010 mem_addr=6 a=ff b=0f o=ff
-                 103: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=6 a=ff b=0f o=ff
-          7
-                 113: bus=zzzz1110 ctrl=0100000000000100 mem_addr=6 a=ff b=0f o=ff
-                 114: bus=zzzz1110 ctrl=0100000000000100 mem_addr=e a=ff b=0f o=ff
-                 115: bus=11111111 ctrl=0001010000001000 mem_addr=e a=ff b=0f o=ff
-                 117: bus=zzzzzzzz ctrl=1000000000000000 mem_addr=e a=ff b=0f o=ff</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>       <span class="ex">0</span>: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=0 a=00 b=00 o=00</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="ex">0</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>       <span class="ex">1</span>: bus=zzzz0000 ctrl=0100000000000100 mem_addr=0 a=00 b=00 o=00</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>       <span class="ex">3</span>: bus=01011111 ctrl=0001010000001000 mem_addr=0 a=00 b=00 o=00</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>       <span class="ex">5</span>: bus=zzzz1111 ctrl=0000101000000000 mem_addr=0 a=00 b=00 o=00</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>       <span class="ex">6</span>: bus=zzzz1111 ctrl=0000101000000000 mem_addr=0 a=0f b=00 o=00</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>       <span class="ex">7</span>: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=0 a=0f b=00 o=00</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="ex">1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>      <span class="ex">17</span>: bus=zzzz0001 ctrl=0100000000000100 mem_addr=0 a=0f b=00 o=00</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>      <span class="ex">18</span>: bus=zzzz0001 ctrl=0100000000000100 mem_addr=1 a=0f b=00 o=00</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>      <span class="ex">19</span>: bus=01001111 ctrl=0001010000001000 mem_addr=1 a=0f b=00 o=00</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>      <span class="ex">21</span>: bus=zzzz1111 ctrl=0100100000000000 mem_addr=1 a=0f b=00 o=00</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>      <span class="ex">22</span>: bus=zzzz1111 ctrl=0100100000000000 mem_addr=f a=0f b=00 o=00</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>      <span class="ex">23</span>: bus=00001111 ctrl=0010000100000000 mem_addr=f a=0f b=00 o=00</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>      <span class="ex">25</span>: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=f a=0f b=00 o=00</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="ex">2</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>      <span class="ex">33</span>: bus=zzzz0010 ctrl=0100000000000100 mem_addr=f a=0f b=00 o=00</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>      <span class="ex">34</span>: bus=zzzz0010 ctrl=0100000000000100 mem_addr=2 a=0f b=00 o=00</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>      <span class="ex">35</span>: bus=00101111 ctrl=0001010000001000 mem_addr=2 a=0f b=00 o=00</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>      <span class="ex">37</span>: bus=zzzz1111 ctrl=0100100000000000 mem_addr=2 a=0f b=00 o=00</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>      <span class="ex">38</span>: bus=zzzz1111 ctrl=0100100000000000 mem_addr=f a=0f b=00 o=00</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>      <span class="ex">39</span>: bus=00001111 ctrl=0001000000100000 mem_addr=f a=0f b=00 o=00</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>      <span class="ex">40</span>: bus=00001111 ctrl=0001000000100000 mem_addr=f a=0f b=0f o=00</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>      <span class="ex">41</span>: bus=00011110 ctrl=0000001010000001 mem_addr=f a=0f b=0f o=00</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a>      <span class="ex">42</span>: bus=00101101 ctrl=0000001010000001 mem_addr=f a=1e b=0f o=00</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>      <span class="ex">43</span>: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=f a=1e b=0f o=00</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a><span class="ex">3</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a>      <span class="ex">49</span>: bus=zzzz0011 ctrl=0100000000000100 mem_addr=f a=1e b=0f o=00</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a>      <span class="ex">50</span>: bus=zzzz0011 ctrl=0100000000000100 mem_addr=3 a=1e b=0f o=00</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a>      <span class="ex">51</span>: bus=01000100 ctrl=0001010000001000 mem_addr=3 a=1e b=0f o=00</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a>      <span class="ex">53</span>: bus=zzzz0100 ctrl=0100100000000000 mem_addr=3 a=1e b=0f o=00</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a>      <span class="ex">54</span>: bus=zzzz0100 ctrl=0100100000000000 mem_addr=4 a=1e b=0f o=00</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a>      <span class="ex">55</span>: bus=00011110 ctrl=0010000100000000 mem_addr=4 a=1e b=0f o=00</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>      <span class="ex">57</span>: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=4 a=1e b=0f o=00</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a><span class="ex">4</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>      <span class="ex">65</span>: bus=zzzz0100 ctrl=0100000000000100 mem_addr=4 a=1e b=0f o=00</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a>      <span class="ex">67</span>: bus=00011110 ctrl=0001010000001000 mem_addr=4 a=1e b=0f o=00</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a>      <span class="ex">69</span>: bus=zzzz1110 ctrl=0100100000000000 mem_addr=4 a=1e b=0f o=00</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a>      <span class="ex">70</span>: bus=zzzz1110 ctrl=0100100000000000 mem_addr=e a=1e b=0f o=00</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a>      <span class="ex">71</span>: bus=11111111 ctrl=0001001000000000 mem_addr=e a=1e b=0f o=00</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a>      <span class="ex">72</span>: bus=11111111 ctrl=0001001000000000 mem_addr=e a=ff b=0f o=00</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true"></a>      <span class="ex">73</span>: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=e a=ff b=0f o=00</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true"></a><span class="ex">5</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true"></a>      <span class="ex">81</span>: bus=zzzz0101 ctrl=0100000000000100 mem_addr=e a=ff b=0f o=00</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true"></a>      <span class="ex">82</span>: bus=zzzz0101 ctrl=0100000000000100 mem_addr=5 a=ff b=0f o=00</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true"></a>      <span class="ex">83</span>: bus=11100000 ctrl=0001010000001000 mem_addr=5 a=ff b=0f o=00</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a>      <span class="ex">85</span>: bus=11111111 ctrl=0000000100010000 mem_addr=5 a=ff b=0f o=00</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true"></a>      <span class="ex">86</span>: bus=11111111 ctrl=0000000100010000 mem_addr=5 a=ff b=0f o=ff</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true"></a>      <span class="ex">87</span>: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=5 a=ff b=0f o=ff</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true"></a><span class="ex">6</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true"></a>      <span class="ex">97</span>: bus=zzzz0110 ctrl=0100000000000100 mem_addr=5 a=ff b=0f o=ff</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true"></a>      <span class="ex">98</span>: bus=zzzz0110 ctrl=0100000000000100 mem_addr=6 a=ff b=0f o=ff</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true"></a>      <span class="ex">99</span>: bus=01101110 ctrl=0001010000001000 mem_addr=6 a=ff b=0f o=ff</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true"></a>     <span class="ex">101</span>: bus=zzzz1110 ctrl=0000100000000010 mem_addr=6 a=ff b=0f o=ff</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true"></a>     <span class="ex">103</span>: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=6 a=ff b=0f o=ff</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true"></a><span class="ex">7</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true"></a>     <span class="ex">113</span>: bus=zzzz1110 ctrl=0100000000000100 mem_addr=6 a=ff b=0f o=ff</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true"></a>     <span class="ex">114</span>: bus=zzzz1110 ctrl=0100000000000100 mem_addr=e a=ff b=0f o=ff</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true"></a>     <span class="ex">115</span>: bus=11111111 ctrl=0001010000001000 mem_addr=e a=ff b=0f o=ff</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true"></a>     <span class="ex">117</span>: bus=zzzzzzzz ctrl=1000000000000000 mem_addr=e a=ff b=0f o=ff</span></code></pre></div>
 <p>This is a great example of the benefits of writing ‘closer to the metal’: it’s a really mind-melting experience to execute data as instructions, and store instructions as data. That level of control is obfuscated (with the major trade-off of convenience) behind assemblers and compilers.</p>
 </body>
 </html>
