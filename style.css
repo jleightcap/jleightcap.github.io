@@ -13,7 +13,7 @@ body {
 }
 
 pre {
-    border: 1px dotted gray;
+    border: 1px dotted white;
     background-color: #222222;
     color: #ffffff;
     padding: 0.5em;
@@ -30,7 +30,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 
 h1, h2, h3, h4, h5 {
     font-weight: bold;
-    border-bottom: 1px dotted black;
+    border-bottom: 1px dotted white;
     color: #cccccc;
     line-height: 150%
 }
