@@ -1,23 +1,41 @@
-<link rel="stylesheet" type="text/css" href="../../style.css" media="screen" />
-
-<h1>Charlie 'the Traveling Salesman' on the MBTA</h1>
-<center><a href="../../index.html">Jack Leightcap</a></center>
-date: February 2, 2019
-<h2>Abstract</h2>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Charlie ‘the Traveling Salesman’ on the MBTA</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Charlie ‘the Traveling Salesman’ on the MBTA</h1>
+</header>
+<center>
+<a href="../../index.html">Jack Leightcap</a>
+</center>
+<p>date: February 2, 2019</p>
+<h2 id="abstract">Abstract</h2>
 <p>Using a brute force Traveling Salesman, I found the shortest possible route which visits all 64 stops of the MBTA Green Line.</p>
-<center><img src="mbtaspeedrun.gif" width="80%"></center>
-<p>The ideal time was about 2:30.
-In practice, my best time is 2:47.
-My first attempt had a time of 3:15, which you can watch <a href="https://www.youtube.com/embed/LspT5B-S-uw">here</a>.</p>
-<h2>Implementation</h2>
-<p>Instead of searching all 64 nodes, the search instead reduced the graph to a 6-node non-directed graph search.
-The consequence of a reduction like this is that the edges of the graph then
-contain stations themselves — this means that the traditional Travelling
-Salesman problem of visiting every node is modified to visit every node <em>and</em>
-visit every edge.</p>
-<p>To reduce search time, all paths start and end at the most extreme ends, Lechmere and Riverside respectively.
-Directionality was determined based on MBTA early morning time tables.</p>
-<h2>The Final Route</h2>
+<center>
+<img src="mbtaspeedrun.gif" width="80%">
+</center>
+<p>The ideal time was about 2:30. In practice, my best time is 2:47. My first attempt had a time of 3:15, which you can watch <a href="https://www.youtube.com/embed/LspT5B-S-uw">here</a>.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Instead of searching all 64 nodes, the search instead reduced the graph to a 6-node non-directed graph search. The consequence of a reduction like this is that the edges of the graph then contain stations themselves — this means that the traditional Travelling Salesman problem of visiting every node is modified to visit every node <em>and</em> visit every edge.</p>
+<p>To reduce search time, all paths start and end at the most extreme ends, Lechmere and Riverside respectively. Directionality was determined based on MBTA early morning time tables.</p>
+<h2 id="the-final-route">The Final Route</h2>
 <ul>
 <li>Lechmere →</li>
 <li>Heath Street →</li>
@@ -29,3 +47,5 @@ Directionality was determined based on MBTA early morning time tables.</p>
 <li>Riverside</li>
 </ul>
 <p>If you find a more efficient route or beat my record, please let me know!</p>
+</body>
+</html>

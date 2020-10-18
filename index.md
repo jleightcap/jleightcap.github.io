@@ -1,3 +1,6 @@
+---
+title: Jack Leightcap
+---
 <center><p style="font-size:50px"><b>Jack Leightcap</b></p></center>
 
 <center><table style="width:95%">
@@ -34,7 +37,7 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 |
 <a href="mailto:jleightcap@protonmail.com">Email</a>
 |
-<a href="pubkey">PGP</a>
+<a href="pubkey.txt">PGP</a>
 </center>
 
 # Projects

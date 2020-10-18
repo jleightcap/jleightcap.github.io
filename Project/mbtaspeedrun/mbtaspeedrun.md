@@ -1,4 +1,6 @@
-# Charlie 'the Traveling Salesman' on the MBTA
+---
+title: Charlie 'the Traveling Salesman' on the MBTA
+---
 <center><a href="../../index.html">Jack Leightcap</a></center>
 date: February 2, 2019
 

@@ -1,131 +1,217 @@
-<link rel="stylesheet" type="text/css" href="../../style.css" media="screen" />
-
-<h1>Breadboard CPU</h1>
-<center><a href="../../index.html">Jack Leightcap</a></center>
-date: July 19, 2020
-<h2>Build Process</h2>
-<p>During <em>the current situation</em> (see date), I built Ben Eater's 8-bit
-breadboard CPU.</p>
-<center><img src="board.jpeg" width="80%"></center>
-<p>The simple architecture provides for a modular and testable build, however with a deeply
-complex final result.</p>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Breadboard CPU</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Breadboard CPU</h1>
+</header>
+<center>
+<a href="../../index.html">Jack Leightcap</a>
+</center>
+<p>date: July 19, 2020</p>
+<h2 id="build-process">Build Process</h2>
+<p>During <em>the current situation</em> (see date), I built Ben Eater’s 8-bit breadboard CPU.</p>
+<center>
+<img src="board.jpeg" width="80%">
+</center>
+<p>The simple architecture provides for a modular and testable build, however with a deeply complex final result.</p>
 <p>I found the wiring very pleasant, and really enjoyed making the wiring very tidy:</p>
-<center><img src="wiring.jpeg" width=60%"></center>
-<h2>Architecture</h2>
-<p>The CPU consists of a few discrete modules:</p>
-<ul>
-<li>Clock (variable frequency)</li>
-<li>A register</li>
-<li>B register</li>
-<li>Instruction Register</li>
-<li>ALU</li>
-<li>RAM (memory, address register)</li>
-<li>Program Counter</li>
-<li>Output register and display</li>
-<li>Control logic (microcode decoding, microinstruction counter)</li>
-</ul>
-<h3>Instruction Set</h3>
-<p>The CPU uses 8-bit instruction words,</p>
-<center><table style="width:80%">
-    <tr>
-        <th>Instruction</th>
-        <th>Machine Code</th>
-        <th>Meaning</th>
-    </tr>
-    <tr>
-        <td>NOP</td>
-        <td>0000_xxxx</td>
-        <td>Do nothing</td>
-    </tr>
-    <tr>
-        <td>LDA imm8</td>
-        <td>0001_imm8</td>
-        <td>A = ram[imm8]</td>
-    </tr>
-    <tr>
-        <td>ADD imm8</td>
-        <td>0010_imm8</td>
-        <td>A += ram[imm8]</td>
-    <tr>
-    <tr>
-        <td>SUB imm8</td>
-        <td>0011_imm8</td>
-        <td>A -= ram[imm8]</td>
-    </tr>
-    <tr>
-        <td>STA imm8</td>
-        <td>0100_imm8</td>
-        <td>ram[imm8] = A</td>
-    </tr>
-    <tr>
-        <td>LDI imm8</td>
-        <td>0101_imm8</td>
-        <td>A = imm8</td>
-    </tr>
-    <tr>
-        <td>JMP imm8</td>
-        <td>0110_imm8</td>
-        <td>PC = imm8</td>
-    </tr>
-    <tr>
-        <td>JC imm8</td>
-        <td>0111_imm8</td>
-        <td>if carry flag PC = imm8, else PC++</td>
-    </tr>
-    <tr>
-        <td>JZ imm8</td>
-        <td>1000_imm</td>
-        <td>if zero flag PC = imm8, else PC+</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>...</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>OUT</td>
-        <td>1110_xxxx</td>
-        <td>OUT = A</td>
-    </tr>
-    <tr>
-        <td>HLT</td>
-        <td>1111_xxxx</td>
-        <td>Halt CPU</td>
-    </tr>
-</table></center>
-<h3>Memory</h3>
+<center>
+<img src="wiring.jpeg" width=60%">
+</center>
+<h2 id="architecture">Architecture</h2>
+<p>The CPU consists of a few discrete modules: - Clock (variable frequency) - A register - B register - Instruction Register - ALU - RAM (memory, address register) - Program Counter - Output register and display - Control logic (microcode decoding, microinstruction counter)</p>
+<h3 id="instruction-set">Instruction Set</h3>
+The CPU uses 8-bit instruction words,
+<center>
+<table style="width:80%">
+<tr>
+<th>
+Instruction
+</th>
+<th>
+Machine Code
+</th>
+<th>
+Meaning
+</th>
+</tr>
+<tr>
+<td>
+NOP
+</td>
+<td>
+0000_xxxx
+</td>
+<td>
+Do nothing
+</td>
+</tr>
+<tr>
+<td>
+LDA imm8
+</td>
+<td>
+0001_imm8
+</td>
+<td>
+A = ram[imm8]
+</td>
+</tr>
+<tr>
+<td>
+ADD imm8
+</td>
+<td>
+0010_imm8
+</td>
+<td>
+A += ram[imm8]
+</td>
+<tr>
+<tr>
+<td>
+SUB imm8
+</td>
+<td>
+0011_imm8
+</td>
+<td>
+A -= ram[imm8]
+</td>
+</tr>
+<tr>
+<td>
+STA imm8
+</td>
+<td>
+0100_imm8
+</td>
+<td>
+ram[imm8] = A
+</td>
+</tr>
+<tr>
+<td>
+LDI imm8
+</td>
+<td>
+0101_imm8
+</td>
+<td>
+A = imm8
+</td>
+</tr>
+<tr>
+<td>
+JMP imm8
+</td>
+<td>
+0110_imm8
+</td>
+<td>
+PC = imm8
+</td>
+</tr>
+<tr>
+<td>
+JC imm8
+</td>
+<td>
+0111_imm8
+</td>
+<td>
+if carry flag PC = imm8, else PC++
+</td>
+</tr>
+<tr>
+<td>
+JZ imm8
+</td>
+<td>
+1000_imm
+</td>
+<td>
+if zero flag PC = imm8, else PC+
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+…
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+OUT
+</td>
+<td>
+1110_xxxx
+</td>
+<td>
+OUT = A
+</td>
+</tr>
+<tr>
+<td>
+HLT
+</td>
+<td>
+1111_xxxx
+</td>
+<td>
+Halt CPU
+</td>
+</tr>
+</table>
+</center>
+<h3 id="memory">Memory</h3>
 <p>The memory is addressed by the lower nibble of instructions and immediates (so 4 bits), leading to a maximum of 16 bytes of addressable RAM.</p>
-<h2>Emulator, Example Program</h2>
-<p>Immediately following the build, I wanted to implement the CPU in a HDL.
-I settled on Verilog, after using it in a Digial Logic class (but not understanding it much).
-<a href="https://github.com/jleightcap/eateremu">eateremu</a> provides a simple interface to modify and test this architecture and programs.</p>
+<h2 id="emulator-example-program">Emulator, Example Program</h2>
+<p>Immediately following the build, I wanted to implement the CPU in a HDL. I settled on Verilog, after using it in a Digial Logic class (but not understanding it much). <a href="https://github.com/jleightcap/eateremu">eateremu</a> provides a simple interface to modify and test this architecture and programs.</p>
 <p>Writing a simple program in ram.v,</p>
 <pre><code>// ...
 initial begin
-    memory[0]  &lt;= 8'b0101_1111; // LDI 15
-    memory[1]  &lt;= 8'b0100_1111; // STA 15
-    memory[2]  &lt;= 8'b0010_1111; // ADD 15
-    memory[3]  &lt;= 8'b0100_0100; // STA 4
-    memory[4]  &lt;= 8'b0000_0000;
-    memory[5]  &lt;= 8'b1110_0000; // OUT
-    memory[6]  &lt;= 8'b0110_1110; // JMP 14
-    memory[7]  &lt;= 8'b0000_0000;
-    memory[8]  &lt;= 8'b0000_0000;
-    memory[9]  &lt;= 8'b0000_0000;
-    memory[10] &lt;= 8'b0000_0000;
-    memory[11] &lt;= 8'b0000_0000;
-    memory[12] &lt;= 8'b0000_0000;
-    memory[13] &lt;= 8'b0000_0000;
-    memory[14] &lt;= 8'b1111_1111;
-    memory[15] &lt;= 8'b0000_0000;
+    memory[0]  &lt;= 8&#39;b0101_1111; // LDI 15
+    memory[1]  &lt;= 8&#39;b0100_1111; // STA 15
+    memory[2]  &lt;= 8&#39;b0010_1111; // ADD 15
+    memory[3]  &lt;= 8&#39;b0100_0100; // STA 4
+    memory[4]  &lt;= 8&#39;b0000_0000;
+    memory[5]  &lt;= 8&#39;b1110_0000; // OUT
+    memory[6]  &lt;= 8&#39;b0110_1110; // JMP 14
+    memory[7]  &lt;= 8&#39;b0000_0000;
+    memory[8]  &lt;= 8&#39;b0000_0000;
+    memory[9]  &lt;= 8&#39;b0000_0000;
+    memory[10] &lt;= 8&#39;b0000_0000;
+    memory[11] &lt;= 8&#39;b0000_0000;
+    memory[12] &lt;= 8&#39;b0000_0000;
+    memory[13] &lt;= 8&#39;b0000_0000;
+    memory[14] &lt;= 8&#39;b1111_1111;
+    memory[15] &lt;= 8&#39;b0000_0000;
 end
-// ...
-</code></pre>
-<p>This program uses the ALU to calculate the data 0x1e, then executes that data as the instruction LDA 14.
-The contents of memory address 14 are stored to the output register then executed as the instruction HLT.</p>
-<p>Compiling <code>eateremu.v</code> with <code>-DVERBOSE</code> shows the status of the control word and registers as the program executes.
-The order of bits in the control word are <code>hlt, mi, ri, ro, io, ii, ai, ao, eo, su, bi, oi, ce, co, j, fi</code>.
-Executing the above program,</p>
+// ...</code></pre>
+<p>This program uses the ALU to calculate the data 0x1e, then executes that data as the instruction LDA 14. The contents of memory address 14 are stored to the output register then executed as the instruction HLT.</p>
+<p>Compiling <code>eateremu.v</code> with <code>-DVERBOSE</code> shows the status of the control word and registers as the program executes. The order of bits in the control word are <code>hlt, mi, ri, ro, io, ii, ai, ao, eo, su, bi, oi, ce, co, j, fi</code>. Executing the above program,</p>
 <pre><code>                   0: bus=zzzzzzzz ctrl=0000000000000000 mem_addr=0 a=00 b=00 o=00
           0
                    1: bus=zzzz0000 ctrl=0100000000000100 mem_addr=0 a=00 b=00 o=00
@@ -185,9 +271,7 @@ Executing the above program,</p>
                  113: bus=zzzz1110 ctrl=0100000000000100 mem_addr=6 a=ff b=0f o=ff
                  114: bus=zzzz1110 ctrl=0100000000000100 mem_addr=e a=ff b=0f o=ff
                  115: bus=11111111 ctrl=0001010000001000 mem_addr=e a=ff b=0f o=ff
-                 117: bus=zzzzzzzz ctrl=1000000000000000 mem_addr=e a=ff b=0f o=ff
-</code></pre>
-<p>This is a great example of the benefits of writing 'closer to the metal': it's a really mind-melting
-experience to execute data as instructions, and store instructions as data.
-That level of control is obfuscated (with the major trade-off of convenience) behind assemblers
-and compilers.</p>
+                 117: bus=zzzzzzzz ctrl=1000000000000000 mem_addr=e a=ff b=0f o=ff</code></pre>
+<p>This is a great example of the benefits of writing ‘closer to the metal’: it’s a really mind-melting experience to execute data as instructions, and store instructions as data. That level of control is obfuscated (with the major trade-off of convenience) behind assemblers and compilers.</p>
+</body>
+</html>

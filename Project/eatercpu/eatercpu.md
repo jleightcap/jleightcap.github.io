@@ -1,4 +1,6 @@
-# Breadboard CPU
+---
+title: Breadboard CPU
+---
 <center><a href="../../index.html">Jack Leightcap</a></center>
 date: July 19, 2020
 

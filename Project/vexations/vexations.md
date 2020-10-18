@@ -1,4 +1,6 @@
-# Erik Satie - Vexations (1894)
+---
+title: Erik Satie - Vexations (1894)
+---
 <center><a href="../../index.html">Jack Leightcap</a></center>
 date: March 10, 2019
 

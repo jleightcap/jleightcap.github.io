@@ -1,63 +1,73 @@
-<link rel="stylesheet" type="text/css" href="../../style.css" media="screen" />
-
-<h1>Practical SAT: Solving Picross Puzzles</h1>
-<center><a href="../../index.html">Jack Leightcap</a></center>
-date: June 5, 2020
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<h2>Abstract</h2>
-<p>Picross puzzles (also known as Nonograms) are a logic puzzle in the vein of Sudoku.
-A puzzle consists of a set of restrictions on each row and column of a grid:</p>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2020-06-05" />
+  <title>picrosssat</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
 <center>
-<img src="picross-wiki.svg" width="60%">
-<p><a href="https://commons.wikimedia.org/w/index.php?curid=68386589">By Gus Polly at English Wikipedia - Own work, CC0</a></p>
+<a href="../../index.html">Jack Leightcap</a>
 </center>
-<p>For a restriction like <code>[2 8]</code>, the slice with that restriction must contain 2 continuous cells, a separation gap of at least 1 cell, and 8 continuous cells; with any amount of padding on either end.
-These restrictions are the only information needed to uniquely encode this image!
-I think this is crazy, isn't this such a small amount of information needed to reconstruct this image?
-Maybe this could this be used for data compression!
-Well, probably not: as solving Picross puzzles has been proven NP-complete (Ueda, Nagao).</p>
-<p>The solution being an array of Booleans, and solving being an NP-complete problem: I immediately thought about applying a SAT solver.
-A SAT solver is tailored to solve the <em>Boolean Satisfiability Problem</em> (<em>SAT</em> for short) as efficiently as possible: given a Boolean formula $F$ like:</p>
+<h2 id="abstract">Abstract</h2>
+<p>Picross puzzles (also known as Nonograms) are a logic puzzle in the vein of Sudoku. A puzzle consists of a set of restrictions on each row and column of a grid:</p>
 <center>
-\[F = (a \vee \neg b \vee c) \wedge (\neg a \vee b \vee c)\]
+<p><img src="picross-wiki.svg" width="60%"></p>
+<a href="https://commons.wikimedia.org/w/index.php?curid=68386589">By Gus Polly at English Wikipedia - Own work, CC0</a>
 </center>
-<p>can you set the input variables to be either true or false, such that the $F$ is true?
-This may seem like a somewhat random problem, but this is the first known NP-complete problem (Cook, Levin), and there are many SAT solvers that are designed to find a set of input variables satisfying a given Boolean formula as effeciently as possible.</p>
-<p>Here, I'll describe an algorithm to convert a Picross puzzle into an equivalent SAT problem.
-Using <code>MiniSat</code>, an off-the-shelf SAT solver with C++ integration, this allows for the solution for arbitrary puzzles with reasonable efficiency.</p>
-<h2>Example</h2>
+<p>For a restriction like <code>[2 8]</code>, the slice with that restriction must contain 2 continuous cells, a separation gap of at least 1 cell, and 8 continuous cells; with any amount of padding on either end. These restrictions are the only information needed to uniquely encode this image! I think this is crazy, isn’t this such a small amount of information needed to reconstruct this image? Maybe this could this be used for data compression! Well, probably not: as solving Picross puzzles has been proven NP-complete (Ueda, Nagao).</p>
+<p>The solution being an array of Booleans, and solving being an NP-complete problem: I immediately thought about applying a SAT solver. A SAT solver is tailored to solve the <em>Boolean Satisfiability Problem</em> (<em>SAT</em> for short) as efficiently as possible: given a Boolean formula <span class="math inline">\(F\)</span> like:</p>
+<center>
+<span class="math display">\[
+F = (a \vee \neg b \vee c) \wedge (\neg a \vee b \vee c)
+\]</span>
+</center>
+<p>can you set the input variables to be either true or false, such that the <span class="math inline">\(F\)</span> is true? This may seem like a somewhat random problem, but this is the first known NP-complete problem (Cook, Levin), and there are many SAT solvers that are designed to find a set of input variables satisfying a given Boolean formula as effeciently as possible.</p>
+<p>Here, I’ll describe an algorithm to convert a Picross puzzle into an equivalent SAT problem. Using <code>MiniSat</code>, an off-the-shelf SAT solver with C++ integration, this allows for the solution for arbitrary puzzles with reasonable efficiency.</p>
+<h2 id="example">Example</h2>
 <p>Using an extremely simple puzzle as an example:</p>
-<p><a href="picross-ex.tex"><center><img src="picross-ex.png" width="20%"></center></a></p>
-<p>If you understand the rules of Picross, this is solvable almost at sight: however, this is a good example of the process used to encode a puzzle to an equivalent SAT problem.</p>
-<p>Given the restriction <code>[1]</code> in a space of 2, there exists two possible permutations of cells: calling the state of these two cells $x$ and $y$, the state of this slice $S$ can be expressed as
-$S = (x \wedge \neg y) \vee (\neg x \wedge y)$;
-if the restriction were <code>[2]</code> in the space of 2, $S$ would just be
-$S = x \wedge y$.</p>
-<p>These are the only two restrictions for the given example.
-For the whole board to be satisfied, all of the conditions of each slice must be satisfied:</p>
+<a href="picross-ex.tex">
 <center>
-$$E =
+<img src="picross-ex.png" width="20%">
+</center>
+<p></a></p>
+<p>If you understand the rules of Picross, this is solvable almost at sight: however, this is a good example of the process used to encode a puzzle to an equivalent SAT problem.</p>
+<p>Given the restriction <code>[1]</code> in a space of 2, there exists two possible permutations of cells: calling the state of these two cells <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, the state of this slice <span class="math inline">\(S\)</span> can be expressed as <span class="math inline">\(S = (x \wedge \neg y) \vee (\neg x \wedge y)\)</span>; if the restriction were <code>[2]</code> in the space of 2, <span class="math inline">\(S\)</span> would just be <span class="math inline">\(S = x \wedge y\)</span>.</p>
+<p>These are the only two restrictions for the given example. For the whole board to be satisfied, all of the conditions of each slice must be satisfied:</p>
+<center>
+<span class="math display">\[E =
 \underbrace{[a \wedge b]}_{\text{row 1}}
 \wedge
 \underbrace{[(c \wedge \neg d) \vee (\neg c \wedge d)]}_{\text{row 2}}
 \wedge
 \underbrace{[a \wedge c]}_{\text{column 1}}
 \wedge
-\underbrace{[(b \wedge \neg d) \vee (\neg b \wedge d)]}_{\text{column 2}}$$
+\underbrace{[(b \wedge \neg d) \vee (\neg b \wedge d)]}_{\text{column 2}}\]</span>
 </center>
-<p>This expression sufficiently encodes the example as a Boolean formula.
-However, for reasons that will be explained later, SAT solvers expect an expression in the form of <code>AND</code> of <code>OR</code>s.
-This means slices like $(c \wedge \neg d) \vee (\neg c \wedge d)$ need to be rewritten,
-$(c \wedge \neg d) \vee (\neg c \wedge d) = (c \vee d) \wedge (\neg c \vee \neg d)$;
-And in total, a Boolean formula in the form a SAT solver would expect for $B$:</p>
+<p>This expression sufficiently encodes the example as a Boolean formula. However, for reasons that will be explained later, SAT solvers expect an expression in the form of <code>AND</code> of <code>OR</code>s. This means slices like <span class="math inline">\((c \wedge \neg d) \vee (\neg c \wedge d)\)</span> need to be rewritten, <span class="math inline">\((c \wedge \neg d) \vee (\neg c \wedge d) = (c \vee d) \wedge (\neg c \vee \neg d)\)</span>; And in total, a Boolean formula in the form a SAT solver would expect for <span class="math inline">\(B\)</span>:</p>
 <center>
-$$E =
+<span class="math display">\[E =
 a \wedge b \wedge
 (c \vee d) \wedge
 (\neg c \vee \neg d) \wedge
 a \wedge c \wedge
 (b \vee d) \wedge
-(\neg b \vee \neg d)$$
+(\neg b \vee \neg d)\]</span>
 </center>
 <p>Testing using the <code>minisat</code> library in C++:</p>
 <pre><code>#include &lt;minisat/core/Solver.h&gt;
@@ -96,88 +106,71 @@ int main() {
         std::clog &lt;&lt; &quot;===UNSAT===\n&quot;;
         return -1;
     }
-}
-</code></pre>
+}</code></pre>
 <p>Gives the expected solution,</p>
 <pre><code>===SAT===
 A=1
 B=1
 C=1
-D=0
-</code></pre>
+D=0</code></pre>
 <p>Great! This example is extremely simple, but shows all the steps that will be generalized.</p>
-<h2>Translation Algorithm</h2>
+<h2 id="translation-algorithm">Translation Algorithm</h2>
 <p>The translation algorithm of a Picross puzzle to an equivalent SAT problem has three distinct steps:</p>
-<ol>
+<ol type="1">
 <li>For a given slice, generate all permutations of white space vector for a given restriction vector.</li>
 <li>Convert permutations of white space vector into DNF expression.</li>
 <li>Convert set of slice DNF expressions into board CNF expression.</li>
 </ol>
-<h3>Generating Slice Permutations</h3>
-<h4>Defining White Space Set $W$</h4>
-<p>A given slice $S$ consists of a size $n = |S|$ and a restriction set $R$.
-The goal of this step is to generate the set of valid permutations $P$.</p>
+<h3 id="generating-slice-permutations">Generating Slice Permutations</h3>
+<h4 id="defining-white-space-set-w">Defining White Space Set <span class="math inline">\(W\)</span></h4>
+<p>A given slice <span class="math inline">\(S\)</span> consists of a size <span class="math inline">\(n = |S|\)</span> and a restriction set <span class="math inline">\(R\)</span>. The goal of this step is to generate the set of valid permutations <span class="math inline">\(P\)</span>.</p>
 <p>For the given example, the permutations of the slices were small:</p>
 <ul>
-<li>$n=2$, $R={1}$: $P = {{1, 0}, {0, 1}}$.</li>
-<li>$n=2$, $R={2}$: $P = {{1, 1}}$.</li>
+<li><span class="math inline">\(n=2\)</span>, <span class="math inline">\(R=\{1\}\)</span>: <span class="math inline">\(P = \{\{1, 0\}, \{0, 1\}\}\)</span>.</li>
+<li><span class="math inline">\(n=2\)</span>, <span class="math inline">\(R=\{2\}\)</span>: <span class="math inline">\(P = \{\{1, 1\}\}\)</span>.</li>
 </ul>
-<p>However, for a more complex example, $P$ grows exponentially:</p>
+<p>However, for a more complex example, <span class="math inline">\(P\)</span> grows exponentially:</p>
 <ul>
-<li>$n=6$, $R={1,2}$: $P = {{1,0,1,1,0,0}, {1,0,0,1,1,0}, {1,0,0,0,1,1}, ... }$</li>
+<li><span class="math inline">\(n=6\)</span>, <span class="math inline">\(R=\{1,2\}\)</span>: <span class="math inline">\(P = \{\{1,0,1,1,0,0\}, \{1,0,0,1,1,0\}, \{1,0,0,0,1,1\}, ... \}\)</span></li>
 </ul>
-<p>To describe a valid slice $S_v \in P$, encode the lengths of white space and occupied cells.
-For example, one permutation for $n=6$, $R={1,2}$ is $S_v = {1,0,1,1,0,0}$; which can be encoded as $|S_v| = {1,1,2,2}$ (one 1, one 0, two 1s, two 0s).
-Generally, $|S_v|$ consists of:</p>
+<p>To describe a valid slice <span class="math inline">\(S_v \in P\)</span>, encode the lengths of white space and occupied cells. For example, one permutation for <span class="math inline">\(n=6\)</span>, <span class="math inline">\(R=\{1,2\}\)</span> is <span class="math inline">\(S_v = \{1,0,1,1,0,0\}\)</span>; which can be encoded as <span class="math inline">\(|S_v| = \{1,1,2,2\}\)</span> (one 1, one 0, two 1s, two 0s). Generally, <span class="math inline">\(|S_v|\)</span> consists of:</p>
 <center>
-$$ |S_v| = \{W_0, R_0, W_1, R_1, ..., R_{|R|}, W_{|R| + 1}\}$$
+<span class="math display">\[ |S_v| = \{W_0, R_0, W_1, R_1, ..., R_{|R|}, W_{|R| + 1}\}\]</span>
 </center>
-Where $R_i$ is the $i$th element of $R$, and $W_i$ is the $i$th element of the white space set $W$.
-$W$ is described by the restrictions:
+<p>Where <span class="math inline">\(R_i\)</span> is the <span class="math inline">\(i\)</span>th element of <span class="math inline">\(R\)</span>, and <span class="math inline">\(W_i\)</span> is the <span class="math inline">\(i\)</span>th element of the white space set <span class="math inline">\(W\)</span>. <span class="math inline">\(W\)</span> is described by the restrictions:</p>
 <ul>
-<li>$|W| = |R| + 1$ : there is one more white space cell than number of groups of cells (think of fenceposts).</li>
-<li>$\sum W = n - \sum R$: the length of whole slice minus the total amount of occupied cells is the total amount of white space cells.</li>
-<li>$W_0 \ge 0$, $W_{|W|} \ge 0$: there can be an arbitrary amount of padding on either end, including none.</li>
-<li>$W_{1 .. |W|-1} &gt; 0$: there must be a separation of at least 1 between each group of cells.</li>
+<li><span class="math inline">\(|W| = |R| + 1\)</span> : there is one more white space cell than number of groups of cells (think of fenceposts).</li>
+<li><span class="math inline">\(\sum W = n - \sum R\)</span>: the length of whole slice minus the total amount of occupied cells is the total amount of white space cells.</li>
+<li><span class="math inline">\(W_0 \ge 0\)</span>, <span class="math inline">\(W_{|W|} \ge 0\)</span>: there can be an arbitrary amount of padding on either end, including none.</li>
+<li><span class="math inline">\(W_{1 .. |W|-1} &gt; 0\)</span>: there must be a separation of at least 1 between each group of cells.</li>
 </ul>
-<p>With this description, $S_v$ can be reconstructed from $W$ and the constant $R$, so generating $P$ is equivalent to generating
-all valid permutations of $W$.
-Some simple examples of this encoding, where $n=6$ and $R={2,1}$:</p>
+<p>With this description, <span class="math inline">\(S_v\)</span> can be reconstructed from <span class="math inline">\(W\)</span> and the constant <span class="math inline">\(R\)</span>, so generating <span class="math inline">\(P\)</span> is equivalent to generating all valid permutations of <span class="math inline">\(W\)</span>. Some simple examples of this encoding, where <span class="math inline">\(n=6\)</span> and <span class="math inline">\(R=\{2,1\}\)</span>:</p>
 <ul>
-<li>$S_v = {1,1,0,0,0,1}$: $W = {0,3,0}$</li>
-<li>$S_v = {0,1,1,0,0,1}$: $W = {1,2,0}$</li>
-<li>$S_v = {0,1,1,0,1,0}$: $W = {1,1,1}$</li>
+<li><span class="math inline">\(S_v = \{1,1,0,0,0,1\}\)</span>: <span class="math inline">\(W = \{0,3,0\}\)</span></li>
+<li><span class="math inline">\(S_v = \{0,1,1,0,0,1\}\)</span>: <span class="math inline">\(W = \{1,2,0\}\)</span></li>
+<li><span class="math inline">\(S_v = \{0,1,1,0,1,0\}\)</span>: <span class="math inline">\(W = \{1,1,1\}\)</span></li>
 </ul>
-<p>With this example, using the restrictions of $W$, you can even see what permutation was missed just by looking at $W$: $W = {0,2,1}$.</p>
-<h4>Generating Permutations of $W$</h4>
-<p>For simplicity in generating permutations, defining $W\prime$:</p>
+<p>With this example, using the restrictions of <span class="math inline">\(W\)</span>, you can even see what permutation was missed just by looking at <span class="math inline">\(W\)</span>: <span class="math inline">\(W = \{0,2,1\}\)</span>.</p>
+<h4 id="generating-permutations-of-w">Generating Permutations of <span class="math inline">\(W\)</span></h4>
+<p>For simplicity in generating permutations, defining <span class="math inline">\(W\prime\)</span>:</p>
 <ul>
-<li>$|W\prime| = |R| + 1$</li>
-<li>$\sum W\prime = n - \sum R$</li>
-<li>$W_{0..|W|} \ge 0$</li>
+<li><span class="math inline">\(|W\prime| = |R| + 1\)</span></li>
+<li><span class="math inline">\(\sum W\prime = n - \sum R\)</span></li>
+<li><span class="math inline">\(W_{0..|W|} \ge 0\)</span></li>
 </ul>
-<p>$W\prime$ is just $W$ without the restriction that middle elements aren't zero.
-The relaxation from $W$ to $W\prime$ means that all permutations of an element of $W\prime$ are still in $W\prime$, which is not true of $W$.
-This allows for the simplification of just generating sets of strictly increasing values, then just generating all permutations of that set.</p>
-<p>This problem can be restated with three parameters $n$, $h$, and $w$:</p>
+<p><span class="math inline">\(W\prime\)</span> is just <span class="math inline">\(W\)</span> without the restriction that middle elements aren’t zero. The relaxation from <span class="math inline">\(W\)</span> to <span class="math inline">\(W\prime\)</span> means that all permutations of an element of <span class="math inline">\(W\prime\)</span> are still in <span class="math inline">\(W\prime\)</span>, which is not true of <span class="math inline">\(W\)</span>. This allows for the simplification of just generating sets of strictly increasing values, then just generating all permutations of that set.</p>
+<p>This problem can be restated with three parameters <span class="math inline">\(n\)</span>, <span class="math inline">\(h\)</span>, and <span class="math inline">\(w\)</span>:</p>
 <blockquote>
-<p>Generate all combinations of sets of size at most $w$, where the sum of all elements is $n$, and all
-elements are between $0$ and $h$.</p>
+<p>Generate all combinations of sets of size at most <span class="math inline">\(w\)</span>, where the sum of all elements is <span class="math inline">\(n\)</span>, and all elements are between <span class="math inline">\(0\)</span> and <span class="math inline">\(h\)</span>.</p>
 </blockquote>
 <p>Some examples:</p>
 <ul>
-<li><code>sumPermute(2,1,2)</code> returns ${{1,1}}$</li>
-<li><code>sumPermute(2,2,2)</code> returns ${{2}, {1,1}}$</li>
-<li><code>sumPermute(4,3,3)</code> returns ${{1,3}, {2,2}, {1,1,2}}$</li>
+<li><code>sumPermute(2,1,2)</code> returns <span class="math inline">\(\{\{1,1\}\}\)</span></li>
+<li><code>sumPermute(2,2,2)</code> returns <span class="math inline">\(\{\{2\}, \{1,1\}\}\)</span></li>
+<li><code>sumPermute(4,3,3)</code> returns <span class="math inline">\(\{\{1,3\}, \{2,2\}, \{1,1,2\}\}\)</span></li>
 </ul>
-<p>This screams recursion to me!
-For the largest element, loop from the largest to smallest possible value as <code>i</code>, then prepend the result of <code>sumPermute(n - i, i, w - 1)</code>.
-This recursive relation shows the need to pass the $h$ parameter such that elements are generated in strictly decreasing order.</p>
-<p>To finish the recurrence relation, the minimum and maximum possible values and a base case are
-needed.
-The maximum value is simply $h$, and the minimum is $\text{ceil}(n/w)$ where the total number of cells is distributed equally across the entire width.
-The base case is $n - i = 0$, where the remaining cells are all accounted for in the last cell.
-In total,</p>
+<p>This screams recursion to me! For the largest element, loop from the largest to smallest possible value as <code>i</code>, then prepend the result of <code>sumPermute(n - i, i, w - 1)</code>. This recursive relation shows the need to pass the <span class="math inline">\(h\)</span> parameter such that elements are generated in strictly decreasing order.</p>
+<p>To finish the recurrence relation, the minimum and maximum possible values and a base case are needed. The maximum value is simply <span class="math inline">\(h\)</span>, and the minimum is <span class="math inline">\(\text{ceil}(n/w)\)</span> where the total number of cells is distributed equally across the entire width. The base case is <span class="math inline">\(n - i = 0\)</span>, where the remaining cells are all accounted for in the last cell. In total,</p>
 <pre><code>sumPermute(n, h, w) {
     vector permute
     vector&lt;vector&gt; result
@@ -195,81 +188,82 @@ In total,</p>
         result.push(permute)
     }
     return result
-}
-</code></pre>
+}</code></pre>
 <p>This is best visualized as a recursion tree; using the example <code>sumPermute(4,3,3)</code>:</p>
-<p><a href="picross-tree.tex"><center><img src="picross-tree.png" width="90%"></center></a></p>
-<p>To generate $W$, filter elements of $W\prime$ where any of the middle elements are zero.</p>
+<a href="picross-tree.tex">
+<center>
+<img src="picross-tree.png" width="90%">
+</center>
+<p></a></p>
+<p>To generate <span class="math inline">\(W\)</span>, filter elements of <span class="math inline">\(W\prime\)</span> where any of the middle elements are zero.</p>
 <p>This completes the first step of the translation algorithm: converting a given slice into a set of permutations of the white space vector.</p>
-<h3>Converting Slice Permutations to DNF Expression</h3>
-<p>At this point, for a given slice $S$, we have generated all valid permutations of $W$.
-To recover $P$ the set of all valid slice permutations from each $W$, we do the encoding in
-'reverse',</p>
+<h3 id="converting-slice-permutations-to-dnf-expression">Converting Slice Permutations to DNF Expression</h3>
+<p>At this point, for a given slice <span class="math inline">\(S\)</span>, we have generated all valid permutations of <span class="math inline">\(W\)</span>. To recover <span class="math inline">\(P\)</span> the set of all valid slice permutations from each <span class="math inline">\(W\)</span>, we do the encoding in ‘reverse’,</p>
 <ul>
-<li>push back $W_0$ zeros</li>
-<li>push back $R_0$ ones</li>
-<li>...</li>
-<li>push back $R_{|R|}$ ones</li>
-<li>push back $W_{|W|}$ zeros</li>
+<li>push back <span class="math inline">\(W_0\)</span> zeros</li>
+<li>push back <span class="math inline">\(R_0\)</span> ones</li>
+<li>…</li>
+<li>push back <span class="math inline">\(R_{|R|}\)</span> ones</li>
+<li>push back <span class="math inline">\(W_{|W|}\)</span> zeros</li>
 </ul>
-<p>When repeated for each valid permutation of $W$, the resulting set is $P$.</p>
-<p>To convert $P$ to a set of Boolean expressions, an encoding of the board is needed.
-<code>MiniSat</code>'s literals are a wrapper around <code>int</code>s, so uniquely encoding each board cell as an integer using row-major ordering:</p>
-<center>$B_{x,y} = x + \text{dimX} \times y$</center>
-<p>To convert each element of $P$ to a corresponding Boolean expression, iterate over each permutation encoding $\neg B_{i,j}$ if a zero is read and $B_{i,j}$ if a one is read.
-For one instance of a permutation, all of these literals are <code>AND</code>ed, and all permutations are <code>OR</code>ed for a resulting expression of every possibility for the given slice.</p>
+<p>When repeated for each valid permutation of <span class="math inline">\(W\)</span>, the resulting set is <span class="math inline">\(P\)</span>.</p>
+<p>To convert <span class="math inline">\(P\)</span> to a set of Boolean expressions, an encoding of the board is needed. <code>MiniSat</code>’s literals are a wrapper around <code>int</code>s, so uniquely encoding each board cell as an integer using row-major ordering:</p>
+<center>
+<span class="math inline">\(B_{x,y} = x + \text{dimX} \times y\)</span>
+</center>
+<p>To convert each element of <span class="math inline">\(P\)</span> to a corresponding Boolean expression, iterate over each permutation encoding <span class="math inline">\(\neg B_{i,j}\)</span> if a zero is read and <span class="math inline">\(B_{i,j}\)</span> if a one is read. For one instance of a permutation, all of these literals are <code>AND</code>ed, and all permutations are <code>OR</code>ed for a resulting expression of every possibility for the given slice.</p>
 <p>This final expression is in <em>Disjunctive Normal Form</em> (<code>OR</code> of <code>AND</code>s, or Sum of Products):</p>
-<center>$$\bigvee_{i=0}^m \left( \bigwedge_{j=0}^n B_{i,j} \right)$$</center>
+<center>
+<span class="math display">\[\bigvee_{i=0}^m \left( \bigwedge_{j=0}^n B_{i,j} \right)\]</span>
+</center>
 <p>This completes the second step of the translation algorithm: converting a given slive into a DNF expression.</p>
-<h3>Converting Expressions to CNF</h3>
-<p>At this point, we have a set of DNF expressions that satisfy each slice of the board.
-To satisfy the entire board, all of these expresssions must be satisfied: <code>AND</code>ing over all slices $S$ gives a total expression for the board $E$:</p>
-<center>$$E = \bigwedge_{S} \left( \underbrace{\bigvee_{i=0}^m \left( \bigwedge_{j=0}^n B^S_{i,j} \right)}_{\text{DNF}} \right) $$</center>
-<p>However, SAT solvers reasonably expect a standard form for input expressions.
-<em>Conjunctive Normal Form</em> is the form SAT solvers use to represent a Boolean formula (see <a href="https://cstheory.stackexchange.com/questions/1410/why-is-cnf-used-for-sat-and-not-dnf">this</a> thread for explanations as to why),</p>
-<center>$$\bigwedge_{i=0}^n \left( \bigvee_{j=0}^m x_{ij} \right)$$</center>
-<p>So the final step of the translation algorithm is the conversion of $E$ into CNF.
-Well, we're already pretty close with the outermost <code>AND</code>; in fact, just translating the inner DNF expression to CNF is sufficient,</p>
-<center>$$\bigwedge \left( \underbrace{\bigvee \left( \bigwedge x \right)}_{\text{DNF}} \right)
+<h3 id="converting-expressions-to-cnf">Converting Expressions to CNF</h3>
+<p>At this point, we have a set of DNF expressions that satisfy each slice of the board. To satisfy the entire board, all of these expresssions must be satisfied: <code>AND</code>ing over all slices <span class="math inline">\(S\)</span> gives a total expression for the board <span class="math inline">\(E\)</span>:</p>
+<center>
+<span class="math display">\[E = \bigwedge_{S} \left( \underbrace{\bigvee_{i=0}^m \left( \bigwedge_{j=0}^n B^S_{i,j} \right)}_{\text{DNF}} \right) \]</span>
+</center>
+<p>However, SAT solvers reasonably expect a standard form for input expressions. <em>Conjunctive Normal Form</em> is the form SAT solvers use to represent a Boolean formula (see <a href="https://cstheory.stackexchange.com/questions/1410/why-is-cnf-used-for-sat-and-not-dnf">this</a> thread for explanations as to why),</p>
+<center>
+<span class="math display">\[\bigwedge_{i=0}^n \left( \bigvee_{j=0}^m x_{ij} \right)\]</span>
+</center>
+<p>So the final step of the translation algorithm is the conversion of <span class="math inline">\(E\)</span> into CNF. Well, we’re already pretty close with the outermost <code>AND</code>; in fact, just translating the inner DNF expression to CNF is sufficient,</p>
+<center>
+<span class="math display">\[\bigwedge \left( \underbrace{\bigvee \left( \bigwedge x \right)}_{\text{DNF}} \right)
 \hspace{1em} \rightarrow \hspace{1em}
 \bigwedge \left( \underbrace{\bigwedge \left( \bigvee x \right)}_{\text{CNF}} \right)
 \hspace{1em} = \hspace{1em}
 \underbrace{\bigwedge \left( \bigvee x \right) }_{\text{CNF}}
-$$</center>
-<p>Converting DNF expressions to CNF expressions is another great exponential translation!
-I believe this algorithm is, formally speaking, $O(\text{bad})$.
-Using $a$ as a shorthand for a sequence of <code>AND</code>ed literals, writing an expanded form of $E$:</p>
-<center>$E = (a_{11} \vee a_{12} \vee ... \vee a_{1n} ) \wedge (a_{21} \vee a_{22} \vee ... \vee a_{2n}) \wedge ... \wedge (a_{m1} \vee a_{m2} \vee ... \vee a_{mn})$</center>
-<p>Converting to a CNF expression is once again making every permutation of sets.
-Using $E = (x_{11} \wedge x_{12} \wedge x_{13}) \vee (x_{21} \wedge x_{22} \wedge x_{23})$ as an example: <center>
-$$E = \begin{matrix}
-(x_{11} \vee x_{21}) &amp; \wedge &amp; (x_{11} \vee x_{22}) &amp; \wedge &amp; (x_{11} \vee x_{23}) &amp; \wedge \
-(x_{12} \vee x_{21}) &amp; \wedge &amp; (x_{12} \vee x_{22}) &amp; \wedge &amp; (x_{12} \vee x_{23}) &amp; \wedge \
-(x_{13} \vee x_{21}) &amp; \wedge &amp; (x_{13} \vee x_{22}) &amp; \wedge &amp; (x_{13} \vee x_{23})
-\end{matrix}$$</p>
+\]</span>
 </center>
-<p>This is clearly very exponential, and the general form is quite large: using $|a| = l$,</p>
+<p>Converting DNF expressions to CNF expressions is another great exponential translation! I believe this algorithm is, formally speaking, <span class="math inline">\(O(\text{bad})\)</span>. Using <span class="math inline">\(a\)</span> as a shorthand for a sequence of <code>AND</code>ed literals, writing an expanded form of <span class="math inline">\(E\)</span>:</p>
 <center>
-$$E = \begin{matrix}
-(a_{111} \vee a_{211} \vee ... \vee a_{m11}) & \wedge & (a_{112} \vee a_{211} \vee ... \vee a_{m11}) & \wedge & ... & \wedge & (a_{11l} \vee a_{211} \vee ... \vee a_{m11}) & \wedge \\
-(a_{111} \vee a_{212} \vee ... \vee a_{m11}) & \wedge & (a_{112} \vee a_{212} \vee ... \vee a_{m11}) & \wedge & ... & \wedge & (a_{11l} \vee a_{212} \vee ... \vee a_{m11}) & \wedge \\
-\vdots & & \vdots & & \ddots & & \vdots \\
-(a_{111} \vee a_{21l} \vee ... \vee a_{m11}) & \wedge & (a_{112} \vee a_{21l} \vee ... \vee a_{m11}) & \wedge & ... & \wedge & (a_{11l} \vee a_{21l} \vee ... \vee a_{m11}) & \wedge \\
-\vdots & & \vdots & & \ddots & & \vdots \\
-(a_{111} \vee a_{21l} \vee ... \vee a_{m1l}) & \wedge & (a_{112} \vee a_{21l} \vee ... \vee a_{m1l}) & \wedge & ... & \wedge & (a_{11l} \vee a_{21l} \vee ... \vee a_{m1l}) & \wedge \\
-\vdots & & \vdots & & \ddots & & \vdots \\
-(a_{1n1} \vee a_{2nl} \vee ... \vee a_{mnl}) & \wedge & (a_{1n2} \vee a_{2nl} \vee ... \vee a_{mnl}) & \wedge & ... & \wedge & (a_{1nl} \vee a_{2nl} \vee ... \vee a_{mnl})
-\end{matrix}$$
+<span class="math inline">\(E = (a_{11} \vee a_{12} \vee ... \vee a_{1n} ) \wedge (a_{21} \vee a_{22} \vee ... \vee a_{2n}) \wedge ... \wedge (a_{m1} \vee a_{m2} \vee ... \vee a_{mn})\)</span>
 </center>
-<p>The number of expressions grows as $O(l^m)$... in other words, very bad!
-There are other general techniques for transforming DNF expressions to CNF expressions (see <a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form#Conversion_into_CNF">CNF Wikipedia page</a> for examples), however having a non-exponential growth requires a translation that is equisatisfiable but not equivalent.
-This could be useful if the question were instead <em>is there a solution</em> rather than <em>what is the solution</em>.
-With this final conversion, the translation algorithm is complete!
-Any Picross puzzle can be converted to an equivalent, SAT solver ready, CNF expression using this
-algorithm.</p>
-<h2>Implementation, Considerations</h2>
+Converting to a CNF expression is once again making every permutation of sets. Using <span class="math inline">\(E = (x_{11} \wedge x_{12} \wedge x_{13}) \vee (x_{21} \wedge x_{22} \wedge x_{23})\)</span> as an example:
+<center>
+<span class="math display">\[E = \begin{matrix}
+(x_{11} \vee x_{21}) &amp; \wedge &amp; (x_{11} \vee x_{22}) &amp; \wedge &amp; (x_{11} \vee x_{23}) &amp; \wedge \\
+(x_{12} \vee x_{21}) &amp; \wedge &amp; (x_{12} \vee x_{22}) &amp; \wedge &amp; (x_{12} \vee x_{23}) &amp; \wedge \\
+(x_{13} \vee x_{21}) &amp; \wedge &amp; (x_{13} \vee x_{22}) &amp; \wedge &amp; (x_{13} \vee x_{23})
+\end{matrix}\]</span>
+</center>
+<p>This is clearly very exponential, and the general form is quite large: using <span class="math inline">\(|a| = l\)</span>,</p>
+<center>
+<span class="math display">\[E = \begin{matrix}
+(a_{111} \vee a_{211} \vee ... \vee a_{m11}) &amp; \wedge &amp; (a_{112} \vee a_{211} \vee ... \vee a_{m11}) &amp; \wedge &amp; ... &amp; \wedge &amp; (a_{11l} \vee a_{211} \vee ... \vee a_{m11}) &amp; \wedge \\
+(a_{111} \vee a_{212} \vee ... \vee a_{m11}) &amp; \wedge &amp; (a_{112} \vee a_{212} \vee ... \vee a_{m11}) &amp; \wedge &amp; ... &amp; \wedge &amp; (a_{11l} \vee a_{212} \vee ... \vee a_{m11}) &amp; \wedge \\
+\vdots &amp; &amp; \vdots &amp; &amp; \ddots &amp; &amp; \vdots \\
+(a_{111} \vee a_{21l} \vee ... \vee a_{m11}) &amp; \wedge &amp; (a_{112} \vee a_{21l} \vee ... \vee a_{m11}) &amp; \wedge &amp; ... &amp; \wedge &amp; (a_{11l} \vee a_{21l} \vee ... \vee a_{m11}) &amp; \wedge \\
+\vdots &amp; &amp; \vdots &amp; &amp; \ddots &amp; &amp; \vdots \\
+(a_{111} \vee a_{21l} \vee ... \vee a_{m1l}) &amp; \wedge &amp; (a_{112} \vee a_{21l} \vee ... \vee a_{m1l}) &amp; \wedge &amp; ... &amp; \wedge &amp; (a_{11l} \vee a_{21l} \vee ... \vee a_{m1l}) &amp; \wedge \\
+\vdots &amp; &amp; \vdots &amp; &amp; \ddots &amp; &amp; \vdots \\
+(a_{1n1} \vee a_{2nl} \vee ... \vee a_{mnl}) &amp; \wedge &amp; (a_{1n2} \vee a_{2nl} \vee ... \vee a_{mnl}) &amp; \wedge &amp; ... &amp; \wedge &amp; (a_{1nl} \vee a_{2nl} \vee ... \vee a_{mnl})
+\end{matrix}\]</span>
+</center>
+<p>The number of expressions grows as <span class="math inline">\(O(l^m)\)</span>… in other words, very bad! There are other general techniques for transforming DNF expressions to CNF expressions (see <a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form#Conversion_into_CNF">CNF Wikipedia page</a> for examples), however having a non-exponential growth requires a translation that is equisatisfiable but not equivalent. This could be useful if the question were instead <em>is there a solution</em> rather than <em>what is the solution</em>. With this final conversion, the translation algorithm is complete! Any Picross puzzle can be converted to an equivalent, SAT solver ready, CNF expression using this algorithm.</p>
+<h2 id="implementation-considerations">Implementation, Considerations</h2>
 <p>The complete code for <code>PicrossSAT</code> can be found <a href="https://github.com/jleightcap/PicrossSAT">here</a>.</p>
-<p>In general, I didn't concern myself with the asymptotic complexity (in time or space) of each conversion.
-I assumed that the majority of the runtime would be consumed by the actual SAT solver, and not the conversion translation algorithm.
-This seems to be true for any puzzle larger than $4 \times 4$, at least from very basic testing.</p>
-<p>This was my first program in 'modern' C++ after much more exposure to C, so please pardon the violations of best practices that I'm sure are there.</p>
+<p>In general, I didn’t concern myself with the asymptotic complexity (in time or space) of each conversion. I assumed that the majority of the runtime would be consumed by the actual SAT solver, and not the conversion translation algorithm. This seems to be true for any puzzle larger than <span class="math inline">\(4 \times 4\)</span>, at least from very basic testing.</p>
+<p>This was my first program in ‘modern’ C++ after much more exposure to C, so please pardon the violations of best practices that I’m sure are there.</p>
+</body>
+</html>

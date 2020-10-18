@@ -1,8 +1,8 @@
-# Practical SAT: Solving Picross Puzzles
-<center><a href="../../index.html">Jack Leightcap</a></center>
+---
 date: June 5, 2020
+---
 
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<center><a href="../../index.html">Jack Leightcap</a></center>
 
 ## Abstract
 Picross puzzles (also known as Nonograms) are a logic puzzle in the vein of Sudoku.
@@ -24,7 +24,9 @@ The solution being an array of Booleans, and solving being an NP-complete proble
 A SAT solver is tailored to solve the *Boolean Satisfiability Problem* (*SAT* for short) as efficiently as possible: given a Boolean formula $F$ like:
 
 <center>
-\[F = (a \vee \neg b \vee c) \wedge (\neg a \vee b \vee c)\]
+$$
+F = (a \vee \neg b \vee c) \wedge (\neg a \vee b \vee c)
+$$
 </center>
 
 can you set the input variables to be either true or false, such that the $F$ is true?

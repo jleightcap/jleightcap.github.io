@@ -1,4 +1,6 @@
-# Designing a Website Like a C Program
+---
+title: Designing a Website Like a C Program
+---
 <center><a href="../../index.html">Jack Leightcap</a></center>
 date: April 3, 2020
 

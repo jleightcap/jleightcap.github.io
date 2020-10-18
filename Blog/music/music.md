@@ -1,4 +1,6 @@
-# Replacing Spotify and Google Play Music on Linux
+---
+title: Replacing Spotify and Google Play Music on Linux
+---
 <center><a href="../../index.html">Jack Leightcap</a></center>
 date: May 23, 2020
 
