@@ -18,11 +18,15 @@ It's a toss up if the 'artist' is listed as the actual composer, the performer,
 the ensemble, the conductor...
 it's terrible and out of your control.
 
-
 ## Music Downloading
-If one wanted to (hypothetically) download music from YouTube, where there is
+The best music downloading service that I've used, hands down, is
+[`nicotine+`](https://nicotine-plus.github.io/nicotine-plus/).
+It requires an account, and places some restrictions if you don't share a
+directory, but the availability is second to none.
+
+If one wanted to download music from YouTube, where there is
 usually a precompiled playlist of a full album, the best tool would be
-(hypothetically) [`youtube-dl`](https://github.com/ytdl-org/youtube-dl).
+[`youtube-dl`](https://github.com/ytdl-org/youtube-dl).
 I've also tinkered around with [`ytmdl`](https://github.com/deepjyoti30/ytmdl)
 but found it to automate parts of the process that aren't particularly difficult
 on their own (searching for playlists from the command line versus just in a
@@ -33,26 +37,8 @@ To download an album:
 youtube-dl -f 'bestaudio[ext=m4a]' [PLAYLIST URL]
 ```
 
-And if tagging music is your thing, then I found converting everything to mp3 to
-be necessary (I'm sure audiophiles would cringe at this, I will not be taking questions).
-Tagging `*.m4a` files with mp3 tagging tools seems to clobber the actual audio
-data.
-
-A little shell script `tomp3` (placed in `~/.local/bin`, granted it's in `$PATH`) will convert any audio format to mp3:
-
-```shell
-#!/bin/sh
-ffmpeg -i "$1" -vn -ar 44100 -ac 2 -b:a 192k "${1%.*}.mp3"
-```
-
-To convert all audio files downloaded to mp3:
-
-```shell
-find *.m4a -type f -exec tomp3 {} \;
-```
-
 ## Music Tagging
-For tagging, I've used [`eyeD3`](https://github.com/nicfit/eyed3).
+For tagging, I've found [`eyeD3`](https://github.com/nicfit/eyed3) easy to use.
 For an example of tagging music downloaded from a playlist,
 
 ```bash
@@ -75,8 +61,10 @@ visualizations, but `cmus` gets the job done just fine (without messing with
 daemons).
 The only two commands you need to know:
 
-    :add [MUSIC DIRECTORY]
-    :update-cache
+```
+:add [MUSIC DIRECTORY]
+:update-cache
+```
 
 <center><img src="music-cmus.png" width="90%"></center>
 No prizes for looks :)
@@ -88,12 +76,16 @@ Play Music, which I used previously.
 
 In order to transfer music from a computer to an android phone,
 [`android-file-transfer-linux`](https://github.com/whoozle/android-file-transfer-linux)
-works great.
+works great for a wired connection with the command line.
+`rsync` is a fantastic tool for syncing files, which is handy not only new files but also deletions/changes.
+The wireless solution I use uses `rsync` with `SSHelper` on Android:
+```shell
+rsync -tuavzz -e "ssh -p 2222" [LOCAL MUSIC DIRECTORY] admin@[PHONE IP]:/[PHONE MUSIC DIRECTORY]
+```
 
-Finally, I like to have a some indication of what music is playing.
-I've used [`cmus-notify`](https://github.com/AntoineGagne/cmus-notify) before,
-but have since ~~not bothered getting dunst to work on Gentoo~~ moved away from desktop notifications.
-Instead, a module in polybar can be added easily with a small shell script,
+Definitely not as fast as a wired solution but a lazy way to sync music in the background.
+
+Finally, a module in `polybar` can be added easily with a small shell script,
 found in the top comment of [this Reddit
 thread](https://www.reddit.com/r/Polybar/comments/66m9vh/are_there_any_modules_for_mpv_or_cmus/).
 
