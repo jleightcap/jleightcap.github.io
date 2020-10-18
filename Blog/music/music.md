@@ -29,7 +29,9 @@ on their own (searching for playlists from the command line versus just in a
 browser, for example).
 To download an album:
 
-    youtube-dl -f 'bestaudio[ext=m4a]' [PLAYLIST URL]
+```bash
+youtube-dl -f 'bestaudio[ext=m4a]' [PLAYLIST URL]
+```
 
 And if tagging music is your thing, then I found converting everything to mp3 to
 be necessary (I'm sure audiophiles would cringe at this, I will not be taking questions).
@@ -38,22 +40,28 @@ data.
 
 A little shell script `tomp3` (placed in `~/.local/bin`, granted it's in `$PATH`) will convert any audio format to mp3:
 
-    #!/bin/sh
-    ffmpeg -i "$1" -vn -ar 44100 -ac 2 -b:a 192k "${1%.*}.mp3"
+```shell
+#!/bin/sh
+ffmpeg -i "$1" -vn -ar 44100 -ac 2 -b:a 192k "${1%.*}.mp3"
+```
 
 To convert all audio files downloaded to mp3:
 
-    find *.m4a -type f -exec tomp3 {} \;
+```shell
+find *.m4a -type f -exec tomp3 {} \;
+```
 
 ## Music Tagging
 For tagging, I've used [`eyeD3`](https://github.com/nicfit/eyed3).
 For an example of tagging music downloaded from a playlist,
 
-    eyeD3 --artist "[ARTIST]" *.mp3                     # Tag artist name
-    eyeD3 --album "[ALBUM]" *.mp3                       # Tag album title
-    eyeD3 --track 1 01.mp3                              # Tag track number
-    eyeD3 --title "First Song" 01.mp3                   # Tag track title
-    eyeD3 --add-image "cover.png:FRONT_COVER" *.mp3     # Tag album art
+```bash
+eyeD3 --artist "[ARTIST]" *.mp3                     # Tag artist name
+eyeD3 --album "[ALBUM]" *.mp3                       # Tag album title
+eyeD3 --track 1 01.mp3                              # Tag track number
+eyeD3 --title "First Song" 01.mp3                   # Tag track title
+eyeD3 --add-image "cover.png:FRONT_COVER" *.mp3     # Tag album art
+```
 
 These tags are usually enough to sort through my music, but `eyeD3` supports
 tagging all [ID3 metadata](https://en.wikipedia.org/wiki/ID3).
