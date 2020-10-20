@@ -236,24 +236,25 @@ D=0</code></pre>
 </ul>
 <p>This screams recursion to me! For the largest element, loop from the largest to smallest possible value as <code>i</code>, then prepend the result of <code>sumPermute(n - i, i, w - 1)</code>. This recursive relation shows the need to pass the <span class="math inline">\(h\)</span> parameter such that elements are generated in strictly decreasing order.</p>
 <p>To finish the recurrence relation, the minimum and maximum possible values and a base case are needed. The maximum value is simply <span class="math inline">\(h\)</span>, and the minimum is <span class="math inline">\(\text{ceil}(n/w)\)</span> where the total number of cells is distributed equally across the entire width. The base case is <span class="math inline">\(n - i = 0\)</span>, where the remaining cells are all accounted for in the last cell. In total,</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>sumPermute(n, h, w) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    vector permute</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    vector&lt;vector&gt; result</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>    <span class="cf">for</span>(i = ceil(n/w) → h) {</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>        permute.push(i)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>        <span class="co">// reached base case</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>        <span class="cf">if</span>(n - i == <span class="dv">0</span>) {</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>            result.push(permute);</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>            <span class="cf">return</span> result</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>        }</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>        permute.prepend(sumPermute(n - i, i, w - <span class="dv">1</span>))</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>        result.push(permute)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    }</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>    <span class="cf">return</span> result</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>vector&lt;vector&lt;<span class="dt">int</span>&gt;&gt;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>sumPermute(<span class="dt">int</span> n, <span class="dt">int</span> h, <span class="dt">int</span> w) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    vector permute;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    vector&lt;vector&gt; result;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>    <span class="cf">for</span>(ii = ceil(n/w) → h) {</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>        permute.push(ii);</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>        <span class="co">// reached base case</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>        <span class="cf">if</span>(n - ii == <span class="dv">0</span>) {</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>            result.push(permute);</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>            <span class="cf">return</span> result;</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>        }</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>        permute.prepend(sumPermute(n - ii, ii, w - <span class="dv">1</span>));</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>        result.push(permute);</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>    }</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>    <span class="cf">return</span> result;</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>}</span></code></pre></div>
 <p>This is best visualized as a recursion tree; using the example <code>sumPermute(4,3,3)</code>:</p>
 <a href="picross-tree.tex">
 <center>

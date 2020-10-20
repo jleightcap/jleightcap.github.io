@@ -208,23 +208,24 @@ The base case is $n - i = 0$, where the remaining cells are all accounted for in
 In total,
 
 ```cpp
-sumPermute(n, h, w) {
-    vector permute
-    vector<vector> result
+vector<vector<int>>
+sumPermute(int n, int h, int w) {
+    vector permute;
+    vector<vector> result;
 
-    for(i = ceil(n/w) → h) {
-        permute.push(i)
+    for(ii = ceil(n/w) → h) {
+        permute.push(ii);
 
         // reached base case
-        if(n - i == 0) {
+        if(n - ii == 0) {
             result.push(permute);
-            return result
+            return result;
         }
 
-        permute.prepend(sumPermute(n - i, i, w - 1))
-        result.push(permute)
+        permute.prepend(sumPermute(n - ii, ii, w - 1));
+        result.push(permute);
     }
-    return result
+    return result;
 }
 ```
 This is best visualized as a recursion tree; using the example `sumPermute(4,3,3)`:
