@@ -5,7 +5,7 @@ author: <a href="../../index.html">Jack Leightcap</a>
 ---
 
 ## First recording, 6 hours (2017)
-During my Junior year of high school, I recorded a 6-hour performance of [Erik Satie's <i>Vexations</i>.](https://www.youtube.com/embed/zuszCTwh11k)
+During my Junior year of high school, I recorded a 6-hour performance of [Erik Satie's *Vexations*.](https://youtu.be/rmrgyjUC8jQ)
 This was extremely underplanned, and a surprising amount went wrong.
 I used Windows 10's default camera app with a random webcam, and found - during the recording - Windows Camera had a 2 hour recording limit.
 Because I was recording audio separately, the audio and video were desynced, so the required merging of the video and audio required some guesswork in matching my fingers to the audio.
@@ -18,7 +18,7 @@ I kept the idea of beating my personal record in the back of my head throughout 
 
 ## Second recording, livestream 34 hours (2019)
 Two years later, over the Spring Break of my Freshman year, the chances of anyone interrupting me in my dorm were extremely low. With some more planning, I decided it was time to beat my record.
-[I livestreamed my performance for 34 hours](https://www.youtube.com/embed/vK_SZF6x4UA).
+[I livestreamed my performance for 34 hours](https://www.youtube.com/playlist?list=PLIhqlcbwBfs6eoEFHFBYvNY503PU3nZf3).
 As far as I can tell, this is the world record (albeit unverified) for a recorded solo piano marathon performance. Nicolas Horvath, a huge inspiration, has done a 35 hour live performance, although unrecorded.
 
 While this recording avoided most of the issues with using terrible default Windows apps, there were still unseen challenges and unfortunate rendering.
@@ -32,7 +32,7 @@ It was an extremely unique situation to be able to dedicate 34 hours where I was
 I'd definitely like to beat Nicolas Horvath's record, recorded or not, but the entire performance was extremely draining.
 I didn't eat or drink for a 24 hour period before I started, and I was hallucinating and close to passing out when I was forced to stop an hour before the record.
 
-## Brief Explanation of <i>Vexations</i>
+## Brief Explanation of *Vexations*
 <i>Vexations</i> was written by Erik Satie, a milestone composer in what would become the Avant-Garde.
 There are plenty of stories about how eccentric Satie was, eating only white food and his apartment having two grand pianos stacked on top of one another are two examples out of many.
 <i>Vexations</i> gives a speed of "Très lent" (very slow), with the caption "Pour se jouer 840 fois de suite ce motif, il sera bon de se préparer au préalable, et dans le plus grand silence, par des immobilités sérieuses" (In order to play the theme 840 times in succession, it would be advisable to prepare oneself beforehand, and in the deepest silence, by serious immobilities).
