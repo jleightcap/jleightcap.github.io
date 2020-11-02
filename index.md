@@ -22,6 +22,7 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 </center>
 
 # Projects
+- <a href="Project/z801/z801.html">Z80 Homebrew Computer Part 1 -- Memory, LCD</a>
 - <a href="Project/eatercpu/eatercpu.html">Breadboard CPU</a>
 - <a href="Project/picrosssat/picrosssat.html">*PicrossSAT*: algorithm to convert Picross puzzle to SAT problem</a>
 - <a href="Project/jleightcap/jleightcap.html">*jleightcap* and *ScrollingScore*, classical music on YouTube</a>
