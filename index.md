@@ -32,4 +32,5 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 # Blog
 - <a href="Blog/music/music.html">Replacing Spotify and Google Play Music on Linux</a>
 - <a href="Blog/website/website.html">Designing a Website Like a C Program</a>
+- <a href="Blog/printdoom/printdoom.html">Print Station *DOOM*</a>
 - <a href="Blog/cambridge/cambridge.html">Study abroad at Cambridge University</a>
