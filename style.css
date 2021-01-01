@@ -1,4 +1,10 @@
+@font-face {
+    font-family: 'CozetteVector', monospace;
+    src: url(fonts/CozetteVector.ttf) format('truetype');
+}
+
 body {
+    font-family: 'CozetteVector', monospace;
     margin: auto;
     padding-right: 1em;
     padding-left: 1em;
