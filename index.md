@@ -22,13 +22,13 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 </center>
 
 # Projects
-- <a href="Project/z801/z801.html">Z80 Homebrew Computer Part 1 -- Memory, LCD</a>
-- <a href="Project/eatercpu/eatercpu.html">Breadboard CPU</a>
-- <a href="Project/picrosssat/picrosssat.html">*PicrossSAT*: algorithm to convert Picross puzzle to SAT problem</a>
-- <a href="Project/jleightcap/jleightcap.html">*jleightcap* and *ScrollingScore*, classical music on YouTube</a>
-- <a href="Project/vexations/vexations.html">Playing piano for 34 hours straight: Erik Satie's _Vexations_</a>
-- <a href="Project/mbtaspeedrun/mbtaspeedrun.html">Charlie "The Travelling Salesman" on the MBTA</a>
+- [Z80 Homebrew Computer Part 1 -- Memory, LCD](Project/z801/z801.html)
+- [Breadboard CPU](Project/eatercpu/eatercpu.html)
+- [*PicrossSAT*: algorithm to convert Picross puzzle to SAT problem](Project/picrosssat/picrosssat.html)
+- [*jleightcap* and *ScrollingScore*, classical music on YouTube](Project/jleightcap/jleightcap.html)
+- [Playing piano for 34 hours straight: Erik Satie's *Vexations*](Project/vexations/vexations.html)
+- [Charlie "The Travelling Salesman" on the MBTA](Project/mbtaspeedrun/mbtaspeedrun.html)
 
 # Blog
-- <a href="Blog/printdoom/printdoom.html">Print Station *DOOM*</a>
-- <a href="Blog/cambridge/cambridge.html">Study abroad at Cambridge University</a>
+- [Print Station *DOOM*](Blog/printdoom/printdoom.html)
+- [Study abroad at Cambridge University](Blog/cambridge/cambridge.html)
