@@ -13,4 +13,4 @@ Equation:
     <input type="text" placeholder="sin[n]" id="eqn"></input>
     <button type="button" onclick="getEqn();">Plot</button>
 </center>
-<script src="test.js"></script>
+<script type="text/javascript" src="test.js"></script>
