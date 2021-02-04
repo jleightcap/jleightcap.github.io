@@ -1,5 +1,8 @@
 TESTER = document.getElementById('tester');
 
+const BG = '#222222';
+const FG = '#ffffff';
+
 /**
  * @param {Array} input
  * @param {Array -> Array} eqn
@@ -7,10 +10,10 @@ TESTER = document.getElementById('tester');
 function plot(input, eqn) {
     const layout = {
         showlegend: false,
-        paper_bgcolor: '#222222',
-        plot_bgcolor: '#222222',
+        paper_bgcolor: BG,
+        plot_bgcolor: BG,
         font: {
-            color: '#ffffff'
+            color: FG
         },
         xaxis: {
             autorange: true,
@@ -30,13 +33,43 @@ function plot(input, eqn) {
         mode: 'markers'
     }];
 
-    Plotly.react(TESTER, trace, layout, config);
+    // FIXME: .react() less overhead
+    Plotly.newPlot(TESTER, trace, layout, config);
 }
 
-let input = [-Math.PI, 0, Math.PI, 2 * Math.PI];
-var eq = (n) => 1 * n;
-plot(input, eq);
+/**
+ * A default plot.
+ */
+function plot_init() {
+    const input = bound_input(0, 12, 1);
+    const eqn = (n) => Math.sin(n);
+    plot(input, eqn);
+}
 
+/**
+ * Generate an input array for given bounds and step size.
+ * @param {Number} lower
+ * @param {Number} upper
+ * @param {Number} step
+ */
+function bound_input(lower, upper, step) {
+    // FIXME: use Array(...).fill().map(...)
+    // FIXME: floats break
+    var list = [];
+    for (var ii = lower; ii <= upper; ii += step) {
+        list.push(ii);
+    }
+    return list;
+}
+
+/**
+ * Read an equation from eqn element.
+ */
 function getEqn() {
-    let eqn = document.getElementById('eqn').value;
+    parse(document.getElementById('eqn').value);
+    const input = bound_input(0, 12, 0.5);
+    const eqn = (n) => Math.sin(n);
+    plot(input, eqn);
 }
+
+plot_init();
