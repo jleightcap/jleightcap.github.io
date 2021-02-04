@@ -15,10 +15,6 @@ function plot(input, eqn) {
         font: {
             color: FG
         },
-        xaxis: {
-            autorange: true,
-            rangemode: "tozero"
-        }
     };
 
     const config = {
@@ -70,11 +66,12 @@ function bound_input(lower, upper, step) {
  */
 function get_conf() {
     const eqn = expression(document.getElementById('eqn').value);
-    const lb = document.getElementById('lower_bound').value;
-    const ub = document.getElementById('upper_bound').value;
-    const om = document.getElementById('sample_freq').value;
-    console.log(lb, ub, om);
-    const input = bound_input(0, 10, 1);
+    let lb = parseFloat(document.getElementById('lower_bound').value);
+    let ub = parseFloat(document.getElementById('upper_bound').value);
+    let om = parseFloat(document.getElementById('sample_freq').value);
+    assert(lb < ub, "plot: lower bound must be less than upper bound");
+    assert(om > 0.001, "plot: very low sampling rate");
+    const input = bound_input(lb, ub, om);
     plot(input, eqn);
 }
 

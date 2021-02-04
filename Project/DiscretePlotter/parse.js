@@ -5,7 +5,6 @@
 function expression(n) {
     let toks = tokenize(n);
     let expr = parse(toks);
-    console.log(expr);
     return sexp_of_expr(expr);
 }
 

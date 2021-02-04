@@ -3,7 +3,7 @@ title: Discrete Signal Plotter
 ---
 
 <head>
-    <script src="plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 # Usage
@@ -42,4 +42,4 @@ Sampling Frequency:
 <center><div id="tester"></div></center>
 
 <script type="text/javascript" src="parse.js"></script>
-<script type="text/javascript" src="test.js"></script>
+<script type="text/javascript" src="plot.js"></script>
