@@ -17,7 +17,6 @@
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
@@ -79,7 +78,7 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -151,7 +150,7 @@
 <h2 id="memory-hierarchy-adding-rom">Memory Hierarchy: Adding ROM</h2>
 <p>ROM (Read Only Memory) is a reasonable next step to piping some instructions over to the Z80. For this, I’ll be using the 28C256 256K Parallel EEPROM. Lots of adjectives to describe a pretty simple idea: the ROM lives up to its name as some memory that the Z80 can read (and only read) from. The memory capacity of this chip is 256K bits, split into 8-bit words: in other words 32K 8-bit words.</p>
 <p>I’ll be using the TL866 universal programmer for writing programs to the ROM, it allows for raw binary files to be pretty easily uploaded to an EEPROM over USB. There’s an open-source, multi-platform controller for the TL866 called <a href="https://gitlab.com/DavidGriffith/minipro">minipro</a> that makes programming much easier than by hand:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> minipro <span class="at">-p</span> AT28C256 <span class="at">-w</span> FILE.bin</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>$ <span class="ex">minipro</span> -p AT28C256 -w FILE.bin</span></code></pre></div>
 <blockquote>
 <p><em>So, how is the 28C256 connected to the Z80?</em></p>
 </blockquote>
@@ -315,12 +314,12 @@ Since the Z80 only has 16 address lines (<code>A0</code>-<code>A15</code>), it c
 </center>
 <p>Remember that subtle issue with the RAM addressing? Well, the answer comes here: IO devices are addressed using only the lower half of the address bus, locations <code>0x0000</code> through <code>0x00ff</code>. If something is being addressed above <code>0x8000</code>, the only thing up there is RAM.</p>
 <p>Assuming there’s one device connected to port A, writing the value <code>0x42</code> to it:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">; 1: set A Control register to output mode value</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="bn">0x0f</span> <span class="co">; see Z80 peripherals datasheet p209 for what each bit means</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">2</span><span class="op">),</span> A</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">; 2: 0x42 to A Data register</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="bn">0x42</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">; 1: set A Control register to output mode value</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    ld A<span class="bn">, 0x0f </span><span class="co">; see Z80 peripherals datasheet p209 for what each bit means</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">2</span>), A</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="co">; 2: 0x42 to A Data register</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>    ld A<span class="bn">, 0x42</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span></code></pre></div>
 <p>Nice and short program once everything is set up!</p>
 <h2 id="hardware-interfacing-hd44780-lcd-controller">Hardware Interfacing: HD44780 LCD Controller</h2>
 <p>I can forgive you if you forgot the point of all this was “Hello, world!” Well, to print text I need a screen! The HD44780 Controller is used for a wide variety of LCD screens, but there’s a super common 2-column LCD that comes with a good number of beginner Arduino kits that I somehow have 2 of.</p>
@@ -338,75 +337,75 @@ Since the Z80 only has 16 address lines (<code>A0</code>-<code>A15</code>), it c
 <p>To write data to the LCD then, <code>{D_3 .. D_0}</code> are latched into port A, the same data is latched into port A but with E high (rising edge to latch into LCD register), then the same data again with E low. This might be a good place for memory mapped IO: have to go through 2 levels of latches to finally talk to the LCD registers!</p>
 <h3 id="lcd-control-program">LCD Control Program</h3>
 <p>The exact data to send is a mess to explain, so diving into the datasheet is definitely required to fully understand what’s going on here. I’ll just annotate the gist of it:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">; initialize output mode for IO port A</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="bn">0x0f</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">2</span><span class="op">),</span> A</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">; LCD function set: 4-bit mode</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00000010</span> <span class="co">; 0b0010 (instruction select)</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">10000010</span> <span class="co">; toggle E on</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00000010</span> <span class="co">; toggle E off</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">; LCD function set: 2 rows, 5x8 characters</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00000010</span> <span class="co">; 0b0010_10xx upper nibble (instruction select)</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">10000010</span> <span class="co">; toggle E on</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00000010</span> <span class="co">; toggle E off</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00001000</span> <span class="co">; lower nibble</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">10001000</span> <span class="co">; toggle E on</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00001000</span> <span class="co">; toggle E off</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">; LCD display control: turn on, blink, etc.</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00000000</span> <span class="co">; 0b0000_1111 upper nibble (insruction select)</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">10000000</span> <span class="co">; toggle E on</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00000000</span> <span class="co">; toggle E off</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00001111</span> <span class="co">; lower nibble</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">10001111</span> <span class="co">; toggle E on</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00001111</span> <span class="co">; toggle E off</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">; initialize output mode for IO port A</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    ld A<span class="bn">, 0x0f</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">2</span>), A</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="co">; LCD function set: 4-bit mode</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    ld A, %<span class="dv">00000010</span> <span class="co">; 0b0010 (instruction select)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    ld A, %<span class="dv">10000010</span> <span class="co">; toggle E on</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    ld A, %<span class="dv">00000010</span> <span class="co">; toggle E off</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a><span class="co">; LCD function set: 2 rows, 5x8 characters</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>    ld A, %<span class="dv">00000010</span> <span class="co">; 0b0010_10xx upper nibble (instruction select)</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>    ld A, %<span class="dv">10000010</span> <span class="co">; toggle E on</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a>    ld A, %<span class="dv">00000010</span> <span class="co">; toggle E off</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a>    ld A, %<span class="dv">00001000</span> <span class="co">; lower nibble</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>    ld A, %<span class="dv">10001000</span> <span class="co">; toggle E on</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true"></a>    ld A, %<span class="dv">00001000</span> <span class="co">; toggle E off</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true"></a><span class="co">; LCD display control: turn on, blink, etc.</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true"></a>    ld A, %<span class="dv">00000000</span> <span class="co">; 0b0000_1111 upper nibble (insruction select)</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true"></a>    ld A, %<span class="dv">10000000</span> <span class="co">; toggle E on</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true"></a>    ld A, %<span class="dv">00000000</span> <span class="co">; toggle E off</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a>    ld A, %<span class="dv">00001111</span> <span class="co">; lower nibble</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true"></a>    ld A, %<span class="dv">10001111</span> <span class="co">; toggle E on</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true"></a>    ld A, %<span class="dv">00001111</span> <span class="co">; toggle E off</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span></code></pre></div>
 <p>With that mess, there’s now a blinking cursor at the top left of the screen!</p>
 <h3 id="lcd-data-program">LCD Data Program</h3>
 <p>Makes sense to send over a character or two, which is helpfully encoded in standard ASCII:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">; LCD display an &#39;H&#39;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">01000100</span> <span class="co">; 8b0100_1000 upper nibble (data select)</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">11000100</span> <span class="co">; toggle E on</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">01000100</span> <span class="co">; toggle E off</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">01001000</span> <span class="co">; lower nibble</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">11001000</span> <span class="co">; toggle E on</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">01001000</span> <span class="co">; toggle E off</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">; LCD display an &#39;I&#39;</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">01000100</span> <span class="co">; 8b0110_1001 upper nibble (data select)</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">11000100</span> <span class="co">; toggle E on</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">01000100</span> <span class="co">; toggle E off</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">01001001</span><span class="co">; lower nibble</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">11001001</span> <span class="co">; toggle E on</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">01001001</span> <span class="co">; toggle E off</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">0</span><span class="op">),</span> A</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>    <span class="co">; LCD display an &#39;H&#39;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    ld A, %<span class="dv">01000100</span> <span class="co">; 8b0100_1000 upper nibble (data select)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>    ld A, %<span class="dv">11000100</span> <span class="co">; toggle E on</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    ld A, %<span class="dv">01000100</span> <span class="co">; toggle E off</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>    ld A, %<span class="dv">01001000</span> <span class="co">; lower nibble</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>    ld A, %<span class="dv">11001000</span> <span class="co">; toggle E on</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>    ld A, %<span class="dv">01001000</span> <span class="co">; toggle E off</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>    <span class="co">; LCD display an &#39;I&#39;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>    ld A, %<span class="dv">01000100</span> <span class="co">; 8b0110_1001 upper nibble (data select)</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>    ld A, %<span class="dv">11000100</span> <span class="co">; toggle E on</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>    ld A, %<span class="dv">01000100</span> <span class="co">; toggle E off</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>    ld A, %<span class="dv">01001001</span><span class="co">; lower nibble</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>    ld A, %<span class="dv">11001001</span> <span class="co">; toggle E on</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a>    ld A, %<span class="dv">01001001</span> <span class="co">; toggle E off</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">0</span>), A</span></code></pre></div>
 <p>Not quite “Hello, world!” and not particularly easy to look at!</p>
 <h1 id="putting-it-all-together-stack-function-calls-and-hello-world">Putting It All Together: Stack, Function Calls, and “Hello World!”</h1>
 <h2 id="the-stack">The Stack</h2>
@@ -434,95 +433,95 @@ Since the Z80 only has 16 address lines (<code>A0</code>-<code>A15</code>), it c
 <h2 id="hello-world">“Hello, world!”</h2>
 <p>With the knowledge of function calls, finally a “Hello, world!” program!</p>
 <p>I’ll use two functions: one to send a whole byte to the LCD:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">; send byte in register A to LCD</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">LCD_PORT:</span> <span class="pp">equ</span> <span class="dv">0</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">LCD_LATCH_BIT:</span> <span class="pp">equ</span> <span class="dv">7</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">_LCD_send_byte:</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span>LCD_PORT<span class="op">),</span> A</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">set</span> LCD_LATCH_BIT<span class="op">,</span> A</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span>LCD_PORT<span class="op">),</span> A</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    res LCD_LATCH_BIT<span class="op">,</span> A</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span>LCD_PORT<span class="op">),</span> A</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ret</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">; send byte in register A to LCD</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="fu">LCD_PORT:</span> <span class="pp">equ</span> <span class="dv">0</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="fu">LCD_LATCH_BIT:</span> <span class="pp">equ</span> <span class="dv">7</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="fu">_LCD_send_byte:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    <span class="bu">out</span> (LCD_PORT), A</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    set LCD_LATCH_BIT, A</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    <span class="bu">out</span> (LCD_PORT), A</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>    res LCD_LATCH_BIT, A</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>    <span class="bu">out</span> (LCD_PORT), A</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>    <span class="bu">ret</span></span></code></pre></div>
 <p>and another to send an ASCII character to the LCD:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">; send char in register A to LCD</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">LCD_DATA_BIT:</span> <span class="pp">equ</span> <span class="dv">6</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">_LCD_send_char:</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">; A stores lower nibble, B stores upper nibble</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    ld B<span class="op">,</span> A</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">and</span> A<span class="op">,</span> <span class="bn">0x0f</span> <span class="co">; clear upper half of A</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    srl B <span class="co">; shift over upper nibble</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    srl B</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    srl B</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    srl B</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">set</span> LCD_DATA_BIT<span class="op">,</span> A <span class="co">; select LCD data register</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">set</span> LCD_DATA_BIT<span class="op">,</span> B</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">; send upper nibble</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    ld C<span class="op">,</span> LCD_PORT <span class="co">; IO port immediates only supported for A register</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span>C<span class="op">),</span> B</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">set</span> LCD_LATCH_BIT<span class="op">,</span> B</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span>C<span class="op">),</span> B</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    res LCD_LATCH_BIT<span class="op">,</span> B</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span>C<span class="op">),</span> B</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">; send lower nibble</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span>LCD_PORT<span class="op">),</span> A</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">set</span> LCD_LATCH_BIT<span class="op">,</span> A</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span>LCD_PORT<span class="op">),</span> A</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    res LCD_LATCH_BIT<span class="op">,</span> A</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span>LCD_PORT<span class="op">),</span> A</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ret</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co">; send char in register A to LCD</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="fu">LCD_DATA_BIT:</span> <span class="pp">equ</span> <span class="dv">6</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="fu">_LCD_send_char:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    <span class="co">; A stores lower nibble, B stores upper nibble</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>    ld B, A</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    <span class="bu">and</span> A<span class="bn">, 0x0f </span><span class="co">; clear upper half of A</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    srl B <span class="co">; shift over upper nibble</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>    srl B</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>    srl B</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>    srl B</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>    set LCD_DATA_BIT, A <span class="co">; select LCD data register</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>    set LCD_DATA_BIT, B</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>    <span class="co">; send upper nibble</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>    ld C, LCD_PORT <span class="co">; IO port immediates only supported for A register</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>    <span class="bu">out</span> (C), B</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>    set LCD_LATCH_BIT, B</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a>    <span class="bu">out</span> (C), B</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a>    res LCD_LATCH_BIT, B</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a>    <span class="bu">out</span> (C), B</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true"></a>    <span class="co">; send lower nibble</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true"></a>    <span class="bu">out</span> (LCD_PORT), A</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true"></a>    set LCD_LATCH_BIT, A</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true"></a>    <span class="bu">out</span> (LCD_PORT), A</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true"></a>    res LCD_LATCH_BIT, A</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true"></a>    <span class="bu">out</span> (LCD_PORT), A</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true"></a>    <span class="bu">ret</span></span></code></pre></div>
 <p>And the rest is easy! Writing the print loop explicitly character by character:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">org</span> <span class="bn">0x0000</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">start:</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">; initialize output mode for IO port A</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="bn">0x0f</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">out</span> <span class="op">(</span><span class="dv">2</span><span class="op">),</span> A</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">; LCD function set: 4-bit mode</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00000010</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_byte</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">; LCD function set: 2 rows, 5x8 characters</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00000010</span> <span class="co">; 8b0010_10xx upper nibble (instruction select)</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_byte</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00001000</span> <span class="co">; lower nibble</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_byte</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">; LCD display control: turn on, blink, etc.</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00000000</span> <span class="co">; 8b0000_1111 upper nibble (insruction select)</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_byte</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="op">%</span><span class="dv">00001111</span> <span class="co">; lower nibble</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_byte</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">; print &quot;Hello, world!&quot;</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;H&#39;</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;e&#39;</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;l&#39;</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;l&#39;</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;o&#39;</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;,&#39;</span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39; &#39;</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;w&#39;</span></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;o&#39;</span></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;r&#39;</span></span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;l&#39;</span></span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;d&#39;</span></span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    ld A<span class="op">,</span> <span class="st">&#39;!&#39;</span></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">call</span> _LCD_send_char</span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    halt</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="bu">org</span><span class="bn"> 0x0000</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="fu">start:</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>    <span class="co">; initialize output mode for IO port A</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>    ld A<span class="bn">, 0x0f</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>    <span class="bu">out</span> (<span class="dv">2</span>), A</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>    <span class="co">; LCD function set: 4-bit mode</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>    ld A, %<span class="dv">00000010</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_byte</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>    <span class="co">; LCD function set: 2 rows, 5x8 characters</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>    ld A, %<span class="dv">00000010</span> <span class="co">; 8b0010_10xx upper nibble (instruction select)</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_byte</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>    ld A, %<span class="dv">00001000</span> <span class="co">; lower nibble</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_byte</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>    <span class="co">; LCD display control: turn on, blink, etc.</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a>    ld A, %<span class="dv">00000000</span> <span class="co">; 8b0000_1111 upper nibble (insruction select)</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_byte</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a>    ld A, %<span class="dv">00001111</span> <span class="co">; lower nibble</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_byte</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true"></a>    <span class="co">; print &quot;Hello, world!&quot;</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true"></a>    ld A, <span class="st">&#39;H&#39;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true"></a>    ld A, <span class="st">&#39;e&#39;</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true"></a>    ld A, <span class="st">&#39;l&#39;</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true"></a>    ld A, <span class="st">&#39;l&#39;</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true"></a>    ld A, <span class="st">&#39;o&#39;</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true"></a>    ld A, <span class="st">&#39;,&#39;</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true"></a>    ld A, <span class="st">&#39; &#39;</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true"></a>    ld A, <span class="st">&#39;w&#39;</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true"></a>    ld A, <span class="st">&#39;o&#39;</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true"></a>    ld A, <span class="st">&#39;r&#39;</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true"></a>    ld A, <span class="st">&#39;l&#39;</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true"></a>    ld A, <span class="st">&#39;d&#39;</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true"></a>    ld A, <span class="st">&#39;!&#39;</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true"></a>    <span class="bu">call</span> _LCD_send_char</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true"></a>    halt</span></code></pre></div>
 <p><em>Finally</em>,</p>
 <center>
 <center>
