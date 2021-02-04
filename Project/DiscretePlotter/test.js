@@ -66,9 +66,8 @@ function bound_input(lower, upper, step) {
  * Read an equation from eqn element.
  */
 function getEqn() {
-    parse(document.getElementById('eqn').value);
+    const eqn = parse(document.getElementById('eqn').value);
     const input = bound_input(0, 12, 0.5);
-    const eqn = (n) => Math.sin(n);
     plot(input, eqn);
 }
 
