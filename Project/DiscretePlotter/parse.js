@@ -2,35 +2,78 @@
  * parse a given string into a lambda.
  * @param {String} n
  */
-function parse(n) {
+function expression(n) {
     let toks = tokenize(n);
-    return parse_rec(toks);
+    let expr = parse(toks);
+    console.log(expr);
+    return sexp_of_expr(expr);
 }
 
-function parse_rec(toks) {
-    if (toks.length == 0) {
-        return (x) => x;
+function sexp_of_expr(exprs) {
+    if (exprs.length == 0) return (x) => x;
+    let expr = exprs[0]
+    let rest = exprs.slice(1);
+
+    console.log(expr, rest);
+
+    // atom
+    if (rest.length == 0) {
+        switch (expr.type) {
+            case 'LIT_INT':
+                return (x) => expr.value;
+            case 'LIT_VAR':
+                return (x) => x;
+        }
     }
-    switch (toks[0].type) {
-        case 'UNIOP_SIN':
-            assert(toks[1].type == 'LPAREN', "expected '(' after `sin'");
-            let sin = (x) => Math.sin(parse_rec(toks.slice(2))(x));
-            return sin;
-        case 'UNIOP_COS':
-            assert(toks[1].type == 'LPAREN', "expected '(' after `cos'");
-            let cos = (x) => Math.cos(parse_rec(toks.slice(2))(x));
-            return cos;
+    else {
+        sexp_of_expr(expr)
+    }
+}
+
+function parse(toks) {
+    if (toks.length == 0) return [];
+    let tok = toks[0]
+    let rest = toks.slice(1);
+
+    switch (tok.type) {
+        case 'LPAREN':
+            let [sl, tail] = parse_sublist(rest);
+            assert(tail.length == 0, "parse: unexpected extra tokens");
+            return sl;
         case 'LIT_INT':
-            console.log("LIT_INT", toks[0].value);
-            return (x) => toks[0].value;
         case 'LIT_VAR':
-            console.log("LIT_VAR", toks[0].value);
-            return (x) => x;
+            return [tok];
+        case 'RPAREN':
         default:
-            err("unexpected token: " + toks[0]);
+            log("unexpected token: " + toks[0].type);
     }
 }
 
+function parse_sublist(toks) {
+    var balance = 1;
+    var sublist = [];
+    for (var ii = 0; ii < toks.length; ii++) {
+        let tok = toks[ii];
+        switch (toks[ii].type) {
+            case 'LPAREN':
+                let [sl, tail] = parse_sublist(toks.slice(ii+1));
+                sublist.push(sl);
+                ii += sl.length;
+                balance++;
+                break;
+            case 'RPAREN':
+                balance--;
+                break;
+            default:
+                sublist.push(tok);
+                break;
+        }
+    }
+    assert(balance == 0, "parse: unbalanced parens");
+    return [sublist, []];
+}
+
+// FIXME: dictionary
 function tok_tag(tok) {
     switch (tok) {
         case "(":
@@ -75,7 +118,7 @@ function tok_tag(tok) {
                 type: 'UNIOP_COS', value: null
             };
         default:
-            err("unexpected token: " + tok);
+            assert(false, "unexpected token: " + tok.type);
     }
 }
 
@@ -108,7 +151,6 @@ function log(msg) {
 function assert(cond, msg) {
     if (!cond) {
         log(msg);
-        throw "";
     } else {
         log("");
     }

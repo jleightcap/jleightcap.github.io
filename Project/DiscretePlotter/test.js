@@ -66,7 +66,7 @@ function bound_input(lower, upper, step) {
  * Read an equation from eqn element.
  */
 function getEqn() {
-    const eqn = parse(document.getElementById('eqn').value);
+    const eqn = expression(document.getElementById('eqn').value);
     const input = bound_input(0, 12, 0.5);
     plot(input, eqn);
 }

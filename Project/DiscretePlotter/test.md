@@ -17,8 +17,20 @@ Equation:
 
 <div><par id="parse_result"></par></div>
 
+## Usage
+The signals are expected in the form of an *S-Expression*.
+The more common notation `x[n]=sin(n) + 2` would be represented as:
+```lisp
+x[n]=(+ (sin n) 2)
+```
+
+or a more compilcated example, `ln(sin(2*pi*n))+n^2` would be represented as:
+```lisp
+x[n]=(+ (ln (sin (* 2 pi n))) (pow n 2))
+```
+
 ## Design
-The math expression parser was written from scratch, so expect bugs and bad error reporting.
+The math expression parser was written from scratch by someone dipping a toe in JavaScript, so expect bugs and bad error reporting.
 
 <script type="text/javascript" src="parse.js"></script>
 <script type="text/javascript" src="test.js"></script>
