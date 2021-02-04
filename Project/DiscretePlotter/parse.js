@@ -27,6 +27,8 @@ function sexp_of_expr(exprs) {
                 return (args) => (x => Math.sin(args[0](x)));
             case 'UNIOP_COS':
                 return (args) => (x => Math.cos(args[0](x)));
+            case 'UNIOP_LN':
+                return (args) => (x => Math.log(args[0](x)));
             case 'BINOP_PLUS':
                 return (args) => (x => args[0](x) + args[1](x));
             case 'BINOP_MINUS':
@@ -116,6 +118,8 @@ function tok_tag(tok) {
             return { type: 'UNIOP_SIN', value: null };
         case "cos":
             return { type: 'UNIOP_COS', value: null };
+        case "ln":
+            return { type: 'UNIOP_LN', value: null };
         default:
             assert(false, "unexpected token: " + tok.type);
     }
@@ -126,7 +130,7 @@ function tokenize(n) {
     // function declaration regex
     const re_fun = /^\w+\[n\]/g;
     // tokens regex FIXME: unary minus
-    const re_tok = /\(|\)|n|\d+|\+|\-|\*|\/|sin|cos|pi|e|\w+/g;
+    const re_tok = /\(|\)|n|\d+|\+|\-|\*|\/|sin|cos|ln|pi|e|\w+/g;
     let fun_def = n.split("=");
     assert(fun_def.length == 2, "tokenize: expected `fun[n]=...'");
 
