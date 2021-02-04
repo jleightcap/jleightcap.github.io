@@ -85,27 +85,37 @@
 <h1 class="title">Discrete Signal Plotter</h1>
 </header>
 <head>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="plotly-latest.min.js"></script>
 </head>
+<h1 id="usage">Usage</h1>
+<p>The signals are expected in the form of an <em>S-Expression</em>. The more common notation <code>x[n]=sin(n) + 2</code> would be represented as:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>x[n]<span class="op">=</span>(<span class="op">+</span> (<span class="kw">sin</span> n) <span class="dv">2</span>)</span></code></pre></div>
+<p>or a more compilcated example, <code>ln(sin(2*pi*n))+n^2</code> would be represented as:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>x[n]<span class="op">=</span>(<span class="op">+</span> (ln (<span class="kw">sin</span> (<span class="op">*</span> <span class="dv">2</span> <span class="kw">pi</span> n))) (pow n <span class="dv">2</span>))</span></code></pre></div>
+<h1 id="design">Design</h1>
+<p>The math expression parser was written from scratch by someone dipping a toe in JavaScript, so expect bugs and bad error reporting.</p>
+<h1 id="plotter">Plotter</h1>
+Equation:
+<center>
+<input type="text" placeholder="x[n]=sin(n)" id="eqn"></input> <button type="button" onclick="get_conf();">Plot</button>
+</center>
+<div>
+<p id="parse_result">
+</p>
+</div>
+Bounds:
+<center>
+<input type="text" placeholder="0" id="lower_bound"></input> <input type="text" placeholder="10" id="upper_bound"></input>
+</center>
+Sampling Frequency:
+<center>
+<input type="text" placeholder="1" id="sample_freq"></input>
+</center>
 <center>
 <div id="tester">
 
 </div>
 </center>
-Equation:
-<center>
-<input type="text" placeholder="sin[n]" id="eqn"></input> <button type="button" onclick="getEqn();">Plot</button>
-</center>
-<div>
-<par id="parse_result"></par>
-</div>
-<h2 id="usage">Usage</h2>
-<p>The signals are expected in the form of an <em>S-Expression</em>. The more common notation <code>x[n]=sin(n) + 2</code> would be represented as:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>x[n]<span class="op">=</span>(<span class="op">+</span> (<span class="kw">sin</span> n) <span class="dv">2</span>)</span></code></pre></div>
-<p>or a more compilcated example, <code>ln(sin(2*pi*n))+n^2</code> would be represented as:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>x[n]<span class="op">=</span>(<span class="op">+</span> (ln (<span class="kw">sin</span> (<span class="op">*</span> <span class="dv">2</span> <span class="kw">pi</span> n))) (pow n <span class="dv">2</span>))</span></code></pre></div>
-<h2 id="design">Design</h2>
-<p>The math expression parser was written from scratch by someone dipping a toe in JavaScript, so expect bugs and bad error reporting.</p>
 <script type="text/javascript" src="parse.js"></script>
 <script type="text/javascript" src="test.js"></script>
 </body>

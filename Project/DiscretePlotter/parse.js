@@ -14,19 +14,30 @@ function sexp_of_expr(exprs) {
     let expr = exprs[0]
     let rest = exprs.slice(1);
 
-    console.log(expr, rest);
 
-    // atom
     if (rest.length == 0) {
         switch (expr.type) {
             case 'LIT_INT':
-                return (x) => expr.value;
+                return (x) => Number(expr.value);
             case 'LIT_VAR':
                 return (x) => x;
+            case 'UNIOP_SIN':
+                return (args) => (x => Math.sin(args[0](x)));
+            case 'UNIOP_COS':
+                return (args) => (x => Math.cos(args[0](x)));
+            case 'BINOP_PLUS':
+                return (args) => (x => args[0](x) + args[1](x));
+            case 'BINOP_MINUS':
+                return (args) => (x => args[0](x) - args[1](x));
+            case 'BINOP_MUL':
+                return (args) => (x => args[0](x) * args[1](x));
+            case 'BINOP_DIV':
+                return (args) => (x => args[0](x) / args[1](x));
         }
-    }
-    else {
-        sexp_of_expr(expr)
+    } else {
+        let args = rest.map((arg) => sexp_of_expr([arg]));
+        let op = sexp_of_expr([expr]);
+        return (x) => op(args)(x);
     }
 }
 
@@ -56,7 +67,7 @@ function parse_sublist(toks) {
         let tok = toks[ii];
         switch (toks[ii].type) {
             case 'LPAREN':
-                let [sl, tail] = parse_sublist(toks.slice(ii+1));
+                let [sl, tail] = parse_sublist(toks.slice(ii + 1));
                 sublist.push(sl);
                 ii += sl.length;
                 balance++;
@@ -73,50 +84,29 @@ function parse_sublist(toks) {
     return [sublist, []];
 }
 
-// FIXME: dictionary
 function tok_tag(tok) {
     switch (tok) {
         case "(":
-            return {
-                type: 'LPAREN', value: null
-            };
+            return { type: 'LPAREN', value: null };
         case ")":
-            return {
-                type: 'RPAREN', value: null
-            };
+            return { type: 'RPAREN', value: null };
         case "n":
-            return {
-                type: 'LIT_VAR', value: "n"
-            };
+            return { type: 'LIT_VAR', value: "n" };
         case (tok.match(/\d+/) || {}).input:
-            return {
-                type: 'LIT_INT', value: tok
-            };
+            return { type: 'LIT_INT', value: tok };
         case "+":
-            return {
-                type: 'BINOP_PLUS', value: null
-            };
+            return { type: 'BINOP_PLUS', value: null };
             /* FIXME: unary minus */
         case "-":
-            return {
-                type: 'BINOP_MINUS', value: null
-            };
+            return { type: 'BINOP_MINUS', value: null };
         case "*":
-            return {
-                type: 'BINOP_MUL', value: null
-            };
+            return { type: 'BINOP_MUL', value: null };
         case "/":
-            return {
-                type: 'BINOP_DIV', value: null
-            };
+            return { type: 'BINOP_DIV', value: null };
         case "sin":
-            return {
-                type: 'UNIOP_SIN', value: null
-            };
+            return { type: 'UNIOP_SIN', value: null };
         case "cos":
-            return {
-                type: 'UNIOP_COS', value: null
-            };
+            return { type: 'UNIOP_COS', value: null };
         default:
             assert(false, "unexpected token: " + tok.type);
     }

@@ -34,7 +34,7 @@ function plot(input, eqn) {
     }];
 
     // FIXME: .react() less overhead
-    Plotly.newPlot(TESTER, trace, layout, config);
+    Plotly.react(TESTER, trace, layout, config);
 }
 
 /**
@@ -55,6 +55,9 @@ function plot_init() {
 function bound_input(lower, upper, step) {
     // FIXME: use Array(...).fill().map(...)
     // FIXME: floats break
+    if (lower == "") { lower = 0; }
+    if (upper == "") { upper = 10; }
+    if (step == "") { step = 1; }
     var list = [];
     for (var ii = lower; ii <= upper; ii += step) {
         list.push(ii);
@@ -63,11 +66,15 @@ function bound_input(lower, upper, step) {
 }
 
 /**
- * Read an equation from eqn element.
+ * Read an equation from user.
  */
-function getEqn() {
+function get_conf() {
     const eqn = expression(document.getElementById('eqn').value);
-    const input = bound_input(0, 12, 0.5);
+    const lb = document.getElementById('lower_bound').value;
+    const ub = document.getElementById('upper_bound').value;
+    const om = document.getElementById('sample_freq').value;
+    console.log(lb, ub, om);
+    const input = bound_input(0, 10, 1);
     plot(input, eqn);
 }
 
