@@ -21,7 +21,7 @@ x[n]=(+ (sin (* 2 (* pi n))) (* (pow e n) (cos n)))
 # Plotter
 Equation:
 <center>
-    <input type="text" placeholder="x[n]=sin(n)" id="eqn"></input>
+    <input type="text" placeholder="x[n]=(sin n)" id="eqn"></input>
     <button type="button" onclick="get_conf();">Plot</button>
 </center>
 
