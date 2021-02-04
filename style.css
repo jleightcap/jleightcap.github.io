@@ -1,14 +1,13 @@
 @font-face {
-    font-family: 'CozetteVector', monospace;
-    src: url(fonts/CozetteVector.ttf) format('truetype');
+    font-family: monospace;
 }
 
 body {
-    font-family: 'CozetteVector', monospace;
+    font-family: monospace;
     margin: auto;
     padding-right: 1em;
     padding-left: 1em;
-    max-width: 44em;
+    max-width: 60em;
     border-left: 1px solid white;
     border-right: 1px solid white;
     color: white;
@@ -29,19 +28,28 @@ code {
     font-family: monospace;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
     text-decoration: none;
     color: #ffffff;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-weight: bold;
     border-bottom: 1px dotted white;
     color: #cccccc;
     line-height: 150%
 }
+
 h1 {
-    font-size: 130%;
+    font-size: 150%;
 }
 
 h2 {
@@ -63,7 +71,7 @@ h5 {
 }
 
 h1.title {
-    font-size: 200%;
+    font-size: 300%;
     font-weight: bold;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
@@ -71,13 +79,17 @@ h1.title {
     border: none;
 }
 
-a:link, a:visited, a:hover, a:active {
+a:link,
+a:visited,
+a:hover,
+a:active {
     color: #999999;
 }
 
 dt code {
     font-weight: bold;
 }
+
 dd p {
     margin-top: 0;
 }
