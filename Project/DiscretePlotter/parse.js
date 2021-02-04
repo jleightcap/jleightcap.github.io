@@ -18,11 +18,11 @@ function sexp_of_expr(exprs) {
     if (rest.length == 0) {
         switch (expr.type) {
             case 'LIT_INT':
+            case 'LIT_PI':
+            case 'LIT_E':
                 return (x) => Number(expr.value);
             case 'LIT_VAR':
                 return (x) => x;
-            case 'LIT_PI':
-                return (x) => Math.PI;
             case 'UNIOP_SIN':
                 return (args) => (x => Math.sin(args[0](x)));
             case 'UNIOP_COS':
@@ -53,9 +53,11 @@ function parse(toks) {
             let [sl, tail] = parse_sublist(rest);
             assert(tail.length == 0, "parse: unexpected extra tokens");
             return sl;
+        // atoms
         case 'LIT_INT':
         case 'LIT_VAR':
         case 'LIT_PI':
+        case 'LIT_E':
             return [tok];
         case 'RPAREN':
         default:
@@ -99,6 +101,8 @@ function tok_tag(tok) {
             return { type: 'LIT_INT', value: tok };
         case "pi":
             return { type: 'LIT_PI', value: Math.PI };
+        case "e":
+            return { type: 'LIT_E', value: Math.E };
         case "+":
             return { type: 'BINOP_PLUS', value: null };
             /* FIXME: unary minus */
@@ -122,7 +126,7 @@ function tokenize(n) {
     // function declaration regex
     const re_fun = /^\w+\[n\]/g;
     // tokens regex FIXME: unary minus
-    const re_tok = /\(|\)|n|\d+|\+|\-|\*|\/|sin|cos|pi|\w+/g;
+    const re_tok = /\(|\)|n|\d+|\+|\-|\*|\/|sin|cos|pi|e|\w+/g;
     let fun_def = n.split("=");
     assert(fun_def.length == 2, "tokenize: expected `fun[n]=...'");
 
