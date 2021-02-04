@@ -90,10 +90,8 @@
 <h1 id="usage">Usage</h1>
 <p>The signals are expected in the form of an <em>S-Expression</em>. The more common notation <code>x[n]=sin(n) + 2</code> would be represented as:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>x[n]<span class="op">=</span>(<span class="op">+</span> (<span class="kw">sin</span> n) <span class="dv">2</span>)</span></code></pre></div>
-<p>or a more compilcated example, <code>ln(sin(2*pi*n))+n^2</code> would be represented as:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>x[n]<span class="op">=</span>(<span class="op">+</span> (ln (<span class="kw">sin</span> (<span class="op">*</span> <span class="dv">2</span> <span class="kw">pi</span> n))) (pow n <span class="dv">2</span>))</span></code></pre></div>
-<h1 id="design">Design</h1>
-<p>The math expression parser was written from scratch by someone dipping a toe in JavaScript, so expect bugs and bad error reporting.</p>
+<p>or a more compilcated example, <code>sin(2*pi*n)+(e^n)cos(n)</code> would be represented as:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>x[n]<span class="op">=</span>(<span class="op">+</span> (<span class="kw">sin</span> (<span class="op">*</span> <span class="dv">2</span> (<span class="op">*</span> <span class="kw">pi</span> n))) (<span class="op">*</span> (pow e n) (<span class="kw">cos</span> n)))</span></code></pre></div>
 <h1 id="plotter">Plotter</h1>
 Equation:
 <center>
