@@ -34,12 +34,7 @@ Bounds:
     <input type="text" placeholder="10" id="upper_bound"></input>
 </center>
 
-Sampling Frequency:
-<center>
-    <input type="text" placeholder="1" id="sample_freq"></input>
-</center>
-
 <center><div id="tester"></div></center>
 
-<script type="text/javascript" src="parse.js"></script>
-<script type="text/javascript" src="plot.js"></script>
+<script type="text/javascript" src="js/parse.min.js"></script>
+<script type="text/javascript" src="js/plot.min.js"></script>
