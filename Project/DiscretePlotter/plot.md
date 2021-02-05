@@ -36,5 +36,5 @@ Bounds:
 
 <center><div id="tester"></div></center>
 
-<script type="text/javascript" src="js/parse.min.js"></script>
-<script type="text/javascript" src="js/plot.min.js"></script>
+<script type="text/javascript" src="parse.min.js"></script>
+<script type="text/javascript" src="plot.min.js"></script>

@@ -10,7 +10,6 @@ $(JS):
 %.min.js: %.js
 	uglifyjs $< > $@
 	rm $<
-	mv $@ js/
 
 clean:
 	rm -f *.js *.min.js js/*
