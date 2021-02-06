@@ -93,10 +93,10 @@ function lambda_expr(expr: Expr): (_: number) => number {
                     return (x) => Math.sin(argfuns[0](x));
                 case Tokens.UNIOP_COS:
                     assert(argfuns.length == 1, "lambda: `cos' expects one parameter");
-                    return (x) => Math.cos(argfuns[0](x));
+                    return (x) => parseFloat(Math.cos(argfuns[0](x)).toFixed(3));
                 case Tokens.UNIOP_LN:
                     assert(argfuns.length == 1, "lambda: `ln' expects one parameter");
-                    return (x) => Math.log(argfuns[0](x));
+                    return (x) => parseFloat(Math.log(argfuns[0](x)).toFixed(3));
                 case Tokens.BINOP_PLUS:
                     const add_curry =
                         (f: (_: number) => number, g: (_: number) => number) =>
