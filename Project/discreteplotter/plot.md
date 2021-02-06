@@ -1,5 +1,7 @@
 ---
 title: Discrete Signal Plotter
+date: February 6, 2021
+author: <a href="../../index.html">Jack Leightcap</a>
 ---
 
 <head>
@@ -26,7 +28,7 @@ Bounds:
 <center><div id="tester"></div></center>
 
 # Usage
-The discrete signals functions are expected in the form of an *S-Expression*.
+The discrete signal functions are expected in the form of an *S-Expression*.
 The more common notation
 
 ```
@@ -38,13 +40,15 @@ is instead be represented as:
 x[n]=(+ (sin n) (/ pi 2))
 ```
 
+Where an S-Expression uses explicit parentheses with *prefix* notation -- has the function on the left -- like `(+ 2 2)`; versus *infix* notation like `2 + 2`.
+
 Because the signals are discrete, the signal is only defined over the integers.
 Likewise, the bounds are integers defining the domain the signal is plotted over.
 
 # Design
 The only imported code (through CDN) is `Plotly` for rendering the output functions.
 
-What started as a quick-and-dirty tool for my Linear Systems class became an exercise for my Compilers class. The general steps:
+The general steps:
 
 1. Tokenize the user input into an Array of Tokens.
 2. Parse the linear Array of Tokens into a recursive structure representing an S-Expression

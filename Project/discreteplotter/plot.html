@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Jack Leightcap" />
+  <meta name="dcterms.date" content="2021-02-06" />
   <title>Discrete Signal Plotter</title>
   <style>
     code{white-space: pre-wrap;}
@@ -83,6 +85,8 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Discrete Signal Plotter</h1>
+<p class="author"><a href="../../index.html">Jack Leightcap</a></p>
+<p class="date">February 6, 2021</p>
 </header>
 <head>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -106,14 +110,15 @@ Bounds:
 </div>
 </center>
 <h1 id="usage">Usage</h1>
-<p>The discrete signals functions are expected in the form of an <em>S-Expression</em>. The more common notation</p>
+<p>The discrete signal functions are expected in the form of an <em>S-Expression</em>. The more common notation</p>
 <pre><code>x[n]=sin(n) + pi/2</code></pre>
 <p>is instead be represented as:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>x[n]<span class="op">=</span>(<span class="op">+</span> (<span class="kw">sin</span> n) (<span class="op">/</span> <span class="kw">pi</span> <span class="dv">2</span>))</span></code></pre></div>
+<p>Where an S-Expression uses explicit parentheses with <em>prefix</em> notation – has the function on the left – like <code>(+ 2 2)</code>; versus <em>infix</em> notation like <code>2 + 2</code>.</p>
 <p>Because the signals are discrete, the signal is only defined over the integers. Likewise, the bounds are integers defining the domain the signal is plotted over.</p>
 <h1 id="design">Design</h1>
 <p>The only imported code (through CDN) is <code>Plotly</code> for rendering the output functions.</p>
-<p>What started as a quick-and-dirty tool for my Linear Systems class became an exercise for my Compilers class. The general steps:</p>
+<p>The general steps:</p>
 <ol type="1">
 <li>Tokenize the user input into an Array of Tokens.</li>
 <li>Parse the linear Array of Tokens into a recursive structure representing an S-Expression</li>

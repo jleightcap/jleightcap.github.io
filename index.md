@@ -22,6 +22,7 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 </center>
 
 # Projects
+- [Discrete Signal Plotter](Project/discreteplotter/plot.html)
 - [Z80 Homebrew Computer Part 1 -- Memory, LCD](Project/z801/z801.html)
 - [Breadboard CPU](Project/eatercpu/eatercpu.html)
 - [*PicrossSAT*: algorithm to convert Picross puzzle to SAT problem](Project/picrosssat/picrosssat.html)
