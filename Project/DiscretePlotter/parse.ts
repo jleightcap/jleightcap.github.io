@@ -56,7 +56,7 @@ function expression(s: string) {
 }
 
 // form a Lambda from an Expression.
-function lambda_expr(expr: Expr): (_: number) => number {
+function lambda_expr(expr: Expr): ({}: number) => number {
     console.log("lambda: ", expr);
 
     // variable
@@ -76,6 +76,17 @@ function lambda_expr(expr: Expr): (_: number) => number {
             case Tokens.LIT_NUMBER: return t.value;
         }
     };
+
+    const curry =
+        (op: ({}: number, {}: number) => number) =>
+            (f: ({}: number) => number, g: ({}: number) => number) =>
+                (x: number) =>
+                    op(f(x), g(x));
+
+    const add_curry = curry((a, b) => (a + b));
+    const sub_curry = curry((a, b) => (a - b));
+    const mul_curry = curry((a, b) => (a * b));
+    const div_curry = curry((a, b) => (a / b));
 
     switch (exptype(expr)) {
         case ExprType.Var:
@@ -98,71 +109,16 @@ function lambda_expr(expr: Expr): (_: number) => number {
                     assert(argfuns.length == 1, "lambda: `ln' expects one parameter");
                     return (x) => parseFloat(Math.log(argfuns[0](x)).toFixed(3));
                 case Tokens.BINOP_PLUS:
-                    const add_curry =
-                        (f: (_: number) => number, g: (_: number) => number) =>
-                            ((x: number) => f(x) + g(x));
-                    return (x: number) => argfuns.reduce(add_curry, (_) => 0)(x);
+                    return (x: number) => argfuns.reduce(add_curry, ({}) => 0)(x);
                 case Tokens.BINOP_MINUS:
-                    const sub_curry =
-                        (f: (_: number) => number, g: (_: number) => number) =>
-                            ((x: number) => f(x) - g(x));
-                    return (x: number) => argfuns.reduce(sub_curry, (_) => 0)(x);
+                    return (x: number) => argfuns.reduce(sub_curry, ({}) => 0)(x);
                 case Tokens.BINOP_MUL:
-                    const times_curry =
-                        (f: (_: number) => number, g: (_: number) => number) =>
-                            ((x: number) => f(x) * g(x));
-                    return (x: number) => argfuns.reduce(times_curry, (_) => 1)(x);
+                    return (x: number) => argfuns.reduce(mul_curry, ({}) => 1)(x);
                 case Tokens.BINOP_DIV:
-                    const divide_curry =
-                        (f: (_: number) => number, g: (_: number) => number) =>
-                            ((x: number) => f(x) / g(x));
-                    return (x: number) => argfuns.reduce(divide_curry, (_) => 1)(x);
+                    return (x: number) => argfuns.reduce(div_curry, ({}) => 1)(x);
             }
     }
 }
-/*
-if (exprs instanceof Array) {
-    let expr = exprs[0];
-    let rest = exprs.slice(1);
-    switch (expr.type) {
-        case 'UNIOP_SIN':
-            assert(rest.length == 1, "sexp: `sin' expects one argument");
-            let arg = (x) => lambda_expr(rest[0])(x);
-            return (x) => Math.sin(arg(x));
-        case 'BINOP_PLUS':
-        case 'BINOP_MINUS':
-        case 'BINOP_MUL':
-        case 'BINOP_DIV':
-            assert(rest.length == 2,
-                "sexp: binary function " + expr.type + " expects two arguments");
-            let arg1 = (a1) => lambda_expr(rest[0])(a1);
-            let arg2 = (a2) => lambda_expr(rest[1])(a2);
-            switch (expr.type) {
-                case 'BINOP_PLUS':
-                    return (x) => arg1(x) + arg2(x);
-                case 'BINOP_MINUS':
-                    return (x) => arg1(x) - arg2(x);
-                case 'BINOP_MUL':
-                    return (x) => arg1(x) * arg2(x);
-                case 'BINOP_DIV':
-                    return (x) => arg1(x) / arg2(x);
-                default:
-                    assert(false, "sexp: unhandled binop");
-            }
-    }
-}
-// literals
-else {
-    switch (exprs.type) {
-        case 'LIT_INT':
-        case 'LIT_PI':
-        case 'LIT_E':
-            return (_: number) => Number(exprs.value);
-        case 'LIT_VAR':
-            return (x: number) => x;
-    }
-}
-*/
 
 function parse(toks: Token[]): Expr {
     if (toks.length == 0) return null;
@@ -178,6 +134,7 @@ function parse(toks: Token[]): Expr {
         // top-level atoms
         case Tokens.LIT_NUMBER:
             return tok.value;
+        // top-level variables
         case Tokens.LIT_VAR:
             return tok.name;
         default:
@@ -245,8 +202,8 @@ const re_tok = /\(|\)|\d+\.\d|\d+|\+|\-|\*|\/|sin|cos|ln|pi|e|\w+/g;
 function tokenize(s: string): Token[] {
     s = s.trim();
 
-    // FIXME: function and variable declaration
-    let [_, def] = s.split("=");
+    // TODO: function and variable declaration
+    let [{}, def] = s.split("=");
 
     // TODO: function self-referential in body
     var toks: Token[] = def.match(re_tok).map(tok_tag);
@@ -261,9 +218,6 @@ function log(msg: string) {
 
 // assert a condition, printing an error message if false
 function assert(cond: boolean, msg: string) {
-    if (!cond) {
-        log(msg);
-    } else {
-        log("");
-    }
+    if (!cond) log(msg);
+    else log("");
 }
