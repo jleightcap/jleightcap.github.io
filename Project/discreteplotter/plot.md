@@ -55,7 +55,7 @@ The general steps:
 3. Turn that S-Expression structure into a function (lambda) of one variable
 4. Plot that function!
 
-My implementation in TypeScript can be found [here](https://github.com/jleightcap/jleightcap.github.io/blob/master/Project/DiscretePlotter/parse.ts), including some fun lambdas and Currying.
+My implementation in TypeScript can be found [here](https://github.com/jleightcap/jleightcap.github.io/tree/master/Project/discreteplotter), including some fun lambdas and Currying.
 
 <script type="text/javascript" src="parse.min.js"></script>
 <script type="text/javascript" src="plot.min.js"></script>
