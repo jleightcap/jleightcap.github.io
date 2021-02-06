@@ -1,191 +1,266 @@
-/**
- * parse a given string into a lambda.
- * @param {String} n
- */
-function expression(n) {
-    let toks = tokenize(n);
-    let expr = parse(toks);
-    return sexp_of_expr(expr);
+enum Tokens {
+    LPAREN,
+    RPAREN,
+    LIT_VAR,
+    LIT_NUMBER,
+    UNIOP_SIN,
+    UNIOP_COS,
+    UNIOP_LN,
+    BINOP_PLUS,
+    BINOP_MINUS,
+    BINOP_MUL,
+    BINOP_DIV,
 }
 
-function sexp_of_expr(exprs) {
-    // expressions
-    if (exprs instanceof Array) {
-        let expr = exprs[0];
-        let rest = exprs.slice(1);
-        switch (expr.type) {
-            case 'UNIOP_SIN':
-                assert(rest.length == 1, "sexp: `sin' expects one argument");
-                let arg = (x) => sexp_of_expr(rest[0])(x);
-                return (x) => Math.sin(arg(x));
-            case 'BINOP_PLUS':
-            case 'BINOP_MINUS':
-            case 'BINOP_MUL':
-            case 'BINOP_DIV':
-                assert(rest.length == 2,
-                    "sexp: binary function " + expr.type + " expects two arguments");
-                let arg1 = (a1) => sexp_of_expr(rest[0])(a1);
-                let arg2 = (a2) => sexp_of_expr(rest[1])(a2);
-                switch (expr.type) {
-                    case 'BINOP_PLUS':
-                        return (x) => arg1(x) + arg2(x);
-                    case 'BINOP_MINUS':
-                        return (x) => arg1(x) - arg2(x);
-                    case 'BINOP_MUL':
-                        return (x) => arg1(x) * arg2(x);
-                    case 'BINOP_DIV':
-                        return (x) => arg1(x) / arg2(x);
-                    default:
-                        assert(false, "sexp: unhandled binop");
-                }
-        }
-    }
+
+type None = null;
+type Variable = string;
+type Value = number;
+
+type Token = {
+    type: Tokens;
+    value?: Value;
+    name?: Variable;
+}
+
+type Expr = None | String | Number | Token[];
+
+
+// dictionary contant token strings -> Tokens type
+const Token_Map =
+{
+    // delineators
+    "(": { type: Tokens.LPAREN },
+    ")": { type: Tokens.RPAREN },
     // literals
-    else {
-        switch (exprs.type) {
-            case 'LIT_INT':
-            case 'LIT_PI':
-            case 'LIT_E':
-                return (x) => Number(exprs.value);
-            case 'LIT_VAR':
-                return (x) => x;
-        }
-    }
+    "pi": { type: Tokens.LIT_NUMBER, value: Math.PI },
+    "e": { type: Tokens.LIT_NUMBER, value: Math.E },
+    // unary operators
+    "sin": { type: Tokens.UNIOP_SIN },
+    "cos": { type: Tokens.UNIOP_COS },
+    "ln": { type: Tokens.UNIOP_LN },
+    // binary operators
+    "+": { type: Tokens.BINOP_PLUS },
+    "-": { type: Tokens.BINOP_MINUS },
+    "*": { type: Tokens.BINOP_MUL },
+    "/": { type: Tokens.BINOP_DIV },
 }
 
-function parse(toks) {
-    if (toks.length == 0) return [];
-    let tok = toks[0]
+// transform a string representing an  S-Expression into a lambda.
+function expression(s: string) {
+    let toks: Token[] = tokenize(s);
+    console.log("toks: ", toks);
+    let expr: Expr = parse(toks);
+    console.log("expr: ", expr);
+    return lambda_expr(expr);
+}
+
+// form a Lambda from an Expression.
+function lambda_expr(expr: Expr): (_: number) => number {
+    console.log("lambda: ", expr);
+
+    // variable
+    enum ExprType { Var, Num, Exp };
+    const exptype = (e: Expr): ExprType => {
+        // polymorphism who?
+        if (typeof e === "string") return ExprType.Var;
+        if (typeof e === "number") return ExprType.Num;
+        if (e instanceof Array) return ExprType.Exp;
+    };
+
+    // FIXME: clearly type hierarchy is clunky
+    const asexpr = (t: Token | Token[]): Expr => {
+        if (t instanceof Array) return t;
+        else switch (t.type) {
+            case Tokens.LIT_VAR: return t.name;
+            case Tokens.LIT_NUMBER: return t.value;
+        }
+    };
+
+    switch (exptype(expr)) {
+        case ExprType.Var:
+            return (x) => x;
+        case ExprType.Num:
+            return (_) => expr as number;
+        case ExprType.Exp:
+            const funcall = expr as Token[];
+            const [op, args] = [funcall[0], funcall.slice(1)];
+            console.log("op: ", op, "args: ", args);
+            let argfuns: ((_: number) => number)[] = args.map((t) => lambda_expr(asexpr(t)));
+            switch (op.type) {
+                case Tokens.UNIOP_SIN:
+                    assert(argfuns.length == 1, "lambda: `sin' expects one parameter");
+                    return (x) => Math.sin(argfuns[0](x));
+                case Tokens.UNIOP_COS:
+                    assert(argfuns.length == 1, "lambda: `cos' expects one parameter");
+                    return (x) => Math.cos(argfuns[0](x));
+                case Tokens.UNIOP_LN:
+                    assert(argfuns.length == 1, "lambda: `ln' expects one parameter");
+                    return (x) => Math.log(argfuns[0](x));
+                case Tokens.BINOP_PLUS:
+                    const add_curry =
+                        (f: (_: number) => number, g: (_: number) => number) =>
+                            ((x: number) => f(x) + g(x));
+                    return (x: number) => argfuns.reduce(add_curry, (_) => 0)(x);
+                case Tokens.BINOP_MINUS:
+                    const sub_curry =
+                        (f: (_: number) => number, g: (_: number) => number) =>
+                            ((x: number) => f(x) - g(x));
+                    return (x: number) => argfuns.reduce(sub_curry, (_) => 0)(x);
+                case Tokens.BINOP_MUL:
+                    const times_curry =
+                        (f: (_: number) => number, g: (_: number) => number) =>
+                            ((x: number) => f(x) * g(x));
+                    return (x: number) => argfuns.reduce(times_curry, (_) => 1)(x);
+                case Tokens.BINOP_DIV:
+                    const divide_curry =
+                        (f: (_: number) => number, g: (_: number) => number) =>
+                            ((x: number) => f(x) / g(x));
+                    return (x: number) => argfuns.reduce(divide_curry, (_) => 1)(x);
+            }
+    }
+}
+/*
+if (exprs instanceof Array) {
+    let expr = exprs[0];
+    let rest = exprs.slice(1);
+    switch (expr.type) {
+        case 'UNIOP_SIN':
+            assert(rest.length == 1, "sexp: `sin' expects one argument");
+            let arg = (x) => lambda_expr(rest[0])(x);
+            return (x) => Math.sin(arg(x));
+        case 'BINOP_PLUS':
+        case 'BINOP_MINUS':
+        case 'BINOP_MUL':
+        case 'BINOP_DIV':
+            assert(rest.length == 2,
+                "sexp: binary function " + expr.type + " expects two arguments");
+            let arg1 = (a1) => lambda_expr(rest[0])(a1);
+            let arg2 = (a2) => lambda_expr(rest[1])(a2);
+            switch (expr.type) {
+                case 'BINOP_PLUS':
+                    return (x) => arg1(x) + arg2(x);
+                case 'BINOP_MINUS':
+                    return (x) => arg1(x) - arg2(x);
+                case 'BINOP_MUL':
+                    return (x) => arg1(x) * arg2(x);
+                case 'BINOP_DIV':
+                    return (x) => arg1(x) / arg2(x);
+                default:
+                    assert(false, "sexp: unhandled binop");
+            }
+    }
+}
+// literals
+else {
+    switch (exprs.type) {
+        case 'LIT_INT':
+        case 'LIT_PI':
+        case 'LIT_E':
+            return (_: number) => Number(exprs.value);
+        case 'LIT_VAR':
+            return (x: number) => x;
+    }
+}
+*/
+
+function parse(toks: Token[]): Expr {
+    if (toks.length == 0) return null;
+    let tok = toks[0];
     let rest = toks.slice(1);
 
     switch (tok.type) {
-        case 'LPAREN':
+        // top-level expressions
+        case Tokens.LPAREN:
             let [sl, tail] = parse_sublist(rest);
             assert(tail.length == 0, "parse: unexpected extra tokens");
             return sl;
-            // atoms
-        case 'LIT_INT':
-        case 'LIT_VAR':
-        case 'LIT_PI':
-        case 'LIT_E':
-            return tok;
-        case 'RPAREN':
+        // top-level atoms
+        case Tokens.LIT_NUMBER:
+            return tok.value;
+        case Tokens.LIT_VAR:
+            return tok.name;
         default:
-            log("unexpected token: " + toks[0].type);
+            log("parse: unexpected token: " + toks[0].type);
     }
 }
 
-function parse_sublist(toks) {
+// parse a sublist (everything after LPAREN up to matching RPAREN),
+// returning the sublist and any leftover tokens
+function parse_sublist(toks: Token[]): [Token[], Token[]] {
+    // FIXME: fold probably more elegant
     var balance = 1;
     var sublist = [];
     for (var ii = 0; ii < toks.length; ii++) {
         let tok = toks[ii];
         switch (toks[ii].type) {
-            case 'LPAREN':
+            case Tokens.LPAREN:
                 let [sl, tail] = parse_sublist(toks.slice(ii + 1));
+                assert(tail.length == 0, "parse: unexpected leftover tokens");
                 sublist.push(sl);
                 ii += sl.length;
                 balance++;
                 break;
-            case 'RPAREN':
+            case Tokens.RPAREN:
                 balance--;
                 break;
             default:
                 sublist.push(tok);
                 break;
         }
+        if (balance == 0) return [sublist, toks.slice(ii)];
     }
-    assert(balance == 0, "parse: unbalanced parens");
-    return [sublist, []];
+    log("parse: unbalanced parens");
 }
 
-function tok_tag(tok) {
-    switch (tok) {
-        case "(":
-            return {
-                type: 'LPAREN', value: null
-            };
-        case ")":
-            return {
-                type: 'RPAREN', value: null
-            };
-        case "n":
-            return {
-                type: 'LIT_VAR', value: "n"
-            };
-        case (tok.match(/\d+/) || {}).input:
-            return {
-                type: 'LIT_INT', value: tok
-            };
-        case "pi":
-            return {
-                type: 'LIT_PI', value: Math.PI
-            };
-        case "e":
-            return {
-                type: 'LIT_E', value: Math.E
-            };
-        case "+":
-            return {
-                type: 'BINOP_PLUS', value: null
-            };
-            /* FIXME: unary minus */
-        case "-":
-            return {
-                type: 'BINOP_MINUS', value: null
-            };
-        case "*":
-            return {
-                type: 'BINOP_MUL', value: null
-            };
-        case "/":
-            return {
-                type: 'BINOP_DIV', value: null
-            };
-        case "sin":
-            return {
-                type: 'UNIOP_SIN', value: null
-            };
-        case "cos":
-            return {
-                type: 'UNIOP_COS', value: null
-            };
-        case "ln":
-            return {
-                type: 'UNIOP_LN', value: null
-            };
-        default:
-            assert(false, "unexpected token: " + tok.type);
+// tag string lexeme as appopriate Token
+function tok_tag(lexeme: string): Token {
+    // lexeme is number
+    if (/\d+|\d+.\d+/.test(lexeme)) {
+        return { type: Tokens.LIT_NUMBER, value: +lexeme };
+    }
+    // lexme is constant string Token
+    else if (lexeme in Token_Map) {
+        return Token_Map[lexeme];
+    }
+    // lexeme is a (non-constant string Token) word: must be a variable
+    else if (/\w+/.test(lexeme)) {
+        return { type: Tokens.LIT_VAR, name: lexeme };
+    } else {
+        log("tokenize: unexpected lexeme " + lexeme);
     }
 }
 
-function tokenize(n) {
-    n = n.trim();
-    // function declaration regex
-    const re_fun = /^\w+\[n\]/g;
-    // tokens regex FIXME: unary minus
-    const re_tok = /\(|\)|n|\d+|\+|\-|\*|\/|sin|cos|ln|pi|e|\w+/g;
-    let fun_def = n.split("=");
-    assert(fun_def.length == 2, "tokenize: expected `fun[n]=...'");
+// regex that matches tokens in a string
+/* ORDER:
+ * - delineators
+ * - numbers (fractional or not)
+ * - single character operators
+ * - multi-character operators
+ * - any remaining words (variables)
+ */
+// FIXME: unary minus
+const re_tok = /\(|\)|\d+\.\d|\d+|\+|\-|\*|\/|sin|cos|ln|pi|e|\w+/g;
 
-    let [fun, def] = fun_def;
-    assert(re_fun.test(fun), "tokenize: malformed function name");
+function tokenize(s: string): Token[] {
+    s = s.trim();
+
+    // FIXME: function and variable declaration
+    let [_, def] = s.split("=");
+
     // TODO: function self-referential in body
-    var toks = def.match(re_tok).map(tok_tag);
+    var toks: Token[] = def.match(re_tok).map(tok_tag);
     return toks;
 }
 
-function log(msg) {
+// log a message to user
+function log(msg: string) {
     var result = document.getElementById("parse_result");
     result.innerText = msg;
 }
 
-/**
- * Assert cond, otherwise error msg.
- * @param {Bool} cond
- * @param {String} msg
- */
-function assert(cond, msg) {
+// assert a condition, printing an error message if false
+function assert(cond: boolean, msg: string) {
     if (!cond) {
         log(msg);
     } else {
