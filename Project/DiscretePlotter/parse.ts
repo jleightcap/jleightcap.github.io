@@ -103,16 +103,15 @@ function parse(toks: Array<Token>) {
   let rest = toks.slice(1);
 
   switch (tok.type) {
-  case Tokens.LPAREN:
-    let [sl, tail] = parse_sublist(rest);
-    assert(tail.length == 0, "parse: unexpected extra tokens");
-    return sl;
-    // atoms
-  case Tokens.LIT_INT | Tokens.LIT_VAR | Tokens.LIT_PI | Tokens.LIT_E:
-    return tok;
-  case Tokens.LPAREN:
-  default:
-    log("parse: unexpected token: " + toks[0].type);
+    case Tokens.LPAREN:
+      let [sl, tail] = parse_sublist(rest);
+      assert(tail.length == 0, "parse: unexpected extra tokens");
+      return sl;
+      // atoms
+    case Tokens.LIT_INT | Tokens.LIT_VAR | Tokens.LIT_PI | Tokens.LIT_E:
+      return tok;
+    default:
+      log("parse: unexpected token: " + toks[0].type);
   }
 }
 
@@ -142,6 +141,7 @@ function parse_sublist(toks) {
 
 function tok_tag(lexeme: string) : Token {
   // lexeme is number
+  console.log(lexeme);
   if (/\d+|\d+.\d+/.test(lexeme)) {
     return {type: Tokens.LIT_INT, value: +lexeme };
   }
@@ -158,17 +158,22 @@ function tok_tag(lexeme: string) : Token {
   }
 }
 
-function tokenize(s: string) {
-  s = s.trim();
-  // function declaration regex
-  const re_fun = /^\w+\[n\]/g;
-  // tokens regex FIXME: unary minus
-  const re_tok = /\(|\)|n|\d+.\d+|\d+|\+|\-|\*|\/|sin|cos|ln|pi|e|\w+/g;
-  let fun_def = s.split("=");
-  assert(fun_def.length == 2, "tokenize: expected `fun[n]=...'");
+// regex that matches tokens in a string
+/* ORDER:
+ * - delineators
+ * - numbers (fractional or not)
+ * - single character operators
+ * - multi-character operators
+ * - any remaining words (variables)
+ */
+// FIXME: unary minus
+const re_tok = /\(|\)|\d+\.\d|\d+|\+|\-|\*|\/|sin|cos|ln|pi|e|\w+/g;
 
-  let [fun, def] = fun_def;
-  assert(re_fun.test(fun), "tokenize: malformed function name");
+function tokenize(s: string) : Token[] {
+  s = s.trim();
+
+  // FIXME: function and variable declaration
+  let [_, def] = s.split("=");
 
   // TODO: function self-referential in body
   var toks: Array<Token> = def.match(re_tok).map(tok_tag);
