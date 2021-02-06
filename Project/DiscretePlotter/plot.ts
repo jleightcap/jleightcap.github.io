@@ -14,7 +14,7 @@ function plot(input, eqn) {
     };
 
     const config = {
-        responsive: true
+        staticPlot: true
     }
 
     const output = input.map(eqn);
