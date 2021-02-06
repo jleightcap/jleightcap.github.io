@@ -2,9 +2,7 @@ enum Tokens {
     LPAREN,
     RPAREN,
     LIT_VAR,
-    LIT_INT,
-    LIT_PI,
-    LIT_E,
+    LIT_NUMBER,
     UNIOP_SIN,
     UNIOP_COS,
     UNIOP_LN,
@@ -14,11 +12,30 @@ enum Tokens {
     BINOP_DIV,
 }
 
-interface Token {
+
+type None = null;
+type Variable = string;
+type Value = number;
+
+type Token = {
     type: Tokens;
-    value?: number;
-    name?: string;
+    value?: Value;
+    name?: Variable;
 }
+
+enum ExprType {
+    LITERAL,
+    OPERATOR,
+    VARIABLE,
+}
+type Expr<T> = {
+    type: ExprType,
+    body:
+    | None
+    | Variable
+    | Value
+    | { op: T; args: Expr<T>[]; }
+};
 
 // dictionary contant token strings -> Tokens type
 const Token_Map =
@@ -27,8 +44,8 @@ const Token_Map =
     "(": { type: Tokens.LPAREN },
     ")": { type: Tokens.RPAREN },
     // literals
-    "pi": { type: Tokens.LIT_PI, value: Math.PI },
-    "e": { type: Tokens.LIT_E, value: Math.E },
+    "pi": { type: Tokens.LIT_NUMBER, value: Math.PI },
+    "e": { type: Tokens.LIT_NUMBER, value: Math.E },
     // unary operators
     "sin": { type: Tokens.UNIOP_SIN },
     "cos": { type: Tokens.UNIOP_COS },
@@ -42,21 +59,31 @@ const Token_Map =
 
 // transform a string representing an  S-Expression into a lambda.
 function expression(s: string) {
-    let toks: Array<Token> = tokenize(s);
+    let toks: Token[] = tokenize(s);
     console.log(toks);
-    let expr = parse(toks);
-    return sexp_of_expr(expr);
+    let expr: Expr<Token> = parse(toks);
+    return lambda_expr(expr);
 }
 
-function sexp_of_expr(exprs) {
+// form a Lambda from an Expression.
+function lambda_expr(expr: Expr<Token>) {
     // expressions
+    switch (expr.type) {
+        case ExprType.VARIABLE:
+            return (x: number) => x;
+        case ExprType.LITERAL:
+            return (_: number) => expr.body;
+        case ExprType.OPERATOR:
+            return (x: number) => x;
+    }
+    /*
     if (exprs instanceof Array) {
         let expr = exprs[0];
         let rest = exprs.slice(1);
         switch (expr.type) {
             case 'UNIOP_SIN':
                 assert(rest.length == 1, "sexp: `sin' expects one argument");
-                let arg = (x) => sexp_of_expr(rest[0])(x);
+                let arg = (x) => lambda_expr(rest[0])(x);
                 return (x) => Math.sin(arg(x));
             case 'BINOP_PLUS':
             case 'BINOP_MINUS':
@@ -64,8 +91,8 @@ function sexp_of_expr(exprs) {
             case 'BINOP_DIV':
                 assert(rest.length == 2,
                     "sexp: binary function " + expr.type + " expects two arguments");
-                let arg1 = (a1) => sexp_of_expr(rest[0])(a1);
-                let arg2 = (a2) => sexp_of_expr(rest[1])(a2);
+                let arg1 = (a1) => lambda_expr(rest[0])(a1);
+                let arg2 = (a2) => lambda_expr(rest[1])(a2);
                 switch (expr.type) {
                     case 'BINOP_PLUS':
                         return (x) => arg1(x) + arg2(x);
@@ -91,56 +118,63 @@ function sexp_of_expr(exprs) {
                 return (x: number) => x;
         }
     }
+    */
 }
 
-function parse(toks: Array<Token>) {
-    if (toks.length == 0)
-        return [];
+function parse(toks: Token[]): Expr<Token> {
+    if (toks.length == 0) return null;
     let tok = toks[0];
     let rest = toks.slice(1);
 
     switch (tok.type) {
+        // top-level expressions
         case Tokens.LPAREN:
             let [sl, tail] = parse_sublist(rest);
             assert(tail.length == 0, "parse: unexpected extra tokens");
-            return sl;
-        // atoms
-        case Tokens.LIT_INT | Tokens.LIT_VAR | Tokens.LIT_PI | Tokens.LIT_E:
-            return tok;
+            return { type: ExprType.OPERATOR, body: { op: tok, args: sl } };
+        // top-level atoms
+        case Tokens.LIT_NUMBER:
+            return { type: ExprType.LITERAL, body: tok.value };
+        case Tokens.LIT_VAR:
+            return { type: ExprType.VARIABLE, body: tok.name };
         default:
             log("parse: unexpected token: " + toks[0].type);
     }
 }
 
-function parse_sublist(toks) {
+// parse a sublist (everything after LPAREN up to matching RPAREN),
+// returning the sublist and any leftover tokens
+function parse_sublist(toks: Token[]) : [Expr<Token>[],  Token[]] {
     var balance = 1;
     var sublist = [];
+    // FIXME: fold is more elegant
     for (var ii = 0; ii < toks.length; ii++) {
         let tok = toks[ii];
         switch (toks[ii].type) {
-            case 'LPAREN':
+            case Tokens.LPAREN:
                 let [sl, tail] = parse_sublist(toks.slice(ii + 1));
+                assert(tail.length == 0, "parse: unexpected leftover tokens");
                 sublist.push(sl);
                 ii += sl.length;
                 balance++;
                 break;
-            case 'RPAREN':
+            case Tokens.RPAREN:
                 balance--;
                 break;
             default:
                 sublist.push(tok);
                 break;
         }
+        if (balance == 0) return [sublist, toks.slice(ii)];
     }
-    assert(balance == 0, "parse: unbalanced parens");
-    return [sublist, []];
+    log("parse: unbalanced parens");
 }
 
+// tag string lexeme as appopriate Token
 function tok_tag(lexeme: string): Token {
     // lexeme is number
-    console.log(lexeme);
     if (/\d+|\d+.\d+/.test(lexeme)) {
-        return { type: Tokens.LIT_INT, value: +lexeme };
+        return { type: Tokens.LIT_NUMBER, value: +lexeme };
     }
     // lexme is constant string Token
     else if (lexeme in Token_Map) {
@@ -150,7 +184,7 @@ function tok_tag(lexeme: string): Token {
     else if (/\w+/.test(lexeme)) {
         return { type: Tokens.LIT_VAR, name: lexeme };
     } else {
-        assert(false, "tokenize: unexpected token " + lexeme);
+        log("tokenize: unexpected lexeme " + lexeme);
     }
 }
 
@@ -172,7 +206,7 @@ function tokenize(s: string): Token[] {
     let [_, def] = s.split("=");
 
     // TODO: function self-referential in body
-    var toks: Array<Token> = def.match(re_tok).map(tok_tag);
+    var toks: Token[] = def.match(re_tok).map(tok_tag);
     return toks;
 }
 
