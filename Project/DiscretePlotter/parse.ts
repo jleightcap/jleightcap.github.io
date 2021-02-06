@@ -101,7 +101,7 @@ function lambda_expr(expr: Expr): ({}: number) => number {
             switch (op.type) {
                 case Tokens.UNIOP_SIN:
                     assert(argfuns.length == 1, "lambda: `sin' expects one parameter");
-                    return (x) => Math.sin(argfuns[0](x));
+                    return (x) => parseFloat(Math.sin(argfuns[0](x)).toFixed(3));
                 case Tokens.UNIOP_COS:
                     assert(argfuns.length == 1, "lambda: `cos' expects one parameter");
                     return (x) => parseFloat(Math.cos(argfuns[0](x)).toFixed(3));
