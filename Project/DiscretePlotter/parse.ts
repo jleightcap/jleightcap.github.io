@@ -23,19 +23,8 @@ type Token = {
     name?: Variable;
 }
 
-enum ExprType {
-    LITERAL,
-    OPERATOR,
-    VARIABLE,
-}
-type Expr<T> = {
-    type: ExprType,
-    body:
-    | None
-    | Variable
-    | Value
-    | { op: T; args: Expr<T>[]; }
-};
+type Expr = None | String | Number | Token[];
+
 
 // dictionary contant token strings -> Tokens type
 const Token_Map =
@@ -60,68 +49,96 @@ const Token_Map =
 // transform a string representing an  S-Expression into a lambda.
 function expression(s: string) {
     let toks: Token[] = tokenize(s);
-    console.log(toks);
-    let expr: Expr<Token> = parse(toks);
+    console.log("toks: ", toks);
+    let expr: Expr = parse(toks);
+    console.log("expr: ", expr);
     return lambda_expr(expr);
 }
 
 // form a Lambda from an Expression.
-function lambda_expr(expr: Expr<Token>) {
-    // expressions
-    switch (expr.type) {
-        case ExprType.VARIABLE:
-            return (x: number) => x;
-        case ExprType.LITERAL:
-            return (_: number) => expr.body;
-        case ExprType.OPERATOR:
-            return (x: number) => x;
-    }
-    /*
-    if (exprs instanceof Array) {
-        let expr = exprs[0];
-        let rest = exprs.slice(1);
-        switch (expr.type) {
-            case 'UNIOP_SIN':
-                assert(rest.length == 1, "sexp: `sin' expects one argument");
-                let arg = (x) => lambda_expr(rest[0])(x);
-                return (x) => Math.sin(arg(x));
-            case 'BINOP_PLUS':
-            case 'BINOP_MINUS':
-            case 'BINOP_MUL':
-            case 'BINOP_DIV':
-                assert(rest.length == 2,
-                    "sexp: binary function " + expr.type + " expects two arguments");
-                let arg1 = (a1) => lambda_expr(rest[0])(a1);
-                let arg2 = (a2) => lambda_expr(rest[1])(a2);
-                switch (expr.type) {
-                    case 'BINOP_PLUS':
-                        return (x) => arg1(x) + arg2(x);
-                    case 'BINOP_MINUS':
-                        return (x) => arg1(x) - arg2(x);
-                    case 'BINOP_MUL':
-                        return (x) => arg1(x) * arg2(x);
-                    case 'BINOP_DIV':
-                        return (x) => arg1(x) / arg2(x);
-                    default:
-                        assert(false, "sexp: unhandled binop");
-                }
-        }
-    }
-    // literals
-    else {
-        switch (exprs.type) {
-            case 'LIT_INT':
-            case 'LIT_PI':
-            case 'LIT_E':
-                return (_: number) => Number(exprs.value);
-            case 'LIT_VAR':
-                return (x: number) => x;
-        }
-    }
-    */
-}
+function lambda_expr(expr: Expr): (_: number) => number {
+    console.log("lambda: ", expr);
 
-function parse(toks: Token[]): Expr<Token> {
+    // variable
+    enum ExprType { Var, Num, Exp };
+    const exptype = (e: Expr): ExprType => {
+        // polymorphism who?
+        if (typeof e === "string") return ExprType.Var;
+        if (typeof e === "number") return ExprType.Num;
+        if (e instanceof Array) return ExprType.Exp;
+    };
+
+    // FIXME: clearly type hierarchy is clunky
+    const asexpr = (t: Token | Token[]): Expr => {
+        if (t instanceof Array) return t;
+        else switch (t.type) {
+            case Tokens.LIT_VAR: return t.name;
+            case Tokens.LIT_NUMBER: return t.value;
+        }
+    };
+
+    switch (exptype(expr)) {
+        case ExprType.Var:
+            return (x) => x;
+        case ExprType.Num:
+            return (_) => expr as number;
+        case ExprType.Exp:
+            const funcall = expr as Token[];
+            const [op, args] = [funcall[0], funcall.slice(1)];
+            console.log("op: ", op, "args: ", args);
+            let arg = (x: number) => lambda_expr(asexpr(args[0]))(x);
+            switch (op.type) {
+                case Tokens.UNIOP_SIN:
+                    return (x) => Math.sin(arg(x));
+
+            }
+    }
+}
+/*
+if (exprs instanceof Array) {
+    let expr = exprs[0];
+    let rest = exprs.slice(1);
+    switch (expr.type) {
+        case 'UNIOP_SIN':
+            assert(rest.length == 1, "sexp: `sin' expects one argument");
+            let arg = (x) => lambda_expr(rest[0])(x);
+            return (x) => Math.sin(arg(x));
+        case 'BINOP_PLUS':
+        case 'BINOP_MINUS':
+        case 'BINOP_MUL':
+        case 'BINOP_DIV':
+            assert(rest.length == 2,
+                "sexp: binary function " + expr.type + " expects two arguments");
+            let arg1 = (a1) => lambda_expr(rest[0])(a1);
+            let arg2 = (a2) => lambda_expr(rest[1])(a2);
+            switch (expr.type) {
+                case 'BINOP_PLUS':
+                    return (x) => arg1(x) + arg2(x);
+                case 'BINOP_MINUS':
+                    return (x) => arg1(x) - arg2(x);
+                case 'BINOP_MUL':
+                    return (x) => arg1(x) * arg2(x);
+                case 'BINOP_DIV':
+                    return (x) => arg1(x) / arg2(x);
+                default:
+                    assert(false, "sexp: unhandled binop");
+            }
+    }
+}
+// literals
+else {
+    switch (exprs.type) {
+        case 'LIT_INT':
+        case 'LIT_PI':
+        case 'LIT_E':
+            return (_: number) => Number(exprs.value);
+        case 'LIT_VAR':
+            return (x: number) => x;
+    }
+}
+*/
+
+function parse(toks: Token[]): Expr {
     if (toks.length == 0) return null;
     let tok = toks[0];
     let rest = toks.slice(1);
@@ -131,12 +148,12 @@ function parse(toks: Token[]): Expr<Token> {
         case Tokens.LPAREN:
             let [sl, tail] = parse_sublist(rest);
             assert(tail.length == 0, "parse: unexpected extra tokens");
-            return { type: ExprType.OPERATOR, body: { op: tok, args: sl } };
+            return sl;
         // top-level atoms
         case Tokens.LIT_NUMBER:
-            return { type: ExprType.LITERAL, body: tok.value };
+            return tok.value;
         case Tokens.LIT_VAR:
-            return { type: ExprType.VARIABLE, body: tok.name };
+            return tok.name;
         default:
             log("parse: unexpected token: " + toks[0].type);
     }
@@ -144,10 +161,10 @@ function parse(toks: Token[]): Expr<Token> {
 
 // parse a sublist (everything after LPAREN up to matching RPAREN),
 // returning the sublist and any leftover tokens
-function parse_sublist(toks: Token[]) : [Expr<Token>[],  Token[]] {
+function parse_sublist(toks: Token[]): [Token[], Token[]] {
+    // FIXME: fold probably more elegant
     var balance = 1;
     var sublist = [];
-    // FIXME: fold is more elegant
     for (var ii = 0; ii < toks.length; ii++) {
         let tok = toks[ii];
         switch (toks[ii].type) {
