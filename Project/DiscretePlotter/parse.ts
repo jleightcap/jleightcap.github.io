@@ -86,11 +86,37 @@ function lambda_expr(expr: Expr): (_: number) => number {
             const funcall = expr as Token[];
             const [op, args] = [funcall[0], funcall.slice(1)];
             console.log("op: ", op, "args: ", args);
-            let arg = (x: number) => lambda_expr(asexpr(args[0]))(x);
+            let argfuns: ((_: number) => number)[] = args.map((t) => lambda_expr(asexpr(t)));
             switch (op.type) {
                 case Tokens.UNIOP_SIN:
-                    return (x) => Math.sin(arg(x));
-
+                    assert(argfuns.length == 1, "lambda: `sin' expects one parameter");
+                    return (x) => Math.sin(argfuns[0](x));
+                case Tokens.UNIOP_COS:
+                    assert(argfuns.length == 1, "lambda: `cos' expects one parameter");
+                    return (x) => Math.cos(argfuns[0](x));
+                case Tokens.UNIOP_LN:
+                    assert(argfuns.length == 1, "lambda: `ln' expects one parameter");
+                    return (x) => Math.log(argfuns[0](x));
+                case Tokens.BINOP_PLUS:
+                    const add_curry =
+                        (f: (_: number) => number, g: (_: number) => number) =>
+                            ((x: number) => f(x) + g(x));
+                    return (x: number) => argfuns.reduce(add_curry, (_) => 0)(x);
+                case Tokens.BINOP_MINUS:
+                    const sub_curry =
+                        (f: (_: number) => number, g: (_: number) => number) =>
+                            ((x: number) => f(x) - g(x));
+                    return (x: number) => argfuns.reduce(sub_curry, (_) => 0)(x);
+                case Tokens.BINOP_MUL:
+                    const times_curry =
+                        (f: (_: number) => number, g: (_: number) => number) =>
+                            ((x: number) => f(x) * g(x));
+                    return (x: number) => argfuns.reduce(times_curry, (_) => 1)(x);
+                case Tokens.BINOP_DIV:
+                    const divide_curry =
+                        (f: (_: number) => number, g: (_: number) => number) =>
+                            ((x: number) => f(x) / g(x));
+                    return (x: number) => argfuns.reduce(divide_curry, (_) => 1)(x);
             }
     }
 }
