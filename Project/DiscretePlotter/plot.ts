@@ -21,7 +21,7 @@ function plot(input, eqn) {
   var trace = [ {x : input, y : output, type : 'scatter', mode : 'markers'} ];
 
   // FIXME: .react() less overhead
-  TESTER = document.getElementById('tester');
+  let TESTER = document.getElementById('tester');
 
   Plotly.react(TESTER, trace, layout, config);
 }

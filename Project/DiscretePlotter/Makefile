@@ -4,8 +4,8 @@ JSMI = $(JS:.js=.min.js)
 
 all: $(JSMI)
 
-$(JS):
-	tsc *.ts
+%.js: %.ts
+	tsc $< ||:
 
 %.min.js: %.js
 	uglifyjs $< > $@
