@@ -51,7 +51,7 @@ What started as a quick-and-dirty tool for my Linear Systems class became an exe
 3. Turn that S-Expression structure into a function (lambda) of one variable
 4. Plot that function!
 
-I'll share some of the fun bits of step (3),
-TypeScript made this a breeze, 
+My implementation in TypeScript can be found [here](https://github.com/jleightcap/jleightcap.github.io/blob/master/Project/DiscretePlotter/parse.ts), including some fun lambdas and Currying.
+
 <script type="text/javascript" src="parse.min.js"></script>
 <script type="text/javascript" src="plot.min.js"></script>
