@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/jleightcap
+--------------------------------------------------------------------
+
+I hereby claim:
+
+* I am an admin of https://jack.leightcap.com
+* I am jleightcap (https://keybase.io/jleightcap) on keybase.
+* I have a public key with fingerprint 7902 E3B4 B412 2107 CF47  598C AA4B 84FD A50A 8231
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010166e2456565c98eba626d88a0209210e3b58e0141517da7854b9c6731846bedf20a",
+            "fingerprint": "7902e3b4b4122107cf47598caa4b84fda50a8231",
+            "host": "keybase.io",
+            "key_id": "aa4b84fda50a8231",
+            "kid":
+                "010166e2456565c98eba626d88a0209210e3b58e0141517da7854b9c6731846bedf20a",
+            "uid": "5c819b6133dcdf9e348e028cd560ac19",
+            "username": "jleightcap"
+        },
+        "service": {
+            "hostname": "jack.leightcap.com",
+            "protocol": "https:"
+        },
+        "type":
+            "web_service_binding",
+        "version": 1
+    },
+    "ctime":
+        1613354827,
+    "expire_in":
+        157680000,
+    "prev":
+        "c4a1eacb928d8b0209679fba46e79b7714a596bd719db4b84e5eef6419a4ab63",
+    "seqno":
+        10,
+    "tag":
+        "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMNIAnicrZJtUFRVGMcXEQcWZBwpKyeyuSEzbrRz7937ClIgiMaCaDMyiyHLufee
+e7nB7l12lwVaXhxFZiDHRkVoDB0giXipIGxEhJRGokZ30oCaIQqmKIlEYBSVKaJ7
+mexTHzvnw5nznP//d57nmefaen+d3q/NXLHcrD+M+V0faCjQZW/7zuxFOEUoRqK9
+SC5cPWCeAF1ua64sINEIiqEYRUGcICl18ywDOUDhlMAwAMVRFsdQaOJIBqIYgZEY
+LQCaIQmO5SnahDEExUFBxFGARCGibJeg0+GU7W4VS7MorhoJjsBwlUHzIkGTLMMD
+QHAMIQqARAGDmzDVmKO4NIeaHAdc0Cgraky9WFfT+w/9/5x3wSqO5BmM5SjMZBJ4
+QWShiVCtOMMLJIUCHmM1oQs67cAGVfUbeVCWctw8cCClUYga98g81Fqr1fJYA/hc
+4786I6/YVIbDqbgVXslT33PcbocrWvO7ix2aoRBy1n9QVk62C2o/VYcHOl2yYkei
+MVXJu2WNjWl5kgSD01EILHLITmiVNQVJUwyqLu0f6FGRPAEwCHiOxRmB4bS+UDQr
+coCgIM1yNI0RgGQpTqAxVuC0RkMSQpEiMBYQgKNMiFZcvl1R2SrUDSSV6ZIlO3AX
+OCFS+vlA5lqdn163LmCNNmg6fdCGx+NXsWmDrn1L8Mql90B67XRHwBNvG7ze8fLe
+vpCAmpkL61aqssvvfBI72TDcWHdswrz0R3fIvZtTRimh7Yf25N6ksjHL/ICuq+nr
+p39uNRclWWzn791qHpN+LDlVZZHa98YMnY6wpOIHXUmFXXMPkl0J3eOzIReuTZXY
+Mqa351y/MVaSll5ybkk8ELvvrc7RqJTeE6V411xM2FTXUvi76cnRi/1hh3sX6JCg
++52vfjE4Oug7UvXpqFx4w5Cva4kLjRkZ8TwU7y7Hl9vnPjA/nHjm+f4kaai/a7ch
+JD07/njGTmz84mJx6pmL5dmTxidbn/K84q3u65M2H/y+qYPfWLc5q/6Wvm7ywYiv
+uVH/zo7ZFysDJxYP2XgxIOpSSo+vZv5UDrsHeqZ6dp9Irnz9ryTfvs6y6ttVd/r6
+9fT7xpTIFv+IFwInrYamkviepsHa2WnLyu+VHbGKf9Gjpsgww9HAn9ZENiYeuH80
+63T3h/tbhrxeW/drGTfD519KrW9H1098GfpcWtZycfmjhb6EsKBvPHtfNoWn3T3m
+3LRjmAhv3NYv/iYtxyaE7tr61c56y5t7aobyZzYGXzm566zpyIqSGHPyV+LPq2ap
+whe6P/ecwbI28Wr+lbKF7cPVcYe2tGV+NhQ5HQCmz4x132Y/qquMoH/RzcRFftse
+vEik8KWZlydrZ59tbfh46/nLC2dL/wYwQMdt
+=tMq1
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jleightcap
+
+==================================================================
+
