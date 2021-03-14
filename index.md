@@ -31,5 +31,6 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 - [Charlie "The Travelling Salesman" on the MBTA](Project/mbtaspeedrun/mbtaspeedrun.html)
 
 # Blog
+- [iPod Mini in 2021 with Rockbox](Blog/ipodmini2g/ipodmini2g.html)
 - [Print Station *DOOM*](Blog/printdoom/printdoom.html)
 - [Study abroad at Cambridge University](Blog/cambridge/cambridge.html)

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Jack Leightcap" />
+  <meta name="dcterms.date" content="2021-03-14" />
+  <title>iPod Mini in 2021 with Rockbox</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">iPod Mini in 2021 with Rockbox</h1>
+<p class="author"><a href="../../index.html">Jack Leightcap</a></p>
+<p class="date">March 14, 2021</p>
+</header>
+<h1 id="why">Why?</h1>
+<p>A couple reasons:</p>
+<ul>
+<li>Move away from Spotify to locally stored music
+<ul>
+<li>Being able to “own” my music, broadly;</li>
+<li>Freely tag (Spoitfy’s classical music tagging, for example, is infamously bad)</li>
+<li>Be assured music won’t <a href="http://web.archive.org/web/20210106231652/https://www.digitalmusicnews.com/2021/01/06/spotify-reportedly-pulls-indie-songs/">suddenly disappear</a>,</li>
+<li>Move away from proprietary, ad-based software,</li>
+<li>Support artists more directly (<a href="http://web.archive.org/web/20201204082426/https://www.eff.org/deeplinks/2020/05/plan-pay-artists-encourage-competition-and-promote-free-expression">related</a>)</li>
+</ul></li>
+<li>Cheap, replaceable hardware – can get in great working condition for &lt;$40 on eBay, less with patience, and much less for replacement parts</li>
+<li>Flashable with the FOSS <a href="https://www.rockbox.org/">Rockbox</a>
+<ul>
+<li>Moving music is as easy as moving files to a flash drive, no dumb iTunes proprietary database format</li>
+<li>Adds support for almost any music file format, versus the fairly limited stock Apple Firmware</li>
+</ul></li>
+</ul>
+<h1 id="how">How?</h1>
+<h2 id="hardware">Hardware</h2>
+<p>Disassembly is listed as <a href="http://web.archive.org/web/20210118102123/https://www.ifixit.com/Guide/iPod+Mini+Battery+Replacement/411">“Moderate” difficulty by iFixit</a> – the only real risk is bending the aluminum shell or scratching the plastic.</p>
+<ul>
+<li>Replace battery, iFixit sells replacements for cheap</li>
+<li>Replace Apple hard drive with Compact Flash - SD Card Adapter
+<ul>
+<li>Cheap Amazon ones are incredibly bad, mine was already falling apart from inserting the SD card a few times and eventually didn’t even read. I’d recommend getting <a href="https://www.iflash.xyz/store/sdcf-adapter/">a slightly higher quality</a> adapter.</li>
+</ul></li>
+<li>World’s your oyster with memory!</li>
+</ul>
+<center>
+<img src="ipod_mem.jpg" width="50%">
+</center>
+<center>
+<strong><em>iPod With Giant SD Card</em></strong>
+</center>
+<p>Beware that fake SD cards lead to fairly transparent issues! The 512GB SD card that Rockbox recognizes in that picture turned out to be very fake, and in fact only had 32GB of storage space. This manifests as filesystem corruption when writing music past the <em>actual</em> memory limit. I’ve replaced with a 64GB genuine SD card that has more than enough room for me.</p>
+<blockquote>
+<p><em>The limit on SD card size is hypothetically 2TB, an inherent limit of the FAT32 filesystem used.</em></p>
+</blockquote>
+<h2 id="software">Software</h2>
+<p>Flashing Rockbox is dead easy. Grab <em>Rockbox Utility</em> from the <a href="https://www.rockbox.org/download/">download page</a>, just plug in the iPod and the Rockbox GUI installer takes care of everything. Reboot the iPod and <em>voilà</em>, Rockbox will flash itself and you’re good to go.</p>
+<center>
+<img src="ipod_mus.jpg" width="70%">
+</center>
+<p>Upload music just like you’d move music to a flash drive. Done!</p>
+<h1 id="building-rockbox-from-source-installing-manually">Building Rockbox From Source, Installing Manually</h1>
+<p>Being open source, any issues or tweaks with Rockbox can be investigated and patched in the source code. Building from source and flashing manually is also a great way to get more granular control over the final installation.</p>
+<h2 id="building-source">Building Source</h2>
+<pre><code>$ git clone git://git.rockbox.org/rockbox.git</code></pre>
+<p>Getting the tooling setup is a huge pain, fortunately there’s a Docker image included,</p>
+<pre><code>$ cd rockbox/tools/docker_rbclient/
+$ docker build -t rockbox .</code></pre>
+<p>The <em>README</em> in that directory has a great overview of how to use the Docker image. To actually compile for the iPod Mini (2nd generation, in this case), the specific flags,</p>
+<pre class="shell"><code># out-of-source building
+$ mkdir build_ipod &amp;&amp; cd build_ipod
+# ARM-based iPod
+$ ../tools/rockboxdev.sh --target=&quot;a&quot;
+# to build Normal...
+$ ../tools/configure --target=ipodmini2g --type=N
+$ make
+# to build Bootloader...
+$ ../tools/configure --target=ipodmini2g --type=B
+$ make</code></pre>
+<p>Easy enough!</p>
+<h2 id="setting-up-partitions">Setting up Partitions</h2>
+<p>To actually move the compiled bootloader and firmware to the iPod, need to setup partitions! Fortunately, Rockbox is cool with one giant partition.</p>
+<pre><code># assume the iPod is plugged in as /dev/sdb
+# (please check before writing over anything)
+$ fdisk /dev/sdb
+# ...follow the prompts to make one whole-disk W95 FAT32 partition
+# and add filesystem to that one partition
+$ mkfs.fat -F32 /dev/sdb</code></pre>
+<p>Lastly, copy over the compiled Rockbox build,</p>
+<pre><code>$ mount /dev/sdb /mnt
+$ cp -r .rockbox /mnt/</code></pre>
+<p>That’s it! Reboot the iPod and Rockbox will begin flashing. You can add music to a new <em>Music/</em> directory, or just throw anything in the base directory.</p>
+</body>
+</html>
