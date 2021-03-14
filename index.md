@@ -34,3 +34,10 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 - [iPod Mini in 2021 with Rockbox](Blog/ipodmini2g/ipodmini2g.html)
 - [Print Station *DOOM*](Blog/printdoom/printdoom.html)
 - [Study abroad at Cambridge University](Blog/cambridge/cambridge.html)
+
+<footer>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License"
+style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />This work is licensed under
+a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0
+International License</a>.
+</footer>

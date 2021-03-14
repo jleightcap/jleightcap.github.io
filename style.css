@@ -94,9 +94,7 @@ dd p {
     margin-top: 0;
 }
 
-#footer {
+footer {
     padding-top: 1em;
-    font-size: 70%;
-    color: #ffffff;
-    text-align: center;
+    display: block;
 }
