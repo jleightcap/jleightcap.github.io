@@ -4,7 +4,7 @@ date: April 20, 2021
 author: <a href="../../index.html">Jack Leightcap</a>
 ---
 
-All possible chord modulo the octave.
+All possible chords modulo the octave.
 
 <center>
 <iframe width="90%" height="315" sandbox="allow-same-origin allow-scripts allow-popups"
