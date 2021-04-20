@@ -19,6 +19,8 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 <a href="mailto:jleightcap@protonmail.com">Email</a>
 |
 <a href="pubkey.txt">PGP</a>
+|
+<a rel="me" href="https://noc.social/@jleightcap">Mastodon</a>
 </center>
 
 # Projects
