@@ -12,8 +12,6 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 <center>
 <a href="resume.c">resume.c</a>
 |
-<a href="https://www.linkedin.com/in/jleightcap">LinkedIn</a>
-|
 <a href="https://github.com/jleightcap">GitHub</a>
 |
 <a href="mailto:jleightcap@protonmail.com">Email</a>
