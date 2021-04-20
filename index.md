@@ -10,7 +10,7 @@ title: Jack Leightcap
 I'm Jack, a Computer Engineering student at Northeastern University.
 
 <center>
-<a href="resume.c">Resume</a>
+<a href="resume.c">resume.c</a>
 |
 <a href="https://www.linkedin.com/in/jleightcap">LinkedIn</a>
 |
@@ -22,6 +22,7 @@ I'm Jack, a Computer Engineering student at Northeastern University.
 </center>
 
 # Projects
+- [Tom Johnson's *The Chord Catalog*](Project/chordcatalog/chordcatalog.html)
 - [Discrete Signal Plotter](Project/discreteplotter/plot.html)
 - [Z80 Homebrew Computer Part 1 -- Memory, LCD](Project/z801/z801.html)
 - [Breadboard CPU](Project/eatercpu/eatercpu.html)
